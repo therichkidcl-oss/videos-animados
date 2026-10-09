@@ -1,0 +1,81 @@
+{
+  "titulo": "Higgsfield: API, planes y como conectarlo con IA-HUB",
+  "fuente": "Estudio Higgsfield de IA-HUB y precios publicados en higgsfield.ai (08/10/2026)",
+  "voz": {
+    "proveedor": "elevenlabs",
+    "elevenlabs": { "voz_id": "gbTn1bmCvNgk0QEAVyfM", "nombre": "Enrique M. Nieto (biblioteca, es-MX)", "modelo": "eleven_multilingual_v2", "velocidad": 1.0, "estabilidad": 0.5, "similitud": 0.8, "estilo": 0 },
+    "minimax": { "voz_id": "Spanish_Narrator", "modelo": "speech-2.8-hd", "velocidad": 1.0 },
+    "local": { "voz": "Microsoft Sabina Desktop", "velocidad": 1 }
+  },
+  "escenas": [
+    {
+      "id": "00-bienvenida",
+      "frases": [
+        { "id": "saludo", "texto": "¡Hola! Qué bueno tenerte en una nueva clase de IA-HUB." },
+        { "id": "tema", "texto": "Hoy vas a conocer Higgsfield y a conectarlo con IA-HUB paso a paso." },
+        { "id": "agenda", "texto": "Vamos a ver qué es, la diferencia entre sus planes y su API, cómo crear tu API key y cómo conectarla en la app." },
+        { "id": "vamos", "texto": "Empecemos." }
+      ]
+    },
+    {
+      "id": "01-que-es",
+      "frases": [
+        { "id": "def", "texto": "Higgsfield es una plataforma para crear imágenes y videos con inteligencia artificial." },
+        { "id": "modelos", "texto": "Reúne sus propios modelos, como Soul y Genjutsu, y también decenas de modelos de otras marcas, como Kling, Seedance o MiniMax, todo en un solo lugar." },
+        { "id": "iahub", "texto": "Y en IA-HUB tienes su estudio completo: imagen, video, Genjutsu, personajes y tu historial." }
+      ]
+    },
+    {
+      "id": "02-planes",
+      "frases": [
+        { "id": "dos", "texto": "Higgsfield se paga de dos formas, y es importante no confundirlas." },
+        { "id": "planes", "texto": "La primera son los planes mensuales de su web, que parten en quince dólares al mes y te dan créditos." },
+        { "id": "ojo", "texto": "Ojo: esos créditos vencen cada mes y solo sirven dentro de higgsfield punto a i. No funcionan en la API." },
+        { "id": "api", "texto": "La segunda es la API: pagas solo lo que usas, cargas saldo desde cinco dólares y ese saldo te dura un año." }
+      ]
+    },
+    {
+      "id": "03-por-que",
+      "frases": [
+        { "id": "necesitas", "texto": "Para usar Higgsfield desde IA-HUB necesitas la API, no el plan." },
+        { "id": "tuya", "texto": "Funciona igual que con Wavespeed: es tu cuenta y tu saldo, pagas directo a Higgsfield, e IA-HUB no te cobra nada extra." },
+        { "id": "exito", "texto": "Además, solo se cobran las generaciones que salen bien: si una falla, no pagas." }
+      ]
+    },
+    {
+      "id": "04-crear-key",
+      "frases": [
+        { "id": "tres", "texto": "Conseguir tu API key toma tres pasos." },
+        { "id": "p1", "texto": "Uno: entra a console punto higgsfield punto a i y crea tu cuenta." },
+        { "id": "p2", "texto": "Dos: carga saldo; el mínimo es de cinco dólares." },
+        { "id": "p3", "texto": "Tres: crea una API key. La consola te muestra dos datos: el KEY ID y el KEY SECRET." },
+        { "id": "aviso", "texto": "El secret aparece una sola vez, así que cópialo y guárdalo. Si lo pierdes, creas una key nueva." }
+      ]
+    },
+    {
+      "id": "05-conectar",
+      "frases": [
+        { "id": "abre", "texto": "Ahora ve a IA-HUB, abre el menú Higgsfield y toca Conectar API, arriba a la derecha." },
+        { "id": "pega", "texto": "Pega tu KEY ID en el primer campo y tu KEY SECRET en el segundo." },
+        { "id": "truco", "texto": "Si copiaste los dos juntos, separados por dos puntos, pégalos en el primer campo y IA-HUB los separa solo." },
+        { "id": "verifica", "texto": "Toca Verificar y guardar. Cuando el botón diga API conectada, ya puedes generar." }
+      ]
+    },
+    {
+      "id": "06-tips",
+      "frases": [
+        { "id": "intro", "texto": "Tres datos útiles." },
+        { "id": "costo", "texto": "Antes de generar, IA-HUB te muestra cuánto va a costar." },
+        { "id": "historial", "texto": "Tus resultados se guardan en tu historial de IA-HUB, porque Higgsfield solo los conserva siete días." },
+        { "id": "sfw", "texto": "Y ten en cuenta que Higgsfield no genera contenido explícito." }
+      ]
+    },
+    {
+      "id": "07-cierre",
+      "frases": [
+        { "id": "listo", "texto": "Listo: ya tienes Higgsfield conectado a IA-HUB." },
+        { "id": "adios", "texto": "Ahora puedes crear imágenes, videos y Genjutsu desde la app. Nos vemos en el próximo video." }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=1920, height=1080" />
+<link rel="stylesheet" href="base/tema.css" />
+<script src="base/vendor/gsap.min.js"></script>
+<script src="tiempos.js"></script>
+<script src="base/escena.js"></script>
+<style>
+  /* Bandeja de subida: las etiquetas (@video1, @image1...) quedan fijas en su lugar; las fotos se pueden mover */
+  .bandeja { display: flex; justify-content: center; gap: 36px; }
+  .slot { display: flex; flex-direction: column; align-items: center; gap: 20px; width: 290px; }
+  .tile { width: 290px; height: 200px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 14px; background: var(--surface); border: 1.5px solid var(--line); border-radius: 26px; }
+  .tile svg { width: 84px; height: 84px; display: block; stroke: var(--fg); fill: none; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
+  .tile .lbl { font-family: var(--mono); font-weight: 600; font-size: 22px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); }
+  .tile.video { border-color: rgba(124, 200, 255, 0.4); }
+  .tile.video svg { stroke: var(--p-video); }
+  .slot .chip { font-size: 36px; }
+  .sep { width: 2px; align-self: stretch; margin: 10px 0 70px; background: var(--line); }
+  .resalta { position: absolute; inset: -2px; border-radius: 27px; border: 3px solid var(--accent); box-shadow: 0 0 50px rgba(209, 254, 23, 0.3); opacity: 0; display: block; }
+  .tile { position: relative; }
+
+  /* Reglas */
+  .reglas { position: absolute; left: 0; right: 0; top: 330px; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 30px; }
+  .regla { display: flex; gap: 22px; align-items: flex-start; background: var(--surface); border: 1.5px solid var(--line); border-radius: 26px; padding: 30px 32px; }
+  .regla h4 { font-family: var(--display); font-weight: 700; font-size: 40px; line-height: 1.05; text-transform: uppercase; letter-spacing: -0.02em; }
+  .regla p { font-size: 27px; line-height: 1.4; color: var(--muted); margin-top: 10px; }
+  .regla .chip { font-size: 0.95em; }
+
+  /* Ejemplo */
+  .ejemplo { position: absolute; left: 0; right: 0; top: 350px; }
+  .ejemplo .prompt { font-size: 38px; }
+</style>
+</head>
+<body>
+<div id="root" data-composition-id="03-menciones" data-start="0" data-width="1920" data-height="1080" data-duration="41.038">
+  <audio id="voz" src="voz.mp3" data-start="0.4" data-duration="39.938" data-volume="1"></audio>
+  <div class="fondo"><div class="rejilla"></div><div class="blob b1"></div><div class="blob b2"></div></div>
+
+  <div class="contenido">
+    <div class="cabecera" id="cab">
+      <div class="eyebrow"><span class="num">02</span> · Menciones</div>
+      <h2>Cómo nombrar el video <span class="lima">y cada foto</span></h2>
+    </div>
+
+    <div class="zona">
+      <div class="bandeja" id="bandeja">
+        <div class="slot" id="s0">
+          <div class="tile video"><svg viewBox="0 0 24 24"><rect x="2" y="6" width="14" height="12" rx="2"/><path d="m16 10 6-3v10l-6-3"/></svg><span class="lbl">Tu video</span></div>
+          <span class="chip vid" id="c0">@video1</span>
+        </div>
+        <div class="sep" id="sep"></div>
+        <div class="slot" id="s1">
+          <div class="tile" id="t1"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg><span class="lbl">Personaje</span><span class="resalta" id="r1"></span></div>
+          <span class="chip img" id="c1">@image1</span>
+        </div>
+        <div class="slot" id="s2">
+          <div class="tile" id="t2"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="3"/><circle cx="9" cy="9" r="2"/><path d="m21 15-4.5-4.5L5 21"/></svg><span class="lbl">Lugar</span><span class="resalta" id="r2"></span></div>
+          <span class="chip img" id="c2">@image2</span>
+        </div>
+        <div class="slot" id="s3">
+          <div class="tile" id="t3"><svg viewBox="0 0 24 24"><path d="M20.38 3.46 16 2a4 4 0 0 1-8 0L3.62 3.46a2 2 0 0 0-1.34 2.23l.58 3.47a1 1 0 0 0 .99.84H6v10c0 1.1.9 2 2 2h8a2 2 0 0 0 2-2V10h2.15a1 1 0 0 0 .99-.84l.58-3.47a2 2 0 0 0-1.34-2.23z"/></svg><span class="lbl">Ropa</span></div>
+          <span class="chip img" id="c3">@image3</span>
+        </div>
+      </div>
+
+      <div class="reglas" id="reglas">
+        <div class="regla" id="g1"><span class="num-caja">1</span><div><h4>El orden importa</h4><p><span class="chip img">@image1</span> siempre es la primera foto que subiste.</p></div></div>
+        <div class="regla" id="g2"><span class="num-caja">2</span><div><h4>Una foto, un papel</h4><p>Dile si es el personaje, el lugar o la ropa.</p></div></div>
+        <div class="regla" id="g3"><span class="num-caja">3</span><div><h4>Solo fotos que subiste</h4><p>Si escribes <span class="chip img">@image3</span>, tienen que haber 3 fotos.</p></div></div>
+      </div>
+
+      <div class="ejemplo" id="ejemplo">
+        <div class="prompt" id="pr"><span class="etiqueta">Ejemplo</span><span id="pr-txt">Replace the main character with <span class="chip img">@image1</span> and the location with the environment from <span class="chip img">@image2</span>.</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="marca"><img src="base/logo-iahub.png" alt="" /></div>
+</div>
+
+<script>
+  const tl = gsap.timeline({ paused: true });
+  anim.ambiente(tl);
+
+  anim.entrar(tl, '#cab > *', T('intro', 0.05));
+  // La bandeja: el video y cada foto con su mencion
+  anim.pop(tl, ['#s1 .tile', '#s2 .tile', '#s3 .tile'], T('intro', 1.2), { stagger: 0.12 });
+  anim.pop(tl, '#s0 .tile', T('intro', 1.0));
+  anim.entrar(tl, '#sep', T('intro', 1.0), { y: 0 });
+  anim.pop(tl, '#c0', TW('video1', 'arroba', 1, -0.1));
+  anim.pop(tl, '#c1', TW('image1', 'arroba', 1, -0.1));
+  anim.pop(tl, '#c2', TW('image1', 'arroba', 2, -0.1));
+  anim.pop(tl, '#c3', TW('image1', 'sucesivamente', 1, -0.2));
+
+  // Regla 1: si cambias el orden, cambian las menciones (las fotos 1 y 2 se cruzan; las etiquetas no)
+  anim.pop(tl, '#g1', TW('regla1', 'uno', 1, -0.15));
+  var paso = 290 + 36;
+  var tCambio = TW('regla1', 'cambias', 1, -0.1);
+  tl.to('#t1', { x: paso, duration: 0.7, ease: 'power2.inOut' }, tCambio);
+  tl.to('#t1', { y: -26, duration: 0.35, ease: 'power1.out', yoyo: true, repeat: 1 }, tCambio);
+  tl.to('#t2', { x: -paso, duration: 0.7, ease: 'power2.inOut' }, tCambio);
+  tl.to('#t2', { y: 26, duration: 0.35, ease: 'power1.out', yoyo: true, repeat: 1 }, tCambio);
+  anim.pulso(tl, ['#c1', '#c2'], TW('regla1', 'cambian', 1, -0.1));
+  // vuelven a su lugar antes de la regla 2
+  tl.to(['#t1', '#t2'], { x: 0, duration: 0.6, ease: 'power2.inOut' }, TF('regla1', 0.25));
+
+  anim.pop(tl, '#g2', TW('regla2', 'dos', 1, -0.15));
+  anim.pop(tl, '#g3', TW('regla3', 'tres', 1, -0.15));
+
+  // Ejemplo: se escribe el prompt y se marca cada foto cuando la voz la nombra
+  tl.to('#reglas', { opacity: 0, y: 20, duration: 0.4, ease: 'power2.in' }, T('ejemplo', -0.45));
+  anim.entrar(tl, '#pr', T('ejemplo', -0.05));
+  anim.tipear(tl, '#pr-txt', TW('ejemplo', 'reemplaza', 1, -0.1), { dur: TF('ejemplo') - TW('ejemplo', 'reemplaza') - 0.3 });
+  tl.fromTo('#r1', { opacity: 0 }, { opacity: 1, duration: 0.3, yoyo: true, repeat: 1, repeatDelay: 0.6 }, TW('ejemplo', 'arroba', 1, -0.1));
+  tl.fromTo('#r2', { opacity: 0 }, { opacity: 1, duration: 0.3, yoyo: true, repeat: 1, repeatDelay: 0.6 }, TW('ejemplo', 'arroba', 2, -0.1));
+
+  anim.salir(tl);
+  window.__timelines['03-menciones'] = tl;
+</script>
+</body>
+</html>

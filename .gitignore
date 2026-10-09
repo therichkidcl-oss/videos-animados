@@ -1,0 +1,26 @@
+# Secretos: las keys viven solo en .env
+.env
+
+node_modules/
+__pycache__/
+*.tmp.*
+
+# Los copia "npm run instalar" desde node_modules
+base/fuentes/
+base/vendor/
+
+# Copia local de la documentacion de HyperFrames y notas internas
+referencia/
+docs/
+
+# Generado por cada video (voz, tiempos, copias de base, snapshots y renders)
+videos/_prueba/
+videos/*/audio/
+videos/*/salida/
+videos/*/snapshots/
+videos/*/renders/
+videos/*/escenas/*/base/
+videos/*/escenas/*/voz.*
+videos/*/escenas/*/tiempos.js
+videos/*/escenas/*/snapshots/
+videos/*/escenas/*/renders/

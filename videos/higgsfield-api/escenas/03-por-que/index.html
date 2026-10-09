@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=1920, height=1080" />
+<link rel="stylesheet" href="base/tema.css" />
+<script src="base/vendor/gsap.min.js"></script>
+<script src="tiempos.js"></script>
+<script src="base/escena.js"></script>
+<style>
+  .flujo { position: absolute; left: 0; right: 0; top: 30px; display: flex; align-items: center; justify-content: space-between; }
+  .nodo { width: 400px; display: flex; flex-direction: column; align-items: center; gap: 16px; padding: 34px 20px; background: var(--surface); border: 1.5px solid var(--line); border-radius: 28px; }
+  .nodo .ic { width: 110px; height: 110px; border-radius: 26px; display: grid; place-items: center; background: var(--surface-2); }
+  .nodo .ic svg { width: 62px; height: 62px; display: block; stroke: var(--fg); fill: none; stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
+  .nodo .ic img { display: block; width: 92px; height: auto; }
+  .nodo b { font-family: var(--display); font-size: 42px; text-transform: uppercase; letter-spacing: -0.02em; }
+  .nodo span { font-size: 26px; color: var(--muted); text-align: center; }
+  #n-hf { border-color: rgba(209, 254, 23, 0.5); }
+  #n-hf .ic { background: #fff; }
+  #n-hf .ic svg { stroke: #131517; }
+  .flecha { position: relative; flex: 1; height: 120px; display: flex; align-items: center; justify-content: center; }
+  .flecha .linea { display: block; width: 100%; height: 4px; border-radius: 2px; background: repeating-linear-gradient(90deg, rgba(209, 254, 23, 0.7) 0 14px, transparent 14px 24px); transform-origin: left center; }
+  .flecha .llave { position: absolute; top: 8px; left: 50%; margin-left: -34px; width: 68px; height: 68px; border-radius: 50%; background: var(--accent); display: grid; place-items: center; }
+  .flecha .llave svg { width: 36px; height: 36px; display: block; stroke: var(--accent-ink); fill: none; stroke-width: 2.4; stroke-linecap: round; stroke-linejoin: round; }
+
+  .mensajes { position: absolute; left: 0; right: 0; top: 400px; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 26px; }
+  .msj { display: flex; align-items: center; gap: 18px; padding: 24px 28px; border-radius: 22px; background: var(--surface); border: 1.5px solid var(--line); font-size: 30px; font-weight: 600; line-height: 1.25; }
+  .msj svg { width: 44px; height: 44px; flex: none; display: block; stroke: var(--accent); fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+  .msj.lima { background: rgba(209, 254, 23, 0.08); border-color: rgba(209, 254, 23, 0.5); }
+</style>
+</head>
+<body>
+<div id="root" data-composition-id="03-por-que" data-start="0" data-width="1920" data-height="1080" data-duration="18.747">
+  <audio id="voz" src="voz.mp3" data-start="0.4" data-duration="17.647" data-volume="1"></audio>
+  <div class="fondo"><div class="rejilla"></div><div class="blob b1"></div><div class="blob b2"></div></div>
+
+  <div class="contenido">
+    <div class="cabecera" id="cab">
+      <div class="eyebrow"><span class="num">03</span> · En IA-HUB</div>
+      <h2>En IA-HUB usas <span class="lima">tu API</span>, no el plan</h2>
+    </div>
+    <div class="zona">
+      <div class="flujo">
+        <div class="nodo" id="n-tu"><div class="ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg></div><b>Tú</b><span>Tu cuenta y tu saldo</span></div>
+        <div class="flecha" id="f1"><span class="linea" id="l1"></span></div>
+        <div class="nodo" id="n-ia"><div class="ic"><img src="base/logo-iahub-marca.png" alt="IA-HUB" /></div><b>IA-HUB</b><span>Guarda tu API key</span></div>
+        <div class="flecha" id="f2"><span class="linea" id="l2"></span><span class="llave" id="llave"><svg viewBox="0 0 24 24"><circle cx="7.5" cy="15.5" r="5.5"/><path d="m21 2-9.6 9.6"/><path d="m15.5 7.5 3 3L22 7l-3-3"/></svg></span></div>
+        <div class="nodo" id="n-hf"><div class="ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><ellipse cx="12" cy="12" rx="10" ry="4.5"/></svg></div><b>Higgsfield</b><span>Genera y te cobra</span></div>
+      </div>
+
+      <div class="mensajes">
+        <div class="msj" id="ms1"><svg viewBox="0 0 24 24"><path d="M20 12V8H6a2 2 0 0 1 0-4h12v4"/><path d="M4 6v12a2 2 0 0 0 2 2h14v-4"/><path d="M18 12a2 2 0 0 0 0 4h4v-4z"/></svg>Pagas directo a Higgsfield</div>
+        <div class="msj lima" id="ms2"><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>IA-HUB no te cobra nada extra</div>
+        <div class="msj" id="ms3"><svg viewBox="0 0 24 24"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 3v5h5"/></svg>Si una generación falla, no pagas</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="marca"><img src="base/logo-iahub.png" alt="" /></div>
+</div>
+
+<script>
+  const tl = gsap.timeline({ paused: true });
+  anim.ambiente(tl);
+
+  anim.entrar(tl, '#cab > *', T('necesitas', 0.0));
+  anim.pop(tl, '#n-ia', TW('necesitas', 'iahub', 1, -0.15));
+  anim.pop(tl, '#n-hf', TW('necesitas', 'higgsfield', 1, -0.15));
+  tl.fromTo('#l2', { scaleX: 0 }, { scaleX: 1, duration: 0.5, ease: 'power2.out' }, TW('necesitas', 'api', 1, -0.1));
+  tl.fromTo('#llave', { opacity: 0, scale: 0.4 }, { opacity: 1, scale: 1, duration: 0.4, ease: 'back.out(2)' }, TW('necesitas', 'api', 1, 0.2));
+
+  anim.pop(tl, '#n-tu', TW('tuya', 'cuenta', 1, -0.2));
+  tl.fromTo('#l1', { scaleX: 0 }, { scaleX: 1, duration: 0.5, ease: 'power2.out' }, TW('tuya', 'saldo', 1, -0.1));
+  anim.pop(tl, '#ms1', TW('tuya', 'pagas', 1, -0.15));
+  anim.pop(tl, '#ms2', TW('tuya', 'nada', 1, -0.3));
+  anim.pulso(tl, '#ms2', TW('tuya', 'extra', 1, 0.05), { escala: 1.04 });
+  anim.pop(tl, '#ms3', TW('exito', 'falla', 1, -0.3));
+
+  anim.salir(tl);
+  window.__timelines['03-por-que'] = tl;
+</script>
+</body>
+</html>

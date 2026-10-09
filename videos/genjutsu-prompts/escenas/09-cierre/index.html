@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=1920, height=1080" />
+<link rel="stylesheet" href="base/tema.css" />
+<script src="base/vendor/gsap.min.js"></script>
+<script src="tiempos.js"></script>
+<script src="base/escena.js"></script>
+<style>
+  .capa.centro { display: flex; flex-direction: column; align-items: center; justify-content: center; }
+  .resumen { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 30px; width: 1560px; }
+  .res { background: var(--surface); border: 1.5px solid var(--line); border-radius: 30px; padding: 44px 40px; display: flex; flex-direction: column; gap: 14px; }
+  .res .eyebrow { font-size: 26px; color: var(--accent); }
+  .res b { font-family: var(--display); font-weight: 700; font-size: 60px; line-height: 1; text-transform: uppercase; letter-spacing: -0.025em; }
+
+  .final { gap: 30px; }
+  .final img { display: block; width: 560px; height: auto; }
+  .final .titulo { font-size: 92px; text-align: center; }
+  .final .subtitulo { text-align: center; font-size: 40px; }
+  .final .tag { font-size: 26px; }
+  #logo { display: block; }
+</style>
+</head>
+<body>
+<div id="root" data-composition-id="09-cierre" data-start="0" data-width="1920" data-height="1080" data-duration="13.36">
+  <audio id="voz" src="voz.mp3" data-start="0.4" data-duration="12.26" data-volume="1"></audio>
+  <div class="fondo"><div class="rejilla"></div><div class="blob b1"></div><div class="blob b2"></div></div>
+
+  <div class="contenido">
+    <div class="capa centro" id="cA">
+      <div class="resumen">
+        <div class="res" id="r1"><span class="eyebrow">Video</span><b>El movimiento</b></div>
+        <div class="res" id="r2"><span class="eyebrow">Fotos</span><b>La apariencia</b></div>
+        <div class="res" id="r3"><span class="eyebrow">Prompt</span><b>Qué cambiar y qué no</b></div>
+      </div>
+    </div>
+
+    <div class="capa centro final" id="cB">
+      <img id="logo" src="base/logo-iahub.png" alt="IA-HUB" />
+      <h2 class="titulo" id="ft">Prompts de <span class="lima">Genjutsu</span></h2>
+      <p class="subtitulo" id="fs">Todas las recetas listas para copiar están en la guía.</p>
+      <span class="tag" id="fv">Nos vemos en el próximo video</span>
+    </div>
+  </div>
+  <div id="negro" style="position: absolute; inset: 0; background: #000; opacity: 0;"></div>
+</div>
+
+<script>
+  const tl = gsap.timeline({ paused: true });
+  anim.ambiente(tl);
+
+  anim.pop(tl, '#r1', TW('resumen', 'video', 1, -0.15));
+  anim.pop(tl, '#r2', TW('resumen', 'fotos', 1, -0.15));
+  anim.pop(tl, '#r3', TW('resumen', 'prompt', 1, -0.15));
+  tl.to('#cA', { opacity: 0, scale: 0.96, duration: 0.45, ease: 'power2.in' }, T('guia', -0.35));
+
+  tl.fromTo('#logo', { opacity: 0, scale: 0.85 }, { opacity: 1, scale: 1, duration: 0.8, ease: 'power3.out' }, T('guia', -0.05));
+  anim.entrar(tl, '#ft', TW('guia', 'recetas', 1, -0.2));
+  anim.entrar(tl, '#fs', TW('guia', 'guia', 1, -0.3));
+  anim.pop(tl, '#fv', TW('guia', 'vemos', 1, -0.3));
+
+  // El cierre se funde a negro (es el final del video)
+  tl.fromTo('#negro', { opacity: 0 }, { opacity: 1, duration: 0.7, ease: 'power2.in' }, DUR() - 0.75);
+  window.__timelines['09-cierre'] = tl;
+</script>
+</body>
+</html>

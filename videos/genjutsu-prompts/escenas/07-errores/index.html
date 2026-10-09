@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=1920, height=1080" />
+<link rel="stylesheet" href="base/tema.css" />
+<script src="base/vendor/gsap.min.js"></script>
+<script src="tiempos.js"></script>
+<script src="base/escena.js"></script>
+<style>
+  .zona { top: 250px; bottom: 150px; }
+  .errores { display: grid; gap: 12px; }
+  .error { display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr); background: var(--surface); border: 1.5px solid var(--line); border-radius: 22px; overflow: hidden; min-height: 100px; }
+  .error > div { padding: 14px 28px; display: flex; flex-direction: column; justify-content: center; gap: 5px; font-size: 27px; line-height: 1.28; }
+  .error .mal { color: var(--fg); border-right: 1.5px solid var(--line); }
+  .error .bien { color: var(--fg); background: rgba(209, 254, 23, 0.05); }
+  .error .lbl { font-family: var(--mono); font-weight: 600; font-size: 17px; letter-spacing: 0.14em; text-transform: uppercase; }
+  .error .mal .lbl { color: var(--p-no); }
+  .error .bien .lbl { color: var(--accent); }
+  .error .mono { font-size: 0.86em; color: var(--p-igual); }
+  .error .chip { font-size: 0.9em; }
+</style>
+</head>
+<body>
+<div id="root" data-composition-id="07-errores" data-start="0" data-width="1920" data-height="1080" data-duration="32.818">
+  <audio id="voz" src="voz.mp3" data-start="0.4" data-duration="31.718" data-volume="1"></audio>
+  <div class="fondo"><div class="rejilla"></div><div class="blob b1"></div><div class="blob b2"></div></div>
+
+  <div class="contenido">
+    <div class="cabecera" id="cab">
+      <div class="eyebrow"><span class="num">06</span> · Errores</div>
+      <h2>Los errores <span class="lima">más comunes</span></h2>
+    </div>
+    <div class="zona">
+      <div class="errores">
+        <div class="error" id="er1">
+          <div class="mal"><span class="lbl">Problema</span>Copiaste un prompt que describe el pelo y la ropa de otra persona.</div>
+          <div class="bien" id="ok1"><span class="lbl">Cómo evitarlo</span>Cambia esa descripción por la de tu personaje.</div>
+        </div>
+        <div class="error" id="er2">
+          <div class="mal"><span class="lbl">Problema</span><span>Mencionas <span class="chip img">@image3</span> y subiste 2 fotos, o en otro orden.</span></div>
+          <div class="bien" id="ok2"><span class="lbl">Cómo evitarlo</span>Una foto por mención, en el mismo orden.</div>
+        </div>
+        <div class="error" id="er3">
+          <div class="mal"><span class="lbl">Problema</span>No dijiste qué se queda igual: cambia el fondo o la cámara.</div>
+          <div class="bien" id="ok3"><span class="lbl">Cómo evitarlo</span><span>Termina con <span class="mono">Keep the motion, timing, camera and background… exactly the same.</span></span></div>
+        </div>
+        <div class="error" id="er4">
+          <div class="mal"><span class="lbl">Problema</span>Pediste cinco cambios a la vez.</div>
+          <div class="bien" id="ok4"><span class="lbl">Cómo evitarlo</span>Uno o dos cambios por video.</div>
+        </div>
+        <div class="error" id="er5">
+          <div class="mal"><span class="lbl">Problema</span>Escribiste el prompt en español.</div>
+          <div class="bien" id="ok5"><span class="lbl">Cómo evitarlo</span>Escríbelo en inglés o pásalo por el Traductor de Prompts de IA-HUB.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="marca"><img src="base/logo-iahub.png" alt="" /></div>
+</div>
+
+<script>
+  const tl = gsap.timeline({ paused: true });
+  anim.ambiente(tl);
+
+  anim.entrar(tl, '#cab > *', T('intro', 0.05));
+
+  // Cada error: primero el problema (fila completa), despues la solucion cuando la voz la dice
+  var filas = [
+    ['e1', 'cambia', 1],
+    ['e2', 'otro', 1],
+    ['e3', 'entonces', 1],
+    ['e4', 'haz', 1],
+    ['e5', 'escribelo', 1],
+  ];
+  filas.forEach(function (f, i) {
+    var n = i + 1;
+    anim.lado(tl, '#er' + n, T(f[0], -0.15), { x: -50 });
+    tl.fromTo('#ok' + n, { opacity: 0, x: 30 }, { opacity: 1, x: 0, duration: 0.45, ease: 'power3.out' }, TW(f[0], f[1], f[2], -0.15));
+    if (i > 0) anim.atenuar(tl, '#er' + i, T(f[0], -0.15), 0.5);
+  });
+  anim.resaltar(tl, ['#er1', '#er2', '#er3', '#er4'], TF('e5', 0.1));
+
+  anim.salir(tl);
+  window.__timelines['07-errores'] = tl;
+</script>
+</body>
+</html>

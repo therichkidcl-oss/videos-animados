@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=1920, height=1080" />
+<link rel="stylesheet" href="base/tema.css" />
+<script src="base/vendor/gsap.min.js"></script>
+<script src="tiempos.js"></script>
+<script src="base/escena.js"></script>
+<style>
+  .aviso { position: absolute; right: 132px; top: 66px; display: flex; align-items: center; gap: 14px; font-size: 30px; font-weight: 600; color: var(--muted); }
+  .corchete { color: var(--p-quien); background: rgba(255, 192, 97, 0.14); border-radius: 6px; padding: 0 4px; }
+  .aviso .corchete { font-family: var(--mono); font-size: 30px; }
+
+  .receta { position: absolute; left: 0; right: 0; top: 30px; display: flex; flex-direction: column; gap: 24px; }
+  .receta .meta { display: flex; gap: 12px; align-items: center; }
+  .receta .meta .tag { font-size: 22px; }
+  .receta .meta .cuenta { margin-left: auto; font-family: var(--mono); font-weight: 600; font-size: 24px; color: var(--faint); letter-spacing: 0.1em; }
+  .receta h3 { font-family: var(--display); font-weight: 700; font-size: 74px; line-height: 1; letter-spacing: -0.025em; text-transform: uppercase; }
+  .receta .prompt { font-size: 35px; line-height: 1.7; }
+  .doble { position: absolute; left: 0; right: 0; top: 10px; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 34px; }
+  .doble .receta { position: static; }
+  .doble .receta h3 { font-size: 54px; }
+  .doble .receta .prompt { font-size: 26px; }
+
+  /* Marcador de la frase clave (background-size animable) */
+  .clave { border-radius: 6px; padding: 0 3px; -webkit-box-decoration-break: clone; box-decoration-break: clone; background-repeat: no-repeat; background-size: 0% 100%; background-image: linear-gradient(rgba(209, 254, 23, 0.22), rgba(209, 254, 23, 0.22)); }
+  .clave.lila { background-image: linear-gradient(rgba(195, 166, 255, 0.24), rgba(195, 166, 255, 0.24)); }
+  .clave.roja { background-image: linear-gradient(rgba(255, 140, 140, 0.22), rgba(255, 140, 140, 0.22)); }
+</style>
+</head>
+<body>
+<div id="root" data-composition-id="06-recetas" data-start="0" data-width="1920" data-height="1080" data-duration="39.877">
+  <audio id="voz" src="voz.mp3" data-start="0.4" data-duration="38.777" data-volume="1"></audio>
+  <div class="fondo"><div class="rejilla"></div><div class="blob b1"></div><div class="blob b2"></div></div>
+
+  <div class="contenido">
+    <div class="cabecera" id="cab">
+      <div class="eyebrow"><span class="num">05</span> · Recetas</div>
+      <h2>Prompts listos <span class="lima">para copiar</span></h2>
+    </div>
+    <div class="aviso" id="aviso">Cambia solo lo que va <span class="corchete">[entre corchetes]</span></div>
+
+    <div class="zona">
+      <!-- 1 -->
+      <div class="receta" id="r1">
+        <div class="meta"><span class="tag">Motion</span><span class="tag suave">1 foto</span><span class="cuenta">1 / 5</span></div>
+        <h3>Cambiar al protagonista</h3>
+        <div class="prompt"><span class="clave" id="k1a">Edit <span class="chip vid">@video1</span>.</span> <span class="clave" id="k1b">Replace the main person with <span class="chip img">@image1</span></span>, using their complete face, hair, skin tone, body build and outfit exactly as shown in <span class="chip img">@image1</span>. <span class="clave lila" id="k1c">Keep the motion, timing, camera and background of <span class="chip vid">@video1</span> exactly the same.</span></div>
+      </div>
+      <!-- 2 -->
+      <div class="receta" id="r2">
+        <div class="meta"><span class="tag">Motion</span><span class="tag suave">1 foto</span><span class="cuenta">2 / 5</span></div>
+        <h3>Cambiar solo a una persona</h3>
+        <div class="prompt">Edit <span class="chip vid">@video1</span>. Replace only <span class="corchete" id="k2a">[the woman in the middle wearing the black jacket]</span> with <span class="chip img">@image1</span>, using her complete face, hair, skin tone and outfit exactly as shown in <span class="chip img">@image1</span>. Keep every other person, the motion, timing and camera exactly as in <span class="chip vid">@video1</span>. <span class="clave" id="k2b"><span class="chip img">@image1</span> is never duplicated onto another person.</span></div>
+      </div>
+      <!-- 3 y 4 -->
+      <div class="doble" id="r34">
+        <div class="receta" id="r3">
+          <div class="meta"><span class="tag">Motion</span><span class="tag suave">1 foto</span><span class="cuenta">3 / 5</span></div>
+          <h3>Solo la cara</h3>
+          <div class="prompt">Edit <span class="chip vid">@video1</span>. Replace only the face, hair and identity of <span class="corchete">[the main woman]</span> with <span class="chip img">@image1</span>. <span class="clave" id="k3">Keep her original outfit, accessories, pose, motion and the whole scene exactly as in <span class="chip vid">@video1</span>.</span> Nothing of the original face should remain.</div>
+        </div>
+        <div class="receta" id="r4">
+          <div class="meta"><span class="tag">Swap</span><span class="tag suave">1 foto</span><span class="cuenta">4 / 5</span></div>
+          <h3>Solo la ropa</h3>
+          <div class="prompt">Edit <span class="chip vid">@video1</span>. Modify only the outfit of <span class="corchete">[the main person]</span> so they wear the full outfit from <span class="chip img">@image1</span>, exactly as shown. Keep their face, hair, identity, motion, camera and background exactly as in <span class="chip vid">@video1</span>. <span class="clave roja" id="k4">Do not transfer the face or hair from <span class="chip img">@image1</span>.</span></div>
+        </div>
+      </div>
+      <!-- 5 -->
+      <div class="receta" id="r5">
+        <div class="meta"><span class="tag">Swap</span><span class="tag suave">1 foto</span><span class="cuenta">5 / 5</span></div>
+        <h3>Producto</h3>
+        <div class="prompt">Replace <span class="corchete" id="k5a">[the bottle]</span> in <span class="chip vid">@video1</span> with the product from <span class="chip img">@image1</span>, <span class="clave" id="k5b">keeping its exact shape, label, colors and size</span>. Keep the hand, the motion, the lighting and everything else exactly the same.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="marca"><img src="base/logo-iahub.png" alt="" /></div>
+</div>
+
+<script>
+  const tl = gsap.timeline({ paused: true });
+  anim.ambiente(tl);
+
+  anim.entrar(tl, '#cab > *', T('intro', 0.05));
+  anim.entrar(tl, '#aviso', TW('intro', 'cambia', 1, -0.15));
+  anim.pulso(tl, '#aviso .corchete', TW('intro', 'corchetes', 1, -0.1), { escala: 1.1 });
+
+  // Cambia de receta: la anterior sale a la izquierda y la nueva entra desde la derecha
+  function mostrar(sel, t) {
+    tl.fromTo(sel, { opacity: 0, x: 90 }, { opacity: 1, x: 0, duration: 0.55, ease: 'power3.out' }, t);
+  }
+  function ocultar(sel, t) {
+    tl.to(sel, { opacity: 0, x: -90, duration: 0.4, ease: 'power2.in' }, t);
+  }
+
+  // 1. Protagonista: se marca cada parte cuando la voz la nombra
+  mostrar('#r1', T('protagonista', -0.2));
+  anim.marcar(tl, '#k1a', TW('protagonista', 'nombra', 1, -0.05));
+  anim.marcar(tl, '#k1b', TW('protagonista', 'reemplaza', 1, -0.05));
+  anim.marcar(tl, '#k1c', TW('protagonista', 'cierra', 1, -0.05), { dur: 1.2 });
+
+  // 2. Solo una persona
+  ocultar('#r1', T('una', -0.55));
+  mostrar('#r2', T('una', -0.2));
+  anim.destello(tl, '#k2a', TW('una', 'posicion', 1, -0.1));
+  anim.marcar(tl, '#k2b', TW('una', 'candado', 1, -0.1));
+
+  // 3 y 4. Solo la cara / solo la ropa
+  ocultar('#r2', T('cara', -0.55));
+  mostrar('#r3', T('cara', -0.2));
+  anim.marcar(tl, '#k3', TW('cara', 'aclara', 1, -0.05), { dur: 0.9 });
+  mostrar('#r4', TW('ropa', 'si', 1, -0.3));
+  anim.atenuar(tl, '#r3', TW('ropa', 'si', 1, -0.3), 0.45);
+  anim.marcar(tl, '#k4', TW('ropa', 'aclara', 1, -0.05), { dur: 0.9 });
+
+  // 5. Producto
+  ocultar('#r34', T('producto', -0.6));
+  mostrar('#r5', T('producto', -0.2));
+  anim.destello(tl, '#k5a', TW('producto', 'objeto', 1, -0.1));
+  anim.marcar(tl, '#k5b', TW('producto', 'conservar', 1, -0.1), { dur: 1.2 });
+
+  anim.salir(tl);
+  window.__timelines['06-recetas'] = tl;
+</script>
+</body>
+</html>

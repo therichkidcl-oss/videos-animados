@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=1920, height=1080" />
+<link rel="stylesheet" href="base/tema.css" />
+<script src="base/vendor/gsap.min.js"></script>
+<script src="tiempos.js"></script>
+<script src="base/escena.js"></script>
+<style>
+  .zona { top: 280px; }
+  #prompt { font-size: 37px; line-height: 1.75; padding: 38px 46px; }
+  .parte { transition: none; }
+
+  .leyenda { position: absolute; left: 0; right: 0; top: 470px; display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 18px; }
+  .ley { position: relative; background: var(--surface); border: 1.5px solid var(--line); border-radius: 22px; padding: 26px 24px 24px; overflow: hidden; }
+  .ley::before { content: ''; position: absolute; left: 0; right: 0; top: 0; height: 7px; background: currentColor; }
+  .ley .n { font-family: var(--display); font-weight: 700; font-size: 44px; line-height: 1; }
+  .ley .t { display: block; margin-top: 10px; font-size: 28px; font-weight: 600; line-height: 1.25; color: var(--fg); }
+  .l1 { color: var(--p-video); } .l2 { color: var(--p-quien); } .l3 { color: var(--p-con); } .l4 { color: var(--p-no); } .l5 { color: var(--p-igual); }
+
+  .prompt-wrap { position: relative; }
+  .veredicto { position: absolute; right: 38px; top: -22px; z-index: 2; }
+  .veredicto .tag { font-size: 24px; }
+
+  .candado { position: absolute; left: 0; right: 0; top: 470px; display: flex; gap: 30px; align-items: stretch; }
+  .candado .icono { flex: none; width: 190px; display: grid; place-items: center; background: var(--surface); border: 1.5px solid var(--line); border-radius: 26px; }
+  .candado .icono svg { width: 92px; height: 92px; display: block; stroke: var(--accent); fill: none; stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
+  .candado .prompt { flex: 1; font-size: 34px; }
+</style>
+</head>
+<body>
+<div id="root" data-composition-id="04-anatomia" data-start="0" data-width="1920" data-height="1080" data-duration="53.716">
+  <audio id="voz" src="voz.mp3" data-start="0.4" data-duration="52.616" data-volume="1"></audio>
+  <div class="fondo"><div class="rejilla"></div><div class="blob b1"></div><div class="blob b2"></div></div>
+
+  <div class="contenido">
+    <div class="cabecera" id="cab">
+      <div class="eyebrow"><span class="num">03</span> · Anatomía</div>
+      <h2>Las <span class="lima">5 partes</span> de un buen prompt</h2>
+    </div>
+
+    <div class="zona">
+      <div class="prompt-wrap">
+      <div class="veredicto" id="ver"><span class="tag">El modelo ya no adivina nada</span></div>
+      <div class="prompt" id="prompt"><span class="parte a1" id="pa1">Edit <span class="chip vid">@video1</span>.</span> <span class="parte a2" id="pa2">Replace the woman in the red dress</span> <span class="parte a3" id="pa3">with <span class="chip img">@image1</span>, using her complete face, hair, skin tone, body build and outfit exactly as shown in <span class="chip img">@image1</span>.</span> <span class="parte a4" id="pa4">Do not transfer the handbag from <span class="chip img">@image1</span>.</span> <span class="parte a5" id="pa5">Keep the motion, timing, camera, lighting and background of <span class="chip vid">@video1</span> exactly the same.</span></div>
+      </div>
+
+      <div class="leyenda" id="leyenda">
+        <div class="ley l1" id="ly1"><span class="n">1</span><span class="t">Qué video editas</span></div>
+        <div class="ley l2" id="ly2"><span class="n">2</span><span class="t">A quién cambias</span></div>
+        <div class="ley l3" id="ly3"><span class="n">3</span><span class="t">Con qué foto y qué copiar</span></div>
+        <div class="ley l4" id="ly4"><span class="n">4</span><span class="t">Qué NO copiar</span></div>
+        <div class="ley l5" id="ly5"><span class="n">5</span><span class="t">Qué se queda igual</span></div>
+      </div>
+
+      <div class="candado" id="candado">
+        <div class="icono"><svg viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div>
+        <div class="prompt" id="cp"><span class="etiqueta">Candado de identidad · varias personas</span><span id="cp-txt"><span class="chip img">@image1</span> maps only to the woman in the red dress. <span class="chip img">@image1</span> is never duplicated onto another person.</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="marca"><img src="base/logo-iahub.png" alt="" /></div>
+</div>
+
+<script>
+  const tl = gsap.timeline({ paused: true });
+  anim.ambiente(tl);
+
+  anim.entrar(tl, '#cab > *', T('intro', 0.05));
+  anim.entrar(tl, '#prompt', TW('intro', 'cinco', 1, -0.2), { y: 20 });
+
+  // Cada parte se escribe cuando la voz la explica; lo ya explicado se atenua para enfocar lo nuevo
+  var partes = ['p1', 'p2', 'p3', 'p4', 'p5'];
+  partes.forEach(function (id, i) {
+    var n = i + 1;
+    var t0 = T(id, 0.35);
+    var fin = anim.tipear(tl, '#pa' + n, t0, { dur: Math.min(TF(id) - t0 - 0.4, 4.5) });
+    anim.marcar(tl, '#pa' + n, fin);
+    anim.pop(tl, '#ly' + n, T(id, -0.05));
+    if (i > 0) anim.atenuar(tl, ['#pa' + i, '#ly' + i], T(id, -0.05), 0.4);
+  });
+
+  // Cierre: todo encendido
+  anim.resaltar(tl, ['#pa4', '#ly4', '#pa1', '#pa2', '#pa3', '#ly1', '#ly2', '#ly3'], T('cierre', -0.1));
+  anim.pop(tl, '#ver', TW('cierre', 'adivinar', 1, -0.3));
+
+  // Candado de identidad (videos con varias personas)
+  tl.to('#leyenda', { opacity: 0, y: 20, duration: 0.4, ease: 'power2.in' }, T('candado', -0.4));
+  anim.destello(tl, '#pa2', TW('candado', 'personas', 1, -0.1));
+  anim.entrar(tl, '#candado', TW('candado', 'agrega', 1, -0.2));
+  anim.tipear(tl, '#cp-txt', TW('candado', 'agrega', 1, 0.3), { dur: TF('candado') - TW('candado', 'agrega') - 0.6 });
+
+  anim.salir(tl);
+  window.__timelines['04-anatomia'] = tl;
+</script>
+</body>
+</html>

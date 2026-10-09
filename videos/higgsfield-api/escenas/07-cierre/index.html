@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=1920, height=1080" />
+<link rel="stylesheet" href="base/tema.css" />
+<script src="base/vendor/gsap.min.js"></script>
+<script src="tiempos.js"></script>
+<script src="base/escena.js"></script>
+<style>
+  .final { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 30px; }
+  .final img { display: block; width: 540px; height: auto; }
+  .estado { display: inline-flex; align-items: center; gap: 22px; font-family: var(--display); font-weight: 700; font-size: 92px; text-transform: uppercase; letter-spacing: -0.035em; }
+  .estado .ok { width: 96px; height: 96px; border-radius: 50%; background: var(--accent); display: grid; place-items: center; }
+  .estado .ok svg { width: 56px; height: 56px; display: block; stroke: var(--accent-ink); fill: none; stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; }
+  .estado .lima { color: var(--accent); }
+  .final .subtitulo { text-align: center; font-size: 42px; }
+  .final .tag { font-size: 26px; }
+</style>
+</head>
+<body>
+<div id="root" data-composition-id="07-cierre" data-start="0" data-width="1920" data-height="1080" data-duration="10.76">
+  <audio id="voz" src="voz.mp3" data-start="0.4" data-duration="9.66" data-volume="1"></audio>
+  <div class="fondo"><div class="rejilla"></div><div class="blob b1"></div><div class="blob b2"></div></div>
+
+  <div class="contenido">
+    <div class="capa final">
+      <img id="logo" src="base/logo-iahub.png" alt="IA-HUB" />
+      <div class="estado" id="estado"><span class="ok" id="ok"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span>Higgsfield <span class="lima">conectado</span></div>
+      <p class="subtitulo" id="sub">Ya puedes crear <b>imágenes, videos y Genjutsu</b> desde la app.</p>
+      <span class="tag" id="fv">Nos vemos en el próximo video</span>
+    </div>
+  </div>
+  <div id="negro" style="position: absolute; inset: 0; background: #000; opacity: 0;"></div>
+</div>
+
+<script>
+  const tl = gsap.timeline({ paused: true });
+  anim.ambiente(tl);
+
+  tl.fromTo('#logo', { opacity: 0, scale: 0.85 }, { opacity: 1, scale: 1, duration: 0.7, ease: 'power3.out' }, 0.1);
+  anim.entrar(tl, '#estado', TW('listo', 'tienes', 1, -0.2), { y: 40 });
+  tl.fromTo('#ok', { scale: 0 }, { scale: 1, duration: 0.45, ease: 'back.out(2.2)' }, TW('listo', 'conectado', 1, -0.1));
+  anim.entrar(tl, '#sub', TW('adios', 'crear', 1, -0.2));
+  anim.pop(tl, '#fv', TW('adios', 'vemos', 1, -0.3));
+
+  tl.fromTo('#negro', { opacity: 0 }, { opacity: 1, duration: 0.7, ease: 'power2.in' }, DUR() - 0.75);
+  window.__timelines['07-cierre'] = tl;
+</script>
+</body>
+</html>

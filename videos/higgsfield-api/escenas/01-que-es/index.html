@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=1920, height=1080" />
+<link rel="stylesheet" href="base/tema.css" />
+<script src="base/vendor/gsap.min.js"></script>
+<script src="tiempos.js"></script>
+<script src="base/escena.js"></script>
+<style>
+  .zona { display: grid; grid-template-columns: 620px minmax(0, 1fr); gap: 70px; align-items: center; }
+  .frase-grande { font-family: var(--display); font-weight: 700; font-size: 74px; line-height: 1.02; text-transform: uppercase; letter-spacing: -0.03em; }
+  .frase-grande .lima { color: var(--accent); }
+  .izq .subtitulo { margin-top: 26px; font-size: 36px; }
+
+  .nube { display: flex; flex-wrap: wrap; gap: 16px; align-content: center; }
+  .modelo { display: inline-flex; align-items: center; gap: 12px; font-family: var(--body); font-weight: 600; font-size: 32px; padding: 14px 22px; border-radius: 16px; background: var(--surface); border: 1.5px solid var(--line); }
+  .modelo .punto { width: 12px; height: 12px; border-radius: 50%; background: var(--muted); display: block; }
+  .modelo.propio { border-color: rgba(209, 254, 23, 0.5); background: rgba(209, 254, 23, 0.08); }
+  .modelo.propio .punto { background: var(--accent); }
+  .leyenda-n { display: flex; gap: 26px; margin-top: 26px; font-size: 24px; color: var(--muted); }
+  .leyenda-n span { display: inline-flex; align-items: center; gap: 10px; }
+  .leyenda-n i { width: 12px; height: 12px; border-radius: 50%; display: block; }
+
+  /* Menu de IA-HUB (replica del dropdown Higgsfield) */
+  .menu { position: absolute; right: 0; top: 0; width: 760px; background: #16171a; border: 1.5px solid var(--line); border-radius: 26px; padding: 22px; box-shadow: 0 30px 80px rgba(0, 0, 0, 0.5); }
+  .menu .cab-menu { display: flex; align-items: center; gap: 14px; padding: 6px 10px 18px; border-bottom: 1px solid var(--line); margin-bottom: 12px; }
+  .menu .orb { width: 50px; height: 50px; border-radius: 14px; background: #fff; display: grid; place-items: center; }
+  .menu .orb svg { width: 28px; height: 28px; display: block; stroke: #131517; fill: none; stroke-width: 2; }
+  .menu .cab-menu b { font-family: var(--display); font-size: 34px; }
+  .menu .cab-menu .beta { font-family: var(--mono); font-weight: 600; font-size: 15px; color: var(--accent-ink); background: var(--accent); padding: 2px 8px; border-radius: 6px; }
+  .item-m { display: flex; align-items: center; gap: 18px; padding: 14px 12px; border-radius: 16px; }
+  .item-m .ic { width: 56px; height: 56px; border-radius: 14px; background: var(--surface-2); display: grid; place-items: center; }
+  .item-m .ic svg { width: 30px; height: 30px; display: block; stroke: var(--accent); fill: none; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+  .item-m b { display: block; font-size: 30px; }
+  .item-m span { display: block; font-size: 22px; color: var(--muted); margin-top: 2px; }
+</style>
+</head>
+<body>
+<div id="root" data-composition-id="01-que-es" data-start="0" data-width="1920" data-height="1080" data-duration="23.53">
+  <audio id="voz" src="voz.mp3" data-start="0.4" data-duration="22.43" data-volume="1"></audio>
+  <div class="fondo"><div class="rejilla"></div><div class="blob b1"></div><div class="blob b2"></div></div>
+
+  <div class="contenido">
+    <div class="cabecera" id="cab">
+      <div class="eyebrow"><span class="num">01</span> · Qué es</div>
+      <h2>Qué es <span class="lima">Higgsfield</span></h2>
+    </div>
+    <div class="zona">
+      <div class="izq" id="izq">
+        <div class="frase-grande">Imágenes y videos con IA, <span class="lima">en un solo lugar</span></div>
+        <p class="subtitulo" id="iz-sub">Sus propios modelos y los de otras marcas, desde una sola cuenta.</p>
+      </div>
+      <div class="der" style="position: relative; min-height: 600px; display: flex; flex-direction: column; justify-content: center;">
+        <div id="nube-wrap">
+          <div class="nube">
+            <span class="modelo propio" id="m-soul"><i class="punto"></i>Soul 2.0</span>
+            <span class="modelo propio" id="m-gen"><i class="punto"></i>Genjutsu</span>
+            <span class="modelo propio" id="m-sid"><i class="punto"></i>Soul ID</span>
+            <span class="modelo otro" id="m-kling"><i class="punto"></i>Kling 3.0</span>
+            <span class="modelo otro" id="m-seed"><i class="punto"></i>Seedance 2.5</span>
+            <span class="modelo otro" id="m-mini"><i class="punto"></i>MiniMax H3</span>
+            <span class="modelo otro"><i class="punto"></i>Wan 3.0</span>
+            <span class="modelo otro"><i class="punto"></i>LTX 2.5</span>
+            <span class="modelo otro"><i class="punto"></i>Grok Imagine</span>
+            <span class="modelo otro"><i class="punto"></i>Recraft V4.1</span>
+            <span class="modelo otro"><i class="punto"></i>Ideogram 4.0</span>
+            <span class="modelo otro"><i class="punto"></i>Qwen Image 3</span>
+            <span class="modelo otro"><i class="punto"></i>PixVerse V6</span>
+          </div>
+          <div class="leyenda-n" id="ley"><span><i style="background: var(--accent)"></i>Propios de Higgsfield</span><span><i style="background: var(--muted)"></i>De otras marcas</span></div>
+        </div>
+
+        <div class="menu" id="menu">
+          <div class="cab-menu"><span class="orb"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><ellipse cx="12" cy="12" rx="10" ry="4.5"/></svg></span><b>Higgsfield</b><span class="beta">BETA</span><span style="margin-left: auto; font-size: 22px; color: var(--muted);">en IA-HUB</span></div>
+          <div class="item-m" id="i1"><span class="ic"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="3"/><circle cx="9" cy="9" r="2"/><path d="m21 15-4.5-4.5L5 21"/></svg></span><div><b>Imagen</b><span>Soul 2.0, Grok, Qwen, Recraft...</span></div></div>
+          <div class="item-m" id="i2"><span class="ic"><svg viewBox="0 0 24 24"><rect x="2" y="6" width="14" height="12" rx="2"/><path d="m16 10 6-3v10l-6-3"/></svg></span><div><b>Video</b><span>Crear, editar y Motion Control</span></div></div>
+          <div class="item-m" id="i3"><span class="ic"><svg viewBox="0 0 24 24"><path d="m17 2 4 4-4 4"/><path d="M3 11v-1a4 4 0 0 1 4-4h14"/><path d="m7 22-4-4 4-4"/><path d="M21 13v1a4 4 0 0 1-4 4H3"/></svg></span><div><b>Genjutsu</b><span>Un video, muchas versiones</span></div></div>
+          <div class="item-m" id="i4"><span class="ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg></span><div><b>Personajes</b><span>Soul ID: tu cara consistente</span></div></div>
+          <div class="item-m" id="i5"><span class="ic"><svg viewBox="0 0 24 24"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 3v5h5"/><path d="M12 7v5l4 2"/></svg></span><div><b>Historial</b><span>Todas tus generaciones</span></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="marca"><img src="base/logo-iahub.png" alt="" /></div>
+</div>
+
+<script>
+  const tl = gsap.timeline({ paused: true });
+  anim.ambiente(tl);
+
+  anim.entrar(tl, '#cab > *', T('def', 0.0));
+  anim.entrar(tl, '#izq .frase-grande', TW('def', 'crear', 1, -0.2));
+  anim.entrar(tl, '#iz-sub', TW('modelos', 'reune', 1, -0.1));
+
+  // Modelos: primero los propios, despues decenas de otras marcas
+  anim.pop(tl, '#m-soul', TW('modelos', 'soul', 1, -0.12));
+  anim.pop(tl, '#m-gen', TW('modelos', 'genjutsu', 1, -0.12));
+  anim.pop(tl, '#m-sid', TW('modelos', 'genjutsu', 1, 0.2));
+  anim.pop(tl, '.nube .modelo.otro', TW('modelos', 'decenas', 1, -0.1), { stagger: 0.06 });
+  anim.pulso(tl, '#m-kling', TW('modelos', 'kling', 1, -0.05), { escala: 1.1 });
+  anim.pulso(tl, '#m-seed', TW('modelos', 'seedance', 1, -0.05), { escala: 1.1 });
+  anim.pulso(tl, '#m-mini', TW('modelos', 'minimax', 1, -0.05), { escala: 1.1 });
+  anim.entrar(tl, '#ley', TW('modelos', 'todo', 1, -0.1), { y: 16 });
+
+  // En IA-HUB: el menu del estudio, cada seccion cuando la voz la nombra
+  tl.to('#nube-wrap', { opacity: 0, duration: 0.4 }, T('iahub', -0.2));
+  anim.pop(tl, '#menu', T('iahub', -0.1));
+  [['imagen', '#i1'], ['video', '#i2'], ['genjutsu', '#i3'], ['personajes', '#i4'], ['historial', '#i5']].forEach(function (x) {
+    anim.lado(tl, x[1], TW('iahub', x[0], 1, -0.2), { x: 30 });
+  });
+
+  anim.salir(tl);
+  window.__timelines['01-que-es'] = tl;
+</script>
+</body>
+</html>

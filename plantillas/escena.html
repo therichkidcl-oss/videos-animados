@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=1920, height=1080" />
+<link rel="stylesheet" href="base/tema.css" />
+<script src="base/vendor/gsap.min.js"></script>
+<script src="tiempos.js"></script>
+<script src="base/escena.js"></script>
+<style>
+  /* estilos propios de la escena */
+</style>
+</head>
+<body>
+<!-- data-duration y el <audio id="voz"> los parcha voz.mjs con la duracion real: no tocarlos a mano -->
+<div id="root" data-composition-id="NN-escena" data-start="0" data-width="1920" data-height="1080" data-duration="10">
+  <audio id="voz" src="voz.mp3" data-start="0.5" data-duration="9" data-volume="1"></audio>
+  <div class="fondo"><div class="rejilla"></div><div class="blob b1"></div><div class="blob b2"></div></div>
+
+  <div class="contenido">
+    <div class="cabecera" id="cab">
+      <div class="eyebrow"><span class="num">01</span> · Seccion</div>
+      <h2>Titulo de la <span class="lima">escena</span></h2>
+    </div>
+    <div class="zona">
+      <!-- contenido -->
+    </div>
+  </div>
+
+  <div class="marca"><img src="base/logo-iahub.png" alt="" /></div>
+</div>
+
+<script>
+  const tl = gsap.timeline({ paused: true });
+  anim.ambiente(tl);
+
+  // T('frase') = cuando empieza la frase · TF('frase') = cuando termina · TW('frase', 'palabra') = cuando se dice la palabra
+  anim.entrar(tl, '#cab > *', T('intro', 0.05));
+
+  anim.salir(tl);
+  window.__timelines['NN-escena'] = tl; // igual al data-composition-id
+</script>
+</body>
+</html>

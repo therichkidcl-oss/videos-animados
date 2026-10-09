@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=1920, height=1080" />
+<link rel="stylesheet" href="base/tema.css" />
+<script src="base/vendor/gsap.min.js"></script>
+<script src="tiempos.js"></script>
+<script src="base/escena.js"></script>
+<style>
+  .zona { top: 270px; }
+  /* Replica del estudio Higgsfield de IA-HUB */
+  .app { position: absolute; left: 0; right: 0; top: 0; height: 650px; border-radius: 28px; background: #0f1012; border: 1.5px solid var(--line); overflow: hidden; box-shadow: 0 30px 80px rgba(0, 0, 0, 0.45); }
+  .top { display: flex; align-items: center; gap: 26px; height: 86px; padding: 0 30px; border-bottom: 1px solid var(--line); }
+  .logo-hf { display: flex; align-items: center; gap: 12px; }
+  .logo-hf .orb { width: 46px; height: 46px; border-radius: 13px; background: #fff; display: grid; place-items: center; }
+  .logo-hf .orb svg { width: 26px; height: 26px; display: block; stroke: #131517; fill: none; stroke-width: 2; }
+  .logo-hf b { font-family: var(--display); font-size: 28px; }
+  .logo-hf .beta { font-family: var(--mono); font-weight: 600; font-size: 13px; color: var(--accent-ink); background: var(--accent); padding: 2px 7px; border-radius: 6px; }
+  .tabs { display: flex; gap: 26px; font-size: 22px; font-weight: 600; color: #8e8f94; }
+  .derecha { margin-left: auto; display: flex; align-items: center; gap: 12px; position: relative; }
+  .pill { height: 50px; padding: 0 20px; border-radius: 13px; display: flex; align-items: center; gap: 10px; font-size: 21px; font-weight: 700; }
+  .pill.gris { background: rgba(255, 255, 255, 0.07); color: #d6d7da; }
+  .pill.lima { background: var(--accent); color: var(--accent-ink); }
+  .pill svg { width: 20px; height: 20px; display: block; fill: none; stroke: currentColor; stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; }
+  .pill .dot { width: 12px; height: 12px; border-radius: 50%; background: var(--accent); display: block; }
+  #btn-conectada { position: absolute; right: 0; top: 0; opacity: 0; }
+  #velo, #modal, #truco, #m-ok { opacity: 0; }
+  .banner { margin: 26px 30px; display: flex; align-items: center; gap: 16px; padding: 22px 24px; border-radius: 18px; background: rgba(209, 254, 23, 0.06); border: 1.5px solid rgba(209, 254, 23, 0.2); font-size: 22px; color: #d6d7da; }
+  .vacio { margin: 0 30px; height: 330px; border-radius: 20px; border: 1.5px dashed rgba(255, 255, 255, 0.08); }
+
+  /* Modal "Conecta Higgsfield" */
+  .velo { position: absolute; inset: 0; background: rgba(0, 0, 0, 0.72); }
+  .modal { position: absolute; left: 50%; top: 40px; width: 760px; margin-left: -380px; padding: 32px 36px; border-radius: 30px; background: #16171a; border: 1.5px solid var(--line); box-shadow: 0 40px 90px rgba(0, 0, 0, 0.6); }
+  .m-cab { display: flex; align-items: center; gap: 16px; margin-bottom: 20px; }
+  .m-cab .orb { width: 58px; height: 58px; border-radius: 16px; background: #fff; display: grid; place-items: center; }
+  .m-cab .orb svg { width: 30px; height: 30px; display: block; stroke: #131517; fill: none; stroke-width: 2; }
+  .m-cab b { display: block; font-family: var(--display); font-size: 34px; }
+  .m-cab span { display: block; font-size: 20px; color: #8e8f94; margin-top: 4px; }
+  .m-lbl { display: block; font-size: 19px; font-weight: 600; color: #8e8f94; margin: 14px 0 6px; }
+  .m-in { height: 60px; border-radius: 14px; background: rgba(255, 255, 255, 0.05); border: 1.5px solid rgba(255, 255, 255, 0.08); display: flex; align-items: center; padding: 0 18px; font-family: var(--mono); font-size: 22px; color: #fff; }
+  .m-btn { margin-top: 24px; height: 66px; border-radius: 18px; background: var(--accent); color: var(--accent-ink); font-weight: 700; font-size: 25px; display: flex; align-items: center; justify-content: center; gap: 12px; }
+  .m-btn svg { width: 24px; height: 24px; display: block; stroke: currentColor; fill: none; stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; }
+  .m-ok { margin-top: 16px; display: flex; align-items: center; gap: 10px; font-size: 22px; font-weight: 600; color: var(--accent); }
+
+  /* Truco: ID:SECRET en un solo campo */
+  .truco { position: absolute; right: 14px; top: 130px; width: 420px; padding: 26px 26px; border-radius: 24px; background: var(--surface); border: 1.5px solid rgba(209, 254, 23, 0.45); display: grid; gap: 14px; }
+  .truco .tag { font-size: 20px; }
+  .truco .m-in { font-size: 19px; }
+  .truco .sep { color: var(--accent); }
+  .truco .abajo { text-align: center; font-size: 30px; color: var(--accent); }
+
+  /* Cursor */
+  .cursor { position: absolute; left: 960px; top: 560px; width: 46px; height: 46px; display: block; z-index: 20; }
+  .cursor svg { width: 46px; height: 46px; display: block; fill: #fff; stroke: #131517; stroke-width: 1.4; }
+  .click { position: absolute; width: 70px; height: 70px; border-radius: 50%; border: 3px solid var(--accent); display: block; z-index: 19; opacity: 0; }
+</style>
+</head>
+<body>
+<div id="root" data-composition-id="05-conectar" data-start="0" data-width="1920" data-height="1080" data-duration="25.342">
+  <audio id="voz" src="voz.mp3" data-start="0.4" data-duration="24.242" data-volume="1"></audio>
+  <div class="fondo"><div class="rejilla"></div><div class="blob b1"></div><div class="blob b2"></div></div>
+
+  <div class="contenido">
+    <div class="cabecera" id="cab">
+      <div class="eyebrow"><span class="num">05</span> · Conectar</div>
+      <h2>Conéctala en <span class="lima">IA-HUB</span></h2>
+    </div>
+    <div class="zona">
+      <div class="app" id="app">
+        <div class="top">
+          <div class="logo-hf"><span class="orb"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><ellipse cx="12" cy="12" rx="10" ry="4.5"/></svg></span><b>Higgsfield</b><span class="beta">BETA</span></div>
+          <div class="tabs"><span style="color: var(--accent)">Imagen</span><span>Video</span><span>Genjutsu</span><span>Personajes</span><span>Historial</span></div>
+          <div class="derecha">
+            <span class="pill gris">Saldo ↗</span>
+            <span class="pill lima" id="btn-conectar"><svg viewBox="0 0 24 24"><circle cx="7.5" cy="15.5" r="5.5"/><path d="m21 2-9.6 9.6"/><path d="m15.5 7.5 3 3L22 7l-3-3"/></svg>Conectar API</span>
+            <span class="pill gris" id="btn-conectada"><i class="dot"></i>API conectada</span>
+          </div>
+        </div>
+        <div class="banner" id="banner">Conecta tu cuenta de Higgsfield para generar. Pagas directo a Higgsfield y solo se cobra lo que sale bien.</div>
+        <div class="vacio"></div>
+
+        <div class="velo" id="velo"></div>
+        <div class="modal" id="modal">
+          <div class="m-cab"><span class="orb"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><ellipse cx="12" cy="12" rx="10" ry="4.5"/></svg></span><div><b>Conecta Higgsfield</b><span>Tu cuenta, tu saldo. IA-HUB no cobra nada extra.</span></div></div>
+          <span class="m-lbl">KEY_ID</span>
+          <div class="m-in" id="in-id"><span id="t-id">3f8a1c2e-9b4d-4e7f-a1b2-c3d4e5f6a7b8</span></div>
+          <span class="m-lbl">KEY_SECRET</span>
+          <div class="m-in" id="in-sec"><span id="t-sec">••••••••••••••••••••••••</span></div>
+          <div class="m-btn" id="m-btn"><svg viewBox="0 0 24 24"><circle cx="7.5" cy="15.5" r="5.5"/><path d="m21 2-9.6 9.6"/><path d="m15.5 7.5 3 3L22 7l-3-3"/></svg>Verificar y guardar</div>
+          <div class="m-ok" id="m-ok">✓ Conectado. Ya puedes generar.</div>
+        </div>
+
+        <div class="truco" id="truco">
+          <span class="tag">Truco</span>
+          <span style="font-size: 22px; color: var(--muted);">Si copiaste los dos juntos:</span>
+          <div class="m-in" id="tr-junto">3f8a1c2e…a7b8<span class="sep">:</span>••••••••••</div>
+          <div class="abajo" id="tr-flecha">↓ IA-HUB los separa solo</div>
+          <div class="m-in" id="tr-id">3f8a1c2e…a7b8</div>
+          <div class="m-in" id="tr-sec">••••••••••</div>
+        </div>
+      </div>
+      <span class="click" id="click1" style="left: 1483px; top: 8px;"></span>
+      <span class="click" id="click2" style="left: 793px; top: 370px;"></span>
+    </div>
+  </div>
+  <span class="cursor" id="cursor"><svg viewBox="0 0 24 24"><path d="M4 2.5 19.5 12l-6.8 1.6 3.9 7.4-3 1.5-3.9-7.4L4 19.6z"/></svg></span>
+
+  <div class="marca"><img src="base/logo-iahub.png" alt="" /></div>
+</div>
+
+<script>
+  const tl = gsap.timeline({ paused: true });
+  anim.ambiente(tl);
+
+  anim.entrar(tl, '#cab > *', T('abre', 0.0));
+  anim.pop(tl, '#app', TW('abre', 'iahub', 1, -0.2));
+
+  // El cursor (parte en 960,560) va a "Conectar API" (arriba a la derecha) y hace click.
+  // x/y = posicion destino - posicion inicial del cursor.
+  var tClick = TW('abre', 'conectar', 1, 0.1);
+  tl.fromTo('#cursor', { opacity: 0, x: 0, y: 0 }, { opacity: 1, duration: 0.3 }, TW('abre', 'menu', 1, -0.2));
+  tl.to('#cursor', { x: 682, y: -250, duration: 0.9, ease: 'power2.inOut' }, tClick - 0.9);
+  tl.fromTo('#click1', { opacity: 1, scale: 0.4 }, { opacity: 0, scale: 1.4, duration: 0.5, ease: 'power2.out', immediateRender: false }, tClick);
+  anim.pulso(tl, '#btn-conectar', tClick, { escala: 0.94 });
+  tl.to('#velo', { opacity: 1, duration: 0.35 }, tClick + 0.2);
+  tl.fromTo('#modal', { opacity: 0, y: 30, scale: 0.96 }, { opacity: 1, y: 0, scale: 1, duration: 0.45, ease: 'power3.out' }, tClick + 0.25);
+  tl.to('#cursor', { x: 280, y: -30, duration: 0.8, ease: 'power2.inOut' }, tClick + 0.6);
+
+  // Pega KEY_ID y KEY_SECRET
+  anim.tipear(tl, '#t-id', TW('pega', 'key', 1, -0.1), { dur: 1.0 });
+  anim.tipear(tl, '#t-sec', TW('pega', 'key', 2, -0.1), { dur: 0.8 });
+
+  // Truco: ID:SECRET pegados juntos en el primer campo
+  anim.pop(tl, '#truco', T('truco', -0.1));
+  anim.entrar(tl, ['#truco .tag', '#truco > span:nth-child(2)', '#tr-junto'], T('truco', 0.1), { stagger: 0.1, y: 12 });
+  anim.entrar(tl, '#tr-flecha', TW('truco', 'pegalos', 1, -0.1), { y: -10 });
+  anim.lado(tl, ['#tr-id', '#tr-sec'], TW('truco', 'separa', 1, -0.15), { x: -30, stagger: 0.15 });
+
+  // Verificar y guardar -> conectado
+  tl.to('#truco', { opacity: 0, duration: 0.35 }, T('verifica', -0.4));
+  var tVer = TW('verifica', 'verificar', 1, 0.15);
+  tl.to('#cursor', { x: -8, y: 110, duration: 0.6, ease: 'power2.inOut' }, tVer - 0.6);
+  tl.fromTo('#click2', { opacity: 1, scale: 0.4 }, { opacity: 0, scale: 1.4, duration: 0.5, ease: 'power2.out', immediateRender: false }, tVer);
+  anim.pulso(tl, '#m-btn', tVer, { escala: 0.97 });
+  tl.fromTo('#m-ok', { opacity: 0, y: 10 }, { opacity: 1, y: 0, duration: 0.4, ease: 'power2.out' }, tVer + 0.5);
+  var tFin = TW('verifica', 'boton', 1, -0.2);
+  tl.to(['#modal', '#velo'], { opacity: 0, duration: 0.4, ease: 'power2.in' }, tFin);
+  tl.to('#cursor', { opacity: 0, duration: 0.3 }, tFin);
+  tl.to('#btn-conectar', { opacity: 0, duration: 0.3 }, TW('verifica', 'api', 1, -0.3));
+  tl.to('#btn-conectada', { opacity: 1, duration: 0.3 }, TW('verifica', 'api', 1, -0.25));
+  anim.pulso(tl, '#btn-conectada', TW('verifica', 'conectada', 1, 0), { escala: 1.08 });
+  tl.to('#banner', { opacity: 0, duration: 0.4 }, TW('verifica', 'conectada', 1, 0.2));
+
+  anim.salir(tl);
+  window.__timelines['05-conectar'] = tl;
+</script>
+</body>
+</html>

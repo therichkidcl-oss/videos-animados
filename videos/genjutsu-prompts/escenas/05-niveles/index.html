@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=1920, height=1080" />
+<link rel="stylesheet" href="base/tema.css" />
+<script src="base/vendor/gsap.min.js"></script>
+<script src="tiempos.js"></script>
+<script src="base/escena.js"></script>
+<style>
+  /* Escalera de niveles (izquierda) */
+  .escalera { position: absolute; left: 0; top: 40px; width: 560px; height: 520px; display: flex; align-items: flex-end; gap: 22px; }
+  .peldano { position: relative; flex: 1; display: flex; flex-direction: column; justify-content: flex-end; }
+  .pila { position: relative; display: block; width: 100%; }
+  .barra { display: block; width: 100%; height: 100%; border-radius: 18px 18px 8px 8px; background: var(--surface-2); border: 1.5px solid var(--line); transform-origin: bottom center; }
+  .peldano .n { position: absolute; left: 0; right: 0; top: -74px; text-align: center; font-family: var(--display); font-weight: 700; font-size: 60px; line-height: 1; color: var(--muted); }
+  .peldano .nombre { margin-top: 14px; text-align: center; font-family: var(--mono); font-weight: 600; font-size: 19px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); min-height: 48px; }
+  .barra.activa { background: var(--accent); border-color: var(--accent); }
+
+  /* Panel derecho */
+  .panel { position: absolute; left: 640px; right: 0; top: 40px; height: 560px; }
+  .regla-txt { position: absolute; inset: 0; display: flex; flex-direction: column; justify-content: center; gap: 30px; }
+  .regla-txt .linea { font-family: var(--display); font-weight: 700; font-size: 68px; line-height: 1.02; text-transform: uppercase; letter-spacing: -0.025em; }
+  .regla-txt .linea .lima { color: var(--accent); }
+  .regla-txt .linea.suave { font-size: 46px; color: var(--muted); }
+  .nivel { position: absolute; inset: 0; display: flex; flex-direction: column; gap: 22px; justify-content: center; }
+  .nivel .cab { display: flex; align-items: center; gap: 16px; }
+  .nivel .cab .tag { font-size: 24px; }
+  .nivel h3 { font-family: var(--display); font-weight: 700; font-size: 72px; line-height: 1; letter-spacing: -0.025em; text-transform: uppercase; }
+  .nivel p { font-size: 34px; line-height: 1.4; color: var(--muted); max-width: 980px; }
+  .nivel .prompt { font-size: 31px; }
+  .secciones { display: grid; gap: 12px; }
+  .sec { display: flex; gap: 18px; align-items: baseline; background: #141518; border: 1.5px solid var(--line); border-radius: 16px; padding: 14px 22px; }
+  .sec b { font-family: var(--mono); font-weight: 600; font-size: 26px; color: var(--accent); letter-spacing: 0.04em; min-width: 360px; }
+  .sec span { font-size: 25px; color: var(--muted); }
+
+  /* Dato final */
+  .dato { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 22px; text-align: center; }
+  .dato .cifra { font-family: var(--display); font-weight: 700; font-size: 250px; line-height: 0.9; letter-spacing: -0.05em; color: var(--accent); }
+  .dato .cifra .de { color: var(--muted); font-size: 0.42em; letter-spacing: -0.02em; }
+  .dato .txt { font-size: 44px; font-weight: 600; max-width: 1200px; line-height: 1.3; }
+  .dato .txt .muted { color: var(--muted); font-weight: 500; }
+  #num { display: inline-block; min-width: 2.2ch; text-align: right; }
+</style>
+</head>
+<body>
+<div id="root" data-composition-id="05-niveles" data-start="0" data-width="1920" data-height="1080" data-duration="44.475">
+  <audio id="voz" src="voz.mp3" data-start="0.4" data-duration="43.375" data-volume="1"></audio>
+  <div class="fondo"><div class="rejilla"></div><div class="blob b1"></div><div class="blob b2"></div></div>
+
+  <div class="contenido">
+    <div class="capa" id="fase1">
+      <div class="cabecera" id="cab">
+        <div class="eyebrow"><span class="num">04</span> · Niveles</div>
+        <h2>De una línea a un <span class="lima">guion completo</span></h2>
+      </div>
+      <div class="zona">
+        <div class="escalera" id="escalera">
+          <div class="peldano" id="e1"><span class="pila" style="height: 110px"><span class="barra" id="b1"></span><span class="n">1</span></span><div class="nombre">Una línea</div></div>
+          <div class="peldano" id="e2"><span class="pila" style="height: 200px"><span class="barra" id="b2"></span><span class="n">2</span></span><div class="nombre">Con papeles</div></div>
+          <div class="peldano" id="e3"><span class="pila" style="height: 290px"><span class="barra" id="b3"></span><span class="n">3</span></span><div class="nombre">Detallado</div></div>
+          <div class="peldano" id="e4"><span class="pila" style="height: 380px"><span class="barra" id="b4"></span><span class="n">4</span></span><div class="nombre">Por secciones</div></div>
+        </div>
+
+        <div class="panel">
+          <div class="regla-txt" id="regla">
+            <div class="linea" id="rg1">Empieza por el <span class="lima">nivel 1</span></div>
+            <div class="linea suave" id="rg2">Sube de nivel solo cuando el resultado falle en algo concreto.</div>
+          </div>
+
+          <div class="nivel" id="n1">
+            <div class="cab"><span class="tag">Nivel 1</span><span class="tag suave">Una línea</span></div>
+            <p>Una sola persona en el video y la quieres cambiar entera.</p>
+            <div class="prompt"><span id="t1">Replace the main character with <span class="chip img">@image1</span>.</span></div>
+          </div>
+          <div class="nivel" id="n2">
+            <div class="cab"><span class="tag">Nivel 2</span><span class="tag suave">Con papeles</span></div>
+            <p>Usas más de una foto: a cada foto le das su papel.</p>
+            <div class="prompt"><span id="t2">Replace the main character with <span class="chip img">@image1</span>. Replace the location with the environment from <span class="chip img">@image2</span>.</span></div>
+          </div>
+          <div class="nivel" id="n3">
+            <div class="cab"><span class="tag">Nivel 3</span><span class="tag suave">Detallado</span></div>
+            <p>La anatomía de 5 partes: para varias personas o cuando quieres conservar algo.</p>
+            <div class="prompt" style="font-size: 27px;"><span class="parte a1">Edit <span class="chip vid">@video1</span>.</span> <span class="parte a2">Replace the woman in the red dress</span> <span class="parte a3">with <span class="chip img">@image1</span>, using her complete face, hair, skin tone, body build and outfit exactly as shown in <span class="chip img">@image1</span>.</span> <span class="parte a4">Do not transfer the handbag from <span class="chip img">@image1</span>.</span> <span class="parte a5">Keep the motion, timing, camera, lighting and background of <span class="chip vid">@video1</span> exactly the same.</span></div>
+          </div>
+          <div class="nivel" id="n4">
+            <div class="cab"><span class="tag">Nivel 4</span><span class="tag suave">Por secciones</span></div>
+            <p>Escenas largas, con cortes, varios cambios o tiempos exactos.</p>
+            <div class="secciones">
+              <div class="sec" id="sc1"><b>TASK</b><span>Qué editas y qué cambias</span></div>
+              <div class="sec" id="sc2"><b>ACTIVE REFERENCES</b><span>El papel de cada foto</span></div>
+              <div class="sec" id="sc3"><b>SOURCE VIDEO</b><span>Cómo es el video original</span></div>
+              <div class="sec" id="sc4"><b>SHOT-BY-SHOT GUIDE</b><span>Qué pasa en cada segundo</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="capa" id="fase2">
+      <div class="dato">
+        <div class="cifra"><span id="num">0</span> <span class="de">de 32</span></div>
+        <div class="txt" id="dtxt">prompts oficiales son <span class="lima" style="color: var(--accent)">detallados o por secciones</span> <span class="muted">· solo 7 son de una línea</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="marca"><img src="base/logo-iahub.png" alt="" /></div>
+</div>
+
+<script>
+  const tl = gsap.timeline({ paused: true });
+  anim.ambiente(tl);
+
+  anim.entrar(tl, '#cab > *', T('intro', 0.05));
+  // La escalera crece cuando dice "cuatro niveles"
+  tl.fromTo(['#b1', '#b2', '#b3', '#b4'], { scaleY: 0 }, { scaleY: 1, duration: 0.6, stagger: 0.12, ease: 'power3.out' }, TW('intro', 'cuatro', 1, -0.2));
+  anim.entrar(tl, ['#e1 .n', '#e2 .n', '#e3 .n', '#e4 .n', '#e1 .nombre', '#e2 .nombre', '#e3 .nombre', '#e4 .nombre'], TW('intro', 'cuatro', 1, 0.1), { stagger: 0.05 });
+
+  // La regla
+  anim.entrar(tl, '#rg1', TW('regla', 'empieza', 1, -0.15));
+  tl.to('#b1', { backgroundColor: '#d1fe17', borderColor: '#d1fe17', duration: 0.3 }, TW('regla', 'empieza', 1, 0.1));
+  tl.to('#e1 .n', { color: '#d1fe17', duration: 0.3 }, TW('regla', 'empieza', 1, 0.1));
+  anim.entrar(tl, '#rg2', TW('regla', 'sube', 1, -0.15));
+  tl.to('#regla', { opacity: 0, duration: 0.35, ease: 'power2.in' }, T('n1', -0.4));
+
+  // Cada nivel: se enciende su peldano y aparece su panel
+  var ids = ['n1', 'n2', 'n3', 'n4'];
+  ids.forEach(function (id, i) {
+    var n = i + 1;
+    var t0 = T(id, -0.1);
+    if (i > 0) {
+      tl.to('#n' + i, { opacity: 0, y: -20, duration: 0.3, ease: 'power2.in' }, t0 - 0.3);
+      tl.to('#b' + n, { backgroundColor: '#d1fe17', borderColor: '#d1fe17', duration: 0.3 }, t0);
+      tl.to('#e' + n + ' .n', { color: '#d1fe17', duration: 0.3 }, t0);
+      anim.atenuar(tl, '#b' + i, t0, 0.55);
+    }
+    anim.entrar(tl, '#n' + n + ' > *', t0, { stagger: 0.1 });
+  });
+  anim.tipear(tl, '#t1', TW('n1', 'linea', 1, 0.1), { dur: 1.6 });
+  anim.tipear(tl, '#t2', TW('n2', 'papeles', 1, 0.1), { dur: 3 });
+  anim.marcar(tl, '#n3 .parte', TW('n3', 'anatomia', 1, -0.1), { dur: 0.5 });
+  anim.lado(tl, '#sc1', TW('n4', 'task', 1, -0.15), { x: 40 });
+  anim.lado(tl, '#sc2', TW('n4', 'active', 1, -0.15), { x: 40 });
+  anim.lado(tl, '#sc3', TW('n4', 'references', 1, 0.35), { x: 40 });
+  anim.lado(tl, '#sc4', TW('n4', 'shot', 1, -0.15), { x: 40 });
+
+  // Dato: 25 de 32
+  tl.to('#fase1', { opacity: 0, scale: 0.97, duration: 0.45, ease: 'power2.in' }, T('dato', -0.45));
+  anim.entrar(tl, '#fase2 .cifra', T('dato', -0.05), { y: 40 });
+  anim.contar(tl, '#num', TW('dato', 'veinticinco', 1, -0.6), 0, 25, 0.8);
+  anim.entrar(tl, '#dtxt', TW('dato', 'son', 1, -0.1));
+
+  anim.salir(tl);
+  window.__timelines['05-niveles'] = tl;
+</script>
+</body>
+</html>

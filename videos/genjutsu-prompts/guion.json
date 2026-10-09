@@ -1,0 +1,119 @@
+{
+  "titulo": "Prompts de Genjutsu",
+  "fuente": "Guia de prompts de Genjutsu de IA-HUB",
+  "voz": {
+    "proveedor": "elevenlabs",
+    "elevenlabs": { "voz_id": "gbTn1bmCvNgk0QEAVyfM", "nombre": "Enrique M. Nieto (biblioteca, es-MX)", "modelo": "eleven_multilingual_v2", "velocidad": 1.0, "estabilidad": 0.5, "similitud": 0.8, "estilo": 0 },
+    "minimax": { "voz_id": "Spanish_Narrator", "modelo": "speech-2.8-hd", "velocidad": 1.0 },
+    "local": { "voz": "Microsoft Sabina Desktop", "velocidad": 1 }
+  },
+  "escenas": [
+    {
+      "id": "00-bienvenida",
+      "frases": [
+        { "id": "saludo", "texto": "¡Hola! Qué bueno tenerte en una nueva clase de IA-HUB." },
+        { "id": "tema", "texto": "Hoy vas a aprender a crear los prompts de Genjutsu, la herramienta que toma un video que ya existe y lo rehace con tu personaje." },
+        { "id": "agenda", "texto": "Vamos a ver qué aporta cada pieza, cómo nombrar el video y las fotos, las cinco partes de un buen prompt, los cuatro niveles, las recetas listas para copiar, los errores más comunes y una checklist final." },
+        { "id": "vamos", "texto": "Empecemos." }
+      ]
+    },
+    {
+      "id": "01-intro",
+      "frases": [
+        { "id": "gancho", "texto": "Subes tu video, subes la foto de tu personaje… y el resultado sale con otra cara, otra ropa o en otro lugar." },
+        { "id": "problema", "texto": "Casi siempre el problema no es Genjutsu: es el prompt." },
+        { "id": "promesa", "texto": "En este video vas a aprender a escribirlo paso a paso, con la misma estructura que usa Higgsfield en sus ejemplos oficiales." }
+      ]
+    },
+    {
+      "id": "02-idea",
+      "frases": [
+        { "id": "intro", "texto": "Primero, entiende qué aporta cada pieza." },
+        { "id": "video", "texto": "El video pone el movimiento: la cámara, los tiempos y la coreografía." },
+        { "id": "fotos", "texto": "Tus fotos ponen la apariencia: la cara, el pelo, el cuerpo, la ropa, un producto o un lugar." },
+        { "id": "prompt", "texto": "Y el prompt dice qué cambiar… y también qué no cambiar. Ahí está el control." },
+        { "id": "modos", "texto": "Genjutsu tiene dos modos." },
+        { "id": "motion", "texto": "En motion transfer, tu personaje hace exactamente lo que pasa en el video." },
+        { "id": "swap", "texto": "En object swap, cambias algo puntual, como un producto o una prenda, y todo lo demás queda igual." },
+        { "id": "limites", "texto": "El video debe durar entre 4 y 30 segundos, puedes subir hasta 8 fotos, y el prompt siempre va en inglés." }
+      ]
+    },
+    {
+      "id": "03-menciones",
+      "frases": [
+        { "id": "intro", "texto": "Dentro del prompt, el video y cada foto se nombran con menciones." },
+        { "id": "video1", "texto": "Arroba video uno es tu video." },
+        { "id": "image1", "texto": "Arroba image uno es la primera foto que subiste, arroba image dos la segunda, y así sucesivamente." },
+        { "id": "regla1", "texto": "Tres reglas. Uno: el orden importa. Si cambias el orden de las fotos, cambian las menciones." },
+        { "id": "regla2", "texto": "Dos: cada foto tiene un solo papel. Dile al modelo si es el personaje, el lugar o la ropa." },
+        { "id": "regla3", "texto": "Y tres: nunca menciones una foto que no subiste." },
+        { "id": "ejemplo", "texto": "Por ejemplo: reemplaza al personaje principal con arroba image uno, y el lugar con el ambiente de arroba image dos." }
+      ]
+    },
+    {
+      "id": "04-anatomia",
+      "frases": [
+        { "id": "intro", "texto": "Ahora, la estructura de los prompts oficiales de Higgsfield. Son cinco partes, siempre en el mismo orden." },
+        { "id": "p1", "texto": "Uno: qué video editas. Siempre empieza nombrando el video." },
+        { "id": "p2", "texto": "Dos: a quién cambias. Identifícalo por lo que se ve: su ropa, su posición o lo que está haciendo." },
+        { "id": "p3", "texto": "Tres: con qué foto, y qué debe copiar de ella: la cara completa, el pelo, el tono de piel, el cuerpo y la ropa." },
+        { "id": "p4", "texto": "Cuatro: qué no copiar. Si la foto trae algo que no quieres en el video, como una cartera, lo prohíbes." },
+        { "id": "p5", "texto": "Y cinco: qué se queda igual. El movimiento, los tiempos, la cámara, la luz y el fondo del video." },
+        { "id": "cierre", "texto": "Con estas cinco partes, el modelo ya no tiene que adivinar nada." },
+        { "id": "candado", "texto": "Y si en el video hay varias personas, agrega un candado de identidad, para que tu personaje no aparezca clonado en otra." }
+      ]
+    },
+    {
+      "id": "05-niveles",
+      "frases": [
+        { "id": "intro", "texto": "No siempre necesitas un prompt largo. Hay cuatro niveles." },
+        { "id": "regla", "texto": "La regla es simple: empieza por el nivel uno, y sube de nivel solo cuando el resultado falle en algo concreto." },
+        { "id": "n1", "texto": "Nivel uno: una línea. Sirve cuando hay una sola persona y la quieres cambiar entera." },
+        { "id": "n2", "texto": "Nivel dos: con papeles. Cuando usas más de una foto, le das a cada una su papel." },
+        { "id": "n3", "texto": "Nivel tres: detallado. Es la anatomía de cinco partes que acabas de ver." },
+        { "id": "n4", "texto": "Y nivel cuatro: por secciones, con títulos como TASK, ACTIVE REFERENCES y SHOT BY SHOT. Es para escenas largas, con cortes o con tiempos exactos." },
+        { "id": "dato", "texto": "De treinta y dos prompts oficiales, veinticinco son detallados o por secciones." }
+      ]
+    },
+    {
+      "id": "06-recetas",
+      "frases": [
+        { "id": "intro", "texto": "Estas son las recetas que más vas a usar. Solo cambia lo que va entre corchetes." },
+        { "id": "protagonista", "texto": "Para cambiar al protagonista: nombra el video, reemplaza a la persona principal con tu foto, y cierra pidiendo que el movimiento, los tiempos, la cámara y el fondo queden exactamente iguales." },
+        { "id": "una", "texto": "Si hay varias personas, di a cuál cambias por su posición o por su ropa, y agrega el candado de identidad." },
+        { "id": "cara", "texto": "Si solo quieres cambiar la cara, aclara que se queda la ropa del video." },
+        { "id": "ropa", "texto": "Y si solo quieres cambiar la ropa, aclara que no se transfiera la cara de la foto." },
+        { "id": "producto", "texto": "Para un producto, nombra el objeto que reemplazas y pide conservar su forma, su etiqueta, sus colores y su tamaño." }
+      ]
+    },
+    {
+      "id": "07-errores",
+      "frases": [
+        { "id": "intro", "texto": "Ahora, los errores que más arruinan un resultado." },
+        { "id": "e1", "texto": "Copiar un prompt de la comunidad que describe el pelo y la ropa de otra persona. Cambia esa descripción por la de tu personaje." },
+        { "id": "e2", "texto": "Mencionar arroba image tres cuando subiste solo dos fotos, o subirlas en otro orden." },
+        { "id": "e3", "texto": "No decir qué se queda igual. Entonces cambia el fondo, o la cámara." },
+        { "id": "e4", "texto": "Pedir cinco cambios a la vez. Haz uno o dos por video." },
+        { "id": "e5", "texto": "Y escribir el prompt en español. Escríbelo en inglés, y si te cuesta, pásalo por el Traductor de Prompts de IA-HUB." }
+      ]
+    },
+    {
+      "id": "08-checklist",
+      "frases": [
+        { "id": "intro", "texto": "Antes de apretar Generar, repasa esta lista." },
+        { "id": "c1", "texto": "El video dura entre 4 y 30 segundos y tiene un protagonista claro." },
+        { "id": "c2", "texto": "Las fotos están en el mismo orden que dice el prompt, y cada mención tiene su foto." },
+        { "id": "c3", "texto": "El prompt dice a quién cambiar y qué se queda igual." },
+        { "id": "c4", "texto": "Está en inglés y no se contradice." },
+        { "id": "c5", "texto": "Y lo probaste primero en 480p, que cuesta menos de la mitad que 720p. Cuando el prompt ya funcione, generas la versión final." }
+      ]
+    },
+    {
+      "id": "09-cierre",
+      "frases": [
+        { "id": "resumen", "texto": "Video para el movimiento, fotos para la apariencia, y un prompt que dice qué cambiar y qué no." },
+        { "id": "guia", "texto": "Tienes todas las recetas listas para copiar en la guía de prompts de Genjutsu. Nos vemos en el próximo video." }
+      ]
+    }
+  ]
+}

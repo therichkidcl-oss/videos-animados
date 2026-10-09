@@ -1,0 +1,21 @@
+{
+  "name": "estudio-videos",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Estudio de videos animados (texto + animaciones + voz) con HyperFrames",
+  "scripts": {
+    "instalar": "node herramientas/instalar.mjs",
+    "test": "node --test \"herramientas/*.test.mjs\"",
+    "voz": "node herramientas/voz.mjs",
+    "render": "node herramientas/render.mjs",
+    "revisar": "node herramientas/revisar.mjs"
+  },
+  "dependencies": {
+    "@fontsource/inter": "5.3.0",
+    "@fontsource/jetbrains-mono": "5.3.0",
+    "@fontsource/space-grotesk": "5.3.0",
+    "gsap": "3.14.2",
+    "hyperframes": "0.8.143"
+  }
+}

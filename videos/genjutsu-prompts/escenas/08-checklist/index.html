@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=1920, height=1080" />
+<link rel="stylesheet" href="base/tema.css" />
+<script src="base/vendor/gsap.min.js"></script>
+<script src="tiempos.js"></script>
+<script src="base/escena.js"></script>
+<style>
+  .lista { display: grid; gap: 16px; max-width: 1180px; }
+  .item { display: flex; align-items: center; gap: 26px; background: var(--surface); border: 1.5px solid var(--line); border-radius: 22px; padding: 22px 28px; font-size: 34px; font-weight: 500; line-height: 1.3; }
+  .item .check { position: relative; }
+  .item .check .relleno { position: absolute; inset: -3px; border-radius: 14px; background: var(--accent); display: block; }
+  .item .check svg { position: relative; stroke: var(--accent-ink); fill: none; stroke-width: 3.4; stroke-linecap: round; stroke-linejoin: round; }
+  .item .check svg path { stroke-dasharray: 24; }
+
+  .lado { position: absolute; right: 0; top: 0; width: 400px; display: flex; flex-direction: column; gap: 18px; }
+  .costo { background: var(--surface); border: 1.5px solid var(--line); border-radius: 24px; padding: 28px 30px; display: grid; gap: 18px; }
+  .costo .eyebrow { font-size: 20px; }
+  .fila-c { display: grid; grid-template-columns: 96px 1fr; align-items: center; gap: 14px; font-family: var(--mono); font-weight: 600; font-size: 28px; }
+  .fila-c .b { display: block; height: 26px; border-radius: 8px; transform-origin: left center; }
+  .fila-c .b.c480 { width: 47%; background: var(--accent); }
+  .fila-c .b.c720 { width: 100%; background: rgba(255, 255, 255, 0.22); }
+  .costo .nota { font-size: 24px; color: var(--muted); font-family: var(--body); font-weight: 500; }
+  .boton { display: flex; align-items: center; justify-content: center; gap: 14px; height: 96px; border-radius: 22px; background: var(--accent); color: var(--accent-ink); font-family: var(--display); font-weight: 700; font-size: 40px; text-transform: uppercase; letter-spacing: -0.01em; }
+  .boton svg { width: 40px; height: 40px; display: block; stroke: var(--accent-ink); fill: none; stroke-width: 2.6; stroke-linecap: round; stroke-linejoin: round; }
+  .boton-txt { font-size: 24px; color: var(--muted); text-align: center; }
+</style>
+</head>
+<body>
+<div id="root" data-composition-id="08-checklist" data-start="0" data-width="1920" data-height="1080" data-duration="30.171">
+  <audio id="voz" src="voz.mp3" data-start="0.4" data-duration="29.071" data-volume="1"></audio>
+  <div class="fondo"><div class="rejilla"></div><div class="blob b1"></div><div class="blob b2"></div></div>
+
+  <div class="contenido">
+    <div class="cabecera" id="cab">
+      <div class="eyebrow"><span class="num">07</span> · Checklist</div>
+      <h2>Antes de apretar <span class="lima">Generar</span></h2>
+    </div>
+    <div class="zona">
+      <div class="lista">
+        <div class="item" id="i1"><span class="check" id="ck1"><span class="relleno"></span><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span>El video dura entre 4 y 30 s y tiene un protagonista claro.</div>
+        <div class="item" id="i2"><span class="check" id="ck2"><span class="relleno"></span><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span>Las fotos están en el orden del prompt y cada mención tiene su foto.</div>
+        <div class="item" id="i3"><span class="check" id="ck3"><span class="relleno"></span><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span>El prompt dice a quién cambiar y qué se queda igual.</div>
+        <div class="item" id="i4"><span class="check" id="ck4"><span class="relleno"></span><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span>Está en inglés y no se contradice.</div>
+        <div class="item" id="i5"><span class="check" id="ck5"><span class="relleno"></span><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span>Lo probaste primero en 480p.</div>
+      </div>
+
+      <div class="lado">
+        <div class="costo" id="costo">
+          <div class="eyebrow">Costo por segundo</div>
+          <div class="fila-c"><span>480p</span><span class="b c480" id="b480"></span></div>
+          <div class="fila-c"><span>720p</span><span class="b c720" id="b720"></span></div>
+          <div class="nota" id="nota">480p cuesta menos de la mitad.</div>
+        </div>
+        <div class="boton" id="boton"><svg viewBox="0 0 24 24"><path d="M12 3l1.9 5.8L20 10l-5 3.9L16.8 20 12 16.6 7.2 20 9 13.9 4 10l6.1-1.2z"/></svg>Generar</div>
+        <div class="boton-txt" id="btxt">Cuando funcione, la versión final.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="marca"><img src="base/logo-iahub.png" alt="" /></div>
+</div>
+
+<script>
+  const tl = gsap.timeline({ paused: true });
+  anim.ambiente(tl);
+
+  anim.entrar(tl, '#cab > *', T('intro', 0.05));
+  anim.entrar(tl, ['#i1', '#i2', '#i3', '#i4', '#i5'], TW('intro', 'repasa', 1, -0.1), { stagger: 0.08, y: 24 });
+
+  // Cada punto se marca cuando la voz lo dice
+  ['c1', 'c2', 'c3', 'c4', 'c5'].forEach(function (id, i) {
+    var n = i + 1;
+    var t = TF(id, -0.5);
+    if (id === 'c5') t = TW('c5', '480p', 1, 0.2);
+    tl.fromTo('#ck' + n + ' .relleno', { scale: 0 }, { scale: 1, duration: 0.3, ease: 'back.out(2)' }, t);
+    tl.fromTo('#ck' + n + ' path', { strokeDashoffset: 24 }, { strokeDashoffset: 0, duration: 0.35, ease: 'power2.out' }, t + 0.12);
+    anim.pulso(tl, '#i' + n, t, { escala: 1.02 });
+  });
+
+  // 480p vs 720p
+  anim.entrar(tl, '#costo', TW('c5', '480p', 1, -0.1));
+  tl.fromTo('#b480', { scaleX: 0 }, { scaleX: 1, duration: 0.6, ease: 'power3.out' }, TW('c5', 'cuesta', 1, -0.1));
+  tl.fromTo('#b720', { scaleX: 0 }, { scaleX: 1, duration: 0.8, ease: 'power3.out' }, TW('c5', '720p', 1, -0.3));
+  anim.entrar(tl, '#nota', TW('c5', 'mitad', 1, -0.1));
+  anim.pop(tl, '#boton', TW('c5', 'funcione', 1, -0.2));
+  tl.fromTo('#boton', { scale: 1 }, { scale: 0.94, duration: 0.12, yoyo: true, repeat: 1, ease: 'power2.inOut' }, TW('c5', 'generas', 1, -0.05));
+  anim.entrar(tl, '#btxt', TW('c5', 'generas', 1, 0.1));
+
+  anim.salir(tl);
+  window.__timelines['08-checklist'] = tl;
+</script>
+</body>
+</html>

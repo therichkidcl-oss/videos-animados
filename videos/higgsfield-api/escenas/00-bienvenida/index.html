@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=1920, height=1080" />
+<link rel="stylesheet" href="base/tema.css" />
+<script src="base/vendor/gsap.min.js"></script>
+<script src="tiempos.js"></script>
+<script src="base/escena.js"></script>
+<style>
+  #cA { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px; }
+  #cA img { display: block; width: 470px; height: auto; }
+  .hola { font-family: var(--display); font-weight: 700; font-size: 230px; line-height: 0.95; letter-spacing: -0.05em; text-transform: uppercase; }
+  .hola .lima { color: var(--accent); }
+  #cA .subtitulo { text-align: center; font-size: 46px; }
+
+  #cB { display: flex; flex-direction: column; justify-content: center; padding: 0 132px; }
+  #cB .eyebrow { font-size: 28px; margin-bottom: 26px; }
+  #cB .titulo { font-size: 172px; }
+  #cB .titulo .palabra { display: inline-block; }
+  #cB .subtitulo { margin-top: 34px; font-size: 46px; }
+
+  .agenda { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px 34px; }
+  .ag { display: flex; align-items: center; gap: 24px; background: var(--surface); border: 1.5px solid var(--line); border-radius: 22px; padding: 26px 28px; font-size: 40px; font-weight: 600; }
+  .ag .num-caja { width: 76px; height: 76px; font-size: 34px; }
+  #vamos { position: absolute; right: 132px; bottom: 160px; }
+  #vamos .tag { font-size: 34px; padding: 14px 24px; border-radius: 14px; }
+</style>
+</head>
+<body>
+<div id="root" data-composition-id="00-bienvenida" data-start="0" data-width="1920" data-height="1080" data-duration="18.376">
+  <audio id="voz" src="voz.mp3" data-start="0.4" data-duration="17.276" data-volume="1"></audio>
+  <div class="fondo"><div class="rejilla"></div><div class="blob b1"></div><div class="blob b2"></div></div>
+
+  <div class="contenido">
+    <div class="capa" id="cA">
+      <img id="logo" src="base/logo-iahub.png" alt="IA-HUB" />
+      <div class="hola" id="hola">¡Hola<span class="lima">!</span></div>
+      <p class="subtitulo" id="sub-a">Una nueva clase de <b>IA-HUB</b></p>
+    </div>
+
+    <div class="capa" id="cB">
+      <div class="eyebrow" id="b-eye">Hoy vas a aprender</div>
+      <h1 class="titulo"><span class="palabra">Higgsfield</span> <span class="palabra lima">+ IA-HUB</span></h1>
+      <p class="subtitulo" id="b-sub">Qué es y cómo conectarlo, <b>paso a paso</b>.</p>
+    </div>
+
+    <div class="capa" id="cC">
+      <div class="cabecera" id="cab">
+        <div class="eyebrow">Agenda de hoy</div>
+        <h2>Lo que vas a <span class="lima">aprender</span></h2>
+      </div>
+      <div class="zona" style="display: flex; align-items: center;">
+        <div class="agenda" style="width: 100%;">
+          <div class="ag" id="a1"><span class="num-caja">01</span>Qué es Higgsfield</div>
+          <div class="ag" id="a2"><span class="num-caja">02</span>Planes vs API</div>
+          <div class="ag" id="a3"><span class="num-caja">03</span>Crear tu API key</div>
+          <div class="ag" id="a4"><span class="num-caja">04</span>Conectarla en IA-HUB</div>
+        </div>
+      </div>
+      <div id="vamos"><span class="tag">Empecemos →</span></div>
+    </div>
+  </div>
+
+  <div class="marca" id="marca"><img src="base/logo-iahub-marca.png" alt="" /></div>
+</div>
+
+<script>
+  const tl = gsap.timeline({ paused: true });
+  anim.ambiente(tl);
+
+  tl.fromTo('#logo', { opacity: 0, scale: 0.85 }, { opacity: 1, scale: 1, duration: 0.7, ease: 'power3.out' }, 0.15);
+  tl.fromTo('#hola', { opacity: 0, y: 60, scale: 0.92 }, { opacity: 1, y: 0, scale: 1, duration: 0.6, ease: 'back.out(1.6)' }, TW('saludo', 'hola', 1, -0.1));
+  anim.entrar(tl, '#sub-a', TW('saludo', 'nueva', 1, -0.15));
+  tl.fromTo('#marca', { opacity: 0 }, { opacity: 0.85, duration: 0.5 }, T('tema', -0.2));
+  tl.to('#cA', { opacity: 0, scale: 0.95, duration: 0.45, ease: 'power2.in' }, T('tema', -0.45));
+
+  anim.entrar(tl, '#b-eye', T('tema', -0.05));
+  anim.entrar(tl, '#cB .titulo .palabra', TW('tema', 'higgsfield', 1, -0.25), { y: 60, stagger: 0.18 });
+  anim.entrar(tl, '#b-sub', TW('tema', 'paso', 1, -0.3));
+  tl.to('#cB', { opacity: 0, y: -30, duration: 0.45, ease: 'power2.in' }, T('agenda', -0.45));
+
+  anim.entrar(tl, '#cab > *', T('agenda', -0.05));
+  [['es', '#a1'], ['planes', '#a2'], ['crear', '#a3'], ['conectarla', '#a4']].forEach(function (x) {
+    anim.lado(tl, x[1], TW('agenda', x[0], 1, -0.25), { x: -40 });
+  });
+  anim.pop(tl, '#vamos', T('vamos', -0.1));
+  anim.pulso(tl, '#vamos', T('vamos', 0.45), { escala: 1.06 });
+
+  anim.salir(tl);
+  window.__timelines['00-bienvenida'] = tl;
+</script>
+</body>
+</html>

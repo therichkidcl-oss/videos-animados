@@ -1,0 +1,115 @@
+/* Tema base de los videos (1920x1080). Look de la guia de Genjutsu / Higgsfield Studio de IA-HUB.
+   Cambia las variables de :root para otro tema. */
+
+@font-face { font-family: 'Space Grotesk'; font-weight: 500; src: url('fuentes/space-grotesk-latin-500-normal.woff2') format('woff2'); }
+@font-face { font-family: 'Space Grotesk'; font-weight: 700; src: url('fuentes/space-grotesk-latin-700-normal.woff2') format('woff2'); }
+@font-face { font-family: 'Inter'; font-weight: 400; src: url('fuentes/inter-latin-400-normal.woff2') format('woff2'); }
+@font-face { font-family: 'Inter'; font-weight: 500; src: url('fuentes/inter-latin-500-normal.woff2') format('woff2'); }
+@font-face { font-family: 'Inter'; font-weight: 600; src: url('fuentes/inter-latin-600-normal.woff2') format('woff2'); }
+@font-face { font-family: 'Inter'; font-weight: 700; src: url('fuentes/inter-latin-700-normal.woff2') format('woff2'); }
+@font-face { font-family: 'JetBrains Mono'; font-weight: 400; src: url('fuentes/jetbrains-mono-latin-400-normal.woff2') format('woff2'); }
+@font-face { font-family: 'JetBrains Mono'; font-weight: 600; src: url('fuentes/jetbrains-mono-latin-600-normal.woff2') format('woff2'); }
+
+:root {
+  --bg: #0f1012;
+  --surface: #17181b;
+  --surface-2: #1f2024;
+  --line: rgba(255, 255, 255, 0.09);
+  --fg: #f1f2f4;
+  --muted: #a3a5ab;
+  --faint: #74767d;
+  --accent: #d1fe17;
+  --accent-ink: #131517;
+  --chip-bg: rgba(209, 254, 23, 0.14);
+  --p-video: #7cc8ff;
+  --p-quien: #ffc061;
+  --p-con: #d1fe17;
+  --p-no: #ff8c8c;
+  --p-igual: #c3a6ff;
+  --warn: #ffbf5e;
+  --display: 'Space Grotesk', Arial, sans-serif;
+  --body: 'Inter', Arial, sans-serif;
+  --mono: 'JetBrains Mono', Consolas, monospace;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { width: 1920px; height: 1080px; overflow: hidden; background: var(--bg); }
+body { color: var(--fg); font-family: var(--body); -webkit-font-smoothing: antialiased; }
+
+#root { position: relative; width: 100%; height: 100%; overflow: hidden; background: var(--bg); }
+
+/* ---------- fondo comun (igual en todas las escenas para que los cortes no se noten) ---------- */
+.fondo { position: absolute; inset: 0; overflow: hidden; }
+.fondo .rejilla {
+  position: absolute; inset: 0;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
+  background-size: 80px 80px;
+  -webkit-mask-image: radial-gradient(ellipse 70% 70% at 50% 45%, #000 30%, transparent 85%);
+  mask-image: radial-gradient(ellipse 70% 70% at 50% 45%, #000 30%, transparent 85%);
+}
+.fondo .blob { position: absolute; display: block; border-radius: 50%; filter: blur(110px); }
+.fondo .b1 { width: 760px; height: 760px; left: -220px; top: -260px; background: rgba(209, 254, 23, 0.10); }
+.fondo .b2 { width: 820px; height: 820px; right: -260px; bottom: -320px; background: rgba(124, 200, 255, 0.08); }
+
+/* ---------- capa de contenido ---------- */
+.contenido { position: absolute; inset: 0; padding: 96px 132px; display: flex; flex-direction: column; }
+.centro { align-items: center; justify-content: center; text-align: center; }
+
+/* Logo IA-HUB (PNG transparente sacado de IA-HUB/logo-iahub-hd.png con herramientas/logo_sin_fondo.py) */
+.marca { position: absolute; right: 52px; bottom: 40px; width: 150px; opacity: 0.85; }
+.marca img { display: block; width: 100%; height: auto; }
+
+/* Cabecera de seccion (arriba a la izquierda) y zona de trabajo debajo */
+.cabecera { position: absolute; left: 132px; right: 132px; top: 78px; }
+.cabecera .eyebrow { margin-bottom: 14px; }
+.cabecera h2 { font-family: var(--display); font-weight: 700; text-transform: uppercase; letter-spacing: -0.03em; line-height: 0.98; font-size: 76px; }
+.cabecera h2 .lima { color: var(--accent); }
+.zona { position: absolute; left: 132px; right: 132px; top: 290px; bottom: 120px; }
+.capa { position: absolute; inset: 0; }
+
+/* ---------- tipografia ---------- */
+.eyebrow { font-family: var(--mono); font-weight: 600; font-size: 24px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted); }
+.eyebrow .num { color: var(--accent); }
+.titulo { font-family: var(--display); font-weight: 700; text-transform: uppercase; letter-spacing: -0.035em; line-height: 0.95; font-size: 112px; color: var(--fg); }
+.titulo .lima { color: var(--accent); }
+.subtitulo { font-family: var(--body); font-weight: 500; font-size: 40px; line-height: 1.35; color: var(--muted); max-width: 1320px; }
+.subtitulo b { color: var(--fg); font-weight: 600; }
+.grande { font-family: var(--body); font-weight: 600; font-size: 52px; line-height: 1.25; color: var(--fg); }
+.mono { font-family: var(--mono); }
+
+/* ---------- piezas ---------- */
+.tarjeta { position: relative; background: var(--surface); border: 1.5px solid var(--line); border-radius: 28px; padding: 40px 44px; }
+.tarjeta .eyebrow { margin-bottom: 14px; }
+.tarjeta h3 { font-family: var(--display); font-weight: 700; font-size: 54px; letter-spacing: -0.02em; line-height: 1.02; text-transform: uppercase; }
+.tarjeta p { font-size: 32px; line-height: 1.4; color: var(--muted); margin-top: 14px; }
+
+.tag { display: inline-flex; align-items: center; gap: 10px; width: fit-content; font-family: var(--mono); font-weight: 600; font-size: 22px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent-ink); background: var(--accent); padding: 8px 14px; border-radius: 10px; }
+.tag.suave { color: var(--fg); background: var(--surface-2); }
+
+/* Mencion (@video1 / @image1) como en IA-HUB */
+.chip { display: inline-flex; align-items: center; gap: 0.32em; font-family: var(--mono); font-weight: 600; color: var(--accent); background: var(--chip-bg); padding: 0.04em 0.34em; border-radius: 0.3em; white-space: nowrap; }
+.chip::before { content: ''; width: 0.72em; height: 0.72em; flex: none; background: currentColor; -webkit-mask: var(--ico) center / contain no-repeat; mask: var(--ico) center / contain no-repeat; }
+.chip.img { --ico: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='3' y='3' width='18' height='18' rx='3'/%3E%3Ccircle cx='9' cy='9' r='2'/%3E%3Cpath d='m21 15-4.5-4.5L5 21'/%3E%3C/svg%3E"); }
+.chip.vid { --ico: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='2' y='6' width='14' height='12' rx='2'/%3E%3Cpath d='m16 10 6-3v10l-6-3'/%3E%3C/svg%3E"); }
+
+/* Bloque de prompt (ingles, monoespaciado) */
+.prompt { position: relative; background: #141518; border: 1.5px solid var(--line); border-radius: 22px; padding: 34px 42px; font-family: var(--mono); font-weight: 400; font-size: 34px; line-height: 1.6; color: var(--fg); white-space: pre-wrap; overflow-wrap: anywhere; }
+.prompt .etiqueta { position: absolute; top: -17px; left: 34px; font-family: var(--mono); font-weight: 600; font-size: 18px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent-ink); background: var(--accent); padding: 4px 12px; border-radius: 8px; }
+
+/* Partes de la anatomia: color de texto + marcador animable (background-size 0% -> 100%) */
+.parte { border-radius: 8px; padding: 0 4px; -webkit-box-decoration-break: clone; box-decoration-break: clone; background-repeat: no-repeat; background-size: 100% 100%; }
+.a1 { color: var(--p-video); background-image: linear-gradient(rgba(124, 200, 255, 0.16), rgba(124, 200, 255, 0.16)); }
+.a2 { color: var(--p-quien); background-image: linear-gradient(rgba(255, 192, 97, 0.16), rgba(255, 192, 97, 0.16)); }
+.a3 { color: var(--p-con); background-image: linear-gradient(rgba(209, 254, 23, 0.14), rgba(209, 254, 23, 0.14)); }
+.a4 { color: var(--p-no); background-image: linear-gradient(rgba(255, 140, 140, 0.16), rgba(255, 140, 140, 0.16)); }
+.a5 { color: var(--p-igual); background-image: linear-gradient(rgba(195, 166, 255, 0.16), rgba(195, 166, 255, 0.16)); }
+
+/* Numero en cuadrado lima (reglas, pasos) */
+.num-caja { display: grid; place-items: center; flex: none; width: 64px; height: 64px; border-radius: 16px; background: var(--accent); color: var(--accent-ink); font-family: var(--display); font-weight: 700; font-size: 36px; }
+
+/* Check de lista */
+.check { display: grid; place-items: center; flex: none; width: 56px; height: 56px; border-radius: 14px; border: 3px solid rgba(255, 255, 255, 0.22); }
+.check svg { width: 34px; height: 34px; display: block; }
+.check.ok { background: var(--accent); border-color: var(--accent); }

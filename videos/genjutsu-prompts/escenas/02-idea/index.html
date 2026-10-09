@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=1920, height=1080" />
+<link rel="stylesheet" href="base/tema.css" />
+<script src="base/vendor/gsap.min.js"></script>
+<script src="tiempos.js"></script>
+<script src="base/escena.js"></script>
+<style>
+  #p1 .zona, #p2 .zona { display: flex; align-items: center; }
+  /* Parte 1: las tres piezas */
+  .tres { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 34px; width: 100%; min-height: 460px; }
+  .pieza { display: flex; flex-direction: column; gap: 22px; background: var(--surface); border: 1.5px solid var(--line); border-radius: 30px; padding: 42px 44px; }
+  .pieza .top { display: flex; align-items: center; gap: 16px; }
+  .pieza .top svg { width: 54px; height: 54px; display: block; stroke: var(--accent); fill: none; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+  .pieza .top .eyebrow { font-size: 26px; color: var(--accent); }
+  .pieza h3 { font-family: var(--display); font-weight: 700; font-size: 62px; line-height: 1; letter-spacing: -0.025em; text-transform: uppercase; max-width: 9em; }
+  .pieza .extra { font-family: var(--display); font-weight: 700; font-size: 44px; line-height: 1.05; text-transform: uppercase; color: var(--muted); }
+  .pieza .extra .no { color: var(--p-no); }
+  .minis { display: flex; flex-wrap: wrap; gap: 12px; margin-top: auto; }
+  .mini { display: inline-flex; font-family: var(--body); font-weight: 600; font-size: 28px; color: var(--fg); background: var(--surface-2); border: 1.5px solid var(--line); padding: 8px 20px; border-radius: 999px; }
+  #pz-prompt .control { margin-top: auto; }
+  #pz-prompt .control .tag { font-size: 24px; }
+  #brillo { position: absolute; inset: -2px; border-radius: 31px; border: 3px solid var(--accent); box-shadow: 0 0 70px rgba(209, 254, 23, 0.25); opacity: 0; display: block; }
+
+  /* Parte 2: dos modos */
+  .dos { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 40px; width: 100%; min-height: 480px; }
+  .modo { display: flex; flex-direction: column; gap: 22px; background: var(--surface); border: 1.5px solid var(--line); border-radius: 30px; padding: 46px 50px; }
+  .modo .tag { font-size: 26px; }
+  .modo h3 { font-family: var(--display); font-weight: 700; font-size: 66px; line-height: 1; letter-spacing: -0.025em; text-transform: uppercase; }
+  .modo p { font-size: 34px; line-height: 1.4; color: var(--muted); }
+  .diagrama { display: flex; align-items: center; gap: 22px; margin-top: auto; }
+  .diagrama .ic { width: 110px; height: 110px; display: grid; place-items: center; border-radius: 24px; background: var(--surface-2); border: 1.5px solid var(--line); }
+  .diagrama .ic svg { width: 62px; height: 62px; display: block; stroke: var(--fg); fill: none; stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
+  .diagrama .ic.lima svg { stroke: var(--accent); }
+  .diagrama .fl svg { width: 54px; height: 54px; display: block; stroke: var(--muted); fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+
+  /* Parte 3: limites */
+  .stats { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 34px; height: 100%; align-content: center; }
+  .stat { background: var(--surface); border: 1.5px solid var(--line); border-radius: 30px; padding: 56px 48px; display: flex; flex-direction: column; gap: 18px; }
+  .stat .valor { font-family: var(--display); font-weight: 700; font-size: 118px; line-height: 0.95; letter-spacing: -0.04em; color: var(--accent); }
+  .stat .lbl { font-size: 34px; font-weight: 600; color: var(--fg); }
+  .stat .sub { font-size: 26px; color: var(--muted); }
+</style>
+</head>
+<body>
+<div id="root" data-composition-id="02-idea" data-start="0" data-width="1920" data-height="1080" data-duration="40.574">
+  <audio id="voz" src="voz.mp3" data-start="0.4" data-duration="39.474" data-volume="1"></audio>
+  <div class="fondo"><div class="rejilla"></div><div class="blob b1"></div><div class="blob b2"></div></div>
+
+  <div class="contenido">
+    <!-- PARTE 1 -->
+    <div class="capa" id="p1">
+      <div class="cabecera" id="h1">
+        <div class="eyebrow"><span class="num">01</span> · La idea clave</div>
+        <h2>Qué aporta <span class="lima">cada pieza</span></h2>
+      </div>
+      <div class="zona">
+        <div class="tres">
+          <div class="pieza" id="pz-video">
+            <div class="top"><svg viewBox="0 0 24 24"><rect x="2" y="6" width="14" height="12" rx="2"/><path d="m16 10 6-3v10l-6-3"/></svg><span class="eyebrow">Video</span></div>
+            <h3>Pone el movimiento</h3>
+            <div class="minis"><span class="mini" id="v1">Cámara</span><span class="mini" id="v2">Tiempos</span><span class="mini" id="v3">Coreografía</span></div>
+          </div>
+          <div class="pieza" id="pz-fotos">
+            <div class="top"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="3"/><circle cx="9" cy="9" r="2"/><path d="m21 15-4.5-4.5L5 21"/></svg><span class="eyebrow">Fotos</span></div>
+            <h3>Ponen la apariencia</h3>
+            <div class="minis"><span class="mini" id="f1">Cara</span><span class="mini" id="f2">Pelo</span><span class="mini" id="f3">Cuerpo</span><span class="mini" id="f4">Ropa</span><span class="mini" id="f5">Producto</span><span class="mini" id="f6">Lugar</span></div>
+          </div>
+          <div class="pieza" id="pz-prompt" style="position: relative;">
+            <div class="top"><svg viewBox="0 0 24 24"><path d="m4 17 6-6-6-6"/><path d="M12 19h8"/></svg><span class="eyebrow">Prompt</span></div>
+            <h3>Dice qué cambiar</h3>
+            <div class="extra" id="ext">…y qué <span class="no">no</span> cambiar</div>
+            <div class="control" id="ctl"><span class="tag">Ahí está el control</span></div>
+            <div id="brillo"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PARTE 2 -->
+    <div class="capa" id="p2">
+      <div class="cabecera" id="h2">
+        <div class="eyebrow"><span class="num">01</span> · La idea clave</div>
+        <h2>Genjutsu tiene <span class="lima">dos modos</span></h2>
+      </div>
+      <div class="zona">
+        <div class="dos">
+          <div class="modo" id="m1">
+            <span class="tag">Motion transfer</span>
+            <h3>Tu personaje hace lo del video</h3>
+            <p>Mismos movimientos, misma cámara, mismos tiempos.</p>
+            <div class="diagrama">
+              <div class="ic"><svg viewBox="0 0 24 24"><rect x="2" y="6" width="14" height="12" rx="2"/><path d="m16 10 6-3v10l-6-3"/></svg></div>
+              <div class="fl"><svg viewBox="0 0 24 24"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></div>
+              <div class="ic lima"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg></div>
+            </div>
+          </div>
+          <div class="modo" id="m2">
+            <span class="tag">Object swap</span>
+            <h3>Cambias algo puntual</h3>
+            <p>Un producto, una prenda o el lugar. Todo lo demás queda igual.</p>
+            <div class="diagrama">
+              <div class="ic"><svg viewBox="0 0 24 24"><path d="M21 8 12 3 3 8v8l9 5 9-5z"/><path d="m3 8 9 5 9-5"/><path d="M12 13v8"/></svg></div>
+              <div class="fl"><svg viewBox="0 0 24 24"><path d="m16 3 4 4-4 4"/><path d="M20 7H4"/><path d="m8 21-4-4 4-4"/><path d="M4 17h16"/></svg></div>
+              <div class="ic lima"><svg viewBox="0 0 24 24"><path d="M21 8 12 3 3 8v8l9 5 9-5z"/><path d="m3 8 9 5 9-5"/><path d="M12 13v8"/></svg></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PARTE 3 -->
+    <div class="capa" id="p3">
+      <div class="cabecera" id="h3">
+        <div class="eyebrow"><span class="num">01</span> · La idea clave</div>
+        <h2>Lo que <span class="lima">subes</span></h2>
+      </div>
+      <div class="zona">
+        <div class="stats">
+          <div class="stat" id="s1"><div class="valor">4–30 s</div><div class="lbl">Duración del video</div><div class="sub">MP4 con un protagonista claro</div></div>
+          <div class="stat" id="s2"><div class="valor">Hasta 8</div><div class="lbl">Fotos de referencia</div><div class="sub">Cara, ropa, lugar o producto</div></div>
+          <div class="stat" id="s3"><div class="valor">Inglés</div><div class="lbl">Idioma del prompt</div><div class="sub">Hasta 10.000 caracteres</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="marca"><img src="base/logo-iahub.png" alt="" /></div>
+</div>
+
+<script>
+  const tl = gsap.timeline({ paused: true });
+  anim.ambiente(tl);
+
+  // PARTE 1: video / fotos / prompt
+  anim.entrar(tl, '#h1 > *', T('intro', 0.05));
+  anim.pop(tl, '#pz-video', T('video', -0.15));
+  [['camara', '#v1'], ['tiempos', '#v2'], ['coreografia', '#v3']].forEach(function (x) { anim.pop(tl, x[1], TW('video', x[0], 1, -0.12)); });
+  anim.pop(tl, '#pz-fotos', T('fotos', -0.15));
+  [['cara', '#f1'], ['pelo', '#f2'], ['cuerpo', '#f3'], ['ropa', '#f4'], ['producto', '#f5'], ['lugar', '#f6']].forEach(function (x) { anim.pop(tl, x[1], TW('fotos', x[0], 1, -0.12)); });
+  anim.pop(tl, '#pz-prompt', T('prompt', -0.15));
+  anim.entrar(tl, '#ext', TW('prompt', 'tambien', 1, -0.15));
+  tl.fromTo('#brillo', { opacity: 0 }, { opacity: 1, duration: 0.5, ease: 'power2.out' }, TW('prompt', 'control', 1, -0.3));
+  anim.pop(tl, '#ctl', TW('prompt', 'control', 1, -0.2));
+  tl.to('#p1', { opacity: 0, y: -24, duration: 0.45, ease: 'power2.in' }, T('modos', -0.5));
+
+  // PARTE 2: dos modos
+  anim.entrar(tl, '#h2 > *', T('modos', -0.05));
+  anim.pop(tl, '#m1', TW('motion', 'motion', 1, -0.25));
+  anim.pop(tl, '#m2', TW('swap', 'object', 1, -0.25));
+  tl.to('#p2', { opacity: 0, y: -24, duration: 0.45, ease: 'power2.in' }, T('limites', -0.5));
+
+  // PARTE 3: limites
+  anim.entrar(tl, '#h3 > *', T('limites', -0.05));
+  anim.pop(tl, '#s1', TW('limites', '4', 1, -0.3));
+  anim.pop(tl, '#s2', TW('limites', '8', 1, -0.3));
+  anim.pop(tl, '#s3', TW('limites', 'ingles', 1, -0.3));
+
+  anim.salir(tl);
+  window.__timelines['02-idea'] = tl;
+</script>
+</body>
+</html>

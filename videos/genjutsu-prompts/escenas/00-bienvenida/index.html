@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=1920, height=1080" />
+<link rel="stylesheet" href="base/tema.css" />
+<script src="base/vendor/gsap.min.js"></script>
+<script src="tiempos.js"></script>
+<script src="base/escena.js"></script>
+<style>
+  /* A: saludo */
+  #cA { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px; }
+  #cA img { display: block; width: 470px; height: auto; }
+  .hola { font-family: var(--display); font-weight: 700; font-size: 230px; line-height: 0.95; letter-spacing: -0.05em; text-transform: uppercase; }
+  .hola .lima { color: var(--accent); }
+  #cA .subtitulo { text-align: center; font-size: 46px; }
+
+  /* B: tema */
+  #cB { display: flex; flex-direction: column; justify-content: center; padding: 0 132px; }
+  #cB .eyebrow { font-size: 28px; margin-bottom: 26px; }
+  #cB .titulo { font-size: 172px; }
+  #cB .titulo .palabra { display: inline-block; }
+  #cB .subtitulo { margin-top: 34px; font-size: 46px; max-width: 1300px; }
+
+  /* C: agenda */
+  .agenda { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); grid-auto-flow: column; grid-template-rows: repeat(4, auto); gap: 18px 34px; }
+  .ag { display: flex; align-items: center; gap: 24px; background: var(--surface); border: 1.5px solid var(--line); border-radius: 22px; padding: 20px 26px; font-size: 36px; font-weight: 600; }
+  .ag .num-caja { width: 70px; height: 70px; font-size: 32px; }
+  #vamos { position: absolute; right: 132px; bottom: 160px; }
+  #vamos .tag { font-size: 34px; padding: 14px 24px; border-radius: 14px; }
+</style>
+</head>
+<body>
+<div id="root" data-composition-id="00-bienvenida" data-start="0" data-width="1920" data-height="1080" data-duration="27.757">
+  <audio id="voz" src="voz.mp3" data-start="0.4" data-duration="26.657" data-volume="1"></audio>
+  <div class="fondo"><div class="rejilla"></div><div class="blob b1"></div><div class="blob b2"></div></div>
+
+  <div class="contenido">
+    <div class="capa" id="cA">
+      <img id="logo" src="base/logo-iahub.png" alt="IA-HUB" />
+      <div class="hola" id="hola">¡Hola<span class="lima">!</span></div>
+      <p class="subtitulo" id="sub-a">Una nueva clase de <b>IA-HUB</b></p>
+    </div>
+
+    <div class="capa" id="cB">
+      <div class="eyebrow" id="b-eye">Hoy vas a aprender</div>
+      <h1 class="titulo"><span class="palabra">Prompts</span> <span class="palabra">de</span> <span class="palabra lima">Genjutsu</span></h1>
+      <p class="subtitulo" id="b-sub">La herramienta que toma un video que ya existe y lo <b>rehace con tu personaje</b>.</p>
+    </div>
+
+    <div class="capa" id="cC">
+      <div class="cabecera" id="cab">
+        <div class="eyebrow">Agenda de hoy</div>
+        <h2>Lo que vas a <span class="lima">aprender</span></h2>
+      </div>
+      <div class="zona">
+        <div class="agenda">
+          <div class="ag" id="a1"><span class="num-caja">01</span>Qué aporta cada pieza</div>
+          <div class="ag" id="a2"><span class="num-caja">02</span>Menciones: video y fotos</div>
+          <div class="ag" id="a3"><span class="num-caja">03</span>Las 5 partes de un prompt</div>
+          <div class="ag" id="a4"><span class="num-caja">04</span>Los 4 niveles</div>
+          <div class="ag" id="a5"><span class="num-caja">05</span>Recetas para copiar</div>
+          <div class="ag" id="a6"><span class="num-caja">06</span>Errores más comunes</div>
+          <div class="ag" id="a7"><span class="num-caja">07</span>Checklist final</div>
+        </div>
+      </div>
+      <div id="vamos"><span class="tag">Empecemos →</span></div>
+    </div>
+  </div>
+
+  <div class="marca" id="marca"><img src="base/logo-iahub-marca.png" alt="" /></div>
+</div>
+
+<script>
+  const tl = gsap.timeline({ paused: true });
+  anim.ambiente(tl);
+
+  // A: saludo con el logo grande (la marca chica entra despues)
+  tl.fromTo('#logo', { opacity: 0, scale: 0.85 }, { opacity: 1, scale: 1, duration: 0.7, ease: 'power3.out' }, 0.15);
+  tl.fromTo('#hola', { opacity: 0, y: 60, scale: 0.92 }, { opacity: 1, y: 0, scale: 1, duration: 0.6, ease: 'back.out(1.6)' }, TW('saludo', 'hola', 1, -0.1));
+  anim.entrar(tl, '#sub-a', TW('saludo', 'nueva', 1, -0.15));
+  tl.fromTo('#marca', { opacity: 0 }, { opacity: 0.85, duration: 0.5 }, T('tema', -0.2));
+  tl.to('#cA', { opacity: 0, scale: 0.95, duration: 0.45, ease: 'power2.in' }, T('tema', -0.45));
+
+  // B: el tema de hoy
+  anim.entrar(tl, '#b-eye', T('tema', -0.05));
+  anim.entrar(tl, '#cB .titulo .palabra', TW('tema', 'prompts', 1, -0.2), { y: 60, stagger: 0.12 });
+  anim.entrar(tl, '#b-sub', TW('tema', 'herramienta', 1, -0.15));
+  tl.to('#cB', { opacity: 0, y: -30, duration: 0.45, ease: 'power2.in' }, T('agenda', -0.45));
+
+  // C: agenda, cada punto cuando la voz lo nombra
+  anim.entrar(tl, '#cab > *', T('agenda', -0.05));
+  [['pieza', '#a1'], ['nombrar', '#a2'], ['partes', '#a3'], ['niveles', '#a4'], ['recetas', '#a5'], ['errores', '#a6'], ['checklist', '#a7']].forEach(function (x) {
+    anim.lado(tl, x[1], TW('agenda', x[0], 1, -0.25), { x: -40 });
+  });
+  anim.pop(tl, '#vamos', T('vamos', -0.1));
+  anim.pulso(tl, '#vamos', T('vamos', 0.45), { escala: 1.06 });
+
+  anim.salir(tl);
+  window.__timelines['00-bienvenida'] = tl;
+</script>
+</body>
+</html>

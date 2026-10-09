@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=1920, height=1080" />
+<link rel="stylesheet" href="base/tema.css" />
+<script src="base/vendor/gsap.min.js"></script>
+<script src="tiempos.js"></script>
+<script src="base/escena.js"></script>
+<style>
+  .capa { position: absolute; inset: 96px 132px; display: flex; flex-direction: column; align-items: center; justify-content: center; }
+
+  /* A: el problema en imagenes */
+  .fila { display: flex; align-items: center; gap: 44px; margin-top: -150px; }
+  .col { position: relative; }
+  .card-in { width: 360px; height: 330px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 26px; background: var(--surface); border: 1.5px solid var(--line); border-radius: 30px; }
+  .card-in svg { width: 150px; height: 150px; display: block; stroke: var(--fg); fill: none; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
+  .card-in .lbl { font-family: var(--mono); font-weight: 600; font-size: 28px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); }
+  .card-in.error { border-color: rgba(255, 140, 140, 0.55); box-shadow: 0 0 80px rgba(255, 140, 140, 0.14); }
+  .card-in.error svg { stroke: var(--p-no); }
+  .card-in.error .lbl { color: var(--p-no); }
+  .op { width: 72px; height: 72px; display: block; }
+  .op svg { width: 72px; height: 72px; display: block; stroke: var(--muted); fill: none; stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; }
+  .badge-x { position: absolute; top: -22px; right: -22px; width: 64px; height: 64px; border-radius: 50%; background: var(--p-no); display: grid; place-items: center; }
+  .badge-x svg { width: 34px; height: 34px; display: block; stroke: #1a0d0d; fill: none; stroke-width: 3.2; stroke-linecap: round; }
+  .fallas { position: absolute; left: 0; right: 0; top: calc(100% + 30px); display: flex; flex-direction: column; align-items: center; gap: 14px; }
+  .falla { display: inline-flex; align-items: center; gap: 12px; font-family: var(--body); font-weight: 600; font-size: 30px; color: var(--p-no); background: rgba(255, 140, 140, 0.12); border: 1.5px solid rgba(255, 140, 140, 0.35); padding: 8px 20px; border-radius: 14px; }
+  .falla svg { width: 26px; height: 26px; display: block; stroke: var(--p-no); fill: none; stroke-width: 3; stroke-linecap: round; }
+
+  /* B: el problema es el prompt */
+  .gigante { font-family: var(--display); font-weight: 700; text-transform: uppercase; letter-spacing: -0.04em; line-height: 1; font-size: 150px; text-align: center; }
+  .linea { display: block; }
+  .tachado { position: relative; display: inline-block; color: var(--muted); }
+  .raya { position: absolute; left: -8px; right: -8px; top: 50%; height: 14px; margin-top: -7px; display: block; background: var(--p-no); border-radius: 7px; transform-origin: left center; }
+  .linea.dos { margin-top: 18px; }
+  .linea.dos .lima { color: var(--accent); }
+
+  /* C: portada */
+  .portada { align-items: flex-start; justify-content: center; }
+  .portada .eyebrow { font-size: 26px; margin-bottom: 30px; }
+  .portada .titulo { font-size: 168px; }
+  .portada .titulo .palabra { display: inline-block; }
+  .portada .subtitulo { margin-top: 36px; font-size: 44px; max-width: 1250px; }
+  .portada .tags { display: flex; gap: 16px; margin-top: 48px; }
+  .portada .tags .tag { font-size: 24px; }
+</style>
+</head>
+<body>
+<div id="root" data-composition-id="01-intro" data-start="0" data-width="1920" data-height="1080" data-duration="20.698">
+  <audio id="voz" src="voz.mp3" data-start="0.4" data-duration="19.598" data-volume="1"></audio>
+
+  <div class="fondo"><div class="rejilla"></div><div class="blob b1"></div><div class="blob b2"></div></div>
+
+  <div class="contenido">
+    <!-- A -->
+    <div class="capa" id="capaA">
+      <div class="fila">
+        <div class="col" id="c-video">
+          <div class="card-in">
+            <svg viewBox="0 0 24 24"><rect x="2" y="6" width="14" height="12" rx="2"/><path d="m16 10 6-3v10l-6-3"/></svg>
+            <div class="lbl">Tu video</div>
+          </div>
+        </div>
+        <div class="op" id="op-mas"><svg viewBox="0 0 24 24"><path d="M12 5v14"/><path d="M5 12h14"/></svg></div>
+        <div class="col" id="c-foto">
+          <div class="card-in">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg>
+            <div class="lbl">Tu personaje</div>
+          </div>
+        </div>
+        <div class="op" id="op-flecha"><svg viewBox="0 0 24 24"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></div>
+        <div class="col" id="c-res">
+          <div class="card-in error" id="res-card">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg>
+            <div class="lbl">Resultado</div>
+          </div>
+          <div class="badge-x" id="badge"><svg viewBox="0 0 24 24"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg></div>
+          <div class="fallas">
+            <span class="falla" id="f1"><svg viewBox="0 0 24 24"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>Otra cara</span>
+            <span class="falla" id="f2"><svg viewBox="0 0 24 24"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>Otra ropa</span>
+            <span class="falla" id="f3"><svg viewBox="0 0 24 24"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>Otro lugar</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- B -->
+    <div class="capa" id="capaB">
+      <div class="gigante">
+        <span class="linea uno" id="l1">No es <span class="tachado" id="tach">Genjutsu<span class="raya" id="raya"></span></span></span>
+        <span class="linea dos" id="l2">Es el <span class="lima">prompt.</span></span>
+      </div>
+    </div>
+
+    <!-- C -->
+    <div class="capa portada" id="capaC">
+      <div class="eyebrow" id="c-eyebrow">IA-HUB · Higgsfield Studio · Guía</div>
+      <h1 class="titulo"><span class="palabra">Prompts</span> <span class="palabra">de</span> <span class="palabra lima">Genjutsu</span></h1>
+      <p class="subtitulo" id="c-sub">Cómo escribirlos <b>paso a paso</b>, con la misma estructura de los ejemplos oficiales.</p>
+      <div class="tags" id="c-tags">
+        <span class="tag">266 prompts reales</span>
+        <span class="tag suave">Oficiales + comunidad</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="marca"><img src="base/logo-iahub.png" alt="" /></div>
+</div>
+
+<script>
+  const tl = gsap.timeline({ paused: true });
+  anim.ambiente(tl);
+
+  // A: entra cada pieza cuando la voz la nombra
+  anim.pop(tl, '#c-video', TW('gancho', 'video', 1, -0.15));
+  anim.pop(tl, ['#op-mas', '#c-foto'], TW('gancho', 'foto', 1, -0.15), { stagger: 0.08 });
+  anim.pop(tl, ['#op-flecha', '#c-res'], TW('gancho', 'resultado', 1, -0.2), { stagger: 0.1 });
+  tl.fromTo('#badge', { opacity: 0, scale: 0.4 }, { opacity: 1, scale: 1, duration: 0.4, ease: 'back.out(2.2)' }, TW('gancho', 'cara', 1, -0.1));
+  ['cara', 'ropa', 'lugar'].forEach(function (p, i) {
+    var t = TW('gancho', p, 1, -0.12);
+    anim.pop(tl, '#f' + (i + 1), t);
+    tl.fromTo('#res-card', { x: 0 }, { x: 9, duration: 0.05, yoyo: true, repeat: 5, ease: 'none' }, t);
+  });
+  tl.to('#capaA', { opacity: 0, scale: 0.94, duration: 0.45, ease: 'power2.in' }, T('problema', -0.4));
+
+  // B: no es Genjutsu, es el prompt
+  anim.entrar(tl, '#l1', T('problema', -0.05));
+  tl.fromTo('#raya', { scaleX: 0 }, { scaleX: 1, duration: 0.35, ease: 'power2.out' }, TW('problema', 'genjutsu', 1, 0.35));
+  anim.entrar(tl, '#l2', TW('problema', 'es', 2, -0.1));
+  tl.to('#capaB', { opacity: 0, y: -30, duration: 0.45, ease: 'power2.in' }, T('promesa', -0.35));
+
+  // C: portada
+  anim.entrar(tl, '#c-eyebrow', T('promesa', 0.05));
+  anim.entrar(tl, '#capaC .titulo .palabra', T('promesa', 0.2), { y: 60, stagger: 0.12 });
+  anim.entrar(tl, '#c-sub', TW('promesa', 'paso', 1, -0.3));
+  anim.pop(tl, '#c-tags .tag', TW('promesa', 'oficiales', 1, -0.3));
+
+  anim.salir(tl);
+  window.__timelines['01-intro'] = tl;
+</script>
+</body>
+</html>

@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=1920, height=1080" />
+<link rel="stylesheet" href="base/tema.css" />
+<script src="base/vendor/gsap.min.js"></script>
+<script src="tiempos.js"></script>
+<script src="base/escena.js"></script>
+<style>
+  .zona { display: grid; grid-template-columns: 600px minmax(0, 1fr); gap: 56px; align-items: center; }
+  .pasos { display: grid; gap: 18px; }
+  .paso { display: flex; align-items: center; gap: 22px; padding: 22px 24px; border-radius: 22px; background: var(--surface); border: 1.5px solid var(--line); font-size: 32px; font-weight: 600; line-height: 1.25; }
+  .paso small { display: block; font-size: 24px; font-weight: 500; color: var(--muted); margin-top: 4px; }
+
+  /* Ventana de navegador (ilustracion de la consola) */
+  .nav { position: relative; height: 560px; border-radius: 22px; background: #121316; border: 1.5px solid var(--line); overflow: hidden; box-shadow: 0 30px 80px rgba(0, 0, 0, 0.45); }
+  .barra-nav { display: flex; align-items: center; gap: 12px; height: 64px; padding: 0 20px; background: #1b1c20; border-bottom: 1px solid var(--line); }
+  .barra-nav .p { width: 14px; height: 14px; border-radius: 50%; display: block; }
+  .url { flex: 1; margin-left: 12px; height: 40px; border-radius: 10px; background: #0f1012; display: flex; align-items: center; gap: 10px; padding: 0 16px; font-family: var(--mono); font-size: 22px; color: var(--fg); }
+  .url svg { width: 18px; height: 18px; display: block; stroke: var(--muted); fill: none; stroke-width: 2; }
+  .pantalla { position: absolute; left: 0; right: 0; top: 64px; bottom: 0; display: flex; align-items: center; justify-content: center; padding: 30px; }
+  .carta { width: 640px; padding: 34px 38px; border-radius: 22px; background: var(--surface); border: 1.5px solid var(--line); display: grid; gap: 18px; }
+  .carta h4 { font-family: var(--display); font-weight: 700; font-size: 38px; text-transform: uppercase; letter-spacing: -0.02em; }
+  .campo { height: 60px; border-radius: 14px; background: #0f1012; border: 1.5px solid var(--line); display: flex; align-items: center; padding: 0 18px; font-family: var(--mono); font-size: 22px; color: var(--muted); }
+  .btn { height: 62px; border-radius: 14px; background: var(--accent); color: var(--accent-ink); font-weight: 700; font-size: 26px; display: flex; align-items: center; justify-content: center; gap: 10px; }
+  .monto { font-family: var(--display); font-weight: 700; font-size: 92px; color: var(--accent); line-height: 1; }
+  .k-lbl { font-family: var(--mono); font-weight: 600; font-size: 18px; letter-spacing: 0.12em; color: var(--muted); }
+  .k-val { display: flex; align-items: center; justify-content: space-between; gap: 12px; height: 58px; border-radius: 14px; background: #0f1012; border: 1.5px solid rgba(209, 254, 23, 0.35); padding: 0 16px; font-family: var(--mono); font-size: 21px; color: var(--fg); }
+  .k-val svg { width: 24px; height: 24px; flex: none; display: block; stroke: var(--accent); fill: none; stroke-width: 2; }
+  .alerta { display: flex; align-items: center; gap: 12px; padding: 14px 18px; border-radius: 14px; background: rgba(255, 191, 94, 0.12); border: 1.5px solid rgba(255, 191, 94, 0.45); color: var(--warn); font-size: 24px; font-weight: 600; }
+  .ilus { position: absolute; right: 18px; bottom: 12px; font-size: 16px; color: var(--faint); }
+</style>
+</head>
+<body>
+<div id="root" data-composition-id="04-crear-key" data-start="0" data-width="1920" data-height="1080" data-duration="25.62">
+  <audio id="voz" src="voz.mp3" data-start="0.4" data-duration="24.52" data-volume="1"></audio>
+  <div class="fondo"><div class="rejilla"></div><div class="blob b1"></div><div class="blob b2"></div></div>
+
+  <div class="contenido">
+    <div class="cabecera" id="cab">
+      <div class="eyebrow"><span class="num">04</span> · Tu API key</div>
+      <h2>Consigue tu API key <span class="lima">en 3 pasos</span></h2>
+    </div>
+    <div class="zona">
+      <div class="pasos">
+        <div class="paso" id="s1"><span class="num-caja">1</span><div>Crea tu cuenta<small>console.higgsfield.ai</small></div></div>
+        <div class="paso" id="s2"><span class="num-caja">2</span><div>Carga saldo<small>Mínimo $5</small></div></div>
+        <div class="paso" id="s3"><span class="num-caja">3</span><div>Crea una API key<small>KEY ID + KEY SECRET</small></div></div>
+      </div>
+
+      <div class="nav" id="nav">
+        <div class="barra-nav"><i class="p" style="background:#ff5f57"></i><i class="p" style="background:#febc2e"></i><i class="p" style="background:#28c840"></i><div class="url"><svg viewBox="0 0 24 24"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg><span id="url-txt">console.higgsfield.ai</span></div></div>
+
+        <div class="pantalla" id="v1">
+          <div class="carta"><h4>Crea tu cuenta</h4><div class="campo">tu@correo.com</div><div class="btn">Continuar</div></div>
+        </div>
+        <div class="pantalla" id="v2">
+          <div class="carta"><h4>Saldo</h4><div class="monto" id="monto">$5.00</div><div class="btn">Recargar</div></div>
+        </div>
+        <div class="pantalla" id="v3">
+          <div class="carta">
+            <h4>API Keys</h4>
+            <div class="btn" id="crear">+ Crear API key</div>
+            <div id="keys" style="display: grid; gap: 12px;">
+              <span class="k-lbl">KEY ID</span>
+              <div class="k-val">3f8a1c2e-9b4d-4e7f-a1b2-c3d4e5f6a7b8<svg viewBox="0 0 24 24"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg></div>
+              <span class="k-lbl">KEY SECRET</span>
+              <div class="k-val">••••••••••••••••••••••••••••<svg viewBox="0 0 24 24"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg></div>
+            </div>
+            <div class="alerta" id="alerta">⚠ El secret se muestra una sola vez</div>
+          </div>
+        </div>
+        <span class="ilus">Ilustración</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="marca"><img src="base/logo-iahub.png" alt="" /></div>
+</div>
+
+<script>
+  const tl = gsap.timeline({ paused: true });
+  anim.ambiente(tl);
+
+  anim.entrar(tl, '#cab > *', T('tres', 0.0));
+  anim.lado(tl, ['#s1', '#s2', '#s3'], TW('tres', 'pasos', 1, -0.3), { x: -40, stagger: 0.1 });
+  anim.atenuar(tl, ['#s2', '#s3'], TW('tres', 'pasos', 1, 0.4), 0.4);
+
+  // Paso 1: la consola
+  anim.pop(tl, '#nav', T('p1', -0.1));
+  anim.tipear(tl, '#url-txt', TW('p1', 'console', 1, -0.1), { dur: 1.1 });
+  anim.entrar(tl, '#v1 .carta', TW('p1', 'crea', 1, -0.3));
+
+  // Paso 2: saldo
+  anim.atenuar(tl, '#s1', T('p2', -0.1), 0.4);
+  anim.resaltar(tl, '#s2', T('p2', -0.1));
+  tl.to('#v1', { opacity: 0, duration: 0.3 }, T('p2', -0.2));
+  anim.entrar(tl, '#v2 .carta', T('p2', 0.05));
+  anim.pulso(tl, '#monto', TW('p2', 'cinco', 1, -0.1), { escala: 1.08 });
+
+  // Paso 3: API key (KEY ID + KEY SECRET) y el aviso
+  anim.atenuar(tl, '#s2', T('p3', -0.1), 0.4);
+  anim.resaltar(tl, '#s3', T('p3', -0.1));
+  tl.to('#v2', { opacity: 0, duration: 0.3 }, T('p3', -0.2));
+  anim.entrar(tl, '#v3 .carta', T('p3', 0.05));
+  anim.pop(tl, '#crear', TW('p3', 'crea', 1, -0.1));
+  anim.entrar(tl, '#keys > *', TW('p3', 'muestra', 1, -0.1), { stagger: 0.12, y: 16 });
+  anim.pop(tl, '#alerta', T('aviso', -0.1));
+  anim.pulso(tl, '#alerta', TW('aviso', 'copialo', 1, -0.1), { escala: 1.04 });
+
+  anim.salir(tl);
+  window.__timelines['04-crear-key'] = tl;
+</script>
+</body>
+</html>
