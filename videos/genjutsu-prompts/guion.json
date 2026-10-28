@@ -2,8 +2,8 @@
   "titulo": "Prompts de Genjutsu",
   "fuente": "Guia de prompts de Genjutsu de IA-HUB",
   "voz": {
-    "proveedor": "elevenlabs",
-    "elevenlabs": { "voz_id": "gbTn1bmCvNgk0QEAVyfM", "nombre": "Enrique M. Nieto (biblioteca, es-MX)", "modelo": "eleven_multilingual_v2", "velocidad": 1.0, "estabilidad": 0.5, "similitud": 0.8, "estilo": 0 },
+    "proveedor": "qwen",
+    "qwen": { "voz": "reimo", "modelo": "1.7B", "dtype": "bf16", "lote": 4 },
     "minimax": { "voz_id": "Spanish_Narrator", "modelo": "speech-2.8-hd", "velocidad": 1.0 },
     "local": { "voz": "Microsoft Sabina Desktop", "velocidad": 1 }
   },

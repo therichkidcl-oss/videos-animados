@@ -1,0 +1,314 @@
+[
+  {
+    "clave": "nsfw",
+    "nombre": "Influencer IA NSFW",
+    "color": "#FF6A1A",
+    "modulos": 24,
+    "clases": 113,
+    "lista": [
+      {
+        "n": 1,
+        "titulo": "Introduccion",
+        "img": "nsfw-01.jpg"
+      },
+      {
+        "n": 2,
+        "titulo": "Creando cuentas y obteniendo API",
+        "img": "nsfw-02.jpg"
+      },
+      {
+        "n": 3,
+        "titulo": "Creando tu modelo IA",
+        "img": "nsfw-03.jpg"
+      },
+      {
+        "n": 4,
+        "titulo": "Creando Contenido NSFW",
+        "img": "nsfw-04.jpg"
+      },
+      {
+        "n": 5,
+        "titulo": "Creando Contenido UGC",
+        "img": "nsfw-05.jpg"
+      },
+      {
+        "n": 6,
+        "titulo": "Escalando Redes Sociales [SUB ESP]",
+        "img": "nsfw-06.jpg"
+      },
+      {
+        "n": 7,
+        "titulo": "Creando Cuenta en FANVU",
+        "img": "nsfw-07.jpg"
+      },
+      {
+        "n": 8,
+        "titulo": "Vender por Telegram",
+        "img": "nsfw-08.jpg"
+      },
+      {
+        "n": 9,
+        "titulo": "CAPACITACIONES EXTRAS",
+        "img": "nsfw-09.jpg"
+      },
+      {
+        "n": 10,
+        "titulo": "Automatizaciones",
+        "img": "nsfw-10.jpg"
+      },
+      {
+        "n": 11,
+        "titulo": "Workflows RunPod (Antiguos)",
+        "img": "nsfw-11.jpg"
+      },
+      {
+        "n": 12,
+        "titulo": "Programa de afiliados",
+        "img": "nsfw-12.jpg"
+      },
+      {
+        "n": 13,
+        "titulo": "Clonación de Voz - IA",
+        "img": "nsfw-13.jpg"
+      },
+      {
+        "n": 14,
+        "titulo": "Running Hub",
+        "img": "nsfw-14.jpg"
+      },
+      {
+        "n": 15,
+        "titulo": "Escalador De Imagenes - WORKFLOWS",
+        "img": "nsfw-15.jpg"
+      },
+      {
+        "n": 16,
+        "titulo": "Crea Tus loRAs (wan,z imagen, Krea )",
+        "img": "nsfw-16.jpg"
+      },
+      {
+        "n": 17,
+        "titulo": "Wan 2.2 IMAGEN SFW + NSFW",
+        "img": "nsfw-17.jpg"
+      },
+      {
+        "n": 18,
+        "titulo": "Wan 2.2 VIDEO SFW + NSFW",
+        "img": "nsfw-18.jpg"
+      },
+      {
+        "n": 19,
+        "titulo": "Z imagen Turbo SFW + NSFW",
+        "img": "nsfw-19.jpg"
+      },
+      {
+        "n": 20,
+        "titulo": "Krea2 SFW + NSFW",
+        "img": "nsfw-20.jpg"
+      },
+      {
+        "n": 21,
+        "titulo": "LTX SFW + NSFW",
+        "img": "nsfw-21.jpg"
+      },
+      {
+        "n": 22,
+        "titulo": "MiniMax H3 Turbo",
+        "img": "nsfw-22.jpg"
+      },
+      {
+        "n": 23,
+        "titulo": "Constructor de Workflows",
+        "img": "nsfw-23.jpg"
+      },
+      {
+        "n": 24,
+        "titulo": "Genjutsu: clona videos virales con tu modelo",
+        "img": "nsfw-24.jpg"
+      }
+    ]
+  },
+  {
+    "clave": "ecom",
+    "nombre": "Influencer IA ECOM",
+    "color": "#22C55E",
+    "modulos": 12,
+    "clases": 33,
+    "lista": [
+      {
+        "n": 1,
+        "titulo": "Introduccion",
+        "img": "ecom-01.jpg"
+      },
+      {
+        "n": 2,
+        "titulo": "Creacion de Modelo",
+        "img": "ecom-02.jpg"
+      },
+      {
+        "n": 3,
+        "titulo": "Videos Estilo Podcast",
+        "img": "ecom-03.jpg"
+      },
+      {
+        "n": 4,
+        "titulo": "Videos Estilo UGC",
+        "img": "ecom-04.jpg"
+      },
+      {
+        "n": 5,
+        "titulo": "Video Estilo Animado",
+        "img": "ecom-05.jpg"
+      },
+      {
+        "n": 6,
+        "titulo": "Crea Imagenes para ADS",
+        "img": "ecom-06.jpg"
+      },
+      {
+        "n": 7,
+        "titulo": "Vende productos y Servicios con Tus modelos",
+        "img": "ecom-07.jpg"
+      },
+      {
+        "n": 8,
+        "titulo": "Videos estilo Dropshipping/Ecommerce",
+        "img": "ecom-08.jpg"
+      },
+      {
+        "n": 9,
+        "titulo": "Crea clones digitales",
+        "img": "ecom-09.jpg"
+      },
+      {
+        "n": 10,
+        "titulo": "Aprende a conseguir clientes",
+        "img": "ecom-10.jpg"
+      },
+      {
+        "n": 11,
+        "titulo": "Invasión IA - Higgsfield x ia hub",
+        "img": "ecom-11.jpg"
+      },
+      {
+        "n": 12,
+        "titulo": "Clones Automatizados + Animaciones",
+        "img": "ecom-12.jpg"
+      }
+    ]
+  },
+  {
+    "clave": "dev",
+    "nombre": "Developer IA",
+    "color": "#A855F7",
+    "modulos": 21,
+    "clases": 54,
+    "lista": [
+      {
+        "n": 1,
+        "titulo": "Induccion A Developers",
+        "img": "dev-01.jpg"
+      },
+      {
+        "n": 2,
+        "titulo": "Claude Basicos",
+        "img": "dev-02.jpg"
+      },
+      {
+        "n": 3,
+        "titulo": "Claude Intermedio",
+        "img": "dev-03.jpg"
+      },
+      {
+        "n": 4,
+        "titulo": "Introduccion",
+        "img": "dev-04.jpg"
+      },
+      {
+        "n": 5,
+        "titulo": "Versel",
+        "img": "dev-05.jpg"
+      },
+      {
+        "n": 6,
+        "titulo": "Firebase",
+        "img": "dev-06.jpg"
+      },
+      {
+        "n": 7,
+        "titulo": "Github",
+        "img": "dev-07.jpg"
+      },
+      {
+        "n": 8,
+        "titulo": "Hostinger",
+        "img": "dev-08.jpg"
+      },
+      {
+        "n": 9,
+        "titulo": "Cloudflare",
+        "img": "dev-09.jpg"
+      },
+      {
+        "n": 10,
+        "titulo": "Introduccion",
+        "img": "dev-10.jpg"
+      },
+      {
+        "n": 11,
+        "titulo": "N8N y Make",
+        "img": "dev-11.jpg"
+      },
+      {
+        "n": 12,
+        "titulo": "Campañas META ADS con IA",
+        "img": "dev-12.jpg"
+      },
+      {
+        "n": 13,
+        "titulo": "Como captar clientes",
+        "img": "dev-13.jpg"
+      },
+      {
+        "n": 14,
+        "titulo": "Como trabajar con clientes",
+        "img": "dev-14.jpg"
+      },
+      {
+        "n": 15,
+        "titulo": "Introduccion",
+        "img": "dev-15.jpg"
+      },
+      {
+        "n": 16,
+        "titulo": "Construyendo Landig Pages",
+        "img": "dev-16.jpg"
+      },
+      {
+        "n": 17,
+        "titulo": "Oracle",
+        "img": "dev-17.jpg"
+      },
+      {
+        "n": 18,
+        "titulo": "Stripe",
+        "img": "dev-18.jpg"
+      },
+      {
+        "n": 19,
+        "titulo": "Whop",
+        "img": "dev-19.jpg"
+      },
+      {
+        "n": 20,
+        "titulo": "Campañas de Google ADS",
+        "img": "dev-20.jpg"
+      },
+      {
+        "n": 21,
+        "titulo": "Servidores",
+        "img": "dev-21.jpg"
+      }
+    ]
+  }
+]

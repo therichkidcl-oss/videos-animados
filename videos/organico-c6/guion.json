@@ -1,0 +1,93 @@
+{
+  "titulo": "Modulo Escalando Redes Sociales (curso NSFW) - Clase 6 v2: Calentando Instagram (y haciendolo crecer)",
+  "nota": "Version 2 (23/10/2026) pedida por Reimo: calentamiento de UNA sola cuenta (sin sistema de 3 cuentas), link secundario recien al calentar, reels virales clonados con los workflows de Wan Video o Genjutsu, o videos propios con MiniMax, reels de prueba, senales del algoritmo, horarios, que evitar, estado de la cuenta, dudas a las sesiones en vivo semanales o al modulo Capacitaciones extras. Genjutsu -> yenyutsu, iPhone -> aifon, Linktree -> linktri.",
+  "voz": {
+    "proveedor": "qwen",
+    "qwen": { "voz": "reimo-v3", "modelo": "1.7B", "dtype": "bf16", "lote": 4 }
+  },
+  "escenas": [
+    { "id": "00-intro", "frases": [
+      { "id": "a", "texto": "Ya tienes la cuenta de tu modelo lista. Ahora viene la parte que define si crece o si la bloquean: calentarla." },
+      { "id": "b", "texto": "Calentar es usar la cuenta de a poco, como lo haría una persona real, antes de publicar con todo." }
+    ] },
+    { "id": "01-por-que", "frases": [
+      { "id": "a", "texto": "¿Por qué importa? Porque una cuenta nueva está bajo la lupa. Las primeras dos semanas son las de más riesgo." },
+      { "id": "b", "texto": "Instagram está mirando si eres una persona o un robot. Si una cuenta recién creada publica mucho, pone links y sigue a cientos de personas, la marca como sospechosa." },
+      { "id": "c", "texto": "Y como ahora trabajas con una sola cuenta, no te puedes dar el lujo de quemarla. La paciencia de estas semanas vale oro." }
+    ] },
+    { "id": "02-preparar", "frases": [
+      { "id": "a", "texto": "Antes de empezar, prepara tres cosas." },
+      { "id": "b", "texto": "Uno: el celular. Lo ideal es un aifon once o superior, solo para tu modelo. En muchos android, Instagram le baja la calidad a tus videos." },
+      { "id": "c", "texto": "Si ya tuviste una cuenta bloqueada en un celular, no lo reutilices para esta: ese equipo ya quedó marcado." },
+      { "id": "d", "texto": "Dos: un correo antiguo, no uno creado hoy, y un número de teléfono propio para ella." },
+      { "id": "e", "texto": "Y tres: activa la verificación en dos pasos. Eso le dice a Instagram que hay una persona real cuidando la cuenta." }
+    ] },
+    { "id": "03-semana1", "frases": [
+      { "id": "a", "texto": "Ahora sí, el calendario. Primera semana, del día uno al siete: solo actividad ligera." },
+      { "id": "b", "texto": "Entra dos o tres veces al día, unos quince minutos, y navega como cualquier persona." },
+      { "id": "c", "texto": "Mira historias y reels, da entre diez y quince me gusta al día, y deja dos o tres comentarios reales en cuentas de tu nicho." },
+      { "id": "d", "texto": "Sigue a pocas cuentas, de a poco. Y todavía no publiques nada ni pongas ningún link." }
+    ] },
+    { "id": "04-semana2", "frases": [
+      { "id": "a", "texto": "Segunda semana, del día ocho al catorce: empiezas a publicar, suave." },
+      { "id": "b", "texto": "Sube tu primer carrusel de dos a cuatro fotos, y algunas historias de su día a día." },
+      { "id": "c", "texto": "Y un reel cada dos días. Sigue interactuando igual que en la primera semana." }
+    ] },
+    { "id": "05-dia15", "frases": [
+      { "id": "a", "texto": "Del día quince al treinta: subes el ritmo." },
+      { "id": "b", "texto": "Un reel al día, y después dos. Y historias todos los días." },
+      { "id": "c", "texto": "Y ahora sí, pon tu link secundario en la biografía, el de linktri o link punto mi. Nunca directo." }
+    ] },
+    { "id": "06-dia30", "frases": [
+      { "id": "a", "texto": "Después del día treinta, tu cuenta ya tiene historial y confianza." },
+      { "id": "b", "texto": "Ya puedes subir de dos a tres reels al día y promocionar tu cuenta." },
+      { "id": "c", "texto": "Si usas las automatizaciones del curso, actívalas recién ahora, y siempre lentas, con pausas como las de una persona." },
+      { "id": "d", "texto": "Y la publicidad pagada, solo cuando ya tengas ventas para reinvertir." }
+    ] },
+    { "id": "07-viral", "frases": [
+      { "id": "a", "texto": "Ahora, cómo crecer rápido. Lo que trae seguidores nuevos son los reels, y la forma más segura de pegarle a un viral es partir de uno que ya funcionó." },
+      { "id": "b", "texto": "Busca un reel de tu nicho que tenga menos de catorce días, de una cuenta chica, y que tenga cinco veces o más sus vistas normales." },
+      { "id": "c", "texto": "El reel de una famosa no te sirve: tiene vistas por ser famosa, no por el video." },
+      { "id": "d", "texto": "Fíjate en que lo compartan, lo envíen por mensaje y sobre todo que lo guarden. Esas son las señales que más empujan un reel." }
+    ] },
+    { "id": "08-clonar", "frases": [
+      { "id": "a", "texto": "Ahora lo clonas con tu modelo. Tienes tres caminos." },
+      { "id": "b", "texto": "Uno: el workflow de Wan Video del curso, que copia el movimiento del video original y pone a tu modelo." },
+      { "id": "c", "texto": "Dos: yenyutsu, que recrea el video con tu personaje en pocos minutos." },
+      { "id": "d", "texto": "Y tres: crear tus propios videos desde cero con minimax, a partir de una foto de tu modelo y un prompt." },
+      { "id": "e", "texto": "Cambia la ropa, el lugar y la música, para que sea un video original y no una copia." },
+      { "id": "f", "texto": "Y si uno de tus reels pasa las cien mil vistas, repítelo hasta cinco veces, cambiando la ropa y la música." }
+    ] },
+    { "id": "09-senales", "frases": [
+      { "id": "a", "texto": "Para que tus reels lleguen lejos, cuida estas señales." },
+      { "id": "b", "texto": "El gancho: los primeros dos segundos deciden si la persona se queda." },
+      { "id": "c", "texto": "El tiempo de visualización: reels cortos, de menos de tres minutos, que se vean completos." },
+      { "id": "d", "texto": "Los envíos por mensaje directo y los guardados pesan más que los me gusta." },
+      { "id": "e", "texto": "Y usa los reels de prueba de Instagram: se muestran primero a gente que no te sigue, y si funcionan, los compartes con tus seguidores. Así pruebas sin arriesgar tu cuenta." }
+    ] },
+    { "id": "10-horarios", "frases": [
+      { "id": "a", "texto": "Los horarios también ayudan. Si apuntas a Estados Unidos, publica tus reels entre las ocho y las diez de la noche, hora de Nueva York." },
+      { "id": "b", "texto": "Las fotos funcionan mejor los miércoles y jueves." },
+      { "id": "c", "texto": "Y crea en tanda: genera las fotos y los videos de una o dos semanas y programa tus publicaciones. Así nunca dejas de publicar." }
+    ] },
+    { "id": "11-evitar", "frases": [
+      { "id": "a", "texto": "Ahora, lo que nunca debes hacer." },
+      { "id": "b", "texto": "Seguir y dejar de seguir en masa." },
+      { "id": "c", "texto": "Comprar seguidores o me gusta." },
+      { "id": "d", "texto": "Darle tu contraseña a aplicaciones que te prometen crecimiento." },
+      { "id": "e", "texto": "Publicar el mismo video muchas veces, o subir contenido con marca de agua." },
+      { "id": "f", "texto": "Y entrar con muchas cuentas distintas en el mismo celular." }
+    ] },
+    { "id": "12-estado", "frases": [
+      { "id": "a", "texto": "Un truco que casi nadie usa: en la configuración de Instagram, entra a estado de la cuenta." },
+      { "id": "b", "texto": "Ahí ves si tu contenido puede aparecer en las recomendaciones, o si tienes alguna restricción, y desde ahí mismo puedes apelar." },
+      { "id": "c", "texto": "Revísalo cada semana. Si algo cambia, frena, revisa qué publicaste y corrígelo antes de seguir." }
+    ] },
+    { "id": "13-cierre", "frases": [
+      { "id": "a", "texto": "En resumen: calienta con paciencia, publica contenido original y apóyate en los reels virales para crecer." },
+      { "id": "b", "texto": "Esto es una maratón, no una carrera. Una sola cuenta bien cuidada vale más que tres cuentas quemadas." },
+      { "id": "c", "texto": "Y si tienes dudas, conéctate a las sesiones en vivo de cada semana, o revisa el módulo de capacitaciones extras, donde está la master class de reels ganadores y la clase para aumentar seguidores y conseguir tus primeras ventas." },
+      { "id": "d", "texto": "Nos vemos en el próximo módulo." }
+    ] }
+  ]
+}

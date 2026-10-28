@@ -1,0 +1,25 @@
+{
+ "programs": [],
+ "streams": [
+  {
+   "codec_name": "h264",
+   "codec_type": "video",
+   "width": 2540,
+   "height": 1440,
+   "r_frame_rate": "50/1"
+  },
+  {
+   "codec_name": "aac",
+   "codec_type": "audio",
+   "sample_rate": "44100",
+   "channels": 2,
+   "r_frame_rate": "0/0"
+  }
+ ],
+ "format": {
+  "duration": "123.461000"
+ },
+ "nombre": "CLASE 01.mp4",
+ "id": "1tBIuwIusAIXvUgmM-_KciYyg5EuWviHQ",
+ "bytes": 597099561
+}

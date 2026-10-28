@@ -1,17 +1,17 @@
 // Genera la voz de cada escena del guion y los tiempos de cada frase.
 //
 // Uso:
-//   node herramientas/voz.mjs videos/<nombre> [--proveedor elevenlabs|minimax|local] [--escena ID] [--forzar]
-//   node herramientas/voz.mjs --voces elevenlabs|minimax      (lista las voces disponibles)
+//   node herramientas/voz.mjs videos/<nombre> [--proveedor qwen|elevenlabs|minimax|local] [--escena ID] [--forzar]
+//   node herramientas/voz.mjs --voces qwen|elevenlabs|minimax      (lista las voces disponibles)
 //
-// Cache: si el texto y la config de voz no cambiaron, NO vuelve a llamar a la API (no gasta creditos).
+// Cache: si el texto y la config de voz no cambiaron, NO vuelve a generar (ni gasta creditos).
 import { RAIZ } from './entorno.mjs';
-import { readFileSync, writeFileSync, existsSync, mkdirSync, rmSync, renameSync } from 'node:fs';
+import { readFileSync, writeFileSync, existsSync, mkdirSync, rmSync, renameSync, readdirSync } from 'node:fs';
 import { execFileSync } from 'node:child_process';
 import { createHash } from 'node:crypto';
 import path from 'node:path';
 import os from 'node:os';
-import { textoDeEscena, palabrasDesdeCaracteres, alinearFrases, armarTiempos } from './tiempos.mjs';
+import { textoDeEscena, palabrasDesdeCaracteres, alinearFrases, armarTiempos, cobertura } from './tiempos.mjs';
 import { prepararEscena } from './comun.mjs';
 
 const ENTRADA = 0.4; // silencio antes de que hable la voz (s)
@@ -135,7 +135,33 @@ async function local(texto, cfg) {
   return { audio, ext: 'wav', palabras: null };
 }
 
+// Voz local con Qwen3-TTS: gratis, sin limite y en tu PC. Clona voces/<voz>/referencia.wav.
+// Genera TODAS las escenas pendientes en un solo proceso de Python (el modelo se carga una vez y hace
+// varias escenas a la vez). Deja audio/<escena>.wav; los tiempos salen de transcribir ese audio.
+function qwen(pendientes, cfg, carpeta) {
+  if (!cfg.voz) throw new Error('Falta voz.qwen.voz en guion.json (una carpeta de voces/, ver --voces qwen)');
+  if (!existsSync(path.join(RAIZ, 'voces', cfg.voz, 'referencia.wav'))) {
+    throw new Error(`No existe voces/${cfg.voz}/referencia.wav: crea esa voz (ver "Voz local" en README.md), cambia voz.qwen.voz en guion.json o usa --proveedor elevenlabs`);
+  }
+  const python = path.join(RAIZ, '.venv-tts', process.platform === 'win32' ? 'Scripts/python.exe' : 'bin/python');
+  if (!existsSync(python)) throw new Error('Falta el entorno .venv-tts de la voz local: ver "Voz local" en README.md');
+  const trabajos = path.join(carpeta, 'trabajos.tmp.json');
+  writeFileSync(trabajos, JSON.stringify(pendientes.map((e) => ({ texto: textoDeEscena(e.frases).texto, salida: path.join(carpeta, `${e.id}.wav`) }))));
+  try {
+    execFileSync(python, [
+      path.join(RAIZ, 'herramientas', 'tts_qwen.py'), 'hablar', '--voz', cfg.voz, '--trabajos', trabajos,
+      '--modelo', cfg.modelo || '1.7B', '--dtype', cfg.dtype || 'bf16', '--lote', String(cfg.lote || 4),
+    ], { stdio: ['ignore', 'inherit', 'pipe'], maxBuffer: 64 * 1024 * 1024 });
+  } catch (err) {
+    // Los avisos de Python solo se muestran si fallo
+    throw new Error(`Qwen3-TTS fallo:\n${String(err.stderr || err.message).trim().split('\n').slice(-15).join('\n')}`);
+  } finally {
+    rmSync(trabajos, { force: true });
+  }
+}
+
 const PROVEEDORES = { elevenlabs, minimax, local };
+const EN_LOTE = { qwen }; // generan todas las escenas pendientes de una vez
 
 // ---------- listar voces ----------
 async function listarVoces(prov) {
@@ -153,6 +179,14 @@ async function listarVoces(prov) {
     for (const v of [...(j.system_voice || []), ...(j.voice_cloning || []), ...(j.voice_generation || [])]) {
       if (/spanish|espa/i.test(v.voice_id + ' ' + (v.description || []).join(' '))) console.log(`${v.voice_id}  ${v.voice_name || ''}  ${(v.description || []).join(' ')}`);
     }
+  } else if (prov === 'qwen') {
+    const voces = path.join(RAIZ, 'voces');
+    // origen.txt = voz clonada de una grabacion; instruct.txt = voz disenada con Qwen VoiceDesign
+    for (const v of existsSync(voces) ? readdirSync(voces) : []) {
+      if (!existsSync(path.join(voces, v, 'referencia.wav'))) continue;
+      const nota = ['origen.txt', 'instruct.txt'].map((n) => path.join(voces, v, n)).find(existsSync);
+      console.log(`${v}  ${nota ? readFileSync(nota, 'utf8') : ''}`);
+    }
   }
 }
 
@@ -165,21 +199,26 @@ async function main() {
   const guion = JSON.parse(readFileSync(path.join(proyecto, 'guion.json'), 'utf8'));
   const prov = opt('proveedor') || guion.voz.proveedor;
   const cfg = guion.voz[prov] || {};
-  if (!PROVEEDORES[prov]) throw new Error(`Proveedor desconocido: ${prov}`);
+  if (!PROVEEDORES[prov] && !EN_LOTE[prov]) throw new Error(`Proveedor desconocido: ${prov}`);
 
   const carpeta = path.join(proyecto, 'audio');
   mkdirSync(carpeta, { recursive: true });
 
-  const escenas = guion.escenas;
+  // Firma de cada escena: si el texto y la config de voz no cambiaron, la voz guardada sigue valiendo.
+  // El tamano del lote no cambia la voz, asi que no cuenta.
+  const { lote, ...cfgFirma } = cfg;
+  const firma = (e) => createHash('sha1').update(JSON.stringify({ prov, cfg: cfgFirma, texto: textoDeEscena(e.frases).texto })).digest('hex').slice(0, 16);
+  const vigente = (e) => {
+    const mp = path.join(carpeta, `${e.id}.meta.json`);
+    if (flag('forzar') || !existsSync(mp)) return false;
+    const meta = JSON.parse(readFileSync(mp, 'utf8'));
+    return meta.hash === firma(e) && existsSync(path.join(carpeta, meta.archivo)) && existsSync(path.join(carpeta, `${e.id}.palabras.json`));
+  };
+
+  const escenas = guion.escenas.filter((e) => !opt('escena') || e.id.startsWith(opt('escena')));
+  const pendientes = escenas.filter((e) => !vigente(e));
 
   // Antes de gastar: cuantos caracteres hay que generar y si alcanzan los creditos
-  const pendientes = escenas.filter((e) => {
-    if (opt('escena') && !e.id.startsWith(opt('escena'))) return false;
-    const { texto } = textoDeEscena(e.frases);
-    const hash = createHash('sha1').update(JSON.stringify({ prov, cfg, texto })).digest('hex').slice(0, 16);
-    const mp = path.join(carpeta, `${e.id}.meta.json`);
-    return flag('forzar') || !existsSync(mp) || JSON.parse(readFileSync(mp, 'utf8')).hash !== hash;
-  });
   const necesarios = pendientes.reduce((s, e) => s + textoDeEscena(e.frases).texto.length, 0);
   if (prov === 'elevenlabs' && necesarios > 0) {
     const disponibles = await creditosElevenLabs();
@@ -187,39 +226,58 @@ async function main() {
     if (disponibles != null && disponibles < necesarios) throw new Error('No alcanzan los creditos de ElevenLabs: no se genero nada.');
   }
 
-  for (let k = 0; k < escenas.length; k++) {
-    const e = escenas[k];
-    if (opt('escena') && !e.id.startsWith(opt('escena'))) continue;
+  // Motores locales: todas las escenas pendientes de una sola pasada
+  if (EN_LOTE[prov] && pendientes.length) {
+    console.log(`${prov}: generando ${pendientes.length} escenas (${necesarios} caracteres) en tu PC...`);
+    EN_LOTE[prov](pendientes, cfg, carpeta);
+  }
 
-    const { texto } = textoDeEscena(e.frases);
-    const hash = createHash('sha1').update(JSON.stringify({ prov, cfg, texto })).digest('hex').slice(0, 16);
+  for (const e of escenas) {
     const metaPath = path.join(carpeta, `${e.id}.meta.json`);
-    const meta = existsSync(metaPath) ? JSON.parse(readFileSync(metaPath, 'utf8')) : null;
-
     const palabrasPath = path.join(carpeta, `${e.id}.palabras.json`);
-    if (!flag('forzar') && meta?.hash === hash && existsSync(path.join(carpeta, meta.archivo)) && existsSync(palabrasPath)) {
-      // Sin llamar a la API: se recalculan los tiempos con las palabras ya guardadas
+    if (!pendientes.includes(e)) {
+      // Sin volver a generar: se recalculan los tiempos con las palabras ya guardadas
+      const meta = JSON.parse(readFileSync(metaPath, 'utf8'));
       const audioPath = path.join(carpeta, meta.archivo);
       const palabras = recortarSilencios(audioPath, JSON.parse(readFileSync(palabrasPath, 'utf8')));
       writeFileSync(palabrasPath, JSON.stringify(palabras));
       const t = escribirTiempos(proyecto, carpeta, e, palabras, duracion(audioPath), meta.archivo);
-      console.log(`= ${e.id}: sin cambios (${t.duracion}s), no se llamo a la API`);
+      console.log(`= ${e.id}: sin cambios (${t.duracion}s), no se volvio a generar`);
       continue;
     }
 
-    process.stdout.write(`> ${e.id}: generando voz (${prov}, ${texto.length} caracteres)... `);
-    const r = await PROVEEDORES[prov](texto, cfg);
+    const { texto } = textoDeEscena(e.frases);
+    let archivo = `${e.id}.wav`; // los motores locales ya lo dejaron listo
+    let habladas = null;
+    if (EN_LOTE[prov]) {
+      process.stdout.write(`> ${e.id}: sacando los tiempos... `);
+    } else {
+      process.stdout.write(`> ${e.id}: generando voz (${prov}, ${texto.length} caracteres)... `);
+      const r = await PROVEEDORES[prov](texto, cfg);
+      archivo = `${e.id}.${r.ext}`;
+      writeFileSync(path.join(carpeta, archivo), r.audio);
+      habladas = r.palabras;
+    }
 
-    const archivo = `${e.id}.${r.ext}`;
     const destino = path.join(carpeta, archivo);
-    writeFileSync(destino, r.audio);
-    const palabras = recortarSilencios(destino, r.palabras || transcribir(destino));
+    const palabras = recortarSilencios(destino, habladas || transcribir(destino));
     const durAudio = duracion(destino);
     writeFileSync(palabrasPath, JSON.stringify(palabras));
-    writeFileSync(metaPath, JSON.stringify({ hash, prov, archivo, generado: new Date().toISOString() }, null, 2));
+    writeFileSync(metaPath, JSON.stringify({ hash: firma(e), prov, archivo, generado: new Date().toISOString() }, null, 2));
     const t = escribirTiempos(proyecto, carpeta, e, palabras, durAudio, archivo);
-    console.log(`listo ${t.duracion}s`);
+    console.log(`listo ${t.duracion}s${habladas ? '' : revisarCobertura(e, palabras)}`);
   }
+}
+
+// Sin tiempos propios (MiniMax y voces locales) la transcripcion tambien sirve de control: avisa si la
+// voz se salto o cambio palabras del guion. Umbral 85%: con marcas (Higgsfield, IA-HUB, Soul) una toma
+// perfecta queda en 89-94% porque Whisper las escribe distinto.
+function revisarCobertura(e, palabras) {
+  const c = cobertura(e.frases, palabras);
+  const pct = Math.round((100 * c.dichas) / Math.max(c.total, 1));
+  if (pct >= 85) return ` (se entiende el ${pct}% del guion)`;
+  return `\n  ! ${e.id}: solo se entiende el ${pct}% del guion. No reconoci: ${c.faltan.join(', ')}` +
+    `\n    Escuchala; si falta algo, repitela con --escena ${e.id} --forzar (cada toma sale distinta)`;
 }
 
 // Alinea las frases con las palabras habladas, guarda los tiempos y deja lista la carpeta de la escena

@@ -1,0 +1,24 @@
+{
+ "nombre": "IA HUB",
+ "acento": "#d1fe17",
+ "acentoRGB": "209,254,23",
+ "acento2": "#a6cc0f",
+ "acento2RGB": "166,204,15",
+ "acentoClaro": "#e6ff8a",
+ "acento3RGB": "230,255,138",
+ "tinta": "#10140a",
+ "luzRGB": "214,255,120",
+ "haloRGB": "110,140,20",
+ "degradado": "linear-gradient(180deg,#f6ffd0 0%,#e6ff8a 28%,#d1fe17 52%,#86a80a 76%,#e9ff9e 100%)",
+ "fondo": [
+  "#0f1012",
+  "#0a0b0c",
+  "#050506"
+ ],
+ "ctaFondo": [
+  "#1f2a08",
+  "#0f1305",
+  "#050603"
+ ],
+ "logo": ""
+}

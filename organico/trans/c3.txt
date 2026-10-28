@@ -1,0 +1,89 @@
+[0:00.69] Ok, so welcome to module 2.2. We're going to pick up where we left off from last video,
+[0:06.67] where we're going to be defining your model's persona. So the goal of the end of this module
+[0:10.73] is basically you're going to have created your complete AI model persona, her name,
+[0:16.03] her age, her look, her personality and her social media handles, identity etc. So first
+[0:23.31] let's break down what is a persona for your AI model. So this is going to consist
+[0:29.03] of a couple of things. It's going to be a name, you're going to have an age, a location,
+[0:35.07] social media handle and an origin slash ethnicity. So this is going to be quite a quick video
+[0:41.87] because there's not actually a lot to cover, so yeah we'll jump into it. The first thing
+[0:45.63] is a name. You want to have a short, memorable, realistic name. Try starting with
+[0:50.49] one to two syllables. Some examples here, Ava Lane, Maya Diaz, Yuna Kai. So no long
+[0:57.53] names like Anushka, Vagranov, we're going to keep them short and sweet. But don't be
+[1:03.59] too generic because you want to have an IG handle of her name and if you've ever tried
+[1:07.35] to get an Instagram handle of anything, you know it's physically impossible and they're
+[1:12.43] usually taken by someone who hasn't been on Instagram in the past 16 years. So just
+[1:16.51] try and pick something which is short, sweet and you can get an Instagram handle
+[1:21.01] of as well. Try and match the last name to the ethnicity. So if she's an Asian
+[1:26.11] model, maybe have some short Asian last name. If she is a Latina model, maybe have something
+[1:30.91] like Diaz. You get the gist. Age. Pick an age range that suits your audience's
+[1:37.13] fantasy. Usually you're going to have an age range between 18 and 23 because the
+[1:41.67] audience are going to be older, unconfident guys who don't do very well socially
+[1:45.09] or romantically. So they think if they talk to a model who is younger, maybe
+[1:50.91] between 18 and 23, they can manipulate them to get content for cheaper or yeah
+[1:56.19] people are just weird anyway. Ethnicity. This is completely up to you. You can do
+[2:01.01] really whatever the fuck you want. Choose visuals that fit your target
+[2:04.29] audiences, preferences and realism. Really it's up to you. You can do what
+[2:09.33] the fuck you want. Some examples here would be black, mixed, Latina, Asian,
+[2:13.67] European. But where she's from doesn't matter. She can be from
+[2:17.85] anywhere in the world. Doesn't matter. But where she lives, that matters
+[2:22.13] because obviously people that spend money with her think she's a real
+[2:26.05] person and they want one day in their dreams at night to be able to
+[2:31.77] meet this model. The one that doesn't exist. So yeah I recommend anywhere
+[2:36.73] like USA. USA is the one that I'd probably tell everyone to do. Just some
+[2:41.15] random state in the middle of fucking nowhere. But yeah UK, US, Canada, any
+[2:47.43] of those. Just don't base her in fucking Thailand or Singapore because the
+[2:55.17] biggest spenders are the people, other people inside the USA and if she
+[2:59.13] lives in Thailand they're gonna think I'm never gonna see this girl so I'm
+[3:02.79] not gonna buy her picture for a hundred dollars. So yeah. IG handle. I
+[3:08.57] think we briefly touched on this. You want to keep your IG handle short
+[3:12.47] just like one of these or whatever. Pretty simple stuff. Don't have some shit
+[3:17.99] like this where it's like a bunch of numbers and letters and whatever but
+[3:22.47] and don't make it overly sexual as well because you want to come across
+[3:25.61] as just like a real normal girl not a porn star. So yeah these are just
+[3:33.13] some tips and tricks on how to make her seem real and really create a
+[3:36.93] character. So you want to use storytelling to create the illusion.
+[3:40.37] They don't really care about childhood stories and shit they just want to know
+[3:43.83] just a little bit so it seems more realistic. Post stories on Instagram like
+[3:48.63] she's a real person. Don't make everything perfect. Add flaws and some
+[3:53.13] quirks. Give her hobbies. One or two hobbies. Don't go over the top and make her
+[3:56.75] do all the fucking sports in the Olympics. Just give her some shit. I
+[4:00.67] don't know. And then align her captions, bios and visuals with her
+[4:04.67] personality traits. So for the backstory hints you can do stuff like she
+[4:09.07] just moved to a new country. That's something that I've done before. She can be
+[4:14.07] studying at a known college so you could put in the bio like UCLA with some
+[4:18.47] book emojis to make her seem like she's studying criminology at fucking
+[4:23.89] some college. Runs a small business so you could just randomly post like
+[4:29.41] pictures of eyelashes on your story to make people think that you're a
+[4:32.01] lash tech. All these things are super easy to do and they add that sense
+[4:36.71] of realism. IG stories. So don't just post overly sexual stuff all the time
+[4:43.73] because it just looks bait and it will just ruin the illusion. So yeah post
+[4:48.57] the mixture of stuff. Post stuff for pets. Post stuff with friends. Selfies and
+[4:53.31] memes. You can create, this is a real person, but you can create all of
+[4:57.05] these with AI. Like stupid easily. I actually seen this photo and said oh
+[5:01.27] you know what I'm gonna try and create the one with AI. And at first
+[5:04.47] I typed in car instead of cat and it gave my model a picture of holding a car.
+[5:09.25] But after that I redone it and it worked. So yeah mix your IG stories up.
+[5:14.89] This is like almost like the marketing section but I'll touch on it briefly
+[5:18.61] now just so you guys know. Hobbies. You know what hobbies are. Make her paint, make her ski. I don't know. Any little
+[5:28.93] hobbies just to give her more of a personality. You want to add small human
+[5:34.25] details so maybe in your captions add stuff like I'm so bad at being on time
+[5:40.65] trying to hit gym three times a week. Obviously trying. Don't make everything
+[5:44.79] perfect. Can't go a day without oat milk lattes. Yeah you get the idea. Just
+[5:51.05] micro stories that imply there's a real person behind the content. So yeah
+[5:56.59] that's it for the persona. By the end of this you should have a name, an
+[6:03.23] age, ethnicity, location and an IG handle. So once you have all of this you
+[6:10.81] know who your model is, you know what the character is. Now you can start
+[6:14.49] putting a face to that character. So what I want you to do is jump out of
+[6:19.05] this course and load up the Comfy UI face generation course and then you
+[6:23.89] can start installing Comfy, going through that process, setting up the
+[6:27.61] workflow and then generating your face. Because that face that you're
+[6:32.20] generating is basically going to be used for all of the images you create. So
+[6:37.00] don't rush it. We'll explain in the video how to do everything. So yeah
+[6:42.98] create your face, make sure you spend time on it, get something that you
+[6:46.52] actually like. If you need help with anything Comfy related you can message
+[6:51.12] inside the Comfy UI troubleshooting chat in the discord. You can ask us
+[6:55.24] me or Josh will either reply. So yeah once you made your face in Comfy then
+[7:00.24] you jump back into the AME course and then you can start on module 3 where
+[7:04.78] we're going to generate all of the content which you're going to be
+[7:07.18] posting across social media. So that's it for this and I'll see you guys in
+[7:12.78] module 3.

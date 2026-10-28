@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=1920, height=1080" />
+<link rel="stylesheet" href="base/tema.css" />
+<link rel="stylesheet" href="base/papel.css" />
+<script src="base/vendor/gsap.min.js"></script>
+<script src="base/vendor/rough.js"></script>
+<script src="tiempos.js"></script>
+<script src="base/escena.js"></script>
+<script src="base/papel.js"></script>
+<style>
+  #cab { position: absolute; left: 120px; top: 52px; }
+  #cab .p-eyebrow { display: inline-block; margin-bottom: 10px; }
+  #cab h2 { font-size: 92px; white-space: nowrap; }
+
+  .panel { position: absolute; top: 236px; width: 770px; height: 760px; }
+  .panel .dentro > * { position: absolute; }
+  .panel .p-eyebrow { left: 44px; top: 34px; color: var(--tinta); }
+  .panel .grande { left: 40px; top: 74px; font-family: var(--marcador); font-size: 96px; font-weight: 400; color: var(--tinta); }
+  .panel .bajada { left: 46px; top: 190px; font-family: var(--mano); font-weight: 700; font-size: 56px; }
+  .panel svg.dib { left: 0; top: 0; width: 770px; height: 760px; overflow: visible; }
+  #pPlan { left: 112px; rotate: -1.5deg; --c: var(--lima); }
+  #pApi { left: 1036px; rotate: 1.4deg; --c: var(--naranja); }
+
+  .ticket { position: absolute; width: 200px; height: 84px; }
+  .ticket .p-corte { --c: var(--blanco); }
+  .ticket span { position: absolute; inset: 0; display: grid; place-items: center; font-family: var(--marcador); font-size: 34px; }
+  .ticket::before { content: ''; position: absolute; inset: 8px; border: 3px dashed rgba(28, 27, 24, 0.35); border-radius: 6px; z-index: 1; }
+
+  #noAcum { left: 112px; top: 518px; font-family: var(--marcador); font-size: 52px; display: inline-block; }
+  #pierde { left: 46px; top: 594px; width: 680px; font-family: var(--mano); font-weight: 700; font-size: 52px; line-height: 1.05; display: inline-block; }
+
+  .item { left: 118px; font-family: var(--mano); font-weight: 700; font-size: 56px; display: inline-block; }
+  #iahub { left: 44px; top: 560px; width: 690px; height: 170px; }
+  #iahub img { position: absolute; left: 150px; top: 34px; width: 250px; }
+  #iahub .txt { position: absolute; left: 420px; top: 46px; font-family: var(--mano); font-weight: 700; font-size: 50px; line-height: 1.02; }
+
+  #vs { position: absolute; left: 872px; top: 200px; width: 176px; height: 900px; rotate: 1deg; --c: var(--negro); }
+  #vs span { position: absolute; left: 0; right: 0; top: 380px; text-align: center; font-family: var(--marcador); font-size: 92px; color: var(--lima); rotate: -8deg; }
+
+  #sello { left: 176px; top: 636px; font-size: 50px; line-height: 1.05; white-space: nowrap; }
+</style>
+</head>
+<body>
+<div id="root" data-composition-id="01-dos-formas" data-start="0" data-width="1920" data-height="1080" data-duration="23.9">
+  <audio id="voz" src="voz.wav" data-start="0.4" data-duration="22.8" data-volume="1"></audio>
+  <div class="p-fondo"></div>
+  <div class="p-escena">
+    <div class="p-hoja recorte p-sombra baja" style="left:1490px; top:-70px; width:520px; height:220px; rotate:5deg; --c: var(--kraft)"><div class="p-corte" data-amp="7"></div></div>
+
+    <div id="cab">
+      <span class="p-eyebrow">Cómo cobra Higgsfield</span>
+      <h2 class="p-titulo">Dos formas de <span class="tira" style="--c: var(--negro); color: var(--blanco)"><span class="p-corte" data-amp="3"></span>cobrar</span></h2>
+    </div>
+
+    <div id="pPlan" class="panel recorte p-sombra con-borde"><div class="p-corte" data-amp="6"></div>
+      <div class="dentro">
+        <div class="p-eyebrow">Plan · en la web</div>
+        <div class="grande" id="gPlan">CRÉDITOS</div>
+        <div class="bajada" id="bPlan">te los dan cada mes</div>
+        <div class="ticket recorte p-sombra baja" style="left:44px; top:290px; rotate:-3deg"><div class="p-corte" data-amp="2"></div><span>crédito</span></div>
+        <div class="ticket recorte p-sombra baja" style="left:266px; top:290px; rotate:2deg"><div class="p-corte" data-amp="2"></div><span>crédito</span></div>
+        <div class="ticket recorte p-sombra baja" style="left:488px; top:290px; rotate:-2deg"><div class="p-corte" data-amp="2"></div><span>crédito</span></div>
+        <div class="ticket recorte p-sombra baja cae" style="left:44px; top:396px; rotate:3deg"><div class="p-corte" data-amp="2"></div><span>crédito</span></div>
+        <div class="ticket recorte p-sombra baja cae" style="left:266px; top:396px; rotate:-2deg"><div class="p-corte" data-amp="2"></div><span>crédito</span></div>
+        <div class="ticket recorte p-sombra baja cae" style="left:488px; top:396px; rotate:1deg"><div class="p-corte" data-amp="2"></div><span>crédito</span></div>
+        <svg class="dib" id="dPlan" viewBox="0 0 770 760"></svg>
+        <div id="noAcum">NO SE ACUMULAN</div>
+        <div id="pierde">lo que no usas, se pierde al renovar</div>
+      </div>
+    </div>
+
+    <div id="vs" class="recorte p-sombra con-borde"><div class="p-corte" data-amp="7" data-lados="lr"></div><span>vs</span></div>
+
+    <div id="pApi" class="panel recorte p-sombra con-borde"><div class="p-corte" data-amp="6"></div>
+      <div class="dentro">
+        <div class="p-eyebrow">API</div>
+        <div class="grande" id="gApi">DÓLARES</div>
+        <div class="bajada" id="bApi">por segundo o por imagen</div>
+        <svg class="dib" id="dApi" viewBox="0 0 770 760"></svg>
+        <div class="item" id="i1" style="top: 290px">cargas desde US$ 5</div>
+        <div class="item" id="i2" style="top: 378px">el saldo te dura 1 año</div>
+        <div class="item" id="i3" style="top: 466px">solo cobra lo que sale bien</div>
+        <div id="iahub"><img src="base/logo-iahub.png" alt="" /><div class="txt">se conecta en IA-HUB</div></div>
+      </div>
+    </div>
+
+    <div class="sello" id="sello">NO SIRVEN EN LA API</div>
+  </div>
+  <div class="p-cortina recorte con-borde"><div class="p-corte" data-amp="16" data-lados="lr" data-paso="14"></div></div>
+</div>
+
+<script>
+  papel.preparar();
+  const tl = gsap.timeline({ paused: true });
+  papel.cortina(tl);
+  papel.ambiente(tl);
+  const D = papel.dibujos;
+  const dPlan = document.getElementById('dPlan'), dApi = document.getElementById('dApi');
+
+  // intro: titulo y los dos paneles
+  papel.escribir(tl, '#cab .p-eyebrow', T('intro', -0.1), 0.5);
+  papel.deslizar(tl, '#cab h2', T('intro', 0.05), { x: -140, giro: -3 });
+  papel.deslizar(tl, '#pPlan', TW('intro', 'dos', 1, -0.15), { x: -420, giro: -8 });
+  papel.deslizar(tl, '#pApi', TW('intro', 'formas', 1, -0.05), { x: 420, giro: 8 });
+  papel.soltar(tl, '#vs', TW('intro', 'distinto', 1, -0.3), { giro: 6, y: -200 });
+
+  // plan: creditos cada mes que no se acumulan
+  papel.escribir(tl, '#pPlan .p-eyebrow', TW('plan', 'planes', 1, -0.1), 0.45);
+  papel.escribir(tl, '#gPlan', TW('plan', 'creditos', 1, -0.35), 0.55);
+  papel.escribir(tl, '#bPlan', TW('plan', 'cada', 1, -0.2), 0.55);
+  papel.pop(tl, '#pPlan .ticket', TW('plan', 'mes', 1, -0.05), { stagger: 0.07, giro: -14 });
+  const cruz = D.cruz(dPlan, 44, 528, 46, { color: '#f0402f', grosor: 7 });
+  papel.dibujar(tl, cruz, TW('plan', 'acumulan', 1, -0.3), 0.35);
+  papel.escribir(tl, '#noAcum', TW('plan', 'no', 1, -0.05), 0.55);
+  papel.escribir(tl, '#pierde', TW('plan', 'lo', 1, -0.05), 1.1);
+  tl.to('#pPlan .cae', { y: 520, rotation: (i) => [-38, 26, -20][i], opacity: 0, duration: 0.85, stagger: 0.09, ease: 'power2.in' }, TW('plan', 'pierde', 1, -0.05));
+
+  // api: dolares por uso
+  papel.escribir(tl, '#pApi .p-eyebrow', TW('api', 'api', 1, -0.15), 0.3);
+  papel.escribir(tl, '#gApi', TW('api', 'dolares', 1, -0.3), 0.55);
+  papel.escribir(tl, '#bApi', TW('api', 'segundo', 1, -0.2), 0.8);
+  const monedas = [].concat(D.moneda(dApi, 640, 104, 46, { grosor: 5 }), D.moneda(dApi, 700, 168, 34, { grosor: 4 }));
+  papel.dibujar(tl, monedas, TW('api', 'dolares', 1, 0.1), 0.8);
+  [['#i1', 'cargas', 296], ['#i2', 'saldo', 384], ['#i3', 'solo', 472]].forEach(([sel, palabra, y], k) => {
+    const ch = D.check(dApi, 50, y, 46, { grosor: 7 });
+    papel.dibujar(tl, ch, TW('api', palabra, 1, -0.25), 0.3);
+    papel.escribir(tl, sel, TW('api', palabra, 1, -0.05), 0.8);
+  });
+
+  // iahub: la API se conecta en IA-HUB; los creditos del plan no sirven ahi
+  const ench = D.enchufe(dApi, 64, 616, 70, { grosor: 5 });
+  papel.dibujar(tl, ench, TW('iahub', 'conectas', 1, -0.45), 0.5);
+  papel.soltar(tl, '#iahub img', TW('iahub', 'conectas', 1, -0.15), { giro: 8, y: -90 });
+  papel.escribir(tl, '#iahub .txt', TW('iahub', 'iahub', 1, -0.1), 0.6);
+  papel.sello(tl, '#sello', TW('iahub', 'funcionan', 1, -0.1), { giro: -9 });
+
+  window.__timelines['01-dos-formas'] = tl;
+</script>
+</body>
+</html>

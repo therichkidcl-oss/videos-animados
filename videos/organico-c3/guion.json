@@ -1,0 +1,81 @@
+{
+  "titulo": "Modulo Escalando Redes Sociales (curso NSFW) - Clase 3: Definiendo la personalidad de tu modelo",
+  "nota": "Doblaje al espanol (tu) del original en ingles britanico. Adaptado a IA HUB: 'curso de ComfyUI' -> modulo 'Creando tu modelo IA'; 'chat de Discord donde responde Josh' -> Discord del curso; 'modulo 3' -> proximo paso. Groserias suavizadas.",
+  "voz": {
+    "proveedor": "qwen",
+    "qwen": { "voz": "reimo-v3", "modelo": "1.7B", "dtype": "bf16", "lote": 4 }
+  },
+  "escenas": [
+    { "id": "00-intro", "frases": [
+      { "id": "a", "texto": "Bienvenidos. Seguimos donde quedamos en la clase anterior: ahora vamos a definir la persona de tu modelo." },
+      { "id": "b", "texto": "Al final de esta clase vas a tener creada la identidad completa de tu modelo de ia: su nombre, su edad, su look, su personalidad y sus usuarios en redes sociales." }
+    ] },
+    { "id": "01-persona", "frases": [
+      { "id": "a", "texto": "Primero, veamos qué es la persona de tu modelo. Se compone de unas pocas cosas:" },
+      { "id": "b", "texto": "un nombre, una edad, un lugar donde vive, un usuario en redes y un origen o etnia." },
+      { "id": "c", "texto": "Esta va a ser una clase corta, porque no hay tanto que cubrir. Así que vamos directo." }
+    ] },
+    { "id": "02-nombre", "frases": [
+      { "id": "a", "texto": "Lo primero es el nombre. Quieres un nombre corto, fácil de recordar y realista. Intenta que tenga una o dos sílabas." },
+      { "id": "b", "texto": "Algunos ejemplos: Ava Lane, Maya Díaz, Yuna Kai. Nada de nombres largos y complicados: cortos y simples." },
+      { "id": "c", "texto": "Pero tampoco demasiado genérico, porque vas a querer un usuario de Instagram con su nombre." },
+      { "id": "d", "texto": "Y si alguna vez intentaste conseguir un usuario en Instagram, sabes que es casi imposible: siempre lo tiene alguien que no entra hace dieciséis años." },
+      { "id": "e", "texto": "Elige algo corto, simple, y que esté disponible en Instagram." },
+      { "id": "f", "texto": "Y haz que el apellido calce con la etnia: si es una modelo asiática, un apellido asiático corto; si es latina, algo como Díaz. Ya entiendes la idea." }
+    ] },
+    { "id": "03-edad", "frases": [
+      { "id": "a", "texto": "La edad. Elige un rango que encaje con la fantasía de tu audiencia." },
+      { "id": "b", "texto": "Lo normal es un rango entre dieciocho y veintitrés años, porque la audiencia suele ser de hombres mayores, inseguros, a los que no les va muy bien en lo social ni en lo romántico." },
+      { "id": "c", "texto": "Y sienten que con una modelo más joven tienen más control, o que van a conseguir contenido más barato. La gente es rara, qué le vamos a hacer." }
+    ] },
+    { "id": "04-etnia", "frases": [
+      { "id": "a", "texto": "La etnia depende completamente de ti. Puedes hacer lo que quieras." },
+      { "id": "b", "texto": "Elige una imagen que calce con las preferencias de tu público y que se vea realista. Algunos ejemplos: negra, mestiza, latina, asiática, europea." }
+    ] },
+    { "id": "05-ubicacion", "frases": [
+      { "id": "a", "texto": "De dónde es no importa: puede ser de cualquier parte del mundo. Pero dónde vive, eso sí importa." },
+      { "id": "b", "texto": "Porque la gente que gasta con ella cree que es una persona real, y en el fondo sueña con algún día poder conocerla. A la modelo que no existe." },
+      { "id": "c", "texto": "Yo recomiendo Estados Unidos. Es lo que le diría a todo el mundo: algún estado cualquiera, en medio de la nada. Reino Unido, Estados Unidos, Canadá, cualquiera de esos." },
+      { "id": "d", "texto": "Lo que no debes hacer es ponerla a vivir en Tailandia o en Singapur, porque los que más gastan están en Estados Unidos." },
+      { "id": "e", "texto": "Y si vive en Tailandia, van a pensar: a esta chica nunca la voy a ver, así que no le voy a comprar una foto en cien dólares." }
+    ] },
+    { "id": "06-usuario", "frases": [
+      { "id": "a", "texto": "El usuario de Instagram. Ya lo mencionamos: mantenlo corto, como estos. Muy simple." },
+      { "id": "b", "texto": "No uses algo así, con un montón de números y letras." },
+      { "id": "c", "texto": "Y tampoco lo hagas demasiado sexual, porque quieres que se vea como una chica normal y real, no como una actriz porno." }
+    ] },
+    { "id": "07-real", "frases": [
+      { "id": "a", "texto": "Ahora, algunos trucos para que se vea real y crear un personaje de verdad." },
+      { "id": "b", "texto": "Usa el storytelling para crear la ilusión. No les importan las historias de su infancia; solo quieren saber un poquito, para que se sienta más real." },
+      { "id": "c", "texto": "Sube historias en Instagram como si fuera una persona real. No hagas que todo sea perfecto: agrégale defectos y algunas manías." },
+      { "id": "d", "texto": "Dale pasatiempos, uno o dos. No te pases haciendo que practique todos los deportes de las olimpiadas." },
+      { "id": "e", "texto": "Y alinea sus textos, su biografía y sus fotos con su personalidad." }
+    ] },
+    { "id": "08-historia", "frases": [
+      { "id": "a", "texto": "Para darle pistas de su historia, puedes hacer cosas como: se acaba de mudar a otro país. Eso yo ya lo he hecho." },
+      { "id": "b", "texto": "Puede estar estudiando en una universidad conocida: pones en la biografía algo como UCLA, con unos emojis de libros, y parece que estudia criminología." },
+      { "id": "c", "texto": "O tiene un pequeño negocio: subes de vez en cuando fotos de pestañas en tus historias, y la gente piensa que es técnica en pestañas." },
+      { "id": "d", "texto": "Todo esto es súper fácil de hacer, y le da esa sensación de realismo." }
+    ] },
+    { "id": "09-historias", "frases": [
+      { "id": "a", "texto": "Las historias de Instagram. No subas solo cosas muy sexuales todo el tiempo, porque se ve como carnada y rompe la ilusión." },
+      { "id": "b", "texto": "Sube una mezcla: cosas con mascotas, con amigas, selfies y memes." },
+      { "id": "c", "texto": "Esta es una persona real, pero todo esto lo puedes crear con ia, facilísimo." },
+      { "id": "d", "texto": "De hecho, vi esta foto y dije: voy a intentar crearla con ia. La primera vez escribí auto en vez de gato, y me dio a mi modelo sosteniendo un auto." },
+      { "id": "e", "texto": "Después la rehice y funcionó. Así que mezcla tus historias. Esto es casi parte de la sección de marketing, pero te lo adelanto para que lo sepas." }
+    ] },
+    { "id": "10-detalles", "frases": [
+      { "id": "a", "texto": "Los pasatiempos: ya sabes lo que son. Ponla a pintar, a esquiar, lo que sea. Pequeños hobbies para darle más personalidad." },
+      { "id": "b", "texto": "Agrega pequeños detalles humanos. Por ejemplo, en tus textos pon cosas como: soy pésima para llegar a la hora." },
+      { "id": "c", "texto": "Tratando de ir al gimnasio tres veces por semana; obvio, tratando. No hagas que todo sea perfecto." },
+      { "id": "d", "texto": "No puedo pasar un día sin mi latte con leche de avena. Ya entiendes la idea: micro historias que dan a entender que hay una persona real detrás del contenido." }
+    ] },
+    { "id": "11-cierre", "frases": [
+      { "id": "a", "texto": "Y eso es todo sobre la persona. Al terminar, ya deberías tener un nombre, una edad, una etnia, un lugar donde vive y un usuario de Instagram." },
+      { "id": "b", "texto": "Con todo esto, ya sabes quién es tu modelo y cómo es su personaje. Ahora le puedes poner una cara." },
+      { "id": "c", "texto": "Así que el siguiente paso es crear su rostro, en el módulo Creando tu modelo ia del curso. Ese rostro lo vas a usar en todas las imágenes que crees, así que no te apures." },
+      { "id": "d", "texto": "Dedícale tiempo, y consigue uno que de verdad te guste. Si necesitas ayuda, escríbenos en el Discord del curso." },
+      { "id": "e", "texto": "Cuando tengas el rostro listo, vuelve a este módulo y seguimos. Nos vemos en la próxima clase." }
+    ] }
+  ]
+}

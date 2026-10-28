@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=1920, height=1080" />
+<link rel="stylesheet" href="base/tema.css" />
+<link rel="stylesheet" href="base/papel.css" />
+<script src="base/vendor/gsap.min.js"></script>
+<script src="base/vendor/rough.js"></script>
+<script src="tiempos.js"></script>
+<script src="base/escena.js"></script>
+<script src="base/papel.js"></script>
+<style>
+  #cab { position: absolute; left: 120px; top: 52px; }
+  #cab .p-eyebrow { display: inline-block; margin-bottom: 10px; }
+  #cab h2 { font-size: 100px; white-space: nowrap; }
+
+  .perfil { position: absolute; top: 270px; width: 520px; height: 690px; --c: var(--blanco); }
+  .perfil .dentro > * { position: absolute; }
+  .perfil svg { left: 0; top: 0; width: 520px; height: 690px; overflow: visible; }
+  .perfil .sit { left: 40px; top: 262px; width: 450px; font-family: var(--mano); font-weight: 700; font-size: 56px; line-height: 1.02; display: inline-block; }
+  .perfil .res { left: 40px; top: 470px; width: 440px; height: 100px; }
+  .perfil .res span { position: absolute; inset: 0; display: grid; place-items: center; font-family: var(--marcador); font-size: 52px; white-space: nowrap; }
+  .perfil .nota { left: 44px; top: 592px; font-family: var(--mano); font-weight: 700; font-size: 42px; color: var(--tinta-suave); display: inline-block; white-space: nowrap; }
+  .perfil .cinta { top: -20px; left: 186px; }
+  .perfil img { left: 250px; top: 96px; width: 230px; }
+  #p1 { left: 128px; rotate: -2deg; }
+  #p2 { left: 700px; rotate: 1.5deg; }
+  #p3 { left: 1272px; rotate: -1deg; }
+  .api { --c: var(--naranja); }
+  .plan { --c: var(--lima); }
+  .p-marca { display: none; }
+</style>
+</head>
+<body>
+<div id="root" data-composition-id="08-cual" data-start="0" data-width="1920" data-height="1080" data-duration="17.58">
+  <audio id="voz" src="voz.wav" data-start="0.4" data-duration="16.48" data-volume="1"></audio>
+  <div class="p-fondo"></div>
+  <div class="p-escena">
+    <div class="p-hoja recorte p-sombra con-borde" style="left:-90px; top:560px; width:2100px; height:620px; rotate:-1.5deg; --c: var(--negro)"><div class="p-corte" data-amp="10" data-paso="10"></div></div>
+    <div class="p-hoja recorte p-sombra con-borde" style="left:1500px; top:-70px; width:520px; height:190px; rotate:3deg; --c: var(--lima)"><div class="p-corte" data-amp="8"></div></div>
+
+    <div id="cab">
+      <span class="p-eyebrow">Para decidir</span>
+      <h2 class="p-titulo">¿Cuál te <span class="tira" style="--c: var(--lima)"><span class="p-corte" data-amp="3"></span>conviene?</span></h2>
+    </div>
+
+    <div class="perfil recorte p-sombra" id="p1"><div class="p-corte" data-amp="4"></div>
+      <div class="dentro"><svg viewBox="0 0 520 690"></svg>
+        <div class="sit">Generas de vez en cuando o estás probando</div>
+        <div class="res recorte p-sombra con-borde api"><div class="p-corte" data-amp="3"></div><span>LA API</span></div>
+        <div class="nota">pagas solo lo que usas</div>
+      </div><div class="cinta" style="rotate:-3deg"></div>
+    </div>
+    <div class="perfil recorte p-sombra" id="p2"><div class="p-corte" data-amp="4"></div>
+      <div class="dentro"><svg viewBox="0 0 520 690"></svg>
+        <div class="sit">Haces videos todos los días y gastas todo</div>
+        <div class="res recorte p-sombra con-borde plan"><div class="p-corte" data-amp="3"></div><span>PLUS O ULTRA</span></div>
+        <div class="nota">cada video sale más barato</div>
+      </div><div class="cinta" style="rotate:2deg"></div>
+    </div>
+    <div class="perfil recorte p-sombra" id="p3"><div class="p-corte" data-amp="4"></div>
+      <div class="dentro"><svg viewBox="0 0 520 690"></svg><img src="base/logo-iahub.png" alt="" />
+        <div class="sit">Quieres usar Higgsfield desde IA-HUB</div>
+        <div class="res recorte p-sombra con-borde api"><div class="p-corte" data-amp="3"></div><span>LA API</span></div>
+        <div class="nota">es lo que se conecta</div>
+      </div><div class="cinta" style="rotate:-2deg"></div>
+    </div>
+    <div class="p-marca"><img src="base/logo-iahub-marca.png" alt="" /></div>
+  </div>
+  <div class="p-cortina recorte con-borde"><div class="p-corte" data-amp="16" data-lados="lr" data-paso="14"></div></div>
+</div>
+
+<script>
+  papel.preparar();
+  const tl = gsap.timeline({ paused: true });
+  papel.cortina(tl);
+  papel.ambiente(tl);
+  const D = papel.dibujos;
+  const rojo = '#f0402f';
+
+  papel.escribir(tl, '#cab .p-eyebrow', T('intro', -0.15), 0.4);
+  papel.deslizar(tl, '#cab h2', T('intro', -0.05), { x: -140, giro: -3 });
+  papel.pop(tl, '#cab .tira', TW('intro', 'conviene', 1, -0.15), { giro: 10 });
+
+  const s1 = document.querySelector('#p1 svg'), s2 = document.querySelector('#p2 svg'), s3 = document.querySelector('#p3 svg');
+  // 1: un calendario con un solo dia marcado
+  const d1 = D.calendario(s1, 150, 70, 220, 160, { grosor: 4 });
+  const m1 = [papel.trazo('elipse', [229, 170, 64, 44], { en: s1, grosor: 5, color: rojo, seed: 71 })];
+  // 2: calendario lleno de checks
+  const d2 = D.calendario(s2, 150, 70, 220, 160, { grosor: 4 });
+  const m2 = [];
+  for (let k = 0; k < 6; k++) m2.push(...D.check(s2, 172 + (k % 3) * 66, 136 + Math.floor(k / 3) * 44, 26, { color: '#2c8a3a', grosor: 5 }));
+  // 3: enchufe hacia el logo
+  const d3 = D.enchufe(s3, 110, 110, 90, { grosor: 5 });
+
+  const perfiles = [
+    { sel: '#p1', f: 'api', dib: d1, marca: m1, sit: 'generas', res: 'api', nota: 'pagas' },
+    { sel: '#p2', f: 'plan', dib: d2, marca: m2, sit: 'haces', res: 'plus', nota: 'ultra' },
+    { sel: '#p3', f: 'iahub', dib: d3, marca: [], sit: 'quieres', res: 'necesitas', tNota: TW('iahub', 'necesitas', 1, 0.3) },
+  ];
+  perfiles.forEach((p, k) => {
+    const t0 = T(p.f, -0.15);
+    papel.soltar(tl, p.sel, t0, { giro: k % 2 ? 9 : -9, y: -260 });
+    papel.dibujar(tl, p.dib, t0 + 0.4, 0.8);
+    if (p.marca.length) papel.dibujar(tl, p.marca, t0 + 1.2, 0.5);
+    if (k === 2) papel.soltar(tl, '#p3 img', t0 + 0.7, { giro: 10, y: -80 });
+    papel.escribir(tl, p.sel + ' .sit', TW(p.f, p.sit, 1, -0.1), 1.0);
+    papel.soltar(tl, p.sel + ' .res', TW(p.f, p.res, 1, -0.2), { giro: k % 2 ? -8 : 8, y: -120 });
+    papel.escribir(tl, p.sel + ' .nota', p.tNota || TW(p.f, p.nota, 1, -0.05), 0.6);
+  });
+
+  window.__timelines['08-cual'] = tl;
+</script>
+</body>
+</html>

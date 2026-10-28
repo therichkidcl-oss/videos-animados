@@ -1,0 +1,63 @@
+{
+  "titulo": "Modulo Escalando Redes Sociales (curso NSFW) - Clase 5: Creando una cuenta de Instagram exitosa",
+  "nota": "Doblaje al espanol (tu) del original en ingles britanico. Adaptado: 'el proximo video sobre la cuenta de Reels' -> la proxima clase del modulo. Groserias suavizadas. Fanvue -> fanviu, TikTok -> tiktok.",
+  "voz": {
+    "proveedor": "qwen",
+    "qwen": { "voz": "reimo-v3", "modelo": "1.7B", "dtype": "bf16", "lote": 4 }
+  },
+  "escenas": [
+    { "id": "00-intro", "frases": [
+      { "id": "a", "texto": "Tu cuenta principal de Instagram es, probablemente, el activo más importante de todo tu negocio con modelos de ia." },
+      { "id": "b", "texto": "Si esta cuenta no convierte y no se ve creíble, nada va a funcionar, porque todos se van a dar cuenta de que tu modelo es ia." }
+    ] },
+    { "id": "01-claves", "frases": [
+      { "id": "a", "texto": "¿Qué hace buena a una cuenta principal? Lo primero es el nivel de realismo." },
+      { "id": "b", "texto": "Si usas los métodos que enseñamos en este curso, tu modelo debería verse real y poder publicar contenido parecido a este." },
+      { "id": "c", "texto": "Esta persona es ia. Una locura, lo sé, pero a ese punto llegamos: de verdad ya no se nota." },
+      { "id": "d", "texto": "Que sea cercana: no puede verse inalcanzable para esta gente. Tiene que verse accesible, para que se animen a escribirle." },
+      { "id": "e", "texto": "Constancia: mantén la coherencia en tus publicaciones, tus destacadas, tus historias y en lo que hace." },
+      { "id": "f", "texto": "Autenticidad: tiene que ser auténtica. No hagas que todo sea perfecto." },
+      { "id": "g", "texto": "Tipos de ropa, elección de fondos: varía, y haz que se vea realista." }
+    ] },
+    { "id": "02-proposito", "frases": [
+      { "id": "a", "texto": "El propósito de tu cuenta principal es eliminar cualquier duda de que sea ia." },
+      { "id": "b", "texto": "Cuando lleguen desde tu cuenta de reels, donde los videos quizás se noten un poco más artificiales, van a entrar a esta cuenta y van a decir: esta es una persona real, porque se ve demasiado real." },
+      { "id": "c", "texto": "Crea un vínculo emocional con tu audiencia. Si la siguen una o dos semanas, van a empezar a sentir que la conocen, y eso facilita las ventas." },
+      { "id": "d", "texto": "Y lo hace de forma muy sutil: no estás vendiendo agresivamente todo el tiempo." },
+      { "id": "e", "texto": "Esta cuenta no es para volverse viral. Es para construir la creencia de que tu modelo es una persona real." }
+    ] },
+    { "id": "03-ejemplo", "frases": [
+      { "id": "a", "texto": "Voy a usar a esta persona como ejemplo, porque, como te dije, su cuenta se ve muy real, aunque está completamente hecha con ia." },
+      { "id": "b", "texto": "En tus carruseles de fotos, usa una iluminación realista y poses distintas." },
+      { "id": "c", "texto": "Textos casuales, de estilo de vida. En esta, por ejemplo, puso: ok, pero agosto estuvo increíble. Algo que diría una chica de verdad." },
+      { "id": "d", "texto": "Maquillaje suave. No sobreproduzcas las cosas, no exageres. Mantenlo natural, orgánico." },
+      { "id": "e", "texto": "Y un carrusel natural. Este, por ejemplo: una foto de ella en un restaurante, comida, la piscina, una foto en bikini, ella saliendo a caminar." },
+      { "id": "f", "texto": "Como te dije, en tu cuenta principal mezcla fotos de ia con fotos reales." }
+    ] },
+    { "id": "04-checklist", "frases": [
+      { "id": "a", "texto": "La lista de claves. Primero: tiene que ser imposible distinguirla de una influencer real." },
+      { "id": "b", "texto": "Así que asegúrate de que las fotos que publicas estén muy bien elegidas y se vean realísimas." },
+      { "id": "c", "texto": "Nada de fotos demasiado provocativas o poco realistas. Puedes subir fotos un poco insinuantes, en bikini, pero no llenes esta cuenta de fotos en lencería, porque no es para eso." },
+      { "id": "d", "texto": "Eso rompe la ilusión y le baja el valor a tu modelo." },
+      { "id": "e", "texto": "Puedes tener algunos reels perfectos, pero no los llenes de reels: para eso tienes tu página de reels. Si subes alguno, que esté muy bien elegido." },
+      { "id": "f", "texto": "Destacadas que cuenten una historia: ahí va la mayoría de lo que subes en tus historias. Comida, ropa, viajes, detrás de cámaras, selfies en el espejo, todo eso." },
+      { "id": "g", "texto": "Y en tus destacadas puedes poner un link con un llamado a la acción suave. No pongas: suscríbete a mi fanviu. Usa algo como: mi página privada." },
+      { "id": "h", "texto": "Y ten algunas cosas relacionadas con tu nicho en la página. Si es gamer, que hable de juegos y tenga fotos de juegos. Si es enfermera, quizás algunas fotos trabajando en un hospital." },
+      { "id": "i", "texto": "Detalles pequeños que hacen que tu página se vea más real." }
+    ] },
+    { "id": "05-evitar", "frases": [
+      { "id": "a", "texto": "¿Qué evitar? Cualquier piel de ia sobreexpuesta, o caras de plástico." },
+      { "id": "b", "texto": "Si tienes una foto que estás pensando subir, y hasta tú notas que es ia, no la subas. Inténtalo de nuevo y consigue mejores fotos." },
+      { "id": "c", "texto": "Demasiadas fotos en lencería. Ya lo dije: no las llenes de eso. Es malo para la página principal y es malo para la marca." },
+      { "id": "d", "texto": "Llenar de hashtags tus textos. Si subes una foto, no le pongas un millón de hashtags. Yo ni siquiera pongo. Pero si vas a poner, que sean dos, tres, máximo cuatro." },
+      { "id": "e", "texto": "Destacadas que se ven falsas. Las puedes sacar de Pinterest o de donde sea, pero que calcen con la marca y se vean realistas." },
+      { "id": "f", "texto": "Y que la calidad de cámara sea la misma en todas las destacadas. Que se vean reales: nada de destacadas que se vean falsas." }
+    ] },
+    { "id": "06-cuentas", "frases": [
+      { "id": "a", "texto": "Un resumen de las cuentas de apoyo. Tienes tu página principal, que es la que vimos hoy." },
+      { "id": "b", "texto": "Tu cuenta de reels, que es para el alcance masivo. Publica dos o tres veces al día. El contenido no tiene que ser perfecto: solo tienes que sacar contenido todos los días." },
+      { "id": "c", "texto": "Y tu cuenta secreta. Es muy simple: es donde mandas todo tu tráfico desde tiktok. Una cuenta privada, sin publicaciones, con esa vibra de me encontraste." },
+      { "id": "d", "texto": "Así de simple. Eso es todo por esta clase. En la próxima seguimos trabajando tu Instagram." }
+    ] }
+  ]
+}

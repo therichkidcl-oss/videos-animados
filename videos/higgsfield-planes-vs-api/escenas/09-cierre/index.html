@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=1920, height=1080" />
+<link rel="stylesheet" href="base/tema.css" />
+<link rel="stylesheet" href="base/papel.css" />
+<script src="base/vendor/gsap.min.js"></script>
+<script src="base/vendor/rough.js"></script>
+<script src="tiempos.js"></script>
+<script src="base/escena.js"></script>
+<script src="base/papel.js"></script>
+<style>
+  #logo { position: absolute; left: 700px; top: 96px; width: 520px; rotate: -2deg; }
+  #logo img { display: block; width: 100%; height: auto; filter: drop-shadow(0 10px 12px rgba(40, 30, 10, 0.3)); }
+  #logo .cinta { top: -14px; }
+  #sabes { position: absolute; left: 0; right: 0; top: 400px; text-align: center; }
+  #sabes span { display: inline-block; font-family: var(--mano); font-weight: 700; font-size: 80px; }
+  #cuenta { position: absolute; left: 0; right: 0; top: 650px; text-align: center; }
+  #cuenta span { display: inline-block; font-family: var(--mano); font-weight: 700; font-size: 66px; color: var(--lima); }
+  #chao { position: absolute; left: 0; right: 0; top: 790px; text-align: center; }
+  #chao h2 { display: inline-block; font-size: 84px; white-space: nowrap; }
+  .p-marca { display: none; }
+</style>
+</head>
+<body>
+<div id="root" data-composition-id="09-cierre" data-start="0" data-width="1920" data-height="1080" data-duration="7.42">
+  <audio id="voz" src="voz.wav" data-start="0.4" data-duration="6.32" data-volume="1"></audio>
+  <div class="p-fondo"></div>
+  <div class="p-escena">
+    <div class="p-hoja recorte p-sombra baja" style="left:-90px; top:-90px; width:600px; height:300px; rotate:-5deg; --c: var(--kraft)"><div class="p-corte" data-amp="7"></div></div>
+    <div class="p-hoja recorte p-sombra con-borde" style="left:1480px; top:-70px; width:560px; height:200px; rotate:4deg; --c: var(--lima)"><div class="p-corte" data-amp="8"></div></div>
+    <div class="p-hoja recorte p-sombra con-borde" style="left:-90px; top:580px; width:2100px; height:600px; rotate:1.2deg; --c: var(--negro)"><div class="p-corte" data-amp="10" data-paso="10"></div></div>
+
+    <div id="logo"><img src="base/logo-iahub.png" alt="" /><div class="cinta" style="left:-34px; rotate:-26deg"></div><div class="cinta" style="left:410px; rotate:24deg"></div></div>
+    <div id="sabes"><span>Ya sabes cuánto te rinde cada opción</span></div>
+    <div id="cuenta"><span>Haz la cuenta con lo que generas en un mes</span></div>
+    <div id="chao"><h2 class="p-titulo"><span class="tira" style="--c: var(--lima)"><span class="p-corte" data-amp="3"></span>¡Nos vemos en el próximo video!</span></h2></div>
+    <div class="p-marca"><img src="base/logo-iahub-marca.png" alt="" /></div>
+  </div>
+  <div class="p-cortina recorte con-borde"><div class="p-corte" data-amp="16" data-lados="lr" data-paso="14"></div></div>
+</div>
+
+<script>
+  papel.preparar();
+  const tl = gsap.timeline({ paused: true });
+  papel.cortina(tl);
+  papel.ambiente(tl);
+
+  papel.soltar(tl, '#logo', T('listo', -0.05), { giro: -10, y: -200 });
+  papel.escribir(tl, '#sabes span', TW('listo', 'ya', 1, 0), 1.6);
+  papel.escribir(tl, '#cuenta span', TW('adios', 'haz', 1, -0.05), 1.3);
+  const linea = papel.trazo('linea', [560, 742, 1360, 736], { grosor: 6, color: '#fbf9f4', aspereza: 1.5, seed: 9 });
+  papel.dibujar(tl, linea, TW('adios', 'mes', 1, -0.1), 0.4);
+  papel.pop(tl, '#chao .tira', TW('adios', 'nos', 1, -0.15), { giro: -6 });
+  papel.hervir(tl, '#logo', 1.0, DUR(), { amp: 1.4, giro: 0.6, seed: 3 });
+
+  window.__timelines['09-cierre'] = tl;
+</script>
+</body>
+</html>

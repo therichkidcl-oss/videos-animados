@@ -1,0 +1,81 @@
+{
+  "titulo": "Curso Influencer IA 1.0 (NSFW) · Automatizaciones · Publica tus reels solo con Zernio y Claude Code",
+  "nota": "26/10/2026, pedido de Reimo: paso a paso real del panel de Zernio recreado en animacion (clase horizontal, voz reimo-v3), basado en su kit kit-zernio-instagram. Palabras dichas: Zernio -> zernio, Claude Code -> clod cod, MCP -> eme ce pe, API key -> a pe i kei, GitHub -> guit jab, Google -> gugol, Linktree -> linktri. Los botones en ingles del panel se nombran en espanol y se resaltan en pantalla.",
+  "voz": {
+    "proveedor": "qwen",
+    "qwen": { "voz": "reimo-v3", "modelo": "1.7B", "dtype": "bf16", "lote": 4 }
+  },
+  "escenas": [
+    { "id": "00-intro", "frases": [
+      { "id": "a", "texto": "En esta clase vas a dejar el Instagram de tu modelo publicando solo." },
+      { "id": "b", "texto": "Tú dejas tus reels en una carpeta, y una inteligencia artificial los publica a la mejor hora, escribe la descripción y responde los comentarios por ti." },
+      { "id": "c", "texto": "Todo con una herramienta que se llama zernio, y con clod cod." }
+    ] },
+    { "id": "01-que-es", "frases": [
+      { "id": "a", "texto": "zernio es una plataforma que conecta tus redes sociales por a pe i, para publicar y automatizar sin abrir la aplicación." },
+      { "id": "b", "texto": "Funciona con Instagram, tiktok, feisbuk, iutub, equis y threads." },
+      { "id": "c", "texto": "Publica desde sus propios servidores, así que tus reels salen aunque tu computador esté apagado." },
+      { "id": "d", "texto": "Y las dos primeras cuentas son gratis, sin tarjeta, con publicaciones ilimitadas." }
+    ] },
+    { "id": "02-antes", "frases": [
+      { "id": "a", "texto": "Antes de empezar, dos reglas." },
+      { "id": "b", "texto": "Uno: tu Instagram tiene que ser cuenta de creador o de empresa. Las cuentas personales no se pueden publicar por a pe i. Lo cambias en la aplicación, en configuración, tipo de cuenta." },
+      { "id": "c", "texto": "Y dos: solo automatiza una cuenta que ya esté calentada. Los primeros treinta días, todo a mano, como viste en la clase de calentar Instagram." }
+    ] },
+    { "id": "03-cuenta", "frases": [
+      { "id": "a", "texto": "Paso uno: crea tu cuenta." },
+      { "id": "b", "texto": "Entra a zernio punto com, barra, sain ap. Puedes entrar con gugol, con guit jab o con tu correo." },
+      { "id": "c", "texto": "Y en segundos ya estás dentro del panel." }
+    ] },
+    { "id": "04-conectar", "frases": [
+      { "id": "a", "texto": "Paso dos: conecta tu Instagram." },
+      { "id": "b", "texto": "En el panel, toca el botón rojo de arriba, nueva conexión. Se abre la lista de redes." },
+      { "id": "c", "texto": "Elige Instagram, y después conectar con Instagram." },
+      { "id": "d", "texto": "Inicias sesión con la cuenta de tu modelo, aceptas los permisos, y vuelves al panel." },
+      { "id": "e", "texto": "Ahí ya aparece tu cuenta, con el estado conectada." },
+      { "id": "f", "texto": "Ojo: este permiso vence más o menos cada sesenta días. Si un día tus reels no salen, vuelve aquí y reconecta la cuenta." }
+    ] },
+    { "id": "05-llave", "frases": [
+      { "id": "a", "texto": "Paso tres: la llave." },
+      { "id": "b", "texto": "En el menú de la izquierda, entra a a pe i kis y toca crear llave." },
+      { "id": "c", "texto": "Ponle un nombre, por ejemplo clod, deja marcado lectura y escritura, y créala." },
+      { "id": "d", "texto": "zernio te muestra la llave completa una sola vez. Cópiala y guárdala." },
+      { "id": "e", "texto": "Esta llave es como la contraseña de tu cuenta: nunca la compartas ni la pegues en un chat público." }
+    ] },
+    { "id": "06-claude", "frases": [
+      { "id": "a", "texto": "Paso cuatro: conecta zernio a clod." },
+      { "id": "b", "texto": "Abre clod cod en tu computador y pídeselo en palabras normales: conecta el eme ce pe de zernio con mi a pe i kei, y pégale la llave." },
+      { "id": "c", "texto": "clod la guarda en un archivo privado y revisa qué cuenta de Instagram tienes conectada. Desde ahí, ya puede publicar por ti." }
+    ] },
+    { "id": "07-prompt", "frases": [
+      { "id": "a", "texto": "Paso cinco: el prompt." },
+      { "id": "b", "texto": "En la descripción de esta clase te dejé un prompt listo. Lo copias y lo pegas en clod cod." },
+      { "id": "c", "texto": "Con eso, clod arma todo solo: una carpeta llamada publicar, donde tú dejas cada reel en su propia carpeta." },
+      { "id": "d", "texto": "Y una tarea programada que revisa esa carpeta todos los días." }
+    ] },
+    { "id": "08-diario", "frases": [
+      { "id": "a", "texto": "Desde ahí, tu único trabajo es dejar los videos." },
+      { "id": "b", "texto": "Cada día, clod mira los cuadros del video para confirmar que es el correcto." },
+      { "id": "c", "texto": "Escribe la descripción, con un gancho en la primera línea y cinco hashtags." },
+      { "id": "d", "texto": "Lo sube a zernio y lo programa en el siguiente horario libre." },
+      { "id": "e", "texto": "En zernio, en publicaciones, vas a ver cada reel en su día y su hora. Y cuando sale, cambia a publicado, con sus vistas y sus me gusta." }
+    ] },
+    { "id": "09-comentarios", "frases": [
+      { "id": "a", "texto": "Y lo mejor: los comentarios." },
+      { "id": "b", "texto": "Si en tu reel dices comenta la palabra link, zernio responde solo." },
+      { "id": "c", "texto": "En campañas, en la pestaña de comentario a mensaje, vas a ver la automatización que dejó clod." },
+      { "id": "d", "texto": "Cuando alguien comenta la palabra, le da me gusta al comentario, le responde en público y le manda un mensaje directo con un botón a tu link secundario, el de linktri." },
+      { "id": "e", "texto": "Y antes de entregarle el link, puede revisar que te siga. Si no te sigue, le pide que te siga primero." }
+    ] },
+    { "id": "10-reglas", "frases": [
+      { "id": "a", "texto": "Unas reglas para que no te bloqueen." },
+      { "id": "b", "texto": "Máximo dos o tres reels al día, como viste en la clase de calentar." },
+      { "id": "c", "texto": "Nada de subir el mismo video muchas veces." },
+      { "id": "d", "texto": "Y un reel que ya se publicó no se puede borrar por a pe i. Eso lo haces tú, en la aplicación." }
+    ] },
+    { "id": "11-cierre", "frases": [
+      { "id": "a", "texto": "Y eso es todo. Dejas tus reels en la carpeta, y tu Instagram se publica solo, a la mejor hora, aunque tu computador esté apagado." },
+      { "id": "b", "texto": "Si te trabas en algún paso, conéctate a las sesiones en vivo de cada semana y lo vemos juntos." }
+    ] }
+  ]
+}

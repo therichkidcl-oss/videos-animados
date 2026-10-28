@@ -1,0 +1,113 @@
+{
+  "titulo": "Gana dinero con personajes de IA: la campana Influencer Invasion de Higgsfield",
+  "fuente": "Brief oficial de la campana HIGGSFIELD AI INFLUENCER INVASION (higgsfield-ai.notion.site) y ficha del acuerdo en app.launchpointhq.com (10/10/2026)",
+  "nota": "Solo para generar la voz. La animacion se hace con la skill animaciones-horizontal-combinadas en animaciones/higgsfield-personajes. Palabras en ingles escritas como se dicen (rils, brif, laiks, onbording, lanch point).",
+  "voz": {
+    "proveedor": "qwen",
+    "qwen": { "voz": "reimo", "modelo": "1.7B", "dtype": "bf16", "lote": 4 }
+  },
+  "escenas": [
+    {
+      "id": "00-gancho",
+      "frases": [
+        { "id": "visto", "texto": "¿Has visto estos personajes raros en Instagram?" },
+        { "id": "reales", "texto": "No son personas reales: los hace gente como tú con inteligencia artificial," },
+        { "id": "paga", "texto": "y Higgsfield les paga según las vistas." },
+        { "id": "hoy", "texto": "Hoy te muestro cómo funciona, cuánto paga y cómo empezar." }
+      ]
+    },
+    {
+      "id": "01-que-es",
+      "frases": [
+        { "id": "nombre", "texto": "Se llama Influencer Invasion:" },
+        { "id": "oficial", "texto": "una campaña oficial de Higgsfield que está en lanch point," },
+        { "id": "plataforma", "texto": "una plataforma donde las marcas les pagan a creadores por sus videos." },
+        { "id": "idea", "texto": "La idea es simple:" },
+        { "id": "creas", "texto": "creas un personaje con inteligencia artificial," },
+        { "id": "pagina", "texto": "le abres su propia página de Instagram y subes rils." },
+        { "id": "pagan", "texto": "Te pagan según las vistas de cada uno." }
+      ]
+    },
+    {
+      "id": "02-personaje",
+      "frases": [
+        { "id": "intro", "texto": "Primero, el personaje." },
+        { "id": "original", "texto": "Tiene que ser original, creado en Higgsfield," },
+        { "id": "mismo", "texto": "y siempre el mismo en todos tus videos." },
+        { "id": "raro", "texto": "Lo que funciona es lo raro y fácil de recordar:" },
+        { "id": "silueta", "texto": "una silueta distinta," },
+        { "id": "detalles", "texto": "uno o dos detalles en la cara o el pelo," },
+        { "id": "ropa", "texto": "y una ropa que sea su firma." },
+        { "id": "mira", "texto": "Mira estos ejemplos." },
+        { "id": "prohibido", "texto": "Eso sí: nada de personajes de películas, series, anime o videojuegos, ni parecidos." }
+      ]
+    },
+    {
+      "id": "03-genjutsu",
+      "frases": [
+        { "id": "intro", "texto": "Cada video se hace con Genjutsu." },
+        { "id": "clip", "texto": "Subes un clip que ya es viral," },
+        { "id": "tipos", "texto": "como un baile, una reacción, una entrevista o un meme," },
+        { "id": "foto", "texto": "y la foto de tu personaje." },
+        { "id": "recrea", "texto": "Genjutsu recrea ese momento con tu personaje como protagonista." },
+        { "id": "terminado", "texto": "Y publicas el video terminado:" },
+        { "id": "nada", "texto": "nada de tutoriales ni capturas de pantalla." }
+      ]
+    },
+    {
+      "id": "04-pago",
+      "frases": [
+        { "id": "intro", "texto": "¿Cuánto paga?" },
+        { "id": "vistas", "texto": "Te pagan por las vistas que junta cada ril en sus primeros catorce días." },
+        { "id": "mil", "texto": "Mil vistas son dos dólares." },
+        { "id": "diezmil", "texto": "Diez mil, veinte." },
+        { "id": "cienmil", "texto": "Cien mil, doscientos." },
+        { "id": "quinientas", "texto": "Quinientas mil, mil dólares." },
+        { "id": "millon", "texto": "Y un millón de vistas, dos mil dólares, que es el máximo por video." },
+        { "id": "una", "texto": "Cada video se paga una vez, según el nivel más alto que alcance." }
+      ]
+    },
+    {
+      "id": "05-reglas",
+      "frases": [
+        { "id": "intro", "texto": "Para que te paguen, hay reglas que no se saltan." },
+        { "id": "reels", "texto": "Publicas en rils, en vertical y en la máxima calidad." },
+        { "id": "bio", "texto": "En la bio de tu Instagram va el texto exacto que pide la campaña," },
+        { "id": "desc", "texto": "y en cada video, la descripción exacta." },
+        { "id": "visibles", "texto": "Dejas visibles los laiks, las vistas y los comentarios." },
+        { "id": "edad", "texto": "Antes de publicar, configuras una edad mínima de veinticinco años para seis países que indica el brif." },
+        { "id": "bots", "texto": "Y nunca compres vistas: eso te deja fuera de todos los pagos." }
+      ]
+    },
+    {
+      "id": "06-paises",
+      "frases": [
+        { "id": "intro", "texto": "Ojo con el país:" },
+        { "id": "lista", "texto": "la campaña solo acepta creadores de una lista." },
+        { "id": "latam", "texto": "De Latinoamérica están México, Argentina, Colombia y Brasil," },
+        { "id": "espana", "texto": "y también España." },
+        { "id": "otros", "texto": "Si vives en otro país, como Chile o Perú, por ahora no calificas." },
+        { "id": "revisa", "texto": "Revisa el brif antes de empezar, porque la lista puede cambiar." }
+      ]
+    },
+    {
+      "id": "07-pasos",
+      "frases": [
+        { "id": "uno", "texto": "Uno: entra a lanch point y abre la campaña Influencer Invasion de Higgsfield." },
+        { "id": "dos", "texto": "Dos: lee el brif y postúlate firmando el acuerdo;" },
+        { "id": "aprobar", "texto": "la marca te tiene que aprobar." },
+        { "id": "tres", "texto": "Tres: vincula la cuenta de Instagram de tu personaje y completa todos los pasos del onbording." },
+        { "id": "cuatro", "texto": "Cuatro: crea a tu personaje y tu primer video con Genjutsu." },
+        { "id": "cinco", "texto": "Y cinco: publícalo como ril, con la bio y la descripción exactas." }
+      ]
+    },
+    {
+      "id": "08-cierre",
+      "frases": [
+        { "id": "garantia", "texto": "Nadie te garantiza las vistas: esto paga por rendimiento." },
+        { "id": "consejo", "texto": "Así que elige clips que ya funcionan y mantén a tu personaje siempre igual." },
+        { "id": "chao", "texto": "¡Nos vemos en el próximo video!" }
+      ]
+    }
+  ]
+}

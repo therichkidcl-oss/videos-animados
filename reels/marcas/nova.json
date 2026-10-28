@@ -1,0 +1,24 @@
+{
+ "nombre": "Nova Profit",
+ "acento": "#f4c430",
+ "acentoRGB": "244,196,48",
+ "acento2": "#d4af37",
+ "acento2RGB": "212,175,55",
+ "acentoClaro": "#e8c87a",
+ "acento3RGB": "232,200,122",
+ "tinta": "#1a1208",
+ "luzRGB": "255,214,120",
+ "haloRGB": "150,110,40",
+ "degradado": "linear-gradient(180deg,#fff7da 0%,#f8dc80 26%,#e2b93f 52%,#a8801c 74%,#f3d77a 100%)",
+ "fondo": [
+  "#0d0a06",
+  "#070504",
+  "#030202"
+ ],
+ "ctaFondo": [
+  "#33260c",
+  "#120d06",
+  "#050403"
+ ],
+ "logo": "nova-logo-sm.png"
+}

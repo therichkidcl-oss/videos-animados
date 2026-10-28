@@ -1,0 +1,162 @@
+{
+  "titulo": "Curso Influencer IA 1.0 (NSFW) · Modulo Zernio · Qué es Zernio y cuánto cuesta",
+  "nota": "Modulo Zernio 27/10/2026, voz reimo-v3.",
+  "voz": {
+    "proveedor": "qwen",
+    "qwen": {
+      "voz": "reimo-v3",
+      "modelo": "1.7B",
+      "dtype": "bf16",
+      "lote": 4
+    }
+  },
+  "escenas": [
+    {
+      "id": "00-intro",
+      "frases": [
+        {
+          "id": "a",
+          "texto": "Bienvenido al módulo de zernio. Aquí vas a dejar el Instagram de tu modelo publicando y respondiendo solo."
+        },
+        {
+          "id": "b",
+          "texto": "Y en esta primera clase, te explico qué es zernio, cuánto cuesta y qué te permite."
+        }
+      ]
+    },
+    {
+      "id": "01-que-es",
+      "frases": [
+        {
+          "id": "a",
+          "texto": "zernio es una plataforma que conecta tus redes sociales por a pe i, para publicar y automatizar sin abrir la aplicación."
+        },
+        {
+          "id": "b",
+          "texto": "Funciona con Instagram, tiktok, feisbuk, iutub, equis y threads."
+        },
+        {
+          "id": "c",
+          "texto": "Publica desde sus propios servidores, así que tus reels salen aunque tu computador esté apagado."
+        },
+        {
+          "id": "d",
+          "texto": "Y las dos primeras cuentas son gratis, sin tarjeta, con publicaciones ilimitadas."
+        }
+      ]
+    },
+    {
+      "id": "01-sin-planes",
+      "frases": [
+        {
+          "id": "a",
+          "texto": "zernio no tiene planes fijos. Pagas solo por las cuentas que conectas, y todas las funciones vienen incluidas en todas las cuentas."
+        }
+      ]
+    },
+    {
+      "id": "02-tramos",
+      "frases": [
+        {
+          "id": "a",
+          "texto": "Las dos primeras cuentas son gratis, sin tarjeta."
+        },
+        {
+          "id": "b",
+          "texto": "De la tercera a la décima, pagas seis dólares al mes por cada cuenta."
+        },
+        {
+          "id": "c",
+          "texto": "De la once a la cien, tres dólares. Y desde la ciento uno, un dólar por cuenta."
+        },
+        {
+          "id": "d",
+          "texto": "Por ejemplo, con diez cuentas pagas cuarenta y ocho dólares al mes: dos gratis, más ocho por seis dólares."
+        }
+      ]
+    },
+    {
+      "id": "03-incluye",
+      "frases": [
+        {
+          "id": "a",
+          "texto": "Y cada cuenta trae todo: publicaciones ilimitadas, programar reels y videos, estadísticas, responder comentarios y mensajes, y acceso completo a la a pe i."
+        }
+      ]
+    },
+    {
+      "id": "04-aparte",
+      "frases": [
+        {
+          "id": "a",
+          "texto": "Solo hay dos cosas que se miden aparte."
+        },
+        {
+          "id": "b",
+          "texto": "Los mensajes que envías: los primeros diez mil al mes son gratis, y después es un dólar cada diez mil."
+        },
+        {
+          "id": "c",
+          "texto": "Y los anuncios que manejes desde zernio, con los primeros quinientos gratis."
+        }
+      ]
+    },
+    {
+      "id": "05-equis",
+      "frases": [
+        {
+          "id": "a",
+          "texto": "Ojo con equis: equis le cobra a zernio cada uso de su a pe i, y zernio te pasa ese costo tal cual, sin recargo."
+        },
+        {
+          "id": "b",
+          "texto": "Publicar en equis cuesta un centavo y medio por publicación, y veinte centavos si lleva un link."
+        }
+      ]
+    },
+    {
+      "id": "06-para-ti",
+      "frases": [
+        {
+          "id": "a",
+          "texto": "¿Y para tu modelo? Con Instagram y tiktok conectados, te alcanza con las dos cuentas gratis."
+        },
+        {
+          "id": "b",
+          "texto": "Los mensajes automáticos de los comentarios también cuentan, pero casi nunca pasan de diez mil al mes. En la práctica, no pagas nada."
+        }
+      ]
+    },
+    {
+      "id": "07-mas",
+      "frases": [
+        {
+          "id": "a",
+          "texto": "Si después manejas más modelos, cada cuenta extra cuesta seis dólares al mes."
+        },
+        {
+          "id": "b",
+          "texto": "Sin costo de entrada ni contratos: desconectas una cuenta cuando quieras y dejas de pagarla."
+        }
+      ]
+    },
+    {
+      "id": "08-cierre",
+      "frases": [
+        {
+          "id": "a",
+          "texto": "Así que puedes empezar gratis hoy mismo, y solo pagas si creces."
+        }
+      ]
+    },
+    {
+      "id": "09-siguiente",
+      "frases": [
+        {
+          "id": "a",
+          "texto": "En la próxima clase creas tu cuenta y conectas el Instagram de tu modelo."
+        }
+      ]
+    }
+  ]
+}

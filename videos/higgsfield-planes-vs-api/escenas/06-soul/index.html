@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=1920, height=1080" />
+<link rel="stylesheet" href="base/tema.css" />
+<link rel="stylesheet" href="base/papel.css" />
+<script src="base/vendor/gsap.min.js"></script>
+<script src="base/vendor/rough.js"></script>
+<script src="tiempos.js"></script>
+<script src="base/escena.js"></script>
+<script src="base/papel.js"></script>
+<style>
+  #cab { position: absolute; left: 120px; top: 52px; }
+  #cab .p-eyebrow { display: inline-block; margin-bottom: 10px; }
+  #cab h2 { font-size: 100px; white-space: nowrap; }
+
+  .pola { position: absolute; width: 290px; height: 340px; --c: var(--blanco); }
+  .pola .foto { position: absolute; left: 22px; top: 22px; width: 246px; height: 230px; background: #cfdde3; }
+  .pola .foto::after { content: ''; position: absolute; inset: 0; background: url('base/papel/grano.png'); background-size: 256px; mix-blend-mode: multiply; opacity: 0.7; }
+  .pola svg { position: absolute; left: 22px; top: 22px; width: 246px; height: 230px; overflow: visible; }
+
+  .card { position: absolute; left: 650px; width: 1150px; height: 300px; }
+  .card .dentro > * { position: absolute; }
+  .card .p-eyebrow { left: 40px; top: 30px; color: var(--tinta); }
+  .card .val { left: 40px; top: 80px; font-family: var(--marcador); font-size: 50px; white-space: nowrap; display: inline-block; }
+  .card .por { left: 44px; top: 158px; font-family: var(--mano); font-weight: 700; font-size: 50px; display: inline-block; }
+  .card .num { left: 560px; top: 46px; font-family: var(--marcador); font-size: 108px; line-height: 1; white-space: nowrap; display: inline-block; }
+  .card .que { left: 566px; top: 196px; font-family: var(--mano); font-weight: 700; font-size: 46px; white-space: nowrap; display: inline-block; }
+  #cWeb { top: 236px; rotate: -1.5deg; --c: var(--lima); }
+  #cApi { top: 580px; rotate: 1.2deg; --c: var(--naranja); }
+  #cApi .val { font-size: 44px; top: 86px; }
+
+  #igual { left: 1010px; top: 908px; font-size: 58px; white-space: nowrap; }
+  .p-marca { display: none; }
+</style>
+</head>
+<body>
+<div id="root" data-composition-id="06-soul" data-start="0" data-width="1920" data-height="1080" data-duration="16.14">
+  <audio id="voz" src="voz.wav" data-start="0.4" data-duration="15.04" data-volume="1"></audio>
+  <div class="p-fondo"></div>
+  <div class="p-escena">
+    <div class="p-hoja recorte p-sombra baja" style="left:-110px; top:300px; width:780px; height:860px; rotate:-3deg; --c: var(--kraft)"><div class="p-corte" data-amp="8"></div></div>
+    <div class="p-hoja recorte p-sombra con-borde" style="left:1480px; top:-70px; width:540px; height:190px; rotate:3deg; --c: var(--negro)"><div class="p-corte" data-amp="8"></div></div>
+
+    <div id="cab">
+      <span class="p-eyebrow">Imágenes</span>
+      <h2 class="p-titulo">¿Y en imágenes? <span class="tira" style="--c: var(--lima)"><span class="p-corte" data-amp="3"></span>Soul 2.0</span></h2>
+    </div>
+
+    <div class="pola recorte p-sombra" id="po1" style="left:96px; top:360px; rotate:-11deg"><div class="p-corte" data-amp="2"></div><div class="foto"></div><svg viewBox="0 0 246 230"></svg></div>
+    <div class="pola recorte p-sombra" id="po2" style="left:300px; top:330px; rotate:8deg"><div class="p-corte" data-amp="2"></div><div class="foto" style="background:#e6d5c3"></div><svg viewBox="0 0 246 230"></svg></div>
+    <div class="pola recorte p-sombra" id="po3" style="left:130px; top:600px; rotate:5deg"><div class="p-corte" data-amp="2"></div><div class="foto" style="background:#d9e3c8"></div><svg viewBox="0 0 246 230"></svg></div>
+    <div class="pola recorte p-sombra" id="po4" style="left:330px; top:620px; rotate:-6deg"><div class="p-corte" data-amp="2"></div><div class="foto" style="background:#e9d6dc"></div><svg viewBox="0 0 246 230"></svg></div>
+
+    <div class="card recorte p-sombra con-borde" id="cWeb"><div class="p-corte" data-amp="5"></div>
+      <div class="dentro"><div class="p-eyebrow">En la web</div><div class="val">1/8 de crédito</div><div class="por">por imagen</div><div class="num">8 mil</div><div class="que">imágenes al mes con Plus</div></div>
+    </div>
+    <div class="card recorte p-sombra con-borde" id="cApi"><div class="p-corte" data-amp="5"></div>
+      <div class="dentro"><div class="p-eyebrow">En la API</div><div class="val">US$ 0,003 a 0,006</div><div class="por">por imagen</div><div class="num">8 a 15 mil</div><div class="que">imágenes con US$ 49</div></div>
+    </div>
+
+    <div class="sello" id="igual">≈ DA CASI LO MISMO</div>
+    <div class="p-marca"><img src="base/logo-iahub-marca.png" alt="" /></div>
+  </div>
+  <div class="p-cortina recorte con-borde"><div class="p-corte" data-amp="16" data-lados="lr" data-paso="14"></div></div>
+</div>
+
+<script>
+  papel.preparar();
+  const tl = gsap.timeline({ paused: true });
+  papel.cortina(tl);
+  papel.ambiente(tl);
+  const tinta = '#1c1b18';
+
+  // intro
+  papel.escribir(tl, '#cab .p-eyebrow', T('intro', -0.15), 0.4);
+  papel.deslizar(tl, '#cab h2', T('intro', -0.05), { x: -140, giro: -3 });
+  papel.pop(tl, '#cab .tira', TW('intro', 'soul', 1, -0.15), { giro: 10 });
+
+  // polaroids: caen una por una y se dibuja su "foto" (sol + montañas)
+  const caidas = [TW('intro', 'imagenes', 1, 0.1), TW('web', 'imagen', 1, -0.2), TW('web', 'imagenes', 1, -0.2), TW('api', 'quince', 1, -0.3)];
+  ['#po1', '#po2', '#po3', '#po4'].forEach((sel, k) => {
+    const svg = document.querySelector(sel + ' svg');
+    const dib = [
+      papel.trazo('elipse', [180, 62, 46, 46], { en: svg, grosor: 4, color: tinta, seed: 10 + k * 5 }),
+      papel.trazo('curva', [[10, 210], [70, 110], [120, 170], [170, 96], [236, 200]], { en: svg, grosor: 4, color: tinta, seed: 12 + k * 5 }),
+    ];
+    papel.soltar(tl, sel, caidas[k], { giro: k % 2 ? 14 : -14, y: -240 });
+    papel.dibujar(tl, dib, caidas[k] + 0.45, 0.6);
+  });
+
+  // web
+  papel.deslizar(tl, '#cWeb', TW('web', 'web', 1, -0.3), { x: 420, giro: 6 });
+  papel.escribir(tl, '#cWeb .p-eyebrow', TW('web', 'web', 1, 0), 0.35);
+  papel.escribir(tl, '#cWeb .val', TW('web', 'octavo', 1, -0.25), 0.55);
+  papel.escribir(tl, '#cWeb .por', TW('web', 'credito', 1, 0), 0.4);
+  papel.pop(tl, '#cWeb .num', TW('web', 'ocho', 1, -0.12), { giro: -10 });
+  papel.escribir(tl, '#cWeb .que', TW('web', 'imagenes', 1, -0.1), 0.6);
+
+  // api
+  papel.deslizar(tl, '#cApi', TW('api', 'api', 1, -0.3), { x: 420, giro: -6 });
+  papel.escribir(tl, '#cApi .p-eyebrow', TW('api', 'api', 1, 0), 0.3);
+  papel.escribir(tl, '#cApi .val', TW('api', 'tres', 1, -0.15), 0.8);
+  papel.escribir(tl, '#cApi .por', TW('api', 'dolar', 1, -0.1), 0.4);
+  papel.escribir(tl, '#cApi .que', TW('api', 'cuarenta', 1, -0.05), 0.6);
+  papel.pop(tl, '#cApi .num', TW('api', 'ocho', 1, -0.12), { giro: 10 });
+
+  // igual
+  papel.sello(tl, '#igual', TW('igual', 'casi', 1, -0.15), { giro: 3 });
+
+  window.__timelines['06-soul'] = tl;
+</script>
+</body>
+</html>

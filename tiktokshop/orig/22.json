@@ -1,0 +1,25 @@
+{
+ "programs": [],
+ "streams": [
+  {
+   "codec_name": "h264",
+   "codec_type": "video",
+   "width": 2160,
+   "height": 3840,
+   "r_frame_rate": "60/1"
+  },
+  {
+   "codec_name": "aac",
+   "codec_type": "audio",
+   "sample_rate": "44100",
+   "channels": 2,
+   "r_frame_rate": "0/0"
+  }
+ ],
+ "format": {
+  "duration": "110.226000"
+ },
+ "nombre": "CLASE 22 CODIGO VIRAL PARA VIDEOS DE TIK TOK SHOP.mp4",
+ "id": "1QZWer-_Et274w4jLx0bac6y3XC65qNnN",
+ "bytes": 760729189
+}

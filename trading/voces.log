@@ -1,0 +1,101 @@
+== animaciones/trading-02-cinco-velas
+qwen: generando 8 escenas (993 caracteres) en tu PC...
+modelo C:\Users\Reimo\.cache\huggingface\hub\models--Qwen--Qwen3-TTS-12Hz-1.7B-Base\snapshots\fd4b254389122332181a7c3db7f27e918eec64e3 (bf16) cargado en 1 s
+06-regla.wav, 01-martillo.wav, 07-cta.wav, 05-manana.wav: 37.4 s de audio en 47 s (RTF 1.26)
+04-envolvente.wav, 00-gancho.wav, 02-estrella.wav, 03-doji.wav: 21.1 s de audio en 26 s (RTF 1.24)
+TOTAL: 58.5 s de audio en 73 s (RTF 1.25)
+> 00-gancho: sacando los tiempos... listo 5.9s (se entiende el 100% del guion)
+> 01-martillo: sacando los tiempos... listo 12.06s (se entiende el 100% del guion)
+> 02-estrella: sacando los tiempos... listo 6.54s (se entiende el 100% del guion)
+> 03-doji: sacando los tiempos... listo 6.38s (se entiende el 93% del guion)
+> 04-envolvente: sacando los tiempos... listo 6.7s (se entiende el 100% del guion)
+> 05-manana: sacando los tiempos... listo 8.54s (se entiende el 100% del guion)
+> 06-regla: sacando los tiempos... listo 12.94s (se entiende el 100% del guion)
+> 07-cta: sacando los tiempos... listo 8.22s (se entiende el 90% del guion)
+== animaciones/trading-03-estructura
+qwen: generando 8 escenas (737 caracteres) en tu PC...
+modelo C:\Users\Reimo\.cache\huggingface\hub\models--Qwen--Qwen3-TTS-12Hz-1.7B-Base\snapshots\fd4b254389122332181a7c3db7f27e918eec64e3 (bf16) cargado en 1 s
+05-quiebre.wav, 07-cta.wav, 02-alcista.wav, 04-rango.wav: 27.2 s de audio en 41 s (RTF 1.52)
+01-ondas.wav, 03-bajista.wav, 06-regla.wav, 00-gancho.wav: 15.4 s de audio en 21 s (RTF 1.34)
+TOTAL: 42.6 s de audio en 62 s (RTF 1.46)
+> 00-gancho: sacando los tiempos... listo 3.9s (se entiende el 100% del guion)
+> 01-ondas: sacando los tiempos... listo 5.5s (se entiende el 93% del guion)
+> 02-alcista: sacando los tiempos... listo 6.46s (se entiende el 100% del guion)
+> 03-bajista: sacando los tiempos... listo 5.58s (se entiende el 100% del guion)
+> 04-rango: sacando los tiempos... listo 5.74s (se entiende el 100% del guion)
+> 05-quiebre: sacando los tiempos... listo 11.34s (se entiende el 100% del guion)
+> 06-regla: sacando los tiempos... listo 4.86s (se entiende el 100% del guion)
+> 07-cta: sacando los tiempos... listo 8.06s (se entiende el 90% del guion)
+== animaciones/trading-04-soportes
+qwen: generando 7 escenas (651 caracteres) en tu PC...
+modelo C:\Users\Reimo\.cache\huggingface\hub\models--Qwen--Qwen3-TTS-12Hz-1.7B-Base\snapshots\fd4b254389122332181a7c3db7f27e918eec64e3 (bf16) cargado en 1 s
+06-cta.wav, 04-polaridad.wav, 03-zonas.wav, 02-resistencia.wav: 25.0 s de audio en 28 s (RTF 1.14)
+01-soporte.wav, 05-toques.wav, 00-gancho.wav: 12.7 s de audio en 18 s (RTF 1.40)
+TOTAL: 37.7 s de audio en 46 s (RTF 1.23)
+> 00-gancho: sacando los tiempos... listo 4.38s (se entiende el 100% del guion)
+> 01-soporte: sacando los tiempos... listo 5.74s (se entiende el 100% del guion)
+> 02-resistencia: sacando los tiempos... listo 6.46s (se entiende el 100% del guion)
+> 03-zonas: sacando los tiempos... listo 7.34s (se entiende el 100% del guion)
+> 04-polaridad: sacando los tiempos... listo 7.34s (se entiende el 100% del guion)
+> 05-toques: sacando los tiempos... listo 5.9s (se entiende el 93% del guion)
+> 06-cta: sacando los tiempos... listo 8.22s (se entiende el 90% del guion)
+== animaciones/trading-05-ruptura
+qwen: generando 7 escenas (772 caracteres) en tu PC...
+modelo C:\Users\Reimo\.cache\huggingface\hub\models--Qwen--Qwen3-TTS-12Hz-1.7B-Base\snapshots\fd4b254389122332181a7c3db7f27e918eec64e3 (bf16) cargado en 1 s
+04-paso4.wav, 06-cta.wav, 05-falla.wav, 03-paso3.wav: 30.4 s de audio en 34 s (RTF 1.13)
+01-paso1.wav, 00-gancho.wav, 02-paso2.wav: 15.3 s de audio en 20 s (RTF 1.28)
+TOTAL: 45.7 s de audio en 54 s (RTF 1.18)
+> 00-gancho: sacando los tiempos... listo 6.46s (se entiende el 94% del guion)
+> 01-paso1: sacando los tiempos... listo 6.94s (se entiende el 100% del guion)
+> 02-paso2: sacando los tiempos... listo 5.18s (se entiende el 100% del guion)
+> 03-paso3: sacando los tiempos... listo 8.14s (se entiende el 100% del guion)
+> 04-paso4: sacando los tiempos... listo 10.54s (se entiende el 93% del guion)
+> 05-falla: sacando los tiempos... listo 8.06s (se entiende el 100% del guion)
+> 06-cta: sacando los tiempos... listo 8.06s (se entiende el 90% del guion)
+== animaciones/trading-06-fibonacci
+qwen: generando 7 escenas (780 caracteres) en tu PC...
+modelo C:\Users\Reimo\.cache\huggingface\hub\models--Qwen--Qwen3-TTS-12Hz-1.7B-Base\snapshots\fd4b254389122332181a7c3db7f27e918eec64e3 (bf16) cargado en 1 s
+05-magia.wav, 06-cta.wav, 04-zona.wav, 02-trazar.wav: 29.4 s de audio en 43 s (RTF 1.46)
+03-niveles.wav, 00-gancho.wav, 01-impulso.wav: 14.5 s de audio en 19 s (RTF 1.35)
+TOTAL: 43.8 s de audio en 62 s (RTF 1.42)
+> 00-gancho: sacando los tiempos... listo 5.5s (se entiende el 92% del guion)
+> 01-impulso: sacando los tiempos... listo 5.82s (se entiende el 100% del guion)
+> 02-trazar: sacando los tiempos... listo 6.78s (se entiende el 94% del guion)
+> 03-niveles: sacando los tiempos... listo 6.37s
+  ! 03-niveles: solo se entiende el 76% del guion. No reconoci: coma, coma, por, ciento
+    Escuchala; si falta algo, repitela con --escena 03-niveles --forzar (cada toma sale distinta)
+> 04-zona: sacando los tiempos... listo 6.78s (se entiende el 95% del guion)
+> 05-magia: sacando los tiempos... listo 12.38s (se entiende el 89% del guion)
+> 06-cta: sacando los tiempos... listo 7.82s (se entiende el 90% del guion)
+== animaciones/trading-07-liquidez
+qwen: generando 6 escenas (616 caracteres) en tu PC...
+modelo C:\Users\Reimo\.cache\huggingface\hub\models--Qwen--Qwen3-TTS-12Hz-1.7B-Base\snapshots\fd4b254389122332181a7c3db7f27e918eec64e3 (bf16) cargado en 1 s
+05-cta.wav, 03-barrido.wav, 04-clave.wav, 00-gancho.wav: 24.4 s de audio en 28 s (RTF 1.13)
+02-iguales.wav, 01-liquidez.wav: 10.8 s de audio en 19 s (RTF 1.76)
+TOTAL: 35.2 s de audio en 47 s (RTF 1.32)
+> 00-gancho: sacando los tiempos... listo 6.86s (se entiende el 86% del guion)
+> 01-liquidez: sacando los tiempos... listo 5.74s
+  ! 01-liquidez: solo se entiende el 77% del guion. No reconoci: su, stop, los
+    Escuchala; si falta algo, repitela con --escena 01-liquidez --forzar (cada toma sale distinta)
+> 02-iguales: sacando los tiempos... listo 7.26s (se entiende el 93% del guion)
+> 03-barrido: sacando los tiempos... listo 7.42s (se entiende el 100% del guion)
+> 04-clave: sacando los tiempos... listo 6.7s (se entiende el 95% del guion)
+> 05-cta: sacando los tiempos... listo 7.82s (se entiende el 90% del guion)
+== animaciones/trading-08-riesgo
+qwen: generando 7 escenas (904 caracteres) en tu PC...
+modelo C:\Users\Reimo\.cache\huggingface\hub\models--Qwen--Qwen3-TTS-12Hz-1.7B-Base\snapshots\fd4b254389122332181a7c3db7f27e918eec64e3 (bf16) cargado en 1 s
+02-racha.wav, 04-ratio.wav, 03-recuperar.wav, 06-cta.wav: 33.0 s de audio en 38 s (RTF 1.15)
+00-gancho.wav, 01-regla.wav, 05-cierre.wav: 18.5 s de audio en 28 s (RTF 1.53)
+TOTAL: 51.4 s de audio en 66 s (RTF 1.29)
+> 00-gancho: sacando los tiempos... listo 8.38s (se entiende el 95% del guion)
+> 01-regla: sacando los tiempos... listo 8.87s (se entiende el 92% del guion)
+> 02-racha: sacando los tiempos... listo 11.42s
+  ! 02-racha: solo se entiende el 82% del guion. No reconoci: por, ciento, por, ciento, por, ciento
+    Escuchala; si falta algo, repitela con --escena 02-racha --forzar (cada toma sale distinta)
+> 03-recuperar: sacando los tiempos... listo 8.54s
+  ! 03-recuperar: solo se entiende el 84% del guion. No reconoci: por, ciento, por, ciento
+    Escuchala; si falta algo, repitela con --escena 03-recuperar --forzar (cada toma sale distinta)
+> 04-ratio: sacando los tiempos... listo 9.29s (se entiende el 96% del guion)
+> 05-cierre: sacando los tiempos... listo 4.37s (se entiende el 100% del guion)
+> 06-cta: sacando los tiempos... listo 8.06s (se entiende el 90% del guion)
+FIN

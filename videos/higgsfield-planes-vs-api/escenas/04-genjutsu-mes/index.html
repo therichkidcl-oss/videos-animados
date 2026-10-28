@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=1920, height=1080" />
+<link rel="stylesheet" href="base/tema.css" />
+<link rel="stylesheet" href="base/papel.css" />
+<script src="base/vendor/gsap.min.js"></script>
+<script src="base/vendor/rough.js"></script>
+<script src="tiempos.js"></script>
+<script src="base/escena.js"></script>
+<script src="base/papel.js"></script>
+<style>
+  #cab { position: absolute; left: 120px; top: 52px; }
+  #cab .p-eyebrow { display: inline-block; margin-bottom: 10px; }
+  #cab h2 { font-size: 92px; white-space: nowrap; }
+
+  .ley { position: absolute; top: 34px; height: 76px; z-index: 2; }
+  .ley span { position: absolute; inset: 0; display: grid; place-items: center; font-family: var(--marcador); font-size: 34px; white-space: nowrap; }
+  #leyPlan { left: 930px; width: 340px; rotate: -2deg; --c: var(--lima); }
+  #leyApi { left: 1300px; width: 320px; rotate: 2deg; top: 44px; --c: var(--naranja); }
+
+  #hoja { position: absolute; left: 120px; top: 250px; width: 1680px; height: 760px; rotate: -0.8deg; }
+  #hoja > .p-corte {
+    background:
+      repeating-linear-gradient(to right, transparent 0 39px, rgba(66, 120, 205, 0.16) 39px 40px),
+      repeating-linear-gradient(to bottom, transparent 0 39px, rgba(66, 120, 205, 0.16) 39px 40px),
+      var(--blanco);
+  }
+  #hoja svg { position: absolute; left: 0; top: 0; width: 1680px; height: 760px; overflow: visible; }
+  .barra { position: absolute; width: 124px; transform-origin: 50% 100%; }
+  .barra.plan { --c: var(--lima); }
+  .barra.api { --c: var(--naranja); }
+  .cant { position: absolute; width: 124px; text-align: center; font-family: var(--marcador); font-size: 58px; display: inline-block; }
+  .eje { position: absolute; top: 634px; width: 300px; text-align: center; font-family: var(--marcador); font-size: 56px; display: inline-block; }
+
+  #x2 { left: 1500px; top: 404px; font-size: 128px; padding: 0 28px 8px; }
+  #nota { position: absolute; left: 872px; top: 462px; font-family: var(--mano); font-weight: 700; font-size: 62px; color: var(--rojo); display: inline-block; rotate: -4deg; }
+</style>
+</head>
+<body>
+<div id="root" data-composition-id="04-genjutsu-mes" data-start="0" data-width="1920" data-height="1080" data-duration="16.3">
+  <audio id="voz" src="voz.wav" data-start="0.4" data-duration="15.2" data-volume="1"></audio>
+  <div class="p-fondo"></div>
+  <div class="p-escena">
+    <div class="p-hoja recorte p-sombra con-borde" style="left:-110px; top:880px; width:900px; height:300px; rotate:3deg; --c: var(--negro)"><div class="p-corte" data-amp="9"></div></div>
+    <div class="p-hoja recorte p-sombra baja" style="left:1620px; top:900px; width:420px; height:240px; rotate:-5deg; --c: var(--kraft)"><div class="p-corte" data-amp="6"></div></div>
+
+    <div id="cab">
+      <span class="p-eyebrow">Genjutsu 720p · al mes</span>
+      <h2 class="p-titulo">¿Cuántos te <span class="tira" style="--c: var(--lima)"><span class="p-corte" data-amp="3"></span>alcanzan?</span></h2>
+    </div>
+    <div id="hoja" class="recorte p-sombra"><div class="p-corte" data-amp="5"></div>
+      <svg id="sHoja" viewBox="0 0 1680 760"></svg>
+      <div class="ley recorte p-sombra con-borde" id="leyPlan"><div class="p-corte" data-amp="3"></div><span>Plan Plus · US$ 49</span></div>
+      <div class="ley recorte p-sombra con-borde" id="leyApi"><div class="p-corte" data-amp="3"></div><span>US$ 49 en la API</span></div>
+    </div>
+
+    <div class="sello" id="x2">×2</div>
+    <div id="nota">el plan rinde el doble</div>
+  </div>
+  <div class="p-cortina recorte con-borde"><div class="p-corte" data-amp="16" data-lados="lr" data-paso="14"></div></div>
+</div>
+
+<script>
+  // Barras: 18 px por video. Grupos de 5, 10, 15 y 30 segundos (Plan Plus vs US$ 49 en la API).
+  const hoja = document.getElementById('hoja');
+  const BASE = 610, PX = 18;
+  const grupos = [
+    { seg: '5 s', plan: 28, api: 14, cx: 300, dPlan: ['plus', 'veintiocho'], dEje: ['plus', 'cinco'], dApi: ['api', 'catorce'] },
+    { seg: '10 s', plan: 14, api: 7, cx: 680, dPlan: ['plus', 'catorce'], dEje: ['plus', 'diez'], dApi: ['api', 'siete'] },
+    { seg: '15 s', plan: 9, api: 4, cx: 1060, dPlan: ['plus', 'nueve'], dEje: ['plus', 'quince'], dApi: ['api', 'cuatro'] },
+    { seg: '30 s', plan: 4, api: 2, cx: 1440, dPlan: ['plus', 'cuatro'], dEje: ['plus', 'treinta'], dApi: ['api', 'dos'] },
+  ];
+  grupos.forEach((g, i) => {
+    ['plan', 'api'].forEach((tipo) => {
+      const h = g[tipo] * PX, x = g.cx + (tipo === 'plan' ? -136 : 12);
+      hoja.insertAdjacentHTML('beforeend',
+        `<div class="barra ${tipo} recorte p-sombra baja" id="b${tipo}${i}" style="left:${x}px; top:${BASE - h}px; height:${h}px"><div class="p-corte" data-amp="6" data-lados="t" data-paso="8"></div></div>` +
+        `<div class="cant" id="c${tipo}${i}" style="left:${x}px; top:${BASE - h - 74}px">${g[tipo]}</div>`);
+    });
+    hoja.insertAdjacentHTML('beforeend', `<div class="eje" id="e${i}" style="left:${g.cx - 150}px">${g.seg}</div>`);
+  });
+
+  papel.preparar();
+  const tl = gsap.timeline({ paused: true });
+  papel.cortina(tl);
+  papel.ambiente(tl);
+  const sH = document.getElementById('sHoja');
+
+  // intro
+  papel.escribir(tl, '#cab .p-eyebrow', T('intro', -0.15), 0.5);
+  papel.deslizar(tl, '#cab h2', T('intro', -0.05), { x: -140, giro: -3 });
+  tl.fromTo('#hoja', { y: 700, rotation: 4 }, { y: 0, rotation: 0, duration: 0.7, ease: 'power3.out' }, T('intro', 0.25));
+  const base = papel.trazo('linea', [70, BASE + 4, 1610, BASE], { en: sH, grosor: 5, color: '#1c1b18', seed: 5 });
+  papel.dibujar(tl, base, T('intro', 0.8), 0.5);
+
+  // plus: barras lima. api: barras naranjas
+  papel.soltar(tl, '#leyPlan', TW('plus', 'plan', 1, -0.1), { giro: -8 });
+  papel.soltar(tl, '#leyApi', TW('api', 'cuarenta', 1, -0.15), { giro: 8 });
+  grupos.forEach((g, i) => {
+    const tP = TW(g.dPlan[0], g.dPlan[1], 1, -0.12);
+    const tA = TW(g.dApi[0], g.dApi[1], 1, -0.12);
+    tl.fromTo(`#bplan${i}`, { scaleY: 0 }, { scaleY: 1, duration: 0.55, ease: 'back.out(1.6)' }, tP);
+    papel.pop(tl, `#cplan${i}`, tP + 0.3, { giro: -10 });
+    papel.escribir(tl, `#e${i}`, TW(g.dEje[0], g.dEje[1], 1, -0.08), 0.3);
+    tl.fromTo(`#bapi${i}`, { scaleY: 0 }, { scaleY: 1, duration: 0.5, ease: 'back.out(1.6)' }, tA);
+    papel.pop(tl, `#capi${i}`, tA + 0.25, { giro: 10 });
+  });
+
+  // doble
+  const flecha = papel.trazo('flecha', [858, 512, 486, 402, 0.1], { grosor: 5, color: '#f0402f', seed: 88 });
+  papel.sello(tl, '#x2', TW('doble', 'doble', 1, -0.12), { giro: -10 });
+  papel.escribir(tl, '#nota', TW('doble', 'genjutsu', 1, -0.05), 0.9);
+  papel.dibujar(tl, flecha, TW('doble', 'plan', 1, 0), 0.5);
+
+  window.__timelines['04-genjutsu-mes'] = tl;
+</script>
+</body>
+</html>

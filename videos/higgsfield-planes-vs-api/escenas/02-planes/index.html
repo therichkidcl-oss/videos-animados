@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=1920, height=1080" />
+<link rel="stylesheet" href="base/tema.css" />
+<link rel="stylesheet" href="base/papel.css" />
+<script src="base/vendor/gsap.min.js"></script>
+<script src="base/vendor/rough.js"></script>
+<script src="tiempos.js"></script>
+<script src="base/escena.js"></script>
+<script src="base/papel.js"></script>
+<style>
+  #cab { position: absolute; left: 120px; top: 52px; }
+  #cab .p-eyebrow { display: inline-block; margin-bottom: 10px; }
+  #cab h2 { font-size: 92px; white-space: nowrap; }
+
+  .tag { position: absolute; width: 400px; height: 410px; }
+  .tag .dentro > * { position: absolute; left: 0; right: 0; text-align: center; }
+  .tag .nom { top: 70px; font-family: var(--marcador); font-size: 46px; }
+  .tag .precio { top: 138px; font-family: var(--marcador); font-size: 86px; line-height: 1; white-space: nowrap; }
+  .tag .mes { top: 238px; font-family: var(--mano); font-weight: 700; font-size: 46px; }
+  .tag .chip { position: absolute; left: 26px; right: 26px; top: 306px; height: 72px; }
+  .tag .chip span { position: absolute; inset: 0; display: grid; place-items: center; font-family: var(--marcador); font-size: 37px; color: var(--tinta); white-space: nowrap; }
+  .tag .agujero { position: absolute; left: 184px; top: 24px; width: 32px; height: 32px; border-radius: 50%; background: var(--papel); box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.35); }
+  #tg1 { left: 220px; top: 344px; --c: var(--blanco); }
+  #tg2 { left: 760px; top: 372px; --c: var(--lima); }
+  #tg3 { left: 1300px; top: 344px; --c: var(--negro); }
+  #tg3 .nom, #tg3 .precio, #tg3 .mes { color: var(--blanco); }
+
+  #abajo { position: absolute; left: -80px; top: 816px; width: 2080px; height: 380px; rotate: -1deg; --c: var(--negro); }
+  .pieza { position: absolute; top: 868px; height: 120px; }
+  .pieza span { position: absolute; inset: 0; display: grid; place-items: center; font-family: var(--marcador); font-size: 46px; white-space: nowrap; }
+  #pzPlan { left: 240px; width: 520px; rotate: -2deg; --c: var(--lima); }
+  #pzApi { left: 1160px; width: 520px; rotate: 2deg; --c: var(--naranja); }
+  #lista { position: absolute; left: 1300px; top: 1002px; font-family: var(--mano); font-weight: 700; font-size: 44px; color: var(--lima); display: inline-block; }
+  .p-marca { display: none; }
+</style>
+</head>
+<body>
+<div id="root" data-composition-id="02-planes" data-start="0" data-width="1920" data-height="1080" data-duration="17.5">
+  <audio id="voz" src="voz.wav" data-start="0.4" data-duration="16.4" data-volume="1"></audio>
+  <div class="p-fondo"></div>
+  <div class="p-escena">
+    <div class="p-hoja recorte p-sombra con-borde" style="left:1500px; top:-70px; width:520px; height:190px; rotate:4deg; --c: var(--lima)"><div class="p-corte" data-amp="8"></div></div>
+
+    <div id="cab">
+      <span class="p-eyebrow">Lo que trae cada plan</span>
+      <h2 class="p-titulo">Los <span class="tira" style="--c: var(--lima)"><span class="p-corte" data-amp="3"></span>planes</span> de la web</h2>
+    </div>
+
+    <div class="tag recorte p-sombra con-borde" id="tg1"><div class="p-corte" data-amp="4"></div><div class="agujero"></div>
+      <div class="dentro"><div class="nom">STARTER</div><div class="precio esc">US$ 15</div><div class="mes">al mes</div></div>
+      <div class="chip recorte p-sombra baja" style="--c: var(--lima)"><div class="p-corte" data-amp="3"></div><span>200 créditos</span></div>
+    </div>
+    <div class="tag recorte p-sombra con-borde" id="tg2"><div class="p-corte" data-amp="4"></div><div class="agujero"></div>
+      <div class="dentro"><div class="nom">PLUS</div><div class="precio esc">US$ 49</div><div class="mes">al mes</div></div>
+      <div class="chip recorte p-sombra baja" style="--c: var(--blanco)"><div class="p-corte" data-amp="3"></div><span>1.000 créditos</span></div>
+    </div>
+    <div class="tag recorte p-sombra con-borde" id="tg3"><div class="p-corte" data-amp="4"></div><div class="agujero"></div>
+      <div class="dentro"><div class="nom">ULTRA</div><div class="precio esc">US$ 129</div><div class="mes">al mes</div></div>
+      <div class="chip recorte p-sombra baja" style="--c: var(--lima)"><div class="p-corte" data-amp="3"></div><span>3.000 créditos</span></div>
+    </div>
+
+    <div id="abajo" class="recorte p-sombra con-borde"><div class="p-corte" data-amp="10" data-paso="10"></div></div>
+    <div class="pieza recorte p-sombra con-borde" id="pzPlan"><div class="p-corte" data-amp="4"></div><span>Plan Plus · US$ 49</span></div>
+    <div class="pieza recorte p-sombra con-borde" id="pzApi"><div class="p-corte" data-amp="4"></div><span>US$ 49 en la API</span></div>
+    <div id="lista">con precios de lista</div>
+    <div class="p-marca"><img src="base/logo-iahub-marca.png" alt="" /></div>
+  </div>
+  <div class="p-cortina recorte con-borde"><div class="p-corte" data-amp="16" data-lados="lr" data-paso="14"></div></div>
+</div>
+
+<script>
+  papel.preparar();
+  const tl = gsap.timeline({ paused: true });
+  papel.cortina(tl);
+  papel.ambiente(tl);
+  const D = papel.dibujos;
+  const tinta = '#1c1b18';
+
+  // titulo + tendedero
+  papel.escribir(tl, '#cab .p-eyebrow', T('intro', -0.15), 0.5);
+  papel.deslizar(tl, '#cab h2', T('intro', -0.05), { x: -140, giro: -3 });
+  const cuerda = papel.trazo('curva', [[30, 262], [960, 342], [1890, 262]], { grosor: 5, color: tinta, seed: 12 });
+  papel.dibujar(tl, cuerda, T('intro', 0.25), 0.8);
+
+  // cada etiqueta cae, se balancea y se escribe su precio
+  const tags = [
+    { id: '#tg1', cx: 420, top: 344, f: 'starter', precio: 'quince', cred: 'doscientos' },
+    { id: '#tg2', cx: 960, top: 372, f: 'plus', precio: 'cuarenta', cred: 'mil' },
+    { id: '#tg3', cx: 1500, top: 344, f: 'ultra', precio: 'ciento', cred: 'tres' },
+  ];
+  tags.forEach((g, k) => {
+    const yCuerda = 262 + 80 * (1 - Math.pow((g.cx - 960) / 930, 2));
+    const hilo = papel.trazo('linea', [g.cx, yCuerda, g.cx, g.top + 40], { grosor: 3, color: tinta, seed: 30 + k });
+    const pinza = papel.trazo('rect', [g.cx - 14, yCuerda - 26, 28, 52], { grosor: 3, color: tinta, relleno: '#c9a173', estiloRelleno: 'solid', seed: 40 + k });
+    const t0 = T(g.f, -0.12);
+    tl.fromTo(g.id, { opacity: 0, y: -460, rotation: 16 }, { opacity: 1, y: 0, duration: 0.42, ease: 'power2.in', transformOrigin: '50% 40px' }, t0);
+    tl.to(g.id, { rotation: 0, duration: 1.4, ease: 'elastic.out(1, 0.28)', transformOrigin: '50% 40px' }, t0 + 0.42);
+    papel.dibujar(tl, [hilo, pinza], t0 + 0.3, 0.3);
+    papel.escribir(tl, g.id + ' .precio', TW(g.f, g.precio, 1, -0.1), 0.45);
+    papel.pop(tl, g.id + ' .chip', TW(g.f, g.cred, 1, -0.1), { giro: -6 });
+  });
+
+  // comparar: Plus contra los mismos US$ 49 en la API
+  tl.to('#tg1, #tg3', { opacity: 0.3, duration: 0.4 }, TW('comparar', 'plan', 1, -0.1));
+  const circulo = papel.trazo('elipse', [960, 586, 520, 520], { grosor: 6, color: '#f0402f', aspereza: 1.7, seed: 77 });
+  papel.dibujar(tl, circulo, TW('comparar', 'plus', 1, -0.15), 0.6);
+  tl.fromTo('#abajo', { y: 420 }, { y: 0, duration: 0.55, ease: 'power3.out' }, T('comparar', -0.25));
+  papel.soltar(tl, '#pzPlan', TW('comparar', 'plus', 1, 0.05), { giro: -8 });
+  const balanza = D.balanza(null, 960, 928, 120, { color: '#fbf9f4', grosor: 5 });
+  papel.dibujar(tl, balanza, TW('comparar', 'contra', 1, -0.1), 0.7);
+  papel.soltar(tl, '#pzApi', TW('comparar', 'cuarenta', 1, -0.05), { giro: 8 });
+  papel.escribir(tl, '#lista', TW('comparar', 'precios', 1, -0.1), 0.7);
+
+  window.__timelines['02-planes'] = tl;
+</script>
+</body>
+</html>

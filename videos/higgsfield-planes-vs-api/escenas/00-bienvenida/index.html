@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=1920, height=1080" />
+<link rel="stylesheet" href="base/tema.css" />
+<link rel="stylesheet" href="base/papel.css" />
+<script src="base/vendor/gsap.min.js"></script>
+<script src="base/vendor/rough.js"></script>
+<script src="tiempos.js"></script>
+<script src="base/escena.js"></script>
+<script src="base/papel.js"></script>
+<style>
+  #logo { position: absolute; left: 150px; top: 96px; width: 440px; rotate: -3deg; }
+  #logo img { display: block; width: 100%; height: auto; filter: drop-shadow(0 10px 12px rgba(40, 30, 10, 0.3)); }
+  #logo .cinta { top: -16px; }
+  #hola { position: absolute; left: 160px; top: 338px; font-family: var(--marcador); font-size: 190px; line-height: 1; display: inline-block; }
+  #nueva { position: absolute; left: 176px; top: 528px; font-family: var(--mano); font-weight: 700; font-size: 50px; color: var(--tinta-suave); display: inline-block; }
+
+  #titulo { position: absolute; left: 960px; top: 120px; }
+  #titulo .p-eyebrow { display: inline-block; margin-bottom: 18px; }
+  #titulo h1 { font-size: 124px; white-space: nowrap; }
+  #titulo .vs { display: inline-block; font-family: var(--mano); font-weight: 700; font-size: 110px; color: var(--rojo); text-transform: none; margin: 0 14px; }
+  #reales { position: absolute; left: 968px; top: 330px; font-family: var(--mano); font-weight: 700; font-size: 62px; display: inline-block; }
+
+  .nota { position: absolute; top: 648px; width: 470px; height: 300px; }
+  .nota .dentro { padding: 30px 34px; }
+  .nota .txt { font-family: var(--mano); font-weight: 700; font-size: 58px; line-height: 1.02; max-width: 300px; }
+  .nota svg { position: absolute; right: 18px; bottom: 14px; width: 150px; height: 150px; overflow: visible; }
+  .nota .cinta { top: -20px; left: 160px; }
+  #n1 { left: 168px; rotate: -3deg; --c: var(--lima); }
+  #n2 { left: 726px; rotate: 2deg; --c: var(--blanco); }
+  #n3 { left: 1284px; rotate: -2deg; --c: var(--naranja); }
+
+  #sello { left: 1310px; top: 444px; font-size: 64px; }
+</style>
+</head>
+<body>
+<div id="root" data-composition-id="00-bienvenida" data-start="0" data-width="1920" data-height="1080" data-duration="14.38">
+  <audio id="voz" src="voz.wav" data-start="0.4" data-duration="13.28" data-volume="1"></audio>
+  <div class="p-fondo"></div>
+  <div class="p-escena">
+    <div class="p-hoja recorte p-sombra baja" style="left:-70px; top:-80px; width:720px; height:440px; rotate:-4deg; --c: var(--kraft)"><div class="p-corte" data-amp="7"></div></div>
+    <div class="p-hoja recorte p-sombra con-borde" style="left:1480px; top:-60px; width:560px; height:170px; rotate:3deg; --c: var(--lima)"><div class="p-corte" data-amp="8"></div></div>
+    <div class="p-hoja recorte p-sombra con-borde" style="left:-90px; top:600px; width:2100px; height:560px; rotate:1.5deg; --c: var(--negro)"><div class="p-corte" data-amp="10" data-paso="10"></div></div>
+
+    <div id="logo"><img src="base/logo-iahub.png" alt="" /><div class="cinta" style="left:-30px; rotate:-28deg"></div><div class="cinta" style="left:330px; rotate:24deg"></div></div>
+    <div id="hola">¡HOLA!</div>
+    <div id="nueva">una nueva clase de IA-HUB</div>
+
+    <div id="titulo">
+      <span class="p-eyebrow">Hoy comparamos</span>
+      <h1 class="p-titulo"><span class="tira" id="tPlanes" style="--c: var(--lima)"><span class="p-corte" data-amp="3"></span>Planes</span><span class="vs">vs</span><span class="tira" id="tApi" style="--c: var(--naranja)"><span class="p-corte" data-amp="3"></span>API</span></h1>
+    </div>
+    <div id="reales">con números reales</div>
+
+    <div class="nota recorte p-sombra" id="n1"><div class="p-corte" data-amp="3"></div><div class="dentro"><div class="txt">¿Cuánto cuesta cada video?</div></div><svg viewBox="0 0 150 150"></svg><div class="cinta" style="rotate:-4deg"></div></div>
+    <div class="nota recorte p-sombra" id="n2"><div class="p-corte" data-amp="3"></div><div class="dentro"><div class="txt">¿Cuántos te alcanzan al mes?</div></div><svg viewBox="0 0 150 150"></svg><div class="cinta" style="rotate:3deg"></div></div>
+    <div class="nota recorte p-sombra" id="n3"><div class="p-corte" data-amp="3"></div><div class="dentro"><div class="txt">¿Cuál te conviene?</div></div><svg viewBox="0 0 150 150"></svg><div class="cinta" style="rotate:-2deg"></div></div>
+
+    <div class="sello" id="sello">¡EMPECEMOS!</div>
+  </div>
+  <div class="p-cortina recorte con-borde"><div class="p-corte" data-amp="16" data-lados="lr" data-paso="14"></div></div>
+</div>
+
+<script>
+  papel.preparar();
+  const tl = gsap.timeline({ paused: true });
+  papel.cortina(tl);
+  papel.ambiente(tl);
+  const D = papel.dibujos;
+
+  // saludo
+  papel.soltar(tl, '#logo', T('saludo', 0.05), { giro: -10, y: -160 });
+  papel.escribir(tl, '#hola', TW('saludo', 'hola', 1, 0.15), 0.7);
+  papel.escribir(tl, '#nueva', TW('saludo', 'nueva', 1, -0.1), 0.9);
+  papel.hervir(tl, '#hola', 1.2, DUR(), { amp: 1.2, giro: 0.6, seed: 2 });
+
+  // tema
+  papel.escribir(tl, '#titulo .p-eyebrow', T('tema', -0.1), 0.5);
+  papel.pop(tl, '#tPlanes', TW('tema', 'planes', 1, -0.15), { giro: -8 });
+  papel.pop(tl, '#titulo .vs', TW('tema', 'con', 1, -0.15), { giro: 12 });
+  papel.pop(tl, '#tApi', TW('tema', 'api', 1, -0.15), { giro: 8 });
+  papel.escribir(tl, '#reales', TW('tema', 'numeros', 1, -0.15), 0.6);
+  const linea = papel.trazo('linea', [968, 410, 1490, 404], { grosor: 6, color: '#f0402f', aspereza: 1.6, seed: 31 });
+  papel.dibujar(tl, linea, TW('tema', 'reales', 1, 0.05), 0.4);
+
+  // agenda: tres notas con su dibujo
+  const notas = [
+    { id: '#n1', t: TW('agenda', 'cuanto', 1, -0.25), dib: (s) => D.reloj(s, 70, 82, 46, { grosor: 4 }) },
+    { id: '#n2', t: TW('agenda', 'cuantos', 1, -0.25), dib: (s) => D.calendario(s, 12, 34, 116, 92, { grosor: 4 }) },
+    { id: '#n3', t: TW('agenda', 'cual', 1, -0.25), dib: (s) => D.balanza(s, 75, 78, 110, { grosor: 4 }) },
+  ];
+  notas.forEach((n, k) => {
+    const svg = document.querySelector(n.id + ' svg');
+    const trazos = n.dib(svg);
+    papel.soltar(tl, n.id, n.t, { giro: k % 2 ? 9 : -9 });
+    papel.dibujar(tl, trazos, n.t + 0.45, 0.8);
+  });
+
+  // vamos
+  papel.sello(tl, '#sello', TW('vamos', 'empecemos', 1, -0.05), { giro: -9 });
+
+  window.__timelines['00-bienvenida'] = tl;
+</script>
+</body>
+</html>

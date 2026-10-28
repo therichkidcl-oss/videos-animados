@@ -1,0 +1,25 @@
+{
+ "programs": [],
+ "streams": [
+  {
+   "codec_name": "h264",
+   "codec_type": "video",
+   "width": 886,
+   "height": 1920,
+   "r_frame_rate": "30/1"
+  },
+  {
+   "codec_name": "aac",
+   "codec_type": "audio",
+   "sample_rate": "44100",
+   "channels": 2,
+   "r_frame_rate": "0/0"
+  }
+ ],
+ "format": {
+  "duration": "127.710000"
+ },
+ "nombre": "CLASE 21 COMO VER NUESTRAS METRICAS.mp4",
+ "id": "1fJzMfNTwZPjtFE7BHVSp_PKzR7gBDV2k",
+ "bytes": 102614243
+}

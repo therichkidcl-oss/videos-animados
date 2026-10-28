@@ -1,0 +1,102 @@
+{
+  "titulo": "Curso Influencer IA 1.0 (NSFW) · Modulo Zernio · Zernio o el bot de interacción: cómo funciona cada uno",
+  "nota": "Modulo Zernio 27/10/2026, voz reimo-v3.",
+  "voz": {
+    "proveedor": "qwen",
+    "qwen": {
+      "voz": "reimo-v3",
+      "modelo": "1.7B",
+      "dtype": "bf16",
+      "lote": 4
+    }
+  },
+  "escenas": [
+    {
+      "id": "00-intro",
+      "frases": [
+        {
+          "id": "a",
+          "texto": "En el módulo de automatizaciones tienes el bot de interacción. Y ahora tienes zernio."
+        },
+        {
+          "id": "b",
+          "texto": "¿Cuál usar? En esta clase te explico cómo funciona cada uno."
+        }
+      ]
+    },
+    {
+      "id": "01-bot",
+      "frases": [
+        {
+          "id": "a",
+          "texto": "El bot de interacción es un programa que corre en tu computador. Lo manejas desde Telegram, abre Instagram en Chrome y actúa como si fueras tú."
+        },
+        {
+          "id": "b",
+          "texto": "Le pegas el link de una publicación, y da me gusta y responde a las personas que comentaron. Su versión mejorada también publica y programa tus fotos y reels."
+        },
+        {
+          "id": "c",
+          "texto": "Y va lento a propósito, con pausas, para parecer una persona."
+        }
+      ]
+    },
+    {
+      "id": "02-zernio",
+      "frases": [
+        {
+          "id": "a",
+          "texto": "zernio, en cambio, vive en la nube. Se conecta con el permiso oficial de Instagram, y publica y responde desde sus servidores, aunque tu computador esté apagado."
+        }
+      ]
+    },
+    {
+      "id": "03-diferencias",
+      "frases": [
+        {
+          "id": "a",
+          "texto": "La gran diferencia es hacia dónde apunta cada uno."
+        },
+        {
+          "id": "b",
+          "texto": "zernio trabaja con tu propia audiencia: publica tus reels, responde los comentarios de tus publicaciones, y le manda tu link a quien comenta."
+        },
+        {
+          "id": "c",
+          "texto": "El bot sale a buscar audiencia nueva: interactúa con la gente que comenta en otras publicaciones, para que vengan a tu perfil."
+        }
+      ]
+    },
+    {
+      "id": "04-costos",
+      "frases": [
+        {
+          "id": "a",
+          "texto": "Los dos son gratis para empezar: zernio con sus dos cuentas gratis, y el bot sin costo, salvo que quieras sus respuestas con ia."
+        }
+      ]
+    },
+    {
+      "id": "05-juntos",
+      "frases": [
+        {
+          "id": "a",
+          "texto": "Por eso no compiten: se complementan. zernio para publicar y atender a tu audiencia, y el bot para atraer gente nueva."
+        },
+        {
+          "id": "b",
+          "texto": "Y para los dos, la misma regla: actívalos cuando tu cuenta ya esté calentada, y nunca con ritmos exagerados."
+        }
+      ]
+    },
+    {
+      "id": "06-cierre",
+      "frases": [
+        {
+          "id": "a",
+          "texto": "Si te trabas en cualquier paso del módulo, conéctate a las sesiones en vivo de cada semana y lo vemos juntos."
+        }
+      ]
+    }
+  ]
+}
