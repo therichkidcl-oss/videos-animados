@@ -1,0 +1,12 @@
+qwen: generando 7 escenas (1387 caracteres) en tu PC...
+modelo C:\Users\Reimo\.cache\huggingface\hub\models--Qwen--Qwen3-TTS-12Hz-1.7B-Base\snapshots\fd4b254389122332181a7c3db7f27e918eec64e3 (bf16) cargado en 1 s
+04-reglas.wav, 02-indirecto.wav, 01-como.wav, 03-boton.wav: 57.1 s de audio en 61 s (RTF 1.07)
+00-intro.wav, 06-cierre.wav, 05-claude.wav: 22.3 s de audio en 39 s (RTF 1.77)
+TOTAL: 79.4 s de audio en 101 s (RTF 1.27)
+> 00-intro: sacando los tiempos... listo 10.22s (se entiende el 94% del guion)
+> 01-como: sacando los tiempos... listo 14.46s (se entiende el 89% del guion)
+> 02-indirecto: sacando los tiempos... listo 16.86s (se entiende el 96% del guion)
+> 03-boton: sacando los tiempos... listo 12.7s (se entiende el 100% del guion)
+> 04-reglas: sacando los tiempos... listo 17.5s (se entiende el 94% del guion)
+> 05-claude: sacando los tiempos... listo 7.5s (se entiende el 95% del guion)
+> 06-cierre: sacando los tiempos... listo 7.9s (se entiende el 96% del guion)

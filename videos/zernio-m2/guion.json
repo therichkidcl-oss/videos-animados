@@ -1,0 +1,125 @@
+{
+  "titulo": "Curso Influencer IA 1.0 (NSFW) · Modulo Zernio · Crea tu cuenta y conecta el Instagram de tu modelo",
+  "nota": "Modulo Zernio 27/10/2026, voz reimo-v3.",
+  "voz": {
+    "proveedor": "qwen",
+    "qwen": {
+      "voz": "reimo-v3",
+      "modelo": "1.7B",
+      "dtype": "bf16",
+      "lote": 4
+    }
+  },
+  "escenas": [
+    {
+      "id": "00-intro",
+      "frases": [
+        {
+          "id": "a",
+          "texto": "En esta clase creas tu cuenta de zernio, conectas el Instagram de tu modelo y sacas la llave que vas a usar con clod."
+        }
+      ]
+    },
+    {
+      "id": "02-antes",
+      "frases": [
+        {
+          "id": "a",
+          "texto": "Antes de empezar, dos reglas."
+        },
+        {
+          "id": "b",
+          "texto": "Uno: tu Instagram tiene que ser cuenta de creador o de empresa. Las cuentas personales no se pueden publicar por a pe i. Lo cambias en la aplicación, en configuración, tipo de cuenta."
+        },
+        {
+          "id": "c",
+          "texto": "Y dos: solo automatiza una cuenta que ya esté calentada. Los primeros treinta días, todo a mano, como viste en la clase de calentar Instagram."
+        }
+      ]
+    },
+    {
+      "id": "03-cuenta",
+      "frases": [
+        {
+          "id": "a",
+          "texto": "Paso uno: crea tu cuenta."
+        },
+        {
+          "id": "b",
+          "texto": "Entra a zernio punto com, barra, sain ap. Puedes entrar con gugol, con guit jab o con tu correo."
+        },
+        {
+          "id": "c",
+          "texto": "Y en segundos ya estás dentro del panel."
+        }
+      ]
+    },
+    {
+      "id": "04-conectar",
+      "frases": [
+        {
+          "id": "a",
+          "texto": "Paso dos: conecta tu Instagram."
+        },
+        {
+          "id": "b",
+          "texto": "En el panel, toca el botón rojo de arriba, nueva conexión. Se abre la lista de redes."
+        },
+        {
+          "id": "c",
+          "texto": "Elige Instagram, y después conectar con Instagram."
+        },
+        {
+          "id": "d",
+          "texto": "Inicias sesión con la cuenta de tu modelo, aceptas los permisos, y vuelves al panel."
+        },
+        {
+          "id": "e",
+          "texto": "Ahí ya aparece tu cuenta, con el estado conectada."
+        },
+        {
+          "id": "f",
+          "texto": "Ojo: este permiso vence más o menos cada sesenta días. Si un día tus reels no salen, vuelve aquí y reconecta la cuenta."
+        }
+      ]
+    },
+    {
+      "id": "05-llave",
+      "frases": [
+        {
+          "id": "a",
+          "texto": "Paso tres: la llave."
+        },
+        {
+          "id": "b",
+          "texto": "En el menú de la izquierda, entra a a pe i kis y toca crear llave."
+        },
+        {
+          "id": "c",
+          "texto": "Ponle un nombre, por ejemplo clod, deja marcado lectura y escritura, y créala."
+        },
+        {
+          "id": "d",
+          "texto": "zernio te muestra la llave completa una sola vez. Cópiala y guárdala."
+        },
+        {
+          "id": "e",
+          "texto": "Esta llave es como la contraseña de tu cuenta: nunca la compartas ni la pegues en un chat público."
+        }
+      ]
+    },
+    {
+      "id": "06-cierre",
+      "frases": [
+        {
+          "id": "a",
+          "texto": "Con tu cuenta conectada y tu llave guardada, ya tienes todo."
+        },
+        {
+          "id": "b",
+          "texto": "En la próxima clase conectas zernio con clod y dejas la subida de tus reels en automático."
+        }
+      ]
+    }
+  ]
+}

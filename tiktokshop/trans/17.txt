@@ -1,0 +1,22 @@
+[0:00.18] En este video tutorial vamos a aprender cómo darle el ad code a los seller.
+[0:05.54] Vamos a suponer que le vamos a dar el code de este video.
+[0:09.26] Vamos a los tres puntitos de acá abajo y buscamos la opción que dice
+[0:14.00] Ajustes de publicidad, esta que ven acá.
+[0:17.52] Pinchamos en la opción Ajustes de publicidad y nos va a abrir el panel.
+[0:22.40] Cuando nos abre el panel, vamos aquí a esta opción que dice AD Authorization.
+[0:26.40] Esa la activamos.
+[0:28.90] Activamos esa opción.
+[0:30.60] Y yo les recomiendo que siempre activen el code por 30 días.
+[0:33.76] Después lo pueden poner lo que es 30 días más y así.
+[0:38.18] Por eso en caso de que el producto tenga algún problema,
+[0:40.68] su valoración de su cuenta no baja.
+[0:43.04] Así que por 30 días a veces se lo van a pedir por más.
+[0:46.06] Y le dan el Save.
+[0:47.96] Van al cuadrito rojo aquí abajo y le dan Salvar.
+[0:50.36] Ahora, ¿cómo lo van a copiar para dárselo al seller?
+[0:52.80] Después que ya lo generaste y lo salvaste,
+[0:55.64] vas a venir acá donde dice Video Code.
+[0:58.08] La palabra que dice manejar y vas a darle a Copy Code.
+[1:02.52] Copy Code, la primera opción.
+[1:05.06] Y ese code es el que tú le vas a compartir al seller.
+[1:09.64] Y esto lo que garantiza es que el seller le corre anuncio a tus videos.

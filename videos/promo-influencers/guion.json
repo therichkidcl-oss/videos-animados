@@ -1,0 +1,60 @@
+{
+  "titulo": "Promo: crea influencers virales desde IA-HUB (Generador de Rostros + Genjutsu) y el modulo nuevo",
+  "nota": "Solo para generar la voz. La animacion (vertical 1080x1920) se hace con la skill animaciones-horizontal-combinadas en animaciones/promo-influencers. IA-HUB escrito como se dice: ia jab.",
+  "voz": {
+    "proveedor": "qwen",
+    "qwen": { "voz": "reimo", "modelo": "1.7B", "dtype": "bf16", "lote": 4 }
+  },
+  "escenas": [
+    {
+      "id": "00-gancho",
+      "frases": [
+        { "id": "quieres", "texto": "¿Quieres crear influencers virales como este?" },
+        { "id": "ahora", "texto": "Ahora lo haces desde ia jab." }
+      ]
+    },
+    {
+      "id": "01-rostro",
+      "frases": [
+        { "id": "primero", "texto": "Primero, crea a tu personaje en el generador de rostros:" },
+        { "id": "eliges", "texto": "eliges sus rasgos y generas su ficha." }
+      ]
+    },
+    {
+      "id": "02-genjutsu",
+      "frases": [
+        { "id": "despues", "texto": "Después entra a Genjutsu," },
+        { "id": "elige", "texto": "elige el video viral que quieres replicar" },
+        { "id": "sube", "texto": "y sube a tu personaje." }
+      ]
+    },
+    {
+      "id": "03-endulzar",
+      "frases": [
+        { "id": "toca", "texto": "Toca endulzar," },
+        { "id": "prompt", "texto": "y la inteligencia artificial te escribe un prompt ultra profesional." }
+      ]
+    },
+    {
+      "id": "04-generar",
+      "frases": [
+        { "id": "generar", "texto": "Toca generar..." },
+        { "id": "listo", "texto": "y listo: ya tienes a tu personaje en el video." }
+      ]
+    },
+    {
+      "id": "05-modulo",
+      "frases": [
+        { "id": "aprender", "texto": "¿Quieres aprender a hacerlo?" },
+        { "id": "lanzar", "texto": "En ia jab acabamos de lanzar un módulo completo" },
+        { "id": "ganar", "texto": "sobre cómo crearlos y ganar dinero con ellos." }
+      ]
+    },
+    {
+      "id": "06-club",
+      "frases": [
+        { "id": "unete", "texto": "Únete al club en ia jab punto ce ele." }
+      ]
+    }
+  ]
+}

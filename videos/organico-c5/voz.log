@@ -1,0 +1,18 @@
+qwen: generando 12 escenas (5703 caracteres) en tu PC...
+modelo C:\Users\Reimo\.cache\huggingface\hub\models--Qwen--Qwen3-TTS-12Hz-1.7B-Base\snapshots\fd4b254389122332181a7c3db7f27e918eec64e3 (bf16) cargado en 1 s
+05-link.wav, 09-redes.wav, 04-perfil.wav, 06-feed.wav: 155.7 s de audio en 136 s (RTF 0.87)
+08-original.wav, 03-etiqueta.wav, 01-una-cuenta.wav, 02-base.wav: 107.1 s de audio en 109 s (RTF 1.01)
+11-cierre.wav, 10-resumen.wav, 07-buscador.wav, 00-intro.wav: 62.5 s de audio en 68 s (RTF 1.08)
+TOTAL: 325.3 s de audio en 312 s (RTF 0.96)
+> 00-intro: sacando los tiempos... listo 10.7s (se entiende el 100% del guion)
+> 01-una-cuenta: sacando los tiempos... listo 26.38s (se entiende el 99% del guion)
+> 02-base: sacando los tiempos... listo 22.78s (se entiende el 100% del guion)
+> 03-etiqueta: sacando los tiempos... listo 29.74s (se entiende el 99% del guion)
+> 04-perfil: sacando los tiempos... listo 38.46s (se entiende el 99% del guion)
+> 05-link: sacando los tiempos... listo 45.1s (se entiende el 94% del guion)
+> 06-feed: sacando los tiempos... listo 38.22s (se entiende el 94% del guion)
+> 07-buscador: sacando los tiempos... listo 17.42s (se entiende el 94% del guion)
+> 08-original: sacando los tiempos... listo 32.62s (se entiende el 98% del guion)
+> 09-redes: sacando los tiempos... listo 38.3s (se entiende el 97% del guion)
+> 10-resumen: sacando los tiempos... listo 20.38s (se entiende el 100% del guion)
+> 11-cierre: sacando los tiempos... listo 18.38s (se entiende el 96% del guion)

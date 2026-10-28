@@ -1,8 +1,17 @@
 # Secretos: las keys viven solo en .env
 .env
 
+# Voces de referencia (pueden ser la voz real de alguien): solo en la PC, nunca al repo
+voces/
+
 node_modules/
 __pycache__/
+.venv-tts/
+.venv-chatterbox/
+.venv-anim/
+
+# Proyectos hechos con la skill externa de animaciones (trae su motor, musica y sonidos de terceros)
+animaciones/
 *.tmp.*
 
 # Los copia "npm run instalar" desde node_modules
@@ -16,6 +25,7 @@ docs/
 # Generado por cada video (voz, tiempos, copias de base, snapshots y renders)
 videos/_prueba/
 videos/*/audio/
+videos/*/audio-*/
 videos/*/salida/
 videos/*/snapshots/
 videos/*/renders/
@@ -24,3 +34,22 @@ videos/*/escenas/*/voz.*
 videos/*/escenas/*/tiempos.js
 videos/*/escenas/*/snapshots/
 videos/*/escenas/*/renders/
+ARRANQUE-RAPIDO.md
+
+# B-roll bajado de Pixabay y cache de busquedas (no se redistribuye)
+.cache/
+broll/
+
+
+# Audio y video: pesados (GitHub no acepta archivos de mas de 100 MB), con la voz o la cara de Reimo, y la musica y
+# efectos del motor (se bajan con motor-animaciones/descargar_audio.py)
+*.mp4
+*.mov
+*.m4v
+*.webm
+*.wav
+*.mp3
+*.m4a
+*.aac
+*.flac
+

@@ -1,0 +1,24 @@
+qwen: generando 12 escenas (3824 caracteres) en tu PC...
+modelo C:\Users\Reimo\.cache\huggingface\hub\models--Qwen--Qwen3-TTS-12Hz-1.7B-Base\snapshots\fd4b254389122332181a7c3db7f27e918eec64e3 (bf16) cargado en 1 s
+09-comentarios.wav, 04-conectar.wav, 08-diario.wav, 01-que-es.wav: 95.0 s de audio en 81 s (RTF 0.86)
+02-antes.wav, 05-llave.wav, 06-claude.wav, 00-intro.wav: 72.6 s de audio en 64 s (RTF 0.88)
+07-prompt.wav, 10-reglas.wav, 11-cierre.wav, 03-cuenta.wav: 54.9 s de audio en 54 s (RTF 0.98)
+TOTAL: 222.5 s de audio en 199 s (RTF 0.89)
+> 00-intro: sacando los tiempos... listo 16.06s (se entiende el 94% del guion)
+> 01-que-es: sacando los tiempos... listo 23.66s
+  ! 01-que-es: solo se entiende el 84% del guion. No reconoci: zernio, a, pe, i, feisbuk, iutub, equis, threads, reels
+    Escuchala; si falta algo, repitela con --escena 01-que-es --forzar (cada toma sale distinta)
+> 02-antes: sacando los tiempos... listo 21.1s (se entiende el 95% del guion)
+> 03-cuenta: sacando los tiempos... listo 11.9s
+  ! 03-cuenta: solo se entiende el 78% del guion. No reconoci: zernio, punto, sain, ap, gugol, guit, jab
+    Escuchala; si falta algo, repitela con --escena 03-cuenta --forzar (cada toma sale distinta)
+> 04-conectar: sacando los tiempos... listo 26.3s (se entiende el 97% del guion)
+> 05-llave: sacando los tiempos... listo 21.26s (se entiende el 91% del guion)
+> 06-claude: sacando los tiempos... listo 18.54s
+  ! 06-claude: solo se entiende el 73% del guion. No reconoci: zernio, clod, clod, cod, pideselo, eme, ce, pe, zernio, mi, a, pe, i, kei, clod
+    Escuchala; si falta algo, repitela con --escena 06-claude --forzar (cada toma sale distinta)
+> 07-prompt: sacando los tiempos... listo 18.06s (se entiende el 94% del guion)
+> 08-diario: sacando los tiempos... listo 22.78s (se entiende el 93% del guion)
+> 09-comentarios: sacando los tiempos... listo 26.7s (se entiende el 95% del guion)
+> 10-reglas: sacando los tiempos... listo 15.42s (se entiende el 94% del guion)
+> 11-cierre: sacando los tiempos... listo 13.9s (se entiende el 98% del guion)

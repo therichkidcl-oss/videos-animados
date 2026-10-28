@@ -1,0 +1,101 @@
+{
+  "titulo": "Modulo Escalando Redes Sociales (curso NSFW) - Clase 2: Decidir el nicho y el publico objetivo de tu modelo",
+  "nota": "Doblaje al espanol (tu) del original en ingles britanico. Adaptado: 'modulo dos' -> 'esta clase'; groserias suavizadas. Numeros escritos como se dicen. IA -> ia, Fanvue -> fanviu.",
+  "voz": {
+    "proveedor": "qwen",
+    "qwen": { "voz": "reimo-v3", "modelo": "1.7B", "dtype": "bf16", "lote": 4 }
+  },
+  "escenas": [
+    { "id": "00-intro", "frases": [
+      { "id": "a", "texto": "Bienvenidos a esta clase. Aquí vamos a ver cómo decidir el nicho de tu modelo y su público objetivo." },
+      { "id": "b", "texto": "La meta es simple: al terminar, ya vas a tener elegido el nicho de tu modelo," },
+      { "id": "c", "texto": "vas a saber cuál es su audiencia ideal, y vas a tener una frase clara que diga a quién va a atraer tu modelo y por qué." }
+    ] },
+    { "id": "01-nicho", "frases": [
+      { "id": "a", "texto": "Empecemos por lo básico: ¿qué es un nicho?" },
+      { "id": "b", "texto": "Un nicho es cualquier look, vibra, ángulo de contenido o personalidad específica que le das a tu modelo de ia." },
+      { "id": "c", "texto": "Y un buen nicho se reconoce enseguida y es fácil de repetir." },
+      { "id": "d", "texto": "Si miras esta modelo, sabes de inmediato cuál es su nicho: es el estilo chica gamer, anime, waifu." },
+      { "id": "e", "texto": "Tener un nicho claro es clave, porque define a quién atrae tu contenido. Y así tiene mucho más impacto." },
+      { "id": "f", "texto": "Eso es en cuanto al look. Pero también cuentan la vibra de tu modelo, los ángulos de contenido y la personalidad." },
+      { "id": "g", "texto": "Y la personalidad no siempre tiene que ser emocional. También puede ser física." },
+      { "id": "h", "texto": "Esta modelo, por ejemplo, tiene dos personalidades muy grandes, y toda su cuenta gira en torno a eso." }
+    ] },
+    { "id": "02-ejemplos", "frases": [
+      { "id": "a", "texto": "Te doy algunos ejemplos. Está la vibra de chica de al lado." },
+      { "id": "b", "texto": "Está la mamá sexy de tu amigo: obvio, una modelo más madura, de treinta o cuarenta y tantos." },
+      { "id": "c", "texto": "Cualquier trabajo, deporte o profesión: enfermeras, profesoras... la gente hace una modelo de ia de cualquier carrera, porque hay público para todo." },
+      { "id": "d", "texto": "Después está el nicho de fantasía, que puede ser una chica trans... yo he visto de todo. Todo eso entra en fantasía." },
+      { "id": "e", "texto": "Y puedes combinar dos: una profesión con una mujer madura, o una chica de al lado que es trans." },
+      { "id": "f", "texto": "Hay muchísimas opciones; estos son solo algunos ejemplos de nichos." }
+    ] },
+    { "id": "03-publico", "frases": [
+      { "id": "a", "texto": "Eso es un nicho. Ahora vamos con la otra pregunta: ¿qué es el público objetivo?" },
+      { "id": "b", "texto": "Se explica solo: es el tipo exacto de persona que quieres atraer con tu modelo de ia." },
+      { "id": "c", "texto": "Para encontrarlo a partir de tu nicho, hazte unas preguntas. Primero: ¿qué les gusta mirar?" },
+      { "id": "d", "texto": "Si estás en el nicho del gimnasio, a la mayoría le va a gustar ver el cuerpo de la modelo, porque va al gimnasio. Entonces publicas contenido sobre eso." },
+      { "id": "e", "texto": "Segundo: ¿con qué fantasean? ¿Con la seguridad, con la inocencia? ¿Tienen algún fetiche en particular?" },
+      { "id": "f", "texto": "Y tercero: ¿en qué van a gastar su dinero? ¿Quieren atención? ¿Quieren que les hables solo a ellos? Eso es exclusividad." },
+      { "id": "g", "texto": "Identificas quiénes están en tu nicho y en qué gastan más, porque no quieres que te compren una sola vez. Quieres que te compren una y otra vez." }
+    ] },
+    { "id": "04-frase", "frases": [
+      { "id": "a", "texto": "Cuando ya sepas quién es tu público objetivo, descríbelo en una sola frase. Así todo es más fácil." },
+      { "id": "b", "texto": "Mi modelo, por ejemplo, tiene esa vibra de influencer, de chica de al lado." },
+      { "id": "c", "texto": "Su público objetivo serían hombres de treinta a cuarenta y cinco años, a los que les gusta una mujer joven e inocente que les dé la atención que no reciben en su casa." },
+      { "id": "d", "texto": "Y en lo que más gastan es en acceso privado, en chatear, y cosas así." }
+    ] },
+    { "id": "05-juntos", "frases": [
+      { "id": "a", "texto": "¿Y cómo funcionan juntos? Lo puedes ver en mi hermosa obra de arte, este diagrama. Aunque no lo creas, dice mucho." },
+      { "id": "b", "texto": "El nicho es el producto, y el público objetivo es el cliente. Donde se cruzan, ahí se gana el dinero." },
+      { "id": "c", "texto": "Y esto sirve para cualquier negocio. Si tu producto es una botella de agua y tu cliente es un corredor con sed, cuando se cruzan, ahí está la plata." },
+      { "id": "d", "texto": "Si tu producto es un programa de entrenamiento y tu cliente es alguien con obesidad, cuando se cruzan, ahí está la plata." },
+      { "id": "e", "texto": "Con las modelos de ia es exactamente igual. Si tu producto es una chica anime y tu cliente es alguien que juega todos esos juegos de anime, cuando se cruzan, vas a ganar dinero. Así de simple." }
+    ] },
+    { "id": "06-errores", "frases": [
+      { "id": "a", "texto": "Ahora te explico los errores más comunes que veo al elegir un nicho." },
+      { "id": "b", "texto": "Primero: querer ser de todo. No tienen una identidad clara, y la gente pasa de largo porque su modelo se olvida fácil." },
+      { "id": "c", "texto": "Segundo: ser demasiado amplio. A todos mis alumnos les digo lo mismo: elige un carril y ve con todo. Hagas lo que hagas, ve con todo." },
+      { "id": "d", "texto": "Y tercero: ignorar la motivación del comprador. Ser bonita no basta; tiene que haber un gancho." },
+      { "id": "e", "texto": "Si tu modelo solo es bonita, la gente va a mirar tu contenido, quizás le dé me gusta a una foto, pero no se va a enganchar lo suficiente como para gastar." }
+    ] },
+    { "id": "07-paginas", "frases": [
+      { "id": "a", "texto": "Puedes manejar varias páginas, pero solo cuando ya estás escalando." },
+      { "id": "b", "texto": "Esta modelo de aquí tiene cuentas en varios nichos distintos. Tiene una que se llama Amber in Texas, que es del nicho chica de campo, y otra del nicho oficina." },
+      { "id": "c", "texto": "Creo que tiene un par más, pero estas son las dos que encontré." },
+      { "id": "d", "texto": "Cuando ya tienes una modelo que funciona en tu nicho, puedes expandirte y llevarla a todos esos públicos distintos." },
+      { "id": "e", "texto": "En esta, por ejemplo, serían hombres de veinte a cuarenta años a los que les gustan las mujeres seguras, con clase y una estética profesional." },
+      { "id": "f", "texto": "Muchas veces trabajan en lo mismo y se fijan en sus compañeras de trabajo." },
+      { "id": "g", "texto": "Entonces llegan a la casa pensando en Jenny, la de la oficina, ven a esta modelo, y les dan ganas de seguir bajando, entrar al embudo y terminar comprándole en fanviu." }
+    ] },
+    { "id": "08-psicologia", "frases": [
+      { "id": "a", "texto": "Cuando ya tienes tu nicho y tu público objetivo, tienes que entender qué hace que esas personas gasten." },
+      { "id": "b", "texto": "Porque pueden seguirte solo por el físico, pero eso no hace que gasten de forma constante. Una suscripción de nueve noventa y nueve no alcanza." },
+      { "id": "c", "texto": "Necesitas a las ballenas: los que gastan, y gastan, y gastan. Ahí es donde está la mayor parte del dinero." },
+      { "id": "d", "texto": "Para eso hay que entender los motivos por los que la gente gasta en esto. El primero es la conexión: sienten que conocen a la modelo en la vida real, o que tienen un vínculo con ella. Y en realidad, ni siquiera existe." },
+      { "id": "e", "texto": "Otro es el escape. Ella es un respiro de su realidad: si su esposa siempre lo está regañando, esta modelo de ia es su escape. O si tiene un fetiche que en la vida real no puede cumplir, de nuevo, es un escape." },
+      { "id": "f", "texto": "Después está la validación: si su esposa no le habla, o ni siquiera tiene esposa y nadie le habla, pero una modelo de ia le habla, y él cree que es real, eso es validación. Y va a gastar." },
+      { "id": "g", "texto": "Y la admiración: gente a la que le gusta cómo se ve, su estilo de vida, lo segura que es, y está dispuesta a darle dinero." },
+      { "id": "h", "texto": "Esos son los cuatro motivos por los que la gente gasta en modelos en internet, reales o no." }
+    ] },
+    { "id": "09-investigar", "frases": [
+      { "id": "a", "texto": "Ya identificaste a tu público y sabes por qué gasta. Ahora tienes que encontrarlo." },
+      { "id": "b", "texto": "Una de las mejores formas es buscar otros creadores de tu nicho, sean de ia o reales." },
+      { "id": "c", "texto": "Estudia su contenido, sus textos, sus comentarios, cómo interactúan con sus fans, qué publican y qué les funciona. Y replica todo eso con tu modelo." },
+      { "id": "d", "texto": "Aquí se nota enseguida en qué nicho está cada una: ella claramente es del nicho gótico, y ella, del nicho gimnasio. Se reconocen fácil, y eso es lo que buscas: una estética limpia en todo el perfil." }
+    ] },
+    { "id": "10-pasos", "frases": [
+      { "id": "a", "texto": "Paso uno: con este video ya deberías tener algunas ideas de quién quieres que sea tu modelo y en qué nicho." },
+      { "id": "b", "texto": "Paso dos: cuando lo tengas claro, ve con todo en ese nicho." },
+      { "id": "c", "texto": "Más adelante puedes hacer lo que quieras, pero para empezar, elige un nicho y alinea todo tu contenido con él: los textos, la ropa, el tono, todo." },
+      { "id": "d", "texto": "Porque así te va a ser muy fácil, primero, crear contenido, y segundo, conseguir suscriptores." },
+      { "id": "e", "texto": "Paso tres: domina tu nicho primero. Cuando tu modelo tome tracción y arme una audiencia, ahí recién empiezas a abrirte a subnichos," },
+      { "id": "f", "texto": "o haces lo que hizo Amber, que básicamente tiene una página para cada profesión, y eso le deja muchísimo dinero." },
+      { "id": "g", "texto": "Paso cuatro, que es opcional: si de verdad no te decides, publica algunos contenidos de un nicho distinto y mira qué te funciona mejor antes de comprometerte al cien por ciento con uno." },
+      { "id": "h", "texto": "Pero el éxito viene de la profundidad. Si tu modelo se hace conocida por algo específico, un rasgo, un tipo de personalidad, un físico, te va a ir mejor, porque se la conoce por una sola cosa." }
+    ] },
+    { "id": "11-cierre", "frases": [
+      { "id": "a", "texto": "Esa fue la clase de nichos y públicos objetivo. Ya deberías saber hacia dónde quieres ir con tu modelo de ia." },
+      { "id": "b", "texto": "En la próxima clase vamos a elegir la personalidad de tu modelo y cómo hacer que se vea más real, como una persona de verdad. Nos vemos ahí." }
+    ] }
+  ]
+}

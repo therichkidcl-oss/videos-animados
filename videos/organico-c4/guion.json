@@ -1,0 +1,184 @@
+{
+  "titulo": "Modulo Escalando Redes Sociales (curso NSFW) - Clase 4: Aprende a hacer marketing con tu modelo",
+  "nota": "Doblaje al espanol (tu) del original en ingles britanico. Adaptado: se quitan groserias, un chiste ofensivo y ejemplos de textos explicitos (se describen sin citarlos); 'slave accounts' -> cuentas de apoyo; 'canal de Discord / Josh / AME / modulo 3' -> Discord del curso y el curso. Precios en dolares. Fanvue -> fanviu, TikTok -> tiktok, X -> equis.",
+  "voz": {
+    "proveedor": "qwen",
+    "qwen": { "voz": "reimo-v3", "modelo": "1.7B", "dtype": "bf16", "lote": 4 }
+  },
+  "escenas": [
+    { "id": "00-intro", "frases": [
+      { "id": "a", "texto": "En esta clase vamos a ver cómo hacer marketing con tu modelo." },
+      { "id": "b", "texto": "Cuando ya armaste y creaste a tu modelo, vas a pasar todo tu tiempo haciendo contenido y promocionándola para conseguir suscriptores. A eso se reduce tu vida ahora." },
+      { "id": "c", "texto": "Esto tiene tres fases. La mayoría de ustedes va a estar en la fase uno, a menos que ya lleves un tiempo en esto." }
+    ] },
+    { "id": "01-fases", "frases": [
+      { "id": "a", "texto": "La fase uno es la de remar. Es como tener un trabajo, y tu trabajo es conseguir tus primeros diez o veinte suscriptores." },
+      { "id": "b", "texto": "De eso trata esta clase: de todas las formas de abrirte paso a la fuerza hasta tus primeros suscriptores." },
+      { "id": "c", "texto": "Lo haces publicando reels en Instagram, carruseles en tiktok, comentarios en equis, cuentas de apoyo en Threads, páginas de varios nichos, y armando muchas cuentas orgánicas." },
+      { "id": "d", "texto": "Va a ser lo que más tiempo te tome y lo más tedioso que hagas, pero es importante que sepas hacerlo, porque si no, no vas a ganar dinero." },
+      { "id": "e", "texto": "La fase dos: cuando ya sabes hacer todo esto, contratas a un asistente virtual, porque ya lo puedes enseñar. Puedes contratar a alguien por unos tres dólares la hora para que haga lo que tú aprendiste." },
+      { "id": "f", "texto": "Al principio probablemente no va a ser rentable, así que tienes que entrenarlo. Si le pagas tres dólares la hora y te consigue tres suscriptores por hora, y tú chateas con ellos, todo lo demás es ganancia." },
+      { "id": "g", "texto": "Repites esto, sumas varios asistentes, y así escalas. Pero la calidad tiene que mantenerse, o solo estás botando plata pagándoles." },
+      { "id": "h", "texto": "Y la última fase es el tráfico pagado. Aquí el contenido es clave, porque estás metiendo miles de dólares, y pasas los días mirando la inversión en anuncios, las métricas del chat y los números." },
+      { "id": "i", "texto": "En ese punto eres básicamente un gerente, y así se escala a treinta o cincuenta mil al mes. Pero tú estás en la fase uno, y eso es lo que vamos a ver hoy." }
+    ] },
+    { "id": "02-ig-tipos", "frases": [
+      { "id": "a", "texto": "El objetivo de esta clase es entender el contenido apto para redes, que insinúa sin mostrar, para generar atención en todas las plataformas." },
+      { "id": "b", "texto": "Empecemos por Instagram, porque es la red social más importante para tu modelo de ia." },
+      { "id": "c", "texto": "Hay cuatro tipos de contenido que vas a publicar en tus páginas: historias con llamados a la acción, publicaciones en el feed, reels y destacadas." }
+    ] },
+    { "id": "03-historias", "frases": [
+      { "id": "a", "texto": "Las historias son buenas para la interacción y para convertir." },
+      { "id": "b", "texto": "En las historias con llamado a la acción van fotos como selfies en el espejo, con textos como: mira más de mí aquí, te estoy esperando, escríbeme." },
+      { "id": "c", "texto": "No pongas suscríbete a mi fanviu, porque pareces un robot." },
+      { "id": "d", "texto": "Las historias le dan a tu modelo un toque personal, en vez de publicar siempre fotos súper producidas, y ayudan a construir esa conexión con tu audiencia." },
+      { "id": "e", "texto": "Otras historias que deberías subir: con amigas, para mostrar que tiene una vida fuera del contenido. Esta es de una modelo real, pero la puedes recrear con ia; y esta está hecha con ia." },
+      { "id": "f", "texto": "Lo que no debes hacer: historias así, con demasiado espacio negro, o que se ven demasiado profesionales, con el fondo desenfocado. No hagas eso." },
+      { "id": "g", "texto": "Sí sube cosas de ella haciendo sus hobbies: en el gimnasio, haciendo algún deporte o yoga. Selfies con amigas, carruseles de buena calidad: lo que subiría una chica de verdad." },
+      { "id": "h", "texto": "También puedes ponerle a tus historias el filtro granulado de Instagram, que hace que la modelo y la foto se vean más realistas." },
+      { "id": "i", "texto": "Mezcla fotos reales en tus historias: comida, animales, viajes, atardeceres, todas esas cosas al azar que suelen subir las chicas." },
+      { "id": "j", "texto": "Lo ideal es setenta por ciento de contenido de estilo de vida y treinta por ciento de llamados a la acción, porque no quieres verte desesperada." }
+    ] },
+    { "id": "04-feed", "frases": [
+      { "id": "a", "texto": "Lo siguiente son tus publicaciones en el feed. Esto va en tu cuenta principal de Instagram: carruseles de estilo de vida y viajes." },
+      { "id": "b", "texto": "Este carrusel, por ejemplo, es de una modelo real, y lo puedes replicar con ia muy fácil." },
+      { "id": "c", "texto": "Algunos ejemplos: un carrusel de viaje; ir a un evento o a un concierto, donde la ves arreglándose, en el lugar, y algunas fotos reales del show; o el carrusel en el auto, que es muy simple." },
+      { "id": "d", "texto": "Tres errores que comete la gente con estos carruseles: hacen el contenido demasiado sexual, no agregan contenido de relleno, así que son puras fotos de la modelo, y lo hacen verse demasiado profesional y pulido." },
+      { "id": "e", "texto": "En tu cuenta principal quieres verte como una chica real, así que publica como una chica real. Mira qué ponen estas modelos de Instagram en sus carruseles y recréalo con la tuya." },
+      { "id": "f", "texto": "Y estas son las publicaciones que vas a promocionar con plata cuando llegues a ese nivel, no reels sin sentido." }
+    ] },
+    { "id": "05-reels", "frases": [
+      { "id": "a", "texto": "Lo siguiente son tus reels, que van en una cuenta aparte: tu cuenta de reels." },
+      { "id": "b", "texto": "Los reels son necesarios para crecer y llegar a mucha gente, porque puedes sacar de tres a cinco contenidos al día, todos los días, probar formatos distintos y conseguir muchísimas vistas." },
+      { "id": "c", "texto": "Haz ese contenido a la medida de tu nicho. Esta, por ejemplo, está en el nicho de enfermera y esposa asiática: tiene mucho contenido de ella como enfermera, y de ella en casa como la esposa tradicional." },
+      { "id": "d", "texto": "Cuando hagas tus reels, combina varias tomas y córtalas, en vez de hacer un solo video largo. Se ve más realista." },
+      { "id": "e", "texto": "Y haz que tu feed calce con tus reels: si tu cuenta de reels publica videos de enfermera, en tu cuenta principal podrías subir una foto así." },
+      { "id": "f", "texto": "Los reels son para exposición, no para vender. Para convertir usa las historias y los llamados a la acción de tu cuenta principal." },
+      { "id": "g", "texto": "Si quieres saber más sobre qué publicar en tu cuenta de reels y cómo sacar ideas, pregunta en el Discord del curso: ganchos visuales, ganchos de texto, cómo recrear videos ganadores y pruebas A B." }
+    ] },
+    { "id": "06-destacadas", "frases": [
+      { "id": "a", "texto": "Y por último en Instagram, las destacadas, que le dan identidad y personalidad a tu modelo." },
+      { "id": "b", "texto": "Ten una foto de tu modelo, y las imágenes para tus destacadas las puedes sacar de Pinterest. Tranquilo, nadie te va a demandar por usar su foto de un plato de espaguetis o de una clase de yoga." },
+      { "id": "c", "texto": "Junta varias de una vez, para no estar buscando fotos nuevas todos los días. Y que tengan relación entre ellas, para que no se vean falsas." },
+      { "id": "d", "texto": "Eso es Instagram: historias y llamados a la acción, publicaciones en el feed y carruseles, reels y destacadas. Más adelante vas a ver cómo armar carruseles de alta calidad para tu modelo." }
+    ] },
+    { "id": "07-tiktok", "frases": [
+      { "id": "a", "texto": "Ahora vamos a tiktok. Es un poco distinto de Instagram, porque aquí vas a publicar sobre todo carruseles de fotos, como este." },
+      { "id": "b", "texto": "El perfil tiene que ser medio tonto, nada serio, tierno. Estas dos páginas son un buen ejemplo." },
+      { "id": "c", "texto": "Usa emojis, algo como cuenta secundaria o me encontraste, y un link a tu cuenta secreta de Instagram. Y una foto de perfil tierna y natural." },
+      { "id": "d", "texto": "Toda la gente que llegue desde tiktok va a ir a esa cuenta secreta de Instagram, donde tienen que suscribirse o hablarle a tu modelo." },
+      { "id": "e", "texto": "Una cuenta privada, con una biografía tipo: el único lugar donde respondo mensajes, y tu link de todos mis links. Estas dos cuentas tienen ese mismo embudo, y les funciona muy bien." }
+    ] },
+    { "id": "08-tristes", "frases": [
+      { "id": "a", "texto": "Los carruseles van a ser tu mejor amigo en tiktok ahora mismo, porque hay distintos tipos que apuntan a emociones distintas." },
+      { "id": "b", "texto": "Este, por ejemplo, es lo que yo llamo los carruseles del chico triste: apuntan a hombres con el corazón roto, con ganchos que conectan con un público mayormente masculino." },
+      { "id": "c", "texto": "Por ejemplo: hay un hombre en algún lado, ahora mismo, sin novia, solo, arreglándose a sí mismo. ¿Cómo va la vida, amigo? Cosas así." },
+      { "id": "d", "texto": "Para las fotos, selfies simples y de cerca. Esta modelo tiene puras selfies muy de cerca, caseras. Junta muchas, porque las puedes reutilizar en tiktok." },
+      { "id": "e", "texto": "Publicar contenido nuevo es mejor, pero puedes reutilizar los videos y las fotos, no importa tanto." },
+      { "id": "f", "texto": "Son facilísimos de hacer, y tienes un montón de conceptos probados: mira estas cuentas, sesenta mil vistas, veinte mil, cuatrocientas mil. Esto funciona." },
+      { "id": "g", "texto": "Y algo simple: música triste que vaya con el video; busca sonidos tristes que estén en tendencia. Puedes publicarlos tres o cuatro veces al día; eso es lo que te recomiendo." }
+    ] },
+    { "id": "09-coqueteo", "frases": [
+      { "id": "a", "texto": "Después están los carruseles de coqueteo, que apuntan a hombres que buscan algo más atrevido, con textos coquetos y con doble sentido." },
+      { "id": "b", "texto": "Esos tienen mucha interacción y convierten bastante bien. De nuevo, intenta que todo vaya con tu nicho." },
+      { "id": "c", "texto": "Si tu modelo tiene la vibra de chica de al lado, es muy simple: copia lo que hacen todas estas cuentas." },
+      { "id": "d", "texto": "Los puedes repetir, reutilizar las mismas fotos y publicarlos tres o cuatro veces al día. Vas a tener interacción, y todos van a terminar en tu cuenta secreta de Instagram." },
+      { "id": "e", "texto": "Y prepáralos por tandas: sube selfies y arma diez o veinte de una vez, para no estar haciéndolos todos los días." }
+    ] },
+    { "id": "10-tiktok-no", "frases": [
+      { "id": "a", "texto": "Lo que no debes hacer en tiktok: esto. Esto es pésimo." },
+      { "id": "b", "texto": "No menciones fanviu ni tu página picante en el contenido. No uses fotos que se vean falsísimas." },
+      { "id": "c", "texto": "No pongas cebos de comentarios poco naturales, como este. Demasiado espacio negro, fotos malas, ganchos malos: terrible." },
+      { "id": "d", "texto": "Y si las fotos son muy de lejos, se pierde ese toque personal. Por eso, como te dije, usa selfies de cerca: funcionan mucho mejor." }
+    ] },
+    { "id": "11-lipsync", "frases": [
+      { "id": "a", "texto": "Y algo nuevo que estamos trabajando: videos de tu modelo haciendo playback con sonidos de tiktok." },
+      { "id": "b", "texto": "Casi nadie los está haciendo todavía, y los que sí, están teniendo muy buenos resultados." },
+      { "id": "c", "texto": "Estos videos de tu modelo hablando se van a poner cada vez más avanzados, así que apréndelo, porque pronto vas a poder crear videos de altísima calidad con tu modelo hablando y bailando, y no se va a notar que es ia." },
+      { "id": "d", "texto": "Eso es tiktok: mucha publicación, muchos carruseles. Cuando tengas a tu asistente, para él es una tarea muy fácil." },
+      { "id": "e", "texto": "En Instagram nunca te recomiendo contratar a alguien: hazlo tú, porque es importante y así mantienes una buena imagen de marca. En tiktok, en cambio, puedes publicar lo que sea, mientras se vea así." }
+    ] },
+    { "id": "12-threads", "frases": [
+      { "id": "a", "texto": "Ahora Threads. Threads es raro, porque hacerlo tú es una tarea pesadísima. Así que te recomiendo que, cuando tengas tus primeros suscriptores, contrates a un asistente para esto." },
+      { "id": "b", "texto": "A mí nunca me vas a ver haciéndolo, porque me rinde muy poco. Pero Threads depende mucho del nicho." },
+      { "id": "c", "texto": "La configuración del perfil: regístrate desde Instagram con un usuario nuevo, una foto de perfil tierna y algunos emojis en la biografía. Por ejemplo: diecinueve, Arizona. Lo típico de una chica." },
+      { "id": "d", "texto": "En la foto, que se vea bien su cara, y un lugar. Y el link de todos tus links, pero no lo pongas de entrada, porque primero tienes que calentar un poco tu cuenta de Threads." }
+    ] },
+    { "id": "13-threads-posts", "frases": [
+      { "id": "a", "texto": "Tipos de publicaciones en Threads: fotos aptas para redes con un texto sutil, publicaciones con cebo de ubicación, y volver a publicar el contenido que funcionó." },
+      { "id": "b", "texto": "Con el cebo de ubicación mencionas dónde vive: en el texto pones algo como, chicos de Nueva Jersey, ¿están despiertos? Threads se basa mucho en la ubicación, así que eso apunta a los hombres de Nueva Jersey." },
+      { "id": "c", "texto": "Y vuelve a publicar lo que funcionó cada dos o tres días: si ves que algo funciona, súbelo de nuevo." },
+      { "id": "d", "texto": "Tienes varios formatos: foto, foto con texto, video, video con texto, o solo texto. Puedes ir mezclándolos todos los días." }
+    ] },
+    { "id": "14-cebo", "frases": [
+      { "id": "a", "texto": "El cebo de comentarios es una muy buena forma de conseguir a la fuerza tus primeros suscriptores." },
+      { "id": "b", "texto": "Funciona así: sigues a otras creadoras populares de tu nicho en Threads, y cuando publican, comentas algo corto, como un hola, o algo relacionado con su publicación." },
+      { "id": "c", "texto": "Y respondes con una imagen de tu modelo donde se vea su mejor atributo." },
+      { "id": "d", "texto": "¿Por qué funciona? Porque la mayoría de los usuarios de Threads confunden los comentarios con publicaciones, hacen clic en tu perfil, y ahí conviertes." },
+      { "id": "e", "texto": "Esto lo puedes delegar: contratas a un asistente que vigile las diez cuentas top de tu nicho y comente en los primeros cinco minutos de cada publicación, para llevarte el tráfico mientras está fresco." }
+    ] },
+    { "id": "15-threads-calentar", "frases": [
+      { "id": "a", "texto": "Veamos el calentamiento de tu cuenta de Threads." },
+      { "id": "b", "texto": "Día uno: poca interacción. Mira el contenido diez o quince minutos y comenta en publicaciones de otras creadoras de tu nicho. No publiques nada." },
+      { "id": "c", "texto": "Día dos: agregas tu biografía y tu foto de perfil. Publica cuando el público de Estados Unidos esté despierto, dos veces ese día." },
+      { "id": "d", "texto": "Para tus publicaciones, copia el texto de una creadora popular de tu nicho que ya haya tenido interacción. Así no disparas a ciegas. Y sigue con algo de interacción para que la cuenta se vea normal." },
+      { "id": "e", "texto": "Día tres: puedes publicar cuatro veces y empezar a seguir creadoras de tu nicho. Y un consejo: que sean creadoras reales, no de ia." },
+      { "id": "f", "texto": "Día cuatro: mira, comenta, da me gusta, sigue. Publica seis veces, y ahí pones el link en tu biografía." },
+      { "id": "g", "texto": "No pongas el link de fanviu directo: usa tu link de todos tus links, o el que uses, pero nunca el de fanviu directo en la biografía." }
+    ] },
+    { "id": "16-threads-claves", "frases": [
+      { "id": "a", "texto": "Lo clave en Threads: mantén la constancia, maneja varias cuentas a largo plazo, y publica de seis a ocho veces al día." },
+      { "id": "b", "texto": "Prepara tu contenido por tandas, vuelve a publicar las fotos y videos ganadores cuando veas que funcionan, crea contenido nuevo y conversa con creadoras de tu nicho." },
+      { "id": "c", "texto": "Puedes repetir las mismas fotos, pero siempre te recomiendo hacer contenido nuevo cada un par de días, para no parecer tanto un bot." },
+      { "id": "d", "texto": "Y espera al menos cuarenta minutos entre cada publicación, para no hacer spam y que no te den shadowban." }
+    ] },
+    { "id": "17-x", "frases": [
+      { "id": "a", "texto": "Ahora vamos a equis, o Twitter. Twitter es muy distinto, porque es prácticamente la única plataforma que te deja publicar contenido apto y no apto para redes con tu modelo de ia." },
+      { "id": "b", "texto": "Además premia la constancia y el contenido, y te permite llegar a muchísima gente sin usar métodos turbios. Con ia puedes producir contenido en masa y llegar a millones de personas." },
+      { "id": "c", "texto": "La configuración del perfil es muy parecida a Threads. Necesitas una imagen limpia de tu modelo sola, y un banner limpio: nada explícito, ni tu modelo medio desnuda." },
+      { "id": "d", "texto": "El banner tiene que ser único: es tu oportunidad de ser creativo. El nombre visible es el nombre de tu modelo, más tu usuario de Twitter." },
+      { "id": "e", "texto": "La biografía, fácil de leer y clara sobre tu link. Por ejemplo: tu universitaria favorita de diecinueve años, lo que buscas está abajo." },
+      { "id": "f", "texto": "Y Twitter tiene un campo de ubicación, que yo recomiendo usar para promocionar tu fanviu: puedes poner un descuento, como cincuenta por ciento hoy. Y el link, de nuevo, nunca directo a fanviu: tu link de todos tus links." }
+    ] },
+    { "id": "18-x-ajustes", "frases": [
+      { "id": "a", "texto": "Antes de publicar en Twitter, tienes que hacer algunos ajustes para que no te den shadowban." },
+      { "id": "b", "texto": "Uno: que el correo con que te registras calce con el nombre de tu modelo. Si se llama Hannah, usa un correo tipo hannah arroba gmail punto com." },
+      { "id": "c", "texto": "Dos: ve a privacidad y seguridad, entra a contenido que ves, y activa el contenido sensible. Eso te deja ver contenido explícito en Twitter." },
+      { "id": "d", "texto": "Tres: de nuevo en privacidad y seguridad, en tus posts, marca la casilla de contenido sensible. Así tu contenido queda marcado como sensible y no te dan shadowban cuando publicas contenido explícito." },
+      { "id": "e", "texto": "Cuatro: en ajustes, desmarca ocultar contenido sensible, para que no se te oculte cuando navegas." },
+      { "id": "f", "texto": "Y verifica el correo, y publica cinco posts antes de empezar a promocionar." }
+    ] },
+    { "id": "19-x-contenido", "frases": [
+      { "id": "a", "texto": "El motor de contenido orgánico en Twitter: publica mínimo uno o dos posts al día, y reenvía una o dos cosas al día, idealmente de otras modelos de tu nicho." },
+      { "id": "b", "texto": "Ten un post fijado que convierta: una imagen insinuante, un texto coqueto y un llamado a la acción, con el link a tu fanviu en los comentarios." },
+      { "id": "c", "texto": "Qué publicar: muchas selfies en primera persona, fotos insinuantes, detrás de cámaras y estilo de vida, como el gimnasio, sus hobbies o fotos en el espejo. Parecido a las historias de Instagram, pero en el formato de Twitter." },
+      { "id": "d", "texto": "Contenido de fechas y tendencias: si se viene navidad, publica cosas navideñas; cultura pop, halloween. Cosas que tengan que ver con lo que pasa en el mundo." },
+      { "id": "e", "texto": "El formato: publicas una imagen o un video, y justo después comentas tu link o tu llamado a la acción. Evita poner el link en el post mismo. Y puedes responderte con algo como: dios, esa soy yo, el video completo está en mi biografía." }
+    ] },
+    { "id": "20-x-respuestas", "frases": [
+      { "id": "a", "texto": "Ahora la estrategia de respuestas. Aquí es donde la mayoría se pone flojo, pero si de verdad quieres suscriptores, es una de las formas más fáciles de conseguir los primeros diez." },
+      { "id": "b", "texto": "Primero, arma una planilla con cincuenta a cien creadoras de tu nicho, y activa las notificaciones de esas creadoras desde una cuenta alternativa." },
+      { "id": "c", "texto": "Cada vez que publiquen, comentas con una respuesta, una foto de tu modelo y un llamado a la acción para que entren a tu perfil." },
+      { "id": "d", "texto": "Y siempre intenta relacionarlo con la publicación, porque se ve más real. Si comentas la foto de una modelo de tu nicho, respondes algo como: si te gusta ella, espera a verme a mí. O: ¿es más bonita que yo?" },
+      { "id": "e", "texto": "Intenta relacionarlo con la publicación original: se ve más orgánico y realista." }
+    ] },
+    { "id": "21-x-pago", "frases": [
+      { "id": "a", "texto": "Y por último, puedes hacer promoción pagada con cuentas de apoyo. Así escalas tu alcance sin que te bloqueen." },
+      { "id": "b", "texto": "Paso uno, la promoción pagada. Tienes dos opciones: comprar un post fijado en cuentas grandes que siga tu público objetivo, o comprar una promoción a una cuenta grande de Twitter." },
+      { "id": "c", "texto": "Antes de hacerlo, revisa la cuenta: asegúrate de que su público sea mayormente masculino. Puedes pagar con cripto o con un intermediario de confianza, que es lo que más recomiendo." },
+      { "id": "d", "texto": "Paso dos, junta cuentas de apoyo: cuentas de Twitter que comentan, dan me gusta y reenvían tu post de promoción. Cada una con banner, una foto y algunos seguidores." },
+      { "id": "e", "texto": "Reenvían y responden al post de tu modelo con comentarios que despiertan curiosidad, como: no sabía que era así, o: los quince dólares mejor gastados de mi vida. Cosas así, para impulsar la publicación." },
+      { "id": "f", "texto": "Pero recuerda: el contenido es lo más importante. Si tu contenido es malo, nada de esto sirve." },
+      { "id": "g", "texto": "Así que siempre haz pruebas A B: ropa, lugares, energías distintas, todo. Prueba todo lo que puedas, porque así vas a juntar más datos para trabajar sobre ellos." }
+    ] },
+    { "id": "22-cierre", "frases": [
+      { "id": "a", "texto": "Ese es el resumen de cada red social y de cómo vas a usarla para llevar tráfico a tu modelo." },
+      { "id": "b", "texto": "Como te dije, esto tiene fases, y esta es la fase uno: trabajas para conseguir tus primeros suscriptores." },
+      { "id": "c", "texto": "Cuando ya sepas hacer todo esto bien, contratas asistentes y los entrenas para que lo hagan por ti, y tu trabajo pasa a ser chatear. Después también los puedes entrenar para chatear." },
+      { "id": "d", "texto": "Y cuando domines todo y estés ganando, por ejemplo, cinco o diez mil al mes, ahí empiezas a escalar a treinta o cuarenta mil." },
+      { "id": "e", "texto": "La gente me pregunta: ¿cómo consigues trescientos suscriptores en un día? Y les digo: gastando mil dólares en un día." },
+      { "id": "f", "texto": "Pero esto es la fase uno, y es lo que tú vas a hacer: trabajo duro, pero hay que hacerlo, porque es lo que yo hice." },
+      { "id": "g", "texto": "En las próximas clases de este módulo vamos a ver cómo tiene que verse tu página principal, y cómo calentar tus cuentas. Nos vemos en la siguiente." }
+    ] }
+  ]
+}

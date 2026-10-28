@@ -1,0 +1,83 @@
+/* Estilo PAPEL: hoja crema, recortes de colores con borde rasgado, cinta, dibujo y letra a mano.
+   Se carga DESPUES de tema.css (reusa Space Grotesk / Inter / JetBrains Mono). Ejemplo: videos/higgsfield-planes-vs-api.
+   Texturas: python herramientas/papel_texturas.py -> base/papel/papel.jpg y base/papel/grano.png */
+
+@font-face { font-family: 'Caveat'; font-weight: 500; src: url('fuentes/caveat-latin-500-normal.woff2') format('woff2'); }
+@font-face { font-family: 'Caveat'; font-weight: 700; src: url('fuentes/caveat-latin-700-normal.woff2') format('woff2'); }
+@font-face { font-family: 'Permanent Marker'; font-weight: 400; src: url('fuentes/permanent-marker-latin-400-normal.woff2') format('woff2'); }
+
+:root {
+  --papel: #f2ede2;
+  --tinta: #1c1b18;
+  --tinta-suave: #57534a;
+  --lima: #d1fe17;
+  --naranja: #ff7a1f;
+  --rojo: #f0402f;
+  --kraft: #c9a173;
+  --negro: #161615;
+  --blanco: #fbf9f4;
+  --mano: 'Caveat', 'Segoe Print', cursive;
+  --marcador: 'Permanent Marker', 'Segoe Print', cursive;
+}
+
+html, body, #root { background: var(--papel); }
+body { color: var(--tinta); }
+
+/* ---------- fondo ---------- */
+.p-fondo { position: absolute; inset: 0; background: url('papel/papel.jpg') center / cover no-repeat; }
+.p-escena { position: absolute; inset: 0; }
+
+/* ---------- recortes de papel ----------
+   <div class="recorte p-sombra" style="--c: var(--lima)"> <div class="p-corte"></div> contenido... </div>
+   papel.js le pone a .p-corte un clip-path con borde rasgado (y un borde blanco detras si tiene .con-borde). */
+.recorte { position: absolute; }
+.p-sombra { filter: drop-shadow(0 12px 16px rgba(48, 36, 14, 0.20)) drop-shadow(0 2px 3px rgba(48, 36, 14, 0.28)); }
+.p-sombra.baja { filter: drop-shadow(0 5px 7px rgba(48, 36, 14, 0.18)) drop-shadow(0 1px 2px rgba(48, 36, 14, 0.25)); }
+.p-corte, .p-borde { position: absolute; inset: 0; background: var(--c, var(--blanco)); }
+.p-borde { background: var(--blanco); }
+.p-corte::after, .p-borde::after {
+  content: ''; position: absolute; inset: 0;
+  background: url('papel/grano.png') repeat; background-size: 384px 384px; mix-blend-mode: multiply; opacity: 0.85;
+}
+.recorte > .dentro { position: relative; width: 100%; height: 100%; }
+
+/* Hojas grandes de fondo (decoran y se mueven lento) */
+.p-hoja { position: absolute; }
+
+/* Cinta adhesiva semitransparente */
+.cinta {
+  position: absolute; width: 150px; height: 44px; background: rgba(236, 226, 196, 0.78);
+  box-shadow: 0 1px 2px rgba(60, 45, 20, 0.18);
+  clip-path: polygon(0 8%, 4% 0, 8% 10%, 12% 0, 16% 8%, 84% 6%, 88% 0, 92% 10%, 96% 0, 100% 9%, 100% 92%, 96% 100%, 92% 90%, 88% 100%, 84% 92%, 16% 94%, 12% 100%, 8% 90%, 4% 100%, 0 91%);
+}
+.cinta::after { content: ''; position: absolute; inset: 0; background: url('papel/grano.png'); background-size: 256px; opacity: 0.35; mix-blend-mode: multiply; }
+
+/* ---------- letra ---------- */
+.mano { font-family: var(--mano); font-weight: 700; line-height: 1; }
+.marcador { font-family: var(--marcador); font-weight: 400; line-height: 1; }
+.p-titulo { font-family: var(--display); font-weight: 700; text-transform: uppercase; letter-spacing: -0.035em; line-height: 0.95; color: var(--tinta); }
+.p-eyebrow { font-family: var(--mono); font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: var(--tinta-suave); font-size: 24px; }
+
+/* Palabra sobre una tira de papel de color (la tira la recorta papel.js) */
+.tira { position: relative; display: inline-block; padding: 0.02em 0.22em 0.08em; z-index: 0; isolation: isolate; }
+.tira > .p-corte { z-index: -1; }
+
+/* Capa de trazos a mano (rough.js): SVG que cubre toda la escena */
+.p-trazos { position: absolute; inset: 0; width: 1920px; height: 1080px; overflow: visible; pointer-events: none; }
+.p-trazos path { stroke-linecap: round; stroke-linejoin: round; }
+
+/* Sello de goma */
+.sello {
+  position: absolute; display: grid; place-items: center; border: 7px solid var(--rojo); border-radius: 18px;
+  color: var(--rojo); font-family: var(--marcador); padding: 6px 22px 10px; mix-blend-mode: multiply;
+}
+.sello::after { content: ''; position: absolute; inset: -7px; background: url('papel/grano.png'); background-size: 200px; opacity: 0.9; mix-blend-mode: screen; border-radius: 18px; }
+
+/* Logo como sticker */
+.p-marca { position: absolute; right: 54px; bottom: 34px; width: 170px; }
+.p-marca img { display: block; width: 100%; height: auto; }
+
+/* Cortina de papel negro rasgado (tapa el corte entre escenas) */
+.p-cortina { position: absolute; top: -60px; left: -140px; width: 2200px; height: 1200px; z-index: 50; }
+.p-cortina .p-corte { --c: var(--negro); }
+.p-cortina .p-borde { background: var(--lima); }

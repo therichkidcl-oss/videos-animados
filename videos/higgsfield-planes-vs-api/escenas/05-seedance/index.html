@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=1920, height=1080" />
+<link rel="stylesheet" href="base/tema.css" />
+<link rel="stylesheet" href="base/papel.css" />
+<script src="base/vendor/gsap.min.js"></script>
+<script src="base/vendor/rough.js"></script>
+<script src="tiempos.js"></script>
+<script src="base/escena.js"></script>
+<script src="base/papel.js"></script>
+<style>
+  #cab { position: absolute; left: 120px; top: 52px; }
+  #cab .p-eyebrow { display: inline-block; margin-bottom: 10px; }
+  #cab h2 { font-size: 100px; white-space: nowrap; }
+
+  #claq { position: absolute; left: 96px; top: 300px; width: 560px; height: 470px; }
+  #claq svg { position: absolute; inset: 0; width: 560px; height: 470px; overflow: visible; }
+  #dato { position: absolute; left: 110px; top: 742px; width: 540px; text-align: center; font-family: var(--marcador); font-size: 66px; color: var(--lima); display: inline-block; }
+
+  .card { position: absolute; top: 236px; width: 486px; height: 352px; }
+  .card .dentro > * { position: absolute; left: 34px; }
+  .card .p-eyebrow { top: 28px; color: var(--tinta); }
+  .card .val { top: 66px; font-family: var(--marcador); font-size: 62px; display: inline-block; white-space: nowrap; }
+  .card .num { top: 150px; font-family: var(--marcador); font-size: 128px; line-height: 1; }
+  .card .que { top: 290px; font-family: var(--mano); font-weight: 700; font-size: 44px; display: inline-block; white-space: nowrap; }
+  #cWeb { left: 772px; rotate: -2deg; --c: var(--lima); }
+  #cApi { left: 1300px; top: 250px; rotate: 1.8deg; --c: var(--naranja); }
+
+  #titReg { position: absolute; left: 800px; top: 626px; font-family: var(--mano); font-weight: 700; font-size: 54px; display: inline-block; }
+  #regla { position: absolute; left: 790px; top: 700px; width: 1010px; height: 86px; rotate: -0.6deg; --c: var(--blanco); }
+  #regla span { position: absolute; top: 14px; font-family: var(--marcador); font-size: 40px; }
+  .pt { position: absolute; top: 842px; width: 232px; height: 104px; --c: var(--naranja); }
+  .pt span { position: absolute; inset: 0; display: grid; place-items: center; font-family: var(--marcador); font-size: 44px; white-space: nowrap; }
+
+  #nota { position: absolute; left: 112px; top: 850px; width: 560px; height: 150px; rotate: -2deg; --c: var(--blanco); }
+  #nota .txt { position: absolute; left: 96px; top: 26px; font-family: var(--mano); font-weight: 700; font-size: 46px; line-height: 1.02; }
+  #nota svg { position: absolute; left: 0; top: 0; width: 560px; height: 150px; overflow: visible; }
+  .p-marca { display: none; }
+</style>
+</head>
+<body>
+<div id="root" data-composition-id="05-seedance" data-start="0" data-width="1920" data-height="1080" data-duration="26.86">
+  <audio id="voz" src="voz.wav" data-start="0.4" data-duration="25.76" data-volume="1"></audio>
+  <div class="p-fondo"></div>
+  <div class="p-escena">
+    <div class="p-hoja recorte p-sombra con-borde" style="left:-170px; top:262px; width:900px; height:920px; rotate:2.5deg; --c: var(--negro)"><div class="p-corte" data-amp="9"></div></div>
+    <div class="p-hoja recorte p-sombra con-borde" style="left:1460px; top:-80px; width:560px; height:200px; rotate:-3deg; --c: var(--naranja)"><div class="p-corte" data-amp="8"></div></div>
+
+    <div id="cab">
+      <span class="p-eyebrow">Dato oficial de Higgsfield</span>
+      <h2 class="p-titulo">Seedance 2.5 <span class="tira" style="--c: var(--lima)"><span class="p-corte" data-amp="3"></span>5 s · 480p</span></h2>
+    </div>
+
+    <div id="claq"><svg id="sClaq" viewBox="0 0 560 470"></svg></div>
+    <div id="dato">un video de 5 s</div>
+
+    <div class="card recorte p-sombra con-borde" id="cWeb"><div class="p-corte" data-amp="5"></div>
+      <div class="dentro"><div class="p-eyebrow">En la web</div><div class="val">15 créditos</div><div class="num" id="n66">0</div><div class="que">videos al mes con Plus</div></div>
+    </div>
+    <div class="card recorte p-sombra con-borde" id="cApi"><div class="p-corte" data-amp="5"></div>
+      <div class="dentro"><div class="p-eyebrow">En la API</div><div class="val">US$ 1,03</div><div class="num" id="n47">0</div><div class="que">videos con US$ 49</div></div>
+    </div>
+
+    <div id="titReg">En la API pagas por segundo:</div>
+    <div id="regla" class="recorte p-sombra baja"><div class="p-corte" data-amp="3"></div>
+      <span style="left: 58px">0 s</span><span style="left: 328px">5 s</span><span style="left: 598px">10 s</span><span style="left: 868px">15 s</span>
+    </div>
+    <div class="pt recorte p-sombra con-borde" id="pt5" style="left: 984px; rotate: -3deg"><div class="p-corte" data-amp="3"></div><span>US$ 1,03</span></div>
+    <div class="pt recorte p-sombra con-borde" id="pt10" style="left: 1254px; rotate: 2deg"><div class="p-corte" data-amp="3"></div><span>US$ 2,06</span></div>
+    <div class="pt recorte p-sombra con-borde" id="pt15" style="left: 1524px; rotate: -2deg"><div class="p-corte" data-amp="3"></div><span>US$ 3,08</span></div>
+
+    <div id="nota" class="recorte p-sombra"><div class="p-corte" data-amp="3"></div><svg id="sNota" viewBox="0 0 560 150"></svg><div class="txt">El plan Starter no incluye Seedance 2.5</div><div class="cinta" style="top:-20px; left:200px; rotate:-3deg"></div></div>
+    <div class="p-marca"><img src="base/logo-iahub-marca.png" alt="" /></div>
+  </div>
+  <div class="p-cortina recorte con-borde"><div class="p-corte" data-amp="16" data-lados="lr" data-paso="14"></div></div>
+</div>
+
+<script>
+  papel.preparar();
+  const tl = gsap.timeline({ paused: true });
+  papel.cortina(tl);
+  papel.ambiente(tl);
+  const D = papel.dibujos;
+  const blanco = '#fbf9f4', tinta = '#1c1b18';
+
+  // intro: titulo y claqueta (dibujo blanco sobre la hoja negra)
+  papel.escribir(tl, '#cab .p-eyebrow', T('intro', -0.15), 0.5);
+  tl.fromTo('#cab h2', { opacity: 0, x: -140 }, { opacity: 1, x: 0, duration: 0.6, ease: 'power4.out' }, TW('intro', 'seedance', 1, -0.3));
+  papel.pop(tl, '#cab .tira', TW('intro', '480p', 1, -0.2), { giro: 10 });
+  const sC = document.getElementById('sClaq');
+  const cuerpo = [papel.trazo('rect', [70, 170, 420, 260], { en: sC, grosor: 7, color: blanco, seed: 3 })];
+  for (let k = 0; k < 3; k++) cuerpo.push(papel.trazo('linea', [110, 240 + k * 60, 450, 236 + k * 60], { en: sC, grosor: 3, color: blanco, seed: 9 + k }));
+  const tapa = document.createElementNS('http://www.w3.org/2000/svg', 'g');
+  sC.appendChild(tapa);
+  const tapaTrazos = [papel.trazo('rect', [70, 110, 420, 56], { en: tapa, grosor: 7, color: blanco, seed: 20 })];
+  for (let k = 0; k < 5; k++) tapaTrazos.push(papel.trazo('linea', [96 + k * 82, 166, 146 + k * 82, 110], { en: tapa, grosor: 5, color: blanco, seed: 30 + k }));
+  papel.dibujar(tl, cuerpo, TW('intro', 'seedance', 1, 0.1), 0.9);
+  papel.dibujar(tl, tapaTrazos, TW('intro', 'publica', 1, -0.2), 0.6);
+  tl.fromTo(tapa, { rotation: -22, svgOrigin: '72 166' }, { rotation: 0, svgOrigin: '72 166', duration: 0.22, ease: 'power4.in' }, TW('intro', 'video', 1, -0.1));
+  tl.to(tapa, { rotation: -4, svgOrigin: '72 166', duration: 0.12, yoyo: true, repeat: 1 }, TW('intro', 'video', 1, 0.12));
+  papel.escribir(tl, '#dato', TW('intro', 'cinco', 2, -0.1), 0.6);
+
+  // costo: web vs API, con contadores
+  papel.soltar(tl, '#cWeb', TW('costo', 'web', 1, -0.3), { giro: -8 });
+  papel.escribir(tl, '#cWeb .val', TW('costo', 'quince', 1, -0.08), 0.5);
+  tl.fromTo('#n66', { opacity: 0 }, { opacity: 1, duration: 0.15 }, TW('costo', 'sesenta', 1, -0.15));
+  anim.contar(tl, document.getElementById('n66'), TW('costo', 'sesenta', 1, -0.15), 0, 66, 0.9);
+  papel.escribir(tl, '#cWeb .que', TW('costo', 'videos', 1, -0.05), 0.6);
+  papel.soltar(tl, '#cApi', TW('costo', 'api', 1, -0.3), { giro: 8 });
+  papel.escribir(tl, '#cApi .val', TW('costo', 'un', 1, -0.08), 0.5);
+  papel.escribir(tl, '#cApi .que', TW('costo', 'cuarenta', 1, -0.05), 0.6);
+  tl.fromTo('#n47', { opacity: 0 }, { opacity: 1, duration: 0.15 }, TW('costo', 'cuarenta', 2, -0.15));
+  anim.contar(tl, document.getElementById('n47'), TW('costo', 'cuarenta', 2, -0.15), 0, 47, 0.8);
+
+  // segundos: regla con el precio por segundo en la API
+  papel.escribir(tl, '#titReg', T('segundos', -0.1), 0.8);
+  tl.fromTo('#regla', { opacity: 0, x: 500 }, { opacity: 1, x: 0, duration: 0.6, ease: 'power4.out' }, T('segundos', 0.1));
+  const ticks = [0, 1, 2, 3].map((k) => papel.trazo('linea', [830 + k * 270, 702, 830 + k * 270, 736], { grosor: 5, color: tinta, seed: 50 + k }));
+  papel.dibujar(tl, ticks, T('segundos', 0.5), 0.4);
+  const hilos = [1100, 1370, 1640].map((x, k) => papel.trazo('linea', [x, 784, x, 846], { grosor: 3, color: tinta, seed: 60 + k }));
+  [['#pt5', TW('segundos', 'pagas', 1, 0.1), 0], ['#pt10', TW('segundos', 'diez', 1, -0.15), 1], ['#pt15', TW('segundos', 'quince', 1, -0.15), 2]].forEach(([sel, t, k]) => {
+    papel.dibujar(tl, hilos[k], t, 0.2);
+    tl.fromTo(sel, { opacity: 0, y: -140, rotation: 14 }, { opacity: 1, y: 0, rotation: 0, duration: 0.7, ease: 'elastic.out(1, 0.4)', transformOrigin: '50% 0%' }, t + 0.1);
+  });
+
+  // starter: nota con cruz roja
+  papel.soltar(tl, '#nota', TW('starter', 'ojo', 1, -0.15), { giro: -9 });
+  const x = D.cruz(document.getElementById('sNota'), 26, 44, 54, { color: '#f0402f', grosor: 8 });
+  papel.dibujar(tl, x, TW('starter', 'no', 1, -0.1), 0.35);
+
+  window.__timelines['05-seedance'] = tl;
+</script>
+</body>
+</html>

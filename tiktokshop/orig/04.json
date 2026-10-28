@@ -1,0 +1,25 @@
+{
+ "programs": [],
+ "streams": [
+  {
+   "codec_name": "h264",
+   "codec_type": "video",
+   "width": 390,
+   "height": 848,
+   "r_frame_rate": "50/1"
+  },
+  {
+   "codec_name": "aac",
+   "codec_type": "audio",
+   "sample_rate": "44100",
+   "channels": 2,
+   "r_frame_rate": "0/0"
+  }
+ ],
+ "format": {
+  "duration": "142.209208"
+ },
+ "nombre": "CLASE 04 ESTRATEGIA 2 PARA LLEGAR A 5000 SEGUIDORES.mp4",
+ "id": "15y80pkKexLH0QfYxBuPcVcG-swo-tAIT",
+ "bytes": 20669534
+}

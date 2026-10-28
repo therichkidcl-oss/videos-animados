@@ -1,0 +1,98 @@
+{
+  "titulo": "Modulo Escalando Redes Sociales (curso NSFW) - Clase 6: Calentando Instagram",
+  "nota": "Doblaje al espanol (tu) del original en ingles britanico. Groserias y comentarios despectivos suavizados. Meta = meta, iPhone = aifon, Android = android, 2FA = verificacion en dos pasos.",
+  "voz": {
+    "proveedor": "qwen",
+    "qwen": { "voz": "reimo-v3", "modelo": "1.7B", "dtype": "bf16", "lote": 4 }
+  },
+  "escenas": [
+    { "id": "00-intro", "frases": [
+      { "id": "a", "texto": "Ahora vamos a ver cómo calentar tus cuentas de Instagram." },
+      { "id": "b", "texto": "Antes de publicar tu primer contenido, tenemos que asegurarnos de que tus cuentas se vean y se comporten como las de un usuario normal, porque meta es inteligente, y es bien difícil engañarlo." },
+      { "id": "c", "texto": "Hoy vamos a ver todo lo que tienes que hacer antes de publicar, al crear tu cuenta, y lo que puedes hacer para que no te bloqueen." },
+      { "id": "d", "texto": "Puedes hacer todo esto y aun así te pueden marcar, o no hacer nada y volverte viral. No es blanco o negro." },
+      { "id": "e", "texto": "Pero seguir esto te da la mejor oportunidad de tener alcance y evitar bloqueos. Vamos paso a paso." }
+    ] },
+    { "id": "01-porque", "frases": [
+      { "id": "a", "texto": "Antes de entrar en detalle, veamos por qué importa calentar una cuenta." },
+      { "id": "b", "texto": "Uno: las cuentas nuevas siempre son de alto riesgo. Instagram marca a los usuarios nuevos que publican, siguen o mandan mensajes de forma muy agresiva en los primeros siete a catorce días." },
+      { "id": "c", "texto": "Dos: la confianza se construye con actividad gradual. El algoritmo vigila el comportamiento inicial, y los picos repentinos de actividad gatillan revisiones y pedidos de identificación." },
+      { "id": "d", "texto": "Y eso no lo podemos cumplir, porque obvio, nuestra modelo no existe. Así que hay que evitarlo a toda costa." },
+      { "id": "e", "texto": "Tres: calentar la cuenta imita el comportamiento natural. Los usuarios reales, como tú en tu cuenta personal, dan me gusta y comentan antes de publicar o de poner links en su biografía. Eso construye un historial normal." },
+      { "id": "f", "texto": "Cuatro: calentar las cuentas reduce el riesgo de shadowban y de suspensión. Crecer de a poco, y no de golpe, evita bloqueos de acciones y alertas de actividad sospechosa." },
+      { "id": "g", "texto": "Y cinco: es clave para nuestro sistema de varias cuentas. Tu cuenta principal, tu cuenta desechable y tu cuenta de reels cumplen roles distintos, y calentarlas asegura que las tres estén estables antes de poner cualquier link." }
+    ] },
+    { "id": "02-tres", "frases": [
+      { "id": "a", "texto": "El sistema de tres cuentas. Cuenta uno: tu página principal. Ya hay una clase sobre ella." },
+      { "id": "b", "texto": "Es la cara de la marca de tu modelo a largo plazo: ahí van tus carruseles, el contenido de estilo de vida, las historias y las destacadas." },
+      { "id": "c", "texto": "Sin links, y tiene que verse cien por ciento como la de un usuario normal." },
+      { "id": "d", "texto": "Cuenta dos: tu página desechable. Tiene una buena foto, una biografía corta y tu link." },
+      { "id": "e", "texto": "Aquí va a llegar todo tu tráfico externo desde tiktok. Y si la bloquean, no importa mucho: haces otra, y no pierdes lo que construiste en meses en tu página principal." },
+      { "id": "f", "texto": "Y la última es tu cuenta de reels. Su propósito es publicar muchísimos videos y conseguir la mayor cantidad de vistas posible." },
+      { "id": "g", "texto": "Lleva tu cuenta principal etiquetada en la biografía, y se enfoca en volumen y alcance. No todos los videos tienen que ser perfectos, mientras que en tu página principal todo tiene que verse casi perfecto." },
+      { "id": "h", "texto": "Y obvio, lleva público nuevo a seguir tu página principal." }
+    ] },
+    { "id": "03-fase1", "frases": [
+      { "id": "a", "texto": "Este es el plan que vas a seguir para calentar prácticamente cada cuenta que hagas." },
+      { "id": "b", "texto": "Fase uno: crear la cuenta. Lo ideal es usar un correo antiguo y, si puedes, un teléfono nuevo." },
+      { "id": "c", "texto": "Verifica el correo y el número de teléfono. Agrégale una foto de perfil y una biografía." },
+      { "id": "d", "texto": "Y empieza con poca actividad: mirar reels, dar me gusta a un par de fotos o comentar un par de publicaciones. Sin exagerar, algo limitado." }
+    ] },
+    { "id": "04-fase2", "frases": [
+      { "id": "a", "texto": "Fase dos: un poco más de actividad ligera. Puedes empezar a dar me gusta a diez o quince publicaciones al día, y dejar dos o tres comentarios diarios en publicaciones de tu nicho." },
+      { "id": "b", "texto": "Todavía no publiques, y no pongas ningún link en tu biografía." },
+      { "id": "c", "texto": "Usa algunas historias y algunos reels para imitar un uso normal. Y evita seguir y dejar de seguir rápido: puedes seguir un par de cuentas, pero sin pasarte." }
+    ] },
+    { "id": "05-fase3", "frases": [
+      { "id": "a", "texto": "Del día ocho al catorce: aquí publicas tus primeros contenidos." },
+      { "id": "b", "texto": "En tu cuenta principal, puede ser tu primer carrusel, con unas dos a cuatro imágenes. Empieza a subir historias y a armar tus destacadas." },
+      { "id": "c", "texto": "En tu cuenta de reels, empieza a probar con algunos videos: quizás un reel cada dos días, para darle al algoritmo algo con qué trabajar." },
+      { "id": "d", "texto": "Y la cuenta desechable, básicamente la creas y la dejas ahí. Algo de actividad ligera, pero sin publicaciones, o con una sola de relleno." }
+    ] },
+    { "id": "06-fase4", "frases": [
+      { "id": "a", "texto": "Del día quince al treinta, tus cuentas ya tienen buena antigüedad y puedes publicar con una frecuencia normal." },
+      { "id": "b", "texto": "En tu cuenta principal, eso puede ser un carrusel cada diez días, más o menos. En tu cuenta de reels, dos o tres reels al día." },
+      { "id": "c", "texto": "Y en este punto ya puedes agregar tu link a la cuenta desechable." },
+      { "id": "d", "texto": "Tu cuenta principal, mantenla sin links para siempre. Nunca le pongas links: solo deja tu cuenta desechable etiquetada en la biografía." }
+    ] },
+    { "id": "07-despues", "frases": [
+      { "id": "a", "texto": "Y después de treinta días, todas tus cuentas ya están bien maduras." },
+      { "id": "b", "texto": "Ahí puedes empezar a promocionar publicaciones en tu página principal, y subir la actividad de reels a tres o cuatro al día." },
+      { "id": "c", "texto": "Lo último que quieres es apurar este proceso. Lo peor es pasar dos o tres semanas armando tu cuenta principal, que te la bloqueen por no seguir esto bien, y perder todo ese avance." },
+      { "id": "d", "texto": "Así que no te apures: estás construyendo una marca a largo plazo. Tómate tu tiempo y ten paciencia." }
+    ] },
+    { "id": "08-evitar", "frases": [
+      { "id": "a", "texto": "Aquí van algunas cosas que debes evitar para que no te bloqueen." },
+      { "id": "b", "texto": "Seguir y dejar de seguir en masa. Es probablemente lo que más parece un bot. Así que, como te dije, no lo hagas." },
+      { "id": "c", "texto": "No uses herramientas de automatización en tu Instagram principal, como las que responden comentarios y mensajes solas. Nunca en tu cuenta principal, porque te van a bloquear." },
+      { "id": "d", "texto": "No entres a varias cuentas demasiado rápido, como saltar entre tus tres cuentas diez veces en cinco minutos. Se ve sospechoso." },
+      { "id": "e", "texto": "Comprar seguidores: nunca compres seguidores, y menos en tu página principal. Intenta crecer todas las cuentas de forma orgánica." },
+      { "id": "f", "texto": "Y no hagas publicidad hasta que tu cuenta tenga al menos seis semanas. Los anuncios solo van en tu página principal, así que crece de forma orgánica al menos seis semanas antes de promocionar publicaciones." }
+    ] },
+    { "id": "09-tips", "frases": [
+      { "id": "a", "texto": "Ahora, algunos consejos para evitar que te marquen o te bloqueen." },
+      { "id": "b", "texto": "Primero: un teléfono nuevo. Sé que mucha gente no tiene cinco o seis teléfonos, pero tener al menos uno de repuesto ayuda mucho a que no te marquen." },
+      { "id": "c", "texto": "Un dispositivo nuevo es empezar de cero. No reutilices un teléfono bloqueado o marcado: si ya te bloquearon en Instagram con ese teléfono, quizás necesites otro, porque esa dirección ip probablemente ya está quemada." },
+      { "id": "d", "texto": "Esto ayuda a evitar la huella de datos. Piénsalo así: si creas la cuenta de una modelo de ia en tu teléfono, Instagram lo ve como una persona nueva. Se ve rarísimo, y el algoritmo lo detecta." },
+      { "id": "e", "texto": "Pero, como dije al principio, también podrías no hacer nada de esto, volverte viral y ganar un montón de dinero." }
+    ] },
+    { "id": "10-iphone", "frases": [
+      { "id": "a", "texto": "Usa un aifon. Lo ideal es un aifon once o superior." },
+      { "id": "b", "texto": "Meta favorece a Apple sobre android. Hay estudios que lo han comprobado una y otra vez; lo puedes buscar." },
+      { "id": "c", "texto": "Android baja la resolución y Apple no. Cuando publicas desde android, la calidad del video se nota más baja, y con Apple se mantiene." }
+    ] },
+    { "id": "11-correos", "frases": [
+      { "id": "a", "texto": "Correos antiguos: ya lo vimos. Usar un correo antiguo siempre va a ser mejor que crear uno nuevo y abrir la cuenta de inmediato con él." },
+      { "id": "b", "texto": "Verifica el correo con un número de teléfono y activa la verificación en dos pasos, porque eso hace que tu correo se vea más confiable." }
+    ] },
+    { "id": "12-cierre", "frases": [
+      { "id": "a", "texto": "En resumen: calentar las cuentas construye confianza con el algoritmo y evita bloqueos tempranos." },
+      { "id": "b", "texto": "El sistema de tres cuentas, tu página principal, la desechable y la de reels, reparte el riesgo, para que tu página principal nunca caiga. Ese es el objetivo." },
+      { "id": "c", "texto": "Una desechable o una de reels siempre las puedes rehacer. Idealmente no, pero si pasa, se puede." },
+      { "id": "d", "texto": "Una cuenta nueva necesita al menos dos o tres semanas de actividad natural antes de publicar de lleno o poner links. Es una maratón, no una carrera corta." },
+      { "id": "e", "texto": "Calienta bien tus cuentas antes de publicar tres o cuatro veces al día, y ten paciencia: lo que buscas es la seguridad de tus cuentas a largo plazo." },
+      { "id": "f", "texto": "No te lo puedo recalcar lo suficiente: hay gente que hace todo en un solo día y cree que no la van a bloquear." },
+      { "id": "g", "texto": "Si sigues esto bien, vas a bajar muchísimo tus probabilidades de bloqueo. Así que estúdialo y aplícalo, porque te va a ayudar." }
+    ] }
+  ]
+}

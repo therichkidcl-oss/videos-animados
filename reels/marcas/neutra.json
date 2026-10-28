@@ -1,0 +1,24 @@
+{
+ "nombre": "Neutra",
+ "acento": "#4cc9f0",
+ "acentoRGB": "76,201,240",
+ "acento2": "#3a86d4",
+ "acento2RGB": "58,134,212",
+ "acentoClaro": "#9fe3f7",
+ "acento3RGB": "159,227,247",
+ "tinta": "#06121a",
+ "luzRGB": "150,220,255",
+ "haloRGB": "40,90,140",
+ "degradado": "linear-gradient(180deg,#f0fbff 0%,#9fe3f7 28%,#4cc9f0 52%,#2a6fb0 76%,#bdeefc 100%)",
+ "fondo": [
+  "#070b12",
+  "#05080d",
+  "#020305"
+ ],
+ "ctaFondo": [
+  "#0b2233",
+  "#07111c",
+  "#03060a"
+ ],
+ "logo": ""
+}

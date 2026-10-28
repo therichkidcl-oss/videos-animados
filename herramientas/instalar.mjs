@@ -3,8 +3,10 @@
 //   2. crea .env desde .env.example (vacio: el usuario pega su key)
 //   3. instala la skill de Claude Code (skill/SKILL.md) apuntando a esta carpeta
 //   4. revisa que esten ffmpeg, ffprobe y (opcional) Python + faster-whisper
+//   5. con --voz-local: crea .venv-tts e instala Qwen3-TTS (voz gratis en tu PC, sin API)
 //
 // Uso: npm install && npm run instalar
+//      npm run instalar -- --voz-local             (ademas instala la voz local; necesita uv)
 //      npm run instalar -- --forzar                (reemplaza una skill ya instalada)
 //      npm run instalar -- --skills-dir <carpeta>  (otra carpeta de skills, ej. para probar)
 import { RAIZ } from './entorno.mjs';
@@ -31,6 +33,10 @@ const FUENTES = [
   ['@fontsource/inter', 'inter-latin-700-normal.woff2'],
   ['@fontsource/jetbrains-mono', 'jetbrains-mono-latin-400-normal.woff2'],
   ['@fontsource/jetbrains-mono', 'jetbrains-mono-latin-600-normal.woff2'],
+  // estilo papel (base/papel.css)
+  ['@fontsource/caveat', 'caveat-latin-500-normal.woff2'],
+  ['@fontsource/caveat', 'caveat-latin-700-normal.woff2'],
+  ['@fontsource/permanent-marker', 'permanent-marker-latin-400-normal.woff2'],
 ];
 mkdirSync(path.join(RAIZ, 'base', 'fuentes'), { recursive: true });
 mkdirSync(path.join(RAIZ, 'base', 'vendor'), { recursive: true });
@@ -38,7 +44,8 @@ for (const [pkg, archivo] of FUENTES) {
   copyFileSync(path.join(nm, pkg, 'files', archivo), path.join(RAIZ, 'base', 'fuentes', archivo));
 }
 copyFileSync(path.join(nm, 'gsap', 'dist', 'gsap.min.js'), path.join(RAIZ, 'base', 'vendor', 'gsap.min.js'));
-console.log('✓ Fuentes y GSAP copiados a base/');
+copyFileSync(path.join(nm, 'roughjs', 'bundled', 'rough.js'), path.join(RAIZ, 'base', 'vendor', 'rough.js'));
+console.log('✓ Fuentes, GSAP y rough.js copiados a base/');
 
 // 2. .env
 const env = path.join(RAIZ, '.env');
@@ -66,17 +73,35 @@ function hay(cmd, args) {
   try { execFileSync(cmd, args, { stdio: 'ignore' }); return true; } catch { return false; }
 }
 const python = hay('python', ['--version']) ? 'python' : (hay('python3', ['--version']) ? 'python3' : null);
+
+// 5. Voz local (opcional): Qwen3-TTS en su propio entorno de Python 3.12
+const pyTts = path.join(RAIZ, '.venv-tts', process.platform === 'win32' ? 'Scripts/python.exe' : 'bin/python');
+if (flag('voz-local')) {
+  const uv = hay('uv', ['--version']) ? ['uv'] : (python && hay(python, ['-m', 'uv', '--version']) ? [python, '-m', 'uv'] : null);
+  if (!uv) {
+    console.log('✗ Para la voz local falta uv: https://docs.astral.sh/uv/ (o: pip install uv)');
+  } else {
+    // Python de uv fuera de AppData (en la app de Claude esa carpeta esta virtualizada y falla)
+    const envUv = { ...process.env, UV_PYTHON_INSTALL_DIR: process.env.UV_PYTHON_INSTALL_DIR || path.join(os.homedir(), '.uv-python') };
+    const correr = (args) => execFileSync(uv[0], [...uv.slice(1), ...args], { stdio: 'inherit', env: envUv });
+    if (!existsSync(pyTts)) correr(['venv', path.join(RAIZ, '.venv-tts'), '--python', '3.12']);
+    correr(['pip', 'install', '--python', pyTts, 'qwen-tts', 'soundfile']);
+    console.log('✓ Voz local instalada en .venv-tts (los modelos, ~4 GB, se bajan solos la primera vez)');
+  }
+}
+
 const chequeos = [
   ['ffmpeg', hay('ffmpeg', ['-version']), 'obligatorio: https://ffmpeg.org (en Windows: winget install Gyan.FFmpeg)'],
   ['ffprobe', hay('ffprobe', ['-version']), 'obligatorio: viene con ffmpeg'],
   ['python', !!python, 'opcional: solo para MiniMax, la voz local y revisar pronunciacion'],
   ['faster-whisper', !!python && hay(python, ['-c', 'import faster_whisper']), `opcional: ${python || 'python'} -m pip install faster-whisper`],
+  ['voz local (.venv-tts)', existsSync(pyTts), 'opcional: npm run instalar -- --voz-local'],
 ];
 console.log('\nHerramientas:');
 for (const [nombre, ok, ayuda] of chequeos) console.log(`  ${ok ? '✓' : '✗'} ${nombre}${ok ? '' : `  -> ${ayuda}`}`);
 
 console.log(`
 Listo. Siguientes pasos:
-  1. Pega tu key de ElevenLabs (o MiniMax) en ${env}
+  1. Voz: pega tu key de ElevenLabs (o MiniMax) en ${env}, o usa la voz local gratis (--voz-local)
   2. npm test
   3. En Claude Code pide: "hazme un video animado explicando <tema>"`);

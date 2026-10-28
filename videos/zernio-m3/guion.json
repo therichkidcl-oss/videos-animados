@@ -1,0 +1,117 @@
+{
+  "titulo": "Curso Influencer IA 1.0 (NSFW) · Modulo Zernio · Conecta Claude y automatiza la subida de tus reels",
+  "nota": "Modulo Zernio 27/10/2026, voz reimo-v3.",
+  "voz": {
+    "proveedor": "qwen",
+    "qwen": {
+      "voz": "reimo-v3",
+      "modelo": "1.7B",
+      "dtype": "bf16",
+      "lote": 4
+    }
+  },
+  "escenas": [
+    {
+      "id": "00-intro",
+      "frases": [
+        {
+          "id": "a",
+          "texto": "Ahora viene lo bueno: que clod publique por ti, todos los días, sin que tengas que abrir Instagram."
+        }
+      ]
+    },
+    {
+      "id": "06-claude",
+      "frases": [
+        {
+          "id": "a",
+          "texto": "Paso cuatro: conecta zernio a clod."
+        },
+        {
+          "id": "b",
+          "texto": "Abre clod cod en tu computador y pídeselo en palabras normales: conecta el eme ce pe de zernio con mi a pe i kei, y pégale la llave."
+        },
+        {
+          "id": "c",
+          "texto": "clod la guarda en un archivo privado y revisa qué cuenta de Instagram tienes conectada. Desde ahí, ya puede publicar por ti."
+        }
+      ]
+    },
+    {
+      "id": "07-prompt",
+      "frases": [
+        {
+          "id": "a",
+          "texto": "Paso cinco: el prompt."
+        },
+        {
+          "id": "b",
+          "texto": "En la descripción de esta clase te dejé un prompt listo. Lo copias y lo pegas en clod cod."
+        },
+        {
+          "id": "c",
+          "texto": "Con eso, clod arma todo solo: una carpeta llamada publicar, donde tú dejas cada reel en su propia carpeta."
+        },
+        {
+          "id": "d",
+          "texto": "Y una tarea programada que revisa esa carpeta todos los días."
+        }
+      ]
+    },
+    {
+      "id": "08-diario",
+      "frases": [
+        {
+          "id": "a",
+          "texto": "Desde ahí, tu único trabajo es dejar los videos."
+        },
+        {
+          "id": "b",
+          "texto": "Cada día, clod mira los cuadros del video para confirmar que es el correcto."
+        },
+        {
+          "id": "c",
+          "texto": "Escribe la descripción, con un gancho en la primera línea y cinco hashtags."
+        },
+        {
+          "id": "d",
+          "texto": "Lo sube a zernio y lo programa en el siguiente horario libre."
+        },
+        {
+          "id": "e",
+          "texto": "En zernio, en publicaciones, vas a ver cada reel en su día y su hora. Y cuando sale, cambia a publicado, con sus vistas y sus me gusta."
+        }
+      ]
+    },
+    {
+      "id": "10-reglas",
+      "frases": [
+        {
+          "id": "a",
+          "texto": "Unas reglas para que no te bloqueen."
+        },
+        {
+          "id": "b",
+          "texto": "Máximo dos o tres reels al día, como viste en la clase de calentar."
+        },
+        {
+          "id": "c",
+          "texto": "Nada de subir el mismo video muchas veces."
+        },
+        {
+          "id": "d",
+          "texto": "Y un reel que ya se publicó no se puede borrar por a pe i. Eso lo haces tú, en la aplicación."
+        }
+      ]
+    },
+    {
+      "id": "11-cierre",
+      "frases": [
+        {
+          "id": "a",
+          "texto": "En la próxima clase vemos cómo clod escribe tus descripciones, y cómo responde los comentarios de forma natural."
+        }
+      ]
+    }
+  ]
+}

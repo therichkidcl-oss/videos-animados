@@ -41,16 +41,51 @@ export function palabrasDesdeCaracteres(alignment) {
   return out;
 }
 
-// Alinea las palabras del guion con las palabras habladas (que traen tiempos) usando distancia de
-// edicion por palabras. Tolera numeros dichos en letras, palabras de mas o de menos y errores de la
-// transcripcion. Devuelve { fraseId: { inicio, fin } }.
-export function alinearFrases(frases, habladas) {
-  const guion = [];
-  for (const f of frases) for (const p of palabras(f.texto)) guion.push({ frase: f.id, p });
-  const h = habladas
-    .map((w) => ({ start: w.start, end: w.end, p: normalizar(w.text) }))
-    .filter((w) => w.p);
+// ---------- numeros: la transcripcion los trae en cifras ("35") y el guion en palabras ("treinta y cinco") ----------
+const UNIDADES = ['cero', 'uno', 'dos', 'tres', 'cuatro', 'cinco', 'seis', 'siete', 'ocho', 'nueve', 'diez', 'once', 'doce',
+  'trece', 'catorce', 'quince', 'dieciseis', 'diecisiete', 'dieciocho', 'diecinueve', 'veinte', 'veintiuno', 'veintidos',
+  'veintitres', 'veinticuatro', 'veinticinco', 'veintiseis', 'veintisiete', 'veintiocho', 'veintinueve'];
+const DECENAS = ['', '', '', 'treinta', 'cuarenta', 'cincuenta', 'sesenta', 'setenta', 'ochenta', 'noventa'];
+const CENTENAS = ['', 'ciento', 'doscientos', 'trescientos', 'cuatrocientos', 'quinientos', 'seiscientos', 'setecientos',
+  'ochocientos', 'novecientos'];
 
+function menosDeMil(n) {
+  if (n < 30) return UNIDADES[n];
+  if (n < 100) return DECENAS[Math.floor(n / 10)] + (n % 10 ? ` y ${UNIDADES[n % 10]}` : '');
+  if (n === 100) return 'cien';
+  return CENTENAS[Math.floor(n / 100)] + (n % 100 ? ` ${menosDeMil(n % 100)}` : '');
+}
+
+// 35 -> "treinta y cinco", 1000 -> "mil" (sin tildes, como normalizar)
+export function numeroEnPalabras(n) {
+  n = Math.floor(Math.abs(n));
+  if (n < 1000) return menosDeMil(n);
+  const miles = Math.floor(n / 1000);
+  const resto = n % 1000;
+  const m = miles === 1 ? 'mil' : `${menosDeMil(miles)} mil`;
+  return resto ? `${m} ${menosDeMil(resto)}` : m;
+}
+
+// Cada cifra de la transcripcion pasa a sus palabras y su tiempo se reparte entre ellas, asi la alineacion
+// encuentra "treinta y cinco" aunque Whisper haya escrito "35". "2.5" -> dos punto cinco, "1.000" -> mil.
+export function expandirNumeros(habladas) {
+  const out = [];
+  for (const w of habladas) {
+    const m = String(w.text).match(/^\W*(\d+(?:[.,]\d+)*)\W*$/);
+    if (!m) { out.push(w); continue; }
+    const dec = m[1].match(/^(\d+)([.,])(\d{1,2})$/);
+    const dichas = (dec
+      ? `${numeroEnPalabras(+dec[1])} ${dec[2] === '.' ? 'punto' : 'coma'} ${numeroEnPalabras(+dec[3])}`
+      : numeroEnPalabras(+m[1].replace(/[.,]/g, ''))).split(' ');
+    const paso = (w.end - w.start) / dichas.length;
+    dichas.forEach((p, k) => out.push({ text: p, start: r3(w.start + paso * k), end: r3(w.start + paso * (k + 1)) }));
+  }
+  return out;
+}
+
+// Empareja las palabras del guion con las habladas (ya normalizadas) usando distancia de edicion por
+// palabras. Devuelve, para cada palabra del guion, el indice de su palabra hablada (o -1).
+function emparejar(guion, h) {
   const n = guion.length;
   const m = h.length;
   const D = Array.from({ length: n + 1 }, () => new Float64Array(m + 1));
@@ -58,7 +93,7 @@ export function alinearFrases(frases, habladas) {
   for (let j = 1; j <= m; j++) D[0][j] = j;
   for (let i = 1; i <= n; i++) {
     for (let j = 1; j <= m; j++) {
-      const sub = D[i - 1][j - 1] + (guion[i - 1].p === h[j - 1].p ? 0 : 1);
+      const sub = D[i - 1][j - 1] + (guion[i - 1] === h[j - 1] ? 0 : 1);
       D[i][j] = Math.min(sub, D[i - 1][j] + 1, D[i][j - 1] + 1);
     }
   }
@@ -68,11 +103,34 @@ export function alinearFrases(frases, habladas) {
   let i = n;
   let j = m;
   while (i > 0 && j > 0) {
-    const sub = D[i - 1][j - 1] + (guion[i - 1].p === h[j - 1].p ? 0 : 1);
+    const sub = D[i - 1][j - 1] + (guion[i - 1] === h[j - 1] ? 0 : 1);
     if (D[i][j] === sub) { mapa[i - 1] = j - 1; i--; j--; }
     else if (D[i][j] === D[i - 1][j] + 1) i--;
     else j--;
   }
+  return mapa;
+}
+
+// Cuanto del guion dijo la voz, segun la transcripcion. Sirve para las voces sin tiempos propios:
+// una palabra saltada o cambiada baja la cobertura. Devuelve { dichas, total, faltan: [palabras] }.
+export function cobertura(frases, habladas) {
+  const guion = frases.flatMap((f) => palabras(f.texto));
+  const h = expandirNumeros(habladas).map((w) => normalizar(w.text)).filter(Boolean);
+  const mapa = emparejar(guion, h);
+  const faltan = guion.filter((p, k) => mapa[k] < 0 || h[mapa[k]] !== p);
+  return { dichas: guion.length - faltan.length, total: guion.length, faltan };
+}
+
+// Alinea las palabras del guion con las palabras habladas (que traen tiempos) usando distancia de
+// edicion por palabras. Tolera numeros dichos en letras, palabras de mas o de menos y errores de la
+// transcripcion. Devuelve { fraseId: { inicio, fin } }.
+export function alinearFrases(frases, habladas) {
+  const guion = [];
+  for (const f of frases) for (const p of palabras(f.texto)) guion.push({ frase: f.id, p });
+  const h = expandirNumeros(habladas)
+    .map((w) => ({ start: w.start, end: w.end, p: normalizar(w.text) }))
+    .filter((w) => w.p);
+  const mapa = emparejar(guion.map((g) => g.p), h.map((w) => w.p));
 
   const out = {};
   for (const f of frases) {

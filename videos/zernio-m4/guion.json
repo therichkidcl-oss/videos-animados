@@ -1,0 +1,106 @@
+{
+  "titulo": "Curso Influencer IA 1.0 (NSFW) · Modulo Zernio · Descripciones y respuestas que se sienten naturales",
+  "nota": "Modulo Zernio 27/10/2026, voz reimo-v3.",
+  "voz": {
+    "proveedor": "qwen",
+    "qwen": {
+      "voz": "reimo-v3",
+      "modelo": "1.7B",
+      "dtype": "bf16",
+      "lote": 4
+    }
+  },
+  "escenas": [
+    {
+      "id": "00-intro",
+      "frases": [
+        {
+          "id": "a",
+          "texto": "En esta clase vemos lo que hace que tu cuenta se sienta humana: las descripciones y las respuestas a los comentarios."
+        }
+      ]
+    },
+    {
+      "id": "01-descripciones",
+      "frases": [
+        {
+          "id": "a",
+          "texto": "Primero, las descripciones. clod escribe una para cada reel, con la voz de tu modelo."
+        },
+        {
+          "id": "b",
+          "texto": "Corta y casual, como la escribiría ella: una primera línea que enganche, una pregunta para que le comenten, y de tres a cinco hashtags."
+        },
+        {
+          "id": "c",
+          "texto": "Y nunca vende en la descripción: nada de links, ni de más dieciocho, ni de compra. Eso le baja el alcance a tu reel."
+        }
+      ]
+    },
+    {
+      "id": "02-respuestas",
+      "frases": [
+        {
+          "id": "a",
+          "texto": "Ahora, los comentarios. zernio puede responder en público cada comentario de tus reels, aunque estés durmiendo."
+        },
+        {
+          "id": "b",
+          "texto": "Si dejas vacías las palabras clave, la automatización responde a cualquier comentario."
+        },
+        {
+          "id": "c",
+          "texto": "El secreto es que la respuesta suene casual, y le calce a cualquier cosa que te escriban."
+        }
+      ]
+    },
+    {
+      "id": "03-ejemplos",
+      "frases": [
+        {
+          "id": "a",
+          "texto": "Por ejemplo: jajaja, me sacaste una sonrisa. O: ay, qué lindo, gracias. O: tú sí sabes. O: y eso que no has visto lo mejor."
+        },
+        {
+          "id": "b",
+          "texto": "Respuestas cortas, cálidas y un poco coquetas, que sirven igual para un saludo, un piropo o una pregunta."
+        }
+      ]
+    },
+    {
+      "id": "04-evitar",
+      "frases": [
+        {
+          "id": "a",
+          "texto": "Lo que no debes hacer: responder te escribí por privado, o revisa tus mensajes. Suena a robot, y Instagram lo toma como spam."
+        },
+        {
+          "id": "b",
+          "texto": "Y casi sin emojis: un corazón de vez en cuando está bien, pero no en todas las respuestas."
+        }
+      ]
+    },
+    {
+      "id": "05-claude",
+      "frases": [
+        {
+          "id": "a",
+          "texto": "Pídele a clod de ocho a diez variaciones, para que nunca se repita la misma."
+        },
+        {
+          "id": "b",
+          "texto": "Y activa dos cosas: dar me gusta al comentario, y un pequeño retraso antes de responder, para que no conteste al segundo exacto."
+        }
+      ]
+    },
+    {
+      "id": "06-cierre",
+      "frases": [
+        {
+          "id": "a",
+          "texto": "En la próxima clase vemos el mensaje privado que le llega a cada persona que comenta, con tu link."
+        }
+      ]
+    }
+  ]
+}

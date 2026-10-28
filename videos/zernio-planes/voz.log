@@ -1,0 +1,19 @@
+qwen: generando 9 escenas (1580 caracteres) en tu PC...
+modelo C:\Users\Reimo\.cache\huggingface\hub\models--Qwen--Qwen3-TTS-12Hz-1.7B-Base\snapshots\fd4b254389122332181a7c3db7f27e918eec64e3 (bf16) cargado en 1 s
+02-tramos.wav, 06-para-ti.wav, 04-aparte.wav, 05-equis.wav: 59.3 s de audio en 72 s (RTF 1.21)
+07-mas.wav, 03-incluye.wav, 01-sin-planes.wav, 00-intro.wav: 33.8 s de audio en 40 s (RTF 1.19)
+08-cierre.wav: 4.1 s de audio en 13 s (RTF 3.14)
+TOTAL: 97.2 s de audio en 125 s (RTF 1.29)
+> 00-intro: sacando los tiempos... listo 6.94s (se entiende el 94% del guion)
+> 01-sin-planes: sacando los tiempos... listo 8.86s (se entiende el 91% del guion)
+> 02-tramos: sacando los tiempos... listo 20.46s (se entiende el 100% del guion)
+> 03-incluye: sacando los tiempos... listo 11.26s
+  ! 03-incluye: solo se entiende el 79% del guion. No reconoci: programar, reels, a, pe, i
+    Escuchala; si falta algo, repitela con --escena 03-incluye --forzar (cada toma sale distinta)
+> 04-aparte: sacando los tiempos... listo 13.9s (se entiende el 93% del guion)
+> 05-equis: sacando los tiempos... listo 14.22s
+  ! 05-equis: solo se entiende el 81% del guion. No reconoci: equis, equis, zernio, a, pe, i, zernio, equis
+    Escuchala; si falta algo, repitela con --escena 05-equis --forzar (cada toma sale distinta)
+> 06-para-ti: sacando los tiempos... listo 15.1s (se entiende el 97% del guion)
+> 07-mas: sacando los tiempos... listo 11.18s (se entiende el 100% del guion)
+> 08-cierre: sacando los tiempos... listo 5.18s (se entiende el 92% del guion)

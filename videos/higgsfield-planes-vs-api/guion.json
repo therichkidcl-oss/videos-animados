@@ -1,0 +1,103 @@
+{
+  "titulo": "Higgsfield: planes vs API, cuanto te rinde cada uno",
+  "fuente": "higgsfield.ai/pricing y open.higgsfield.ai/pricing (precios de lista, 09/10/2026) + costos medidos en la web el 09/10 (Genjutsu 7 creditos/s a 720p, Soul 2.0 0.125 creditos)",
+  "voz": {
+    "proveedor": "qwen",
+    "qwen": { "voz": "reimo", "modelo": "1.7B", "dtype": "bf16", "lote": 4 },
+    "minimax": { "voz_id": "Spanish_Narrator", "modelo": "speech-2.8-hd", "velocidad": 1.0 },
+    "local": { "voz": "Microsoft Sabina Desktop", "velocidad": 1 }
+  },
+  "escenas": [
+    {
+      "id": "00-bienvenida",
+      "frases": [
+        { "id": "saludo", "texto": "¡Hola! Qué bueno tenerte en una nueva clase de IA-HUB." },
+        { "id": "tema", "texto": "Hoy vamos a comparar los planes de Higgsfield con su API, con números reales." },
+        { "id": "agenda", "texto": "Vas a ver cuánto te cuesta cada video según sus segundos, cuántos te alcanzan al mes y cuál te conviene." },
+        { "id": "vamos", "texto": "Empecemos." }
+      ]
+    },
+    {
+      "id": "01-dos-formas",
+      "frases": [
+        { "id": "intro", "texto": "Higgsfield cobra de dos formas, y cada una mide distinto." },
+        { "id": "plan", "texto": "Los planes de la web te dan créditos cada mes. Esos créditos no se acumulan: lo que no usas, se pierde al renovar." },
+        { "id": "api", "texto": "La API cobra en dólares por cada segundo de video o por cada imagen. Cargas desde cinco dólares, el saldo te dura un año y solo te cobra lo que sale bien." },
+        { "id": "iahub", "texto": "Y la API es lo que conectas en IA-HUB: los créditos del plan no funcionan en la API." }
+      ]
+    },
+    {
+      "id": "02-planes",
+      "frases": [
+        { "id": "intro", "texto": "Primero, los planes." },
+        { "id": "starter", "texto": "Starter cuesta quince dólares al mes y trae doscientos créditos." },
+        { "id": "plus", "texto": "Plus, cuarenta y nueve dólares y mil créditos." },
+        { "id": "ultra", "texto": "Y Ultra, ciento veintinueve dólares y tres mil créditos." },
+        { "id": "comparar", "texto": "Para comparar parejo, vamos a poner el plan Plus contra los mismos cuarenta y nueve dólares en la API, con sus precios de lista." }
+      ]
+    },
+    {
+      "id": "03-genjutsu",
+      "frases": [
+        { "id": "intro", "texto": "Empecemos con Genjutsu, a 720p." },
+        { "id": "tarifa", "texto": "En la web gasta siete créditos por cada segundo de video. En la API cuesta sesenta y ocho centavos por segundo." },
+        { "id": "cinco", "texto": "Un video de cinco segundos: treinta y cinco créditos, o tres dólares con cuarenta y uno en la API." },
+        { "id": "diez", "texto": "De diez segundos: setenta créditos, o seis dólares con ochenta y uno." },
+        { "id": "quince", "texto": "De quince: ciento cinco créditos, o diez dólares con veintidós." },
+        { "id": "treinta", "texto": "Y de treinta, el máximo: doscientos diez créditos, o veinte dólares con cuarenta y tres." }
+      ]
+    },
+    {
+      "id": "04-genjutsu-mes",
+      "frases": [
+        { "id": "intro", "texto": "¿Cuántos te alcanzan al mes?" },
+        { "id": "plus", "texto": "Con el plan Plus: veintiocho videos de cinco segundos, catorce de diez, nueve de quince o cuatro de treinta." },
+        { "id": "api", "texto": "Con cuarenta y nueve dólares en la API: catorce, siete, cuatro o dos." },
+        { "id": "doble", "texto": "En Genjutsu, el plan rinde el doble." }
+      ]
+    },
+    {
+      "id": "05-seedance",
+      "frases": [
+        { "id": "intro", "texto": "Con Seedance dos punto cinco, Higgsfield publica el costo de un video de cinco segundos a 480p." },
+        { "id": "costo", "texto": "En la web gasta quince créditos: con Plus, sesenta y seis videos al mes. En la API cuesta un dólar con tres centavos: con cuarenta y nueve dólares, cuarenta y siete." },
+        { "id": "segundos", "texto": "En la API pagas por segundo: uno de diez segundos cuesta dos dólares con seis, y uno de quince, tres dólares con ocho." },
+        { "id": "starter", "texto": "Ojo: el plan Starter no incluye Seedance dos punto cinco." }
+      ]
+    },
+    {
+      "id": "06-soul",
+      "frases": [
+        { "id": "intro", "texto": "¿Y en imágenes, con Soul dos punto cero?" },
+        { "id": "web", "texto": "En la web, cada imagen gasta un octavo de crédito: con Plus, ocho mil imágenes al mes." },
+        { "id": "api", "texto": "En la API cuesta entre tres y seis milésimas de dólar: con cuarenta y nueve dólares, entre ocho mil y quince mil." },
+        { "id": "igual", "texto": "En imágenes, da casi lo mismo." }
+      ]
+    },
+    {
+      "id": "07-trampa",
+      "frases": [
+        { "id": "intro", "texto": "Ahora, la trampa: los créditos del plan vencen cada mes." },
+        { "id": "mitad", "texto": "Si pagas Plus y usas solo la mitad, cada video te salió al doble de precio." },
+        { "id": "regla", "texto": "Regla simple: si usas menos de la mitad de tus créditos, en estos ejemplos la API te sale más barata." },
+        { "id": "todo", "texto": "Y si los usas casi todos, el plan te rinde hasta el doble." }
+      ]
+    },
+    {
+      "id": "08-cual",
+      "frases": [
+        { "id": "intro", "texto": "Entonces, ¿cuál te conviene?" },
+        { "id": "api", "texto": "Si generas de vez en cuando, o estás probando, la API: pagas solo lo que usas y el saldo te dura un año." },
+        { "id": "plan", "texto": "Si haces videos todos los días y gastas todos tus créditos, el plan Plus o Ultra." },
+        { "id": "iahub", "texto": "Y si quieres usar Higgsfield desde IA-HUB, necesitas la API." }
+      ]
+    },
+    {
+      "id": "09-cierre",
+      "frases": [
+        { "id": "listo", "texto": "Ahora ya sabes cuánto te rinde cada opción." },
+        { "id": "adios", "texto": "Haz la cuenta con lo que generas en un mes, y nos vemos en el próximo video." }
+      ]
+    }
+  ]
+}

@@ -1,6 +1,6 @@
 ---
 name: videos-animados
-description: Crea VIDEOS ANIMADOS LARGOS (varios minutos) de texto + animaciones + voz hablada en espanol, renderizados en la PC del usuario con HyperFrames (HTML + GSAP -> MP4) y voz de ElevenLabs o MiniMax. Usala SIEMPRE que el usuario pida un video animado, explicativo, motion graphics, una leccion o tema de un curso en video, convertir una guia/articulo/documento en video, un tutorial animado, o diga "hazme un video explicando X", "anima esta guia", "video para el curso", aunque no diga "skill". NO es para video generado con IA (modelos de video): esto es animacion por codigo.
+description: Crea VIDEOS ANIMADOS LARGOS (varios minutos) de texto + animaciones + voz hablada en espanol, renderizados en la PC del usuario con HyperFrames (HTML + GSAP -> MP4) y voz de ElevenLabs, MiniMax o una voz local gratis (Qwen3-TTS, que puede clonar la voz del usuario). Usala SIEMPRE que el usuario pida un video animado, explicativo, motion graphics, una leccion o tema de un curso en video, convertir una guia/articulo/documento en video, un tutorial animado, o diga "hazme un video explicando X", "anima esta guia", "video para el curso", aunque no diga "skill". NO es para video generado con IA (modelos de video): esto es animacion por codigo.
 ---
 
 # Videos animados largos (HyperFrames + voz)
@@ -16,8 +16,9 @@ Ejemplos completos (usalos como referencia de cada patron):
    ~150 palabras por minuto. Espanol neutro con "tu", CON tildes (la voz pronuncia mejor). Frases que la voz va a
    leer: escribir numeros, URLs y menciones como se dicen ("console punto higgsfield punto a i", "arroba image uno").
    Si el video explica una app, sacar textos y botones del codigo/UI real (nunca inventarlos).
-   **Mostrarle el guion al usuario y esperar su OK antes de generar la voz final** (gasta creditos de su API).
-2. **Voz** -> `node herramientas/voz.mjs videos/<nombre> [--proveedor elevenlabs|minimax|local] [--escena 03]`
+   **Mostrarle el guion al usuario y esperar su OK antes de generar la voz final** (con ElevenLabs/MiniMax gasta creditos).
+2. **Voz** -> `node herramientas/voz.mjs videos/<nombre> [--proveedor qwen|elevenlabs|minimax|local] [--escena 03]`
+   - `qwen` = voz local con Qwen3-TTS: gratis, sin limite, clona `voces/<voz>/referencia.wav` (ver "Voz local").
    - `local` = voz de Windows (es-MX), gratis, solo para desarrollar tiempos mientras el usuario revisa el guion.
    - `elevenlabs` (tiempos por caracter) o `minimax` (speech-2.8-hd, tiempos por transcripcion local con faster-whisper).
    - Keys en `.env` del estudio (`ELEVENLABS_API_KEY` / `MINIMAX_API_KEY`). Las pega el usuario; nunca al repo.
@@ -45,10 +46,26 @@ Ejemplos completos (usalos como referencia de cada patron):
    en mosaico, y transcribir el audio para revisar pronunciacion
    (`python herramientas/transcribir.py audio.mp3 salida.json small`). Entregar el MP4 al usuario.
 
+## Voz local (Qwen3-TTS, gratis, en la PC)
+
+- Instalar una vez: `npm run instalar -- --voz-local` (crea `.venv-tts` con uv; los modelos, ~4 GB, bajan solos).
+- Config en `guion.json > voz`: `"proveedor": "qwen", "qwen": { "voz": "<carpeta de voces/>", "modelo": "1.7B", "dtype": "bf16", "lote": 4 }`.
+  `voz.mjs` genera todas las escenas pendientes en un solo proceso (varias a la vez) y saca los tiempos transcribiendo.
+- Velocidad medida en un Ryzen 9 9950X (solo CPU): 1.7B + bf16 + lote 4 = ~1 s de calculo por cada segundo de voz.
+- Control de calidad: tras transcribir, `voz.mjs` muestra que % del guion se entiende y avisa bajo 85% con las palabras
+  que no reconocio. Con marcas (Higgsfield, IA-HUB) una toma perfecta da 89-94%. Si una escena salio mal:
+  `--escena <id> --forzar` (cada toma sale distinta).
+- **Clonar una voz** (solo con permiso de su dueno: la del propio usuario o una autorizada; nunca la de un tercero):
+  `voces/<nombre>/referencia.wav` (10-15 s de habla limpia que TERMINE en una pausa; subir el volumen si viene bajo)
+  + `referencia.txt` con la transcripcion EXACTA (`python herramientas/transcribir.py <audio> <json> medium`)
+  + `origen.txt` (de donde salio). El clon copia timbre, ritmo y tono de la referencia: grabar en tono de clase.
+- **Disenar una voz** desde una descripcion (en ingles):
+  `.venv-tts\Scripts\python.exe herramientas/tts_qwen.py disenar --voz <nombre> --instruct "Male narrator..." --texto "..."`.
+- `voces/` esta en `.gitignore`: una voz real nunca se sube al repo. Listar: `node herramientas/voz.mjs --voces qwen`.
+
 ## Voz (ElevenLabs)
 
-- Voz por defecto de los ejemplos: **Enrique M. Nieto** (biblioteca, es-MX neutro) = `gbTn1bmCvNgk0QEAVyfM`,
-  modelo `eleven_multilingual_v2`. Si la cuenta no la tiene, agregarla (gratis) como se indica abajo.
+- Config en `guion.json > voz`: `"elevenlabs": { "voz_id": "<id de la voz>", "modelo": "eleven_multilingual_v2" }`.
 - Plan gratis: las voces CLONADAS no funcionan (401 `ivc_not_permitted`, no cobra). Usar voces de la biblioteca:
   buscar con `GET /v1/shared-voices?language=es&use_cases=informative_educational`, elegir las
   `free_users_allowed=true` y agregarlas con `POST /v1/voices/add/{public_owner_id}/{voice_id}`.
@@ -79,6 +96,22 @@ Ejemplos completos (usalos como referencia de cada patron):
   (`base/logo-iahub-marca.png` para la marca de agua).
 - Replicas de UI + cursor: el cursor es un `<span>` absoluto en #root y se mueve con x/y = destino - posicion
   inicial. Ejemplo completo: `videos/higgsfield-api/escenas/05-conectar`.
+
+## Estilo papel (premium, dibujo a mano)
+
+Ejemplo completo: `videos/higgsfield-planes-vs-api` (10 escenas). Plantilla: `plantillas/escena-papel.html`.
+- Archivos: `base/papel.css` (hoja crema, recortes rasgados con sombra, cinta, letra a mano Caveat y Permanent Marker,
+  sello, cortina) + `base/papel.js` (helpers) + `base/vendor/rough.js` (trazo a mano, MIT). Texturas propias:
+  `python herramientas/papel_texturas.py` -> `base/papel/papel.jpg` y `grano.png`.
+- Recorte: `<div class="recorte p-sombra con-borde" style="--c: var(--lima)"><div class="p-corte" data-amp="5"></div>...</div>`
+  (`papel.preparar()` le pone el borde rasgado; `con-borde` agrega el filo blanco; `data-lados="t"` rasga solo arriba).
+- Helpers: `papel.soltar / deslizar / pop / escribir / sello / hervir (stop-motion) / cortina / ambiente`,
+  `papel.trazo(tipo, args, {en: svg})` + `papel.dibujar(tl, trazos, t, dur)` (el trazo se dibuja solo) y dibujos listos en
+  `papel.dibujos` (reloj, calendario, balanza, moneda, check, cruz, enchufe, claqueta, flecha, subrayado).
+- Cada escena abre con la cortina de papel negro rasgado y cierra tapada: el corte entre escenas no se ve.
+- Gotchas: rotacion base con la propiedad CSS `rotate:` (no `transform`: GSAP anima transform y se suman). Un estilo de
+  fondo para el papel de un contenedor va con `#caja > .p-corte` (si no, pinta tambien los recortes de adentro). Colores de
+  rough.js en hex (los `var(--x)` se resuelven solos en papel.js). Nada de `<br>`.
 
 ## Marca
 

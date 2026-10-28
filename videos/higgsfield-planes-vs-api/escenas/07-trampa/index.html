@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=1920, height=1080" />
+<link rel="stylesheet" href="base/tema.css" />
+<link rel="stylesheet" href="base/papel.css" />
+<script src="base/vendor/gsap.min.js"></script>
+<script src="base/vendor/rough.js"></script>
+<script src="tiempos.js"></script>
+<script src="base/escena.js"></script>
+<script src="base/papel.js"></script>
+<style>
+  #cab { position: absolute; left: 120px; top: 52px; }
+  #cab .p-eyebrow { display: inline-block; margin-bottom: 10px; }
+  #cab h2 { font-size: 100px; white-space: nowrap; }
+
+  #anillos { position: absolute; left: 130px; top: 262px; width: 560px; height: 64px; --c: var(--negro); }
+  #anillos svg { position: absolute; inset: 0; width: 560px; height: 64px; overflow: visible; }
+  #pagina { position: absolute; left: 140px; top: 318px; width: 540px; height: 430px; --c: var(--blanco); }
+  #pagina .cabeza { position: absolute; left: 0; right: 0; top: 0; height: 84px; background: var(--rojo); display: grid; place-items: center; font-family: var(--marcador); font-size: 46px; color: var(--blanco); }
+  #pagina .tk { position: absolute; width: 106px; height: 58px; --c: var(--lima); }
+  #pagina .tk span { position: absolute; inset: 0; display: grid; place-items: center; font-family: var(--marcador); font-size: 26px; }
+  #vencen { left: 168px; top: 430px; font-size: 56px; white-space: nowrap; }
+
+  #etq { position: absolute; left: 838px; top: 262px; font-family: var(--mano); font-weight: 700; font-size: 54px; display: inline-block; }
+  .seg { position: absolute; top: 336px; width: 92px; height: 96px; --c: var(--blanco); }
+  #usados { position: absolute; left: 838px; top: 336px; width: 474px; height: 96px; transform-origin: 0 50%; --c: var(--lima); }
+  #barSvg { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; overflow: visible; pointer-events: none; }
+  .rotulo { position: absolute; top: 444px; font-family: var(--mano); font-weight: 700; font-size: 44px; display: inline-block; }
+  #doble { position: absolute; left: 838px; top: 514px; font-family: var(--mano); font-weight: 700; font-size: 58px; display: inline-block; }
+  #x2 { left: 1600px; top: 526px; font-size: 72px; }
+
+  #regla { position: absolute; left: 130px; top: 652px; width: 1660px; height: 350px; rotate: -0.8deg; --c: var(--blanco); }
+  #regla .dentro > * { position: absolute; }
+  #regla .tit { left: 52px; top: 30px; font-family: var(--marcador); font-size: 40px; color: var(--tinta-suave); }
+  #regla .si { left: 52px; font-family: var(--mano); font-weight: 700; font-size: 66px; display: inline-block; white-space: nowrap; }
+  #regla svg { left: 0; top: 0; width: 1660px; height: 350px; overflow: visible; }
+  .res { position: absolute; height: 96px; }
+  .res span { position: absolute; inset: 0; display: grid; place-items: center; font-family: var(--marcador); font-size: 46px; white-space: nowrap; }
+  #rApi { left: 900px; top: 96px; width: 660px; --c: var(--naranja); rotate: -1.5deg; }
+  #rPlan { left: 900px; top: 222px; width: 660px; --c: var(--lima); rotate: 1.2deg; }
+  .p-marca { display: none; }
+</style>
+</head>
+<body>
+<div id="root" data-composition-id="07-trampa" data-start="0" data-width="1920" data-height="1080" data-duration="18.14">
+  <audio id="voz" src="voz.wav" data-start="0.4" data-duration="17.04" data-volume="1"></audio>
+  <div class="p-fondo"></div>
+  <div class="p-escena">
+    <div class="p-hoja recorte p-sombra con-borde" style="left:1480px; top:-80px; width:560px; height:200px; rotate:-4deg; --c: var(--rojo)"><div class="p-corte" data-amp="8"></div></div>
+    <div class="p-hoja recorte p-sombra baja" style="left:-120px; top:930px; width:620px; height:240px; rotate:4deg; --c: var(--kraft)"><div class="p-corte" data-amp="7"></div></div>
+
+    <div id="cab">
+      <span class="p-eyebrow">Ojo con esto</span>
+      <h2 class="p-titulo">Ahora, la <span class="tira" style="--c: var(--rojo); color: var(--blanco)"><span class="p-corte" data-amp="3"></span>trampa</span></h2>
+    </div>
+
+    <div id="pagina" class="recorte p-sombra"><div class="p-corte" data-amp="5" data-lados="b"></div>
+      <div class="cabeza">ESTE MES</div>
+    </div>
+    <div id="anillos" class="recorte p-sombra"><div class="p-corte" data-amp="3"></div><svg id="sAn" viewBox="0 0 560 64"></svg></div>
+    <div class="sello" id="vencen">VENCEN CADA MES</div>
+
+    <div id="etq">1.000 créditos del plan</div>
+    <div id="usados" class="recorte"><div class="p-corte" data-amp="2"></div></div>
+    <svg id="barSvg" viewBox="0 0 1920 1080"></svg>
+    <div class="rotulo" id="rUs" style="left: 960px">usados</div>
+    <div class="rotulo" id="rPe" style="left: 1430px; color: var(--rojo)">se pierden</div>
+    <div id="doble">→ cada video te salió al doble</div>
+    <div class="sello" id="x2">×2 $</div>
+
+    <div id="regla" class="recorte p-sombra"><div class="p-corte" data-amp="4"></div>
+      <div class="dentro">
+        <div class="tit">REGLA SIMPLE</div>
+        <svg id="sRegla" viewBox="0 0 1660 350"></svg>
+        <div class="si" id="si1" style="top: 104px">usas menos de la mitad</div>
+        <div class="si" id="si2" style="top: 230px">usas casi todo</div>
+        <div class="res recorte p-sombra con-borde" id="rApi"><div class="p-corte" data-amp="3"></div><span>la API sale más barata</span></div>
+        <div class="res recorte p-sombra con-borde" id="rPlan"><div class="p-corte" data-amp="3"></div><span>el plan rinde hasta ×2</span></div>
+      </div>
+      <div class="cinta" style="top:-20px; left:740px; rotate:-2deg"></div>
+    </div>
+    <div class="p-marca"><img src="base/logo-iahub-marca.png" alt="" /></div>
+  </div>
+  <div class="p-cortina recorte con-borde"><div class="p-corte" data-amp="16" data-lados="lr" data-paso="14"></div></div>
+</div>
+
+<script>
+  // tickets pegados en la hoja del mes y los 10 bloques de la barra de creditos
+  const pagina = document.getElementById('pagina');
+  for (let k = 0; k < 8; k++) {
+    const x = 34 + (k % 4) * 124, y = 130 + Math.floor(k / 4) * 120, r = [(-4), 3, -2, 5, 2, -5, 4, -3][k];
+    pagina.insertAdjacentHTML('beforeend', `<div class="tk recorte p-sombra baja" style="left:${x}px; top:${y}px; rotate:${r}deg"><div class="p-corte" data-amp="2"></div><span>crédito</span></div>`);
+  }
+  const usados = document.getElementById('usados');
+  for (let k = 0; k < 10; k++) {
+    usados.insertAdjacentHTML('beforebegin', `<div class="seg recorte p-sombra baja" style="left:${838 + k * 98}px"><div class="p-corte" data-amp="2"></div></div>`);
+  }
+
+  papel.preparar();
+  const tl = gsap.timeline({ paused: true });
+  papel.cortina(tl);
+  papel.ambiente(tl);
+  const D = papel.dibujos;
+  const rojo = '#f0402f', tinta = '#1c1b18';
+
+  // intro: el mes se arranca y los creditos vencen
+  papel.escribir(tl, '#cab .p-eyebrow', T('intro', -0.15), 0.4);
+  papel.deslizar(tl, '#cab h2', T('intro', -0.05), { x: -140, giro: -3 });
+  papel.pop(tl, '#cab .tira', TW('intro', 'trampa', 1, -0.15), { giro: 10 });
+  const an = document.getElementById('sAn');
+  const aros = [0, 1].map((k) => papel.trazo('elipse', [150 + k * 260, 32, 30, 48], { en: an, grosor: 5, color: '#fbf9f4', seed: 4 + k }));
+  papel.soltar(tl, '#anillos', T('intro', 0.3), { giro: -4, y: -200 });
+  papel.soltar(tl, '#pagina', T('intro', 0.45), { giro: 6, y: -260 });
+  papel.pop(tl, '#pagina .tk', TW('intro', 'creditos', 1, -0.1), { stagger: 0.05, giro: -12 });
+  papel.dibujar(tl, aros, T('intro', 0.6), 0.4);
+  tl.to('#pagina', { y: 820, x: 120, rotation: -28, duration: 0.95, ease: 'power2.in' }, TW('intro', 'vencen', 1, -0.05));
+  papel.sello(tl, '#vencen', TW('intro', 'mes', 1, -0.1), { giro: -8 });
+
+  // mitad: usas la mitad y la otra mitad se pierde
+  papel.escribir(tl, '#etq', T('mitad', -0.1), 0.6);
+  papel.pop(tl, '.seg', T('mitad', 0.1), { stagger: 0.04, giro: -10 });
+  tl.fromTo('#usados', { scaleX: 0 }, { scaleX: 1, duration: 0.7, ease: 'power2.out' }, TW('mitad', 'usas', 1, -0.05));
+  papel.escribir(tl, '#rUs', TW('mitad', 'mitad', 1, -0.1), 0.4);
+  const sB = document.getElementById('barSvg');
+  const cruces = [];
+  for (let k = 5; k < 10; k++) cruces.push(...D.cruz(sB, 838 + k * 98 + 18, 356, 56, { color: rojo, grosor: 6 }));
+  papel.dibujar(tl, cruces, TW('mitad', 'mitad', 1, 0.05), 0.8);
+  papel.escribir(tl, '#rPe', TW('mitad', 'mitad', 1, 0.4), 0.5);
+  papel.escribir(tl, '#doble', TW('mitad', 'cada', 1, -0.1), 0.9);
+  papel.sello(tl, '#x2', TW('mitad', 'doble', 1, -0.1), { giro: -8 });
+
+  // regla
+  tl.fromTo('#regla', { y: 520, rotation: 3 }, { y: 0, rotation: 0, duration: 0.7, ease: 'power3.out' }, T('regla', -0.2));
+  papel.escribir(tl, '#regla .tit', TW('regla', 'regla', 1, 0), 0.5);
+  const sR = document.getElementById('sRegla');
+  papel.escribir(tl, '#si1', TW('regla', 'usas', 1, -0.1), 0.9);
+  const f1 = D.flecha(sR, 690, 148, 880, 144, 0.08, { grosor: 5 });
+  papel.dibujar(tl, f1, TW('regla', 'creditos', 1, 0), 0.4);
+  papel.soltar(tl, '#rApi', TW('regla', 'api', 1, -0.2), { giro: -8 });
+  papel.escribir(tl, '#si2', TW('todo', 'usas', 1, -0.1), 0.6);
+  const f2 = D.flecha(sR, 520, 274, 880, 270, 0.06, { grosor: 5 });
+  papel.dibujar(tl, f2, TW('todo', 'todos', 1, 0), 0.4);
+  papel.soltar(tl, '#rPlan', TW('todo', 'plan', 1, -0.2), { giro: 8 });
+
+  window.__timelines['07-trampa'] = tl;
+</script>
+</body>
+</html>

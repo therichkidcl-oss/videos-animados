@@ -1,0 +1,58 @@
+{
+  "titulo": "Promo IA HUB CLUB: el club con las 3 formaciones (Influencer IA NSFW, Influencer IA ECOM, Developer IA)",
+  "nota": "Solo para generar la voz. La animacion (vertical y horizontal) se hace con la skill animacion-app-promo en animaciones/promo-club y promo-club-h. IA-HUB escrito como se dice: ia jab. Guion aprobado por Reimo el 22/10/2026 (cambio la linea de Developer IA).",
+  "voz": {
+    "proveedor": "qwen",
+    "qwen": { "voz": "reimo-v3", "modelo": "1.7B", "dtype": "bf16", "lote": 4 }
+  },
+  "escenas": [
+    {
+      "id": "00-titulo",
+      "frases": [
+        { "id": "club", "texto": "ia jab club:" },
+        { "id": "completo", "texto": "el club de negocios más completo para aprender a ganar con inteligencia artificial." }
+      ]
+    },
+    {
+      "id": "01-cifras",
+      "frases": [
+        { "id": "tres", "texto": "Tres formaciones completas:" },
+        { "id": "modulos", "texto": "cincuenta y siete módulos y doscientas clases paso a paso." }
+      ]
+    },
+    {
+      "id": "02-nsfw",
+      "frases": [
+        { "id": "nombre", "texto": "Influencer ia, ene ese efe doble ve:" },
+        { "id": "crea", "texto": "crea tu propia modelo con ia, genera su contenido y monetízala en fanviu y Telegram." }
+      ]
+    },
+    {
+      "id": "03-ecom",
+      "frases": [
+        { "id": "nombre", "texto": "Influencer ia Ecom:" },
+        { "id": "modelos", "texto": "modelos y clones digitales que venden productos con videos u ge ce, podcast y anuncios." }
+      ]
+    },
+    {
+      "id": "04-dev",
+      "frases": [
+        { "id": "nombre", "texto": "Diveloper ia:" },
+        { "id": "aprende", "texto": "aprende a construir apps, sas, juegos, automatizaciones y robots," },
+        { "id": "ingresos", "texto": "y a generar ingresos, todo con inteligencia artificial." }
+      ]
+    },
+    {
+      "id": "05-juntas",
+      "frases": [
+        { "id": "tres", "texto": "Las tres, en un solo lugar." }
+      ]
+    },
+    {
+      "id": "06-unete",
+      "frases": [
+        { "id": "unete", "texto": "Únete hoy a ia jab club en ia jab punto ce ele." }
+      ]
+    }
+  ]
+}

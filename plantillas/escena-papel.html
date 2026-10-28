@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=1920, height=1080" />
+<!-- Estilo PAPEL (ejemplo completo: videos/higgsfield-planes-vs-api). Rotacion base de cada pieza con la propiedad
+     CSS `rotate:` (no `transform`): GSAP anima transform y las dos se suman. -->
+<link rel="stylesheet" href="base/tema.css" />
+<link rel="stylesheet" href="base/papel.css" />
+<script src="base/vendor/gsap.min.js"></script>
+<script src="base/vendor/rough.js"></script>
+<script src="tiempos.js"></script>
+<script src="base/escena.js"></script>
+<script src="base/papel.js"></script>
+<style>
+  /* estilos propios de la escena */
+</style>
+</head>
+<body>
+<!-- data-duration y el <audio id="voz"> los parcha voz.mjs con la duracion real: no tocarlos a mano -->
+<div id="root" data-composition-id="NN-escena" data-start="0" data-width="1920" data-height="1080" data-duration="10">
+  <audio id="voz" src="voz.wav" data-start="0.4" data-duration="9" data-volume="1"></audio>
+  <div class="p-fondo"></div>
+  <div class="p-escena">
+    <!-- hojas de fondo (se mueven solas con papel.ambiente) -->
+    <div class="p-hoja recorte p-sombra con-borde" style="left:-150px; top:300px; width:930px; height:900px; rotate:-3deg; --c: var(--negro)"><div class="p-corte" data-amp="9"></div></div>
+
+    <!-- contenido -->
+
+    <div class="p-marca"><img src="base/logo-iahub-marca.png" alt="" /></div>
+  </div>
+  <!-- cortina de papel que tapa el corte entre escenas -->
+  <div class="p-cortina recorte con-borde"><div class="p-corte" data-amp="16" data-lados="lr" data-paso="14"></div></div>
+</div>
+
+<script>
+  papel.preparar();
+  const tl = gsap.timeline({ paused: true });
+  papel.cortina(tl);
+  papel.ambiente(tl);
+
+  // T('frase') = cuando empieza la frase · TF('frase') = cuando termina · TW('frase', 'palabra') = cuando dice la palabra
+  // papel.soltar / deslizar / pop / escribir / sello / hervir · papel.trazo(...) + papel.dibujar(tl, trazo, t, dur)
+
+  window.__timelines['NN-escena'] = tl; // igual al data-composition-id
+</script>
+</body>
+</html>

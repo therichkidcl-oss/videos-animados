@@ -1,0 +1,25 @@
+{
+ "programs": [],
+ "streams": [
+  {
+   "codec_name": "h264",
+   "codec_type": "video",
+   "width": 3810,
+   "height": 2160,
+   "r_frame_rate": "60/1"
+  },
+  {
+   "codec_name": "aac",
+   "codec_type": "audio",
+   "sample_rate": "44100",
+   "channels": 2,
+   "r_frame_rate": "0/0"
+  }
+ ],
+ "format": {
+  "duration": "263.849000"
+ },
+ "nombre": "CLASE 12 TIPOS DE MUESTRA.mp4",
+ "id": "10_2Ey9DGpci5JqAU13WTfbhylZu1oVR_",
+ "bytes": 806450740
+}

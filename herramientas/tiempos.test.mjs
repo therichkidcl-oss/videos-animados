@@ -1,7 +1,8 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import {
-  normalizar, textoDeEscena, palabrasDesdeCaracteres, alinearFrases, armarTiempos,
+  normalizar, textoDeEscena, palabrasDesdeCaracteres, alinearFrases, armarTiempos, cobertura,
+  numeroEnPalabras, expandirNumeros,
 } from './tiempos.mjs';
 
 const frases = [
@@ -82,6 +83,50 @@ test('alinearFrases interpola una frase que no se reconocio', () => {
   const t = alinearFrases(fr, habladas);
   assert.equal(t.b.inicio, t.a.fin);
   assert.equal(t.b.fin, t.c.inicio);
+});
+
+test('cobertura cuenta las palabras del guion que la voz dijo y lista las que se salto', () => {
+  const habladas = ['que', 'hace', 'pieza', 'el', 'video', 'pone', 'el', 'movimiento', 'extra']
+    .map((text, i) => ({ text, start: i, end: i + 0.5 }));
+  const c = cobertura(frases, habladas);
+  assert.equal(c.total, 9);
+  assert.equal(c.dichas, 8);
+  assert.deepEqual(c.faltan, ['cada']);
+});
+
+test('cobertura completa cuando la voz dijo todo', () => {
+  const habladas = ['Qué', 'hace', 'cada', 'pieza', 'El', 'video', 'pone', 'el', 'movimiento.']
+    .map((text, i) => ({ text, start: i, end: i + 0.5 }));
+  assert.deepEqual(cobertura(frases, habladas), { dichas: 9, total: 9, faltan: [] });
+});
+
+test('numeroEnPalabras escribe los numeros como se dicen', () => {
+  assert.equal(numeroEnPalabras(7), 'siete');
+  assert.equal(numeroEnPalabras(22), 'veintidos');
+  assert.equal(numeroEnPalabras(35), 'treinta y cinco');
+  assert.equal(numeroEnPalabras(100), 'cien');
+  assert.equal(numeroEnPalabras(105), 'ciento cinco');
+  assert.equal(numeroEnPalabras(210), 'doscientos diez');
+  assert.equal(numeroEnPalabras(1000), 'mil');
+  assert.equal(numeroEnPalabras(3000), 'tres mil');
+  assert.equal(numeroEnPalabras(1549), 'mil quinientos cuarenta y nueve');
+});
+
+test('expandirNumeros pasa las cifras de la transcripcion a palabras y reparte su tiempo', () => {
+  const h = expandirNumeros([{ text: '35', start: 1, end: 1.6 }, { text: 'créditos,', start: 1.7, end: 2 }, { text: '720p', start: 2, end: 2.4 }]);
+  assert.deepEqual(h.map((w) => w.text), ['treinta', 'y', 'cinco', 'créditos,', '720p']);
+  assert.equal(h[0].start, 1);
+  assert.equal(h[2].end, 1.6);
+  assert.ok(h[1].start > h[0].start && h[1].start < h[2].start);
+});
+
+test('alinearFrases ubica palabras de numeros aunque la transcripcion traiga cifras', () => {
+  const fr = [{ id: 'x', texto: 'Cuesta treinta y cinco créditos.' }];
+  const habladas = [{ text: 'Cuesta', start: 0, end: 0.4 }, { text: '35', start: 0.5, end: 1.4 }, { text: 'créditos.', start: 1.5, end: 2 }];
+  const t = alinearFrases(fr, habladas);
+  const treinta = t.x.palabras.find((w) => w.p === 'treinta');
+  assert.equal(treinta.t, 0.5);
+  assert.deepEqual(cobertura(fr, habladas), { dichas: 5, total: 5, faltan: [] });
 });
 
 test('armarTiempos desplaza por la entrada y calcula la duracion total', () => {

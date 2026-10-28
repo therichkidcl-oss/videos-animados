@@ -1,0 +1,106 @@
+{
+  "titulo": "Curso Influencer IA 1.0 (NSFW) · Modulo Zernio · El mensaje privado con tu link, sin que se note",
+  "nota": "Modulo Zernio 27/10/2026, voz reimo-v3.",
+  "voz": {
+    "proveedor": "qwen",
+    "qwen": {
+      "voz": "reimo-v3",
+      "modelo": "1.7B",
+      "dtype": "bf16",
+      "lote": 4
+    }
+  },
+  "escenas": [
+    {
+      "id": "00-intro",
+      "frases": [
+        {
+          "id": "a",
+          "texto": "Cada persona que comenta tu reel es alguien interesado en tu modelo."
+        },
+        {
+          "id": "b",
+          "texto": "En esta clase vemos cómo zernio le manda un mensaje privado con tu link, sin que se note que vendes."
+        }
+      ]
+    },
+    {
+      "id": "01-como",
+      "frases": [
+        {
+          "id": "a",
+          "texto": "Junto con la respuesta en público, zernio le manda un mensaje directo a quien comentó."
+        },
+        {
+          "id": "b",
+          "texto": "Ese mensaje lleva un botón a tu link secundario, el de linktri o link punto mi. Y ahí, en tu página, están tus botones a fanviu y a tu canal de Telegram."
+        }
+      ]
+    },
+    {
+      "id": "02-indirecto",
+      "frases": [
+        {
+          "id": "a",
+          "texto": "La clave es que sea indirecto. Nada de más dieciocho, ni compra mi contenido, ni precios."
+        },
+        {
+          "id": "b",
+          "texto": "Por ejemplo: holaa, gracias por comentar. Te dejo donde subo lo que no publico aquí."
+        },
+        {
+          "id": "c",
+          "texto": "O: me encantó tu comentario. Aquí está mi rincón privado, por si te da curiosidad."
+        }
+      ]
+    },
+    {
+      "id": "03-boton",
+      "frases": [
+        {
+          "id": "a",
+          "texto": "El botón, con un nombre suave, como ver más de mí, o mi rincón. Máximo veinte letras."
+        },
+        {
+          "id": "b",
+          "texto": "Y la página de tu link tiene que estar limpia, sin fotos explícitas, como viste en la clase de la cuenta exitosa."
+        }
+      ]
+    },
+    {
+      "id": "04-reglas",
+      "frases": [
+        {
+          "id": "a",
+          "texto": "Configúralo para que cada persona reciba el mensaje una sola vez por reel."
+        },
+        {
+          "id": "b",
+          "texto": "Si quieres, activa la revisión de seguidores: si la persona no te sigue, primero le pide que te siga, y después le entrega el link."
+        },
+        {
+          "id": "c",
+          "texto": "Y no te preocupes por el costo: los primeros diez mil mensajes al mes son gratis."
+        }
+      ]
+    },
+    {
+      "id": "05-claude",
+      "frases": [
+        {
+          "id": "a",
+          "texto": "Todo esto lo arma clod solo, cada vez que programa un reel: la respuesta en público, el mensaje privado y el botón."
+        }
+      ]
+    },
+    {
+      "id": "06-cierre",
+      "frases": [
+        {
+          "id": "a",
+          "texto": "En la última clase te muestro en qué se diferencia zernio del bot de interacción del curso, y cómo usar los dos juntos."
+        }
+      ]
+    }
+  ]
+}

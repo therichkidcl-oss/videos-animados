@@ -1,0 +1,15 @@
+qwen: generando 2 escenas (262 caracteres) en tu PC...
+modelo C:\Users\Reimo\.cache\huggingface\hub\models--Qwen--Qwen3-TTS-12Hz-1.7B-Base\snapshots\fd4b254389122332181a7c3db7f27e918eec64e3 (bf16) cargado en 1 s
+00-intro.wav, 09-siguiente.wav: 14.8 s de audio en 30 s (RTF 2.00)
+TOTAL: 14.8 s de audio en 30 s (RTF 2.00)
+> 00-intro: sacando los tiempos... listo 12.06s (se entiende el 94% del guion)
+= 01-que-es: sin cambios (23.66s), no se volvio a generar
+= 01-sin-planes: sin cambios (8.86s), no se volvio a generar
+= 02-tramos: sin cambios (20.46s), no se volvio a generar
+= 03-incluye: sin cambios (11.26s), no se volvio a generar
+= 04-aparte: sin cambios (13.9s), no se volvio a generar
+= 05-equis: sin cambios (14.22s), no se volvio a generar
+= 06-para-ti: sin cambios (15.1s), no se volvio a generar
+= 07-mas: sin cambios (11.18s), no se volvio a generar
+= 08-cierre: sin cambios (5.18s), no se volvio a generar
+> 09-siguiente: sacando los tiempos... listo 4.94s (se entiende el 100% del guion)

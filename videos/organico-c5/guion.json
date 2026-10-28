@@ -1,0 +1,92 @@
+{
+  "titulo": "Modulo Escalando Redes Sociales (curso NSFW) - Clase 5 v2: Creando una cuenta de Instagram exitosa",
+  "nota": "Version 2 (23/10/2026) pedida por Reimo: UNA sola cuenta (se quita el sistema de 3 cuentas), link secundario en la bio (linktri / link punto mi, nunca directo a fanviu o Telegram), conectado con la clase 1, etiqueta de ia de Instagram 2026, originalidad, otras redes. Investigacion nueva de IG, X, Facebook y TikTok + tips del bot de Discord. Fanvue -> fanviu, OnlyFans -> onlifans, Linktree -> linktri, X -> equis, Facebook -> feisbuk, TikTok -> tiktok.",
+  "voz": {
+    "proveedor": "qwen",
+    "qwen": { "voz": "reimo-v3", "modelo": "1.7B", "dtype": "bf16", "lote": 4 }
+  },
+  "escenas": [
+    { "id": "00-intro", "frases": [
+      { "id": "a", "texto": "En esta clase vas a armar la cuenta de Instagram de tu modelo, paso a paso, para que se vea real, crezca y no la bloqueen." },
+      { "id": "b", "texto": "Y lo primero que tienes que saber es que la regla cambió." }
+    ] },
+    { "id": "01-una-cuenta", "frases": [
+      { "id": "a", "texto": "Antes se recomendaba tener tres cuentas: una principal, una de reels y una desechable para el link." },
+      { "id": "b", "texto": "Hoy eso es un riesgo. Instagram está mucho más agresivo y conecta las cuentas entre sí: por el celular, por la conexión a internet, por el correo y por la forma en que las usas." },
+      { "id": "c", "texto": "Si una de esas cuentas recibe una sanción, las otras pueden caer con ella." },
+      { "id": "d", "texto": "Por eso nuestra recomendación es simple: una sola cuenta, muy bien cuidada. Toda tu energía va ahí." }
+    ] },
+    { "id": "02-base", "frases": [
+      { "id": "a", "texto": "Esa cuenta se crea con lo que viste en la clase uno, cómo evitar restricciones." },
+      { "id": "b", "texto": "Primero, nunca la conectes al centro de cuentas de tu Instagram personal, para que meta no la relacione contigo." },
+      { "id": "c", "texto": "Segundo, dale su propio correo y su propio número de teléfono, y si puedes, un celular solo para ella." },
+      { "id": "d", "texto": "Y tercero, la etiqueta de creador de contenido con ia, que también viste en esa clase." }
+    ] },
+    { "id": "03-etiqueta", "frases": [
+      { "id": "a", "texto": "Esto hoy es más importante que nunca. Desde este año, Instagram marca los perfiles y las publicaciones hechas con ia." },
+      { "id": "b", "texto": "Y la forma principal en que lo detecta es la metadata: una marca invisible que traen dentro los archivos generados con ia." },
+      { "id": "c", "texto": "Tienes dos caminos. El primero: declararlo. Activas la etiqueta de creador de contenido con ia, como viste en la clase uno, y tu cuenta no pierde alcance." },
+      { "id": "d", "texto": "El segundo: limpiar la metadata antes de subir cada archivo. Para las imágenes, usa limpiar metadata, en las herramientas locales de ia jab, o el comando clin en nuestro bot de Telegram." },
+      { "id": "e", "texto": "Para los videos, usa la página de claudinari para quitar la metadata, que te dejo en pantalla. Y después revisa en content credenshals punto org que el archivo ya salga limpio." },
+      { "id": "f", "texto": "Lo que no puedes hacer es quedarte a medias. Si no lo declaras y el sistema igual lo detecta, tu cuenta deja de aparecer en las recomendaciones, que es justo de donde vienen los seguidores nuevos." },
+      { "id": "g", "texto": "Y en tiktok la detección es más fuerte: aunque limpies la metadata, muchas veces igual lo marca. Ahí lo más seguro es activar la etiqueta tú mismo." }
+    ] },
+    { "id": "04-perfil", "frases": [
+      { "id": "a", "texto": "Ahora, el perfil. Es lo primero que ve cada persona que llega, y en dos segundos decide si te sigue o no." },
+      { "id": "b", "texto": "La foto de perfil: su cara, bien iluminada y natural, mirando a la cámara. Nada provocativo." },
+      { "id": "c", "texto": "El nombre: además de su nombre, agrega una palabra de su nicho, porque el nombre sí aparece en el buscador de Instagram." },
+      { "id": "d", "texto": "El usuario: corto, simple y fácil de recordar, como viste en la clase tres." },
+      { "id": "e", "texto": "La biografía: dos o tres líneas con su personalidad. De dónde es, qué le gusta y algo que invite a escribirle." },
+      { "id": "f", "texto": "Y las historias destacadas: de cuatro a seis, con su día a día, sus hobbies, sus amigas y las preguntas que le hacen sus seguidores." }
+    ] },
+    { "id": "05-link", "frases": [
+      { "id": "a", "texto": "Ahora, el link de la biografía, que es donde más gente se equivoca." },
+      { "id": "b", "texto": "Nunca pongas un link directo a fanviu, a onlifans o a tu canal de Telegram. Instagram los detecta, y te baja el alcance o te restringe la cuenta." },
+      { "id": "c", "texto": "Lo que sí puedes poner es un link secundario, como linktri o link punto mi. Esa página intermedia es la que lleva a tu Telegram o a tu fanviu." },
+      { "id": "d", "texto": "Pero ojo: Instagram también revisa la página a la que lleva tu link. Mantenla limpia, sin fotos explícitas, y con botones de nombre suave, como contenido exclusivo o mi canal privado." },
+      { "id": "e", "texto": "En el módulo de Telegram tienes la lista de páginas intermedias, y las que aceptan contenido para adultos van marcadas." },
+      { "id": "f", "texto": "Y no lo pongas desde el primer día: espera a que la cuenta esté calentada, como vas a ver en la próxima clase." }
+    ] },
+    { "id": "06-feed", "frases": [
+      { "id": "a", "texto": "Ahora, el contenido. Tu feed tiene que verse como el de una chica real, no como un catálogo." },
+      { "id": "b", "texto": "Sube carruseles con varias fotos de un mismo día, con luz natural, como si las hubiera sacado con su celular." },
+      { "id": "c", "texto": "La misma cara en todas, para eso entrenas su lora. Pero con ropa, lugares y planes distintos." },
+      { "id": "d", "texto": "Mezcla fotos de ella con cosas de su vida: su café, su mascota, un atardecer o la comida de un viaje." },
+      { "id": "e", "texto": "Y nada demasiado provocativo. En Instagram va tu contenido más sofisticado; lo picante va en tu canal privado." },
+      { "id": "f", "texto": "Los textos de tus publicaciones, cortos y casuales, como los escribiría ella. Y ponle la ubicación desde el celular." }
+    ] },
+    { "id": "07-buscador", "frases": [
+      { "id": "a", "texto": "Otro cambio importante: hoy Instagram funciona como un buscador." },
+      { "id": "b", "texto": "Las palabras clave en el texto de tu publicación pesan más que llenarlo todo de hashtags." },
+      { "id": "c", "texto": "Escribe con naturalidad las palabras de tu nicho, por ejemplo gym, Miami o look de hoy, y usa como máximo de tres a cinco hashtags." }
+    ] },
+    { "id": "08-original", "frases": [
+      { "id": "a", "texto": "Y la regla de oro de este año: contenido original." },
+      { "id": "b", "texto": "Instagram y feisbuk le bajan el alcance a lo que es copia: videos resubidos, con marca de agua de otra aplicación, o casi iguales a otro que ya existe." },
+      { "id": "c", "texto": "Cambiar solo el texto, ponerle un borde o acelerar el video ya no sirve. Igual lo detectan como no original." },
+      { "id": "d", "texto": "Así que nunca subas un video con el logo de tiktok o de otra aplicación. Exporta siempre la versión limpia." },
+      { "id": "e", "texto": "Y si te inspiras en un reel viral, recréalo con tu modelo, no lo resubas. En la próxima clase te muestro cómo hacerlo con los workflows del curso." }
+    ] },
+    { "id": "09-redes", "frases": [
+      { "id": "a", "texto": "Tu Instagram es la base, pero puedes traer tráfico desde otras redes. Cada una tiene sus reglas." },
+      { "id": "b", "texto": "En tiktok, sube contenido menos picante que en Instagram y activa la etiqueta de ia." },
+      { "id": "c", "texto": "Ojo, que tiktok está cerrando cuentas que publican contenido de ia en masa, todo igual. Publica variado." },
+      { "id": "d", "texto": "En equis sí se permite contenido para adultos, siempre que marques tu contenido como sensible en la configuración. Pero tu foto de perfil y tu portada no pueden ser explícitas." },
+      { "id": "e", "texto": "En feisbuk, crea una página para tu modelo en vez de un perfil personal, y aplica las mismas reglas de originalidad." },
+      { "id": "f", "texto": "Y en todas, el mismo link secundario en la biografía. Todo el tráfico termina en el mismo lugar." }
+    ] },
+    { "id": "10-resumen", "frases": [
+      { "id": "a", "texto": "Hagamos el resumen. Tu cuenta exitosa tiene:" },
+      { "id": "b", "texto": "Una sola cuenta, separada de la tuya, con su propio correo y teléfono." },
+      { "id": "c", "texto": "La etiqueta de ia activada." },
+      { "id": "d", "texto": "Un perfil completo: foto, nombre con palabra clave, biografía y destacadas." },
+      { "id": "e", "texto": "Un link secundario, nunca directo." },
+      { "id": "f", "texto": "Y contenido original, real y constante." }
+    ] },
+    { "id": "11-cierre", "frases": [
+      { "id": "a", "texto": "Si te queda cualquier duda, conéctate a las sesiones en vivo de cada semana y pregúntala directo." },
+      { "id": "b", "texto": "O revisa el módulo de capacitaciones extras, donde tienes clases completas para crecer y conseguir tus primeras ventas." },
+      { "id": "c", "texto": "En la próxima clase vas a calentar esta cuenta y a hacerla crecer con reels virales. Nos vemos ahí." }
+    ] }
+  ]
+}
