@@ -1,7 +1,10 @@
 #!/usr/bin/env bash
 # Trae del Oracle cada <n>_src.mp4 (fuente para animar) apenas esta listo, hasta tener las 23 clases. Luego lo borra alla.
 cd "$(dirname "$0")"
-K="C:/Users/Reimo/Downloads/ssh-key-2026-07-18.key"; H=ubuntu@148.116.107.133; RD=/home/ubuntu/tiktokshop
+# El servidor y la llave van en el .env de la raiz (no se sube a git): ORACLE_SSH=usuario@servidor y ORACLE_KEY=ruta.
+leer() { grep -m1 "^$1=" ../.env 2>/dev/null | cut -d= -f2- | tr -d '\r'; }
+K="${ORACLE_KEY:-$(leer ORACLE_KEY)}"; H="${ORACLE_SSH:-$(leer ORACLE_SSH)}"; RD=/home/ubuntu/tiktokshop
+[ -n "$K" ] && [ -n "$H" ] || { echo "Falta ORACLE_SSH y ORACLE_KEY en .env"; exit 1; }
 while true; do
   lista=$(ssh -i "$K" -o ConnectTimeout=20 $H "cd $RD && ls *_src.mp4 2>/dev/null; grep -c '^FIN' fuente.log" 2>/dev/null)
   fin=$(echo "$lista" | tail -1)

@@ -2,7 +2,10 @@
 # Trae del Oracle (a medida que terminan) la info, el audio 16k y la hoja de cada clase del curso TikTok Shop y la
 # transcribe con Whisper medium. Termina cuando el Oracle dice FIN y todas estan transcritas.
 cd "$(dirname "$0")"
-K="C:/Users/Reimo/Downloads/ssh-key-2026-07-18.key"; H=ubuntu@148.116.107.133; RD=/home/ubuntu/tiktokshop
+# El servidor y la llave van en el .env de la raiz (no se sube a git): ORACLE_SSH=usuario@servidor y ORACLE_KEY=ruta.
+leer() { grep -m1 "^$1=" ../.env 2>/dev/null | cut -d= -f2- | tr -d '\r'; }
+K="${ORACLE_KEY:-$(leer ORACLE_KEY)}"; H="${ORACLE_SSH:-$(leer ORACLE_SSH)}"; RD=/home/ubuntu/tiktokshop
+[ -n "$K" ] && [ -n "$H" ] || { echo "Falta ORACLE_SSH y ORACLE_KEY en .env"; exit 1; }
 mkdir -p orig trans
 while true; do
   listos=$(ssh -i "$K" -o ConnectTimeout=20 $H "cd $RD && ls *_hoja.jpg 2>/dev/null | sed 's/_hoja.jpg//'; grep -c '^FIN' prep.log" 2>/dev/null)
